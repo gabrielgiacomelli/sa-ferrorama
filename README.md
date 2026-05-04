@@ -1,8 +1,6 @@
 # SA-Ferrorama
 
-### Proposta do Sistema:
-
-#### Sistema de Gerenciamento de Ferrovia
+### Sistema de Gerenciamento de Ferrovia
 
 ### Equipe:
 #### -Gabriel da Costa Giacomelli
