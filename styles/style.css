@@ -3,22 +3,46 @@ body{
 }
 .header_index{
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 20px;
     background-color: rgb(235, 235, 235);
 }
 
 .navbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center; 
 }
 
-.nav_links{
-    list-style: none;
+.nav_links {
     display: flex;
-    gap: 20px;
+    gap: 50px; 
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.li_index{
-color: black;
+li a {
+    text-decoration: none;
+    color: inherit; /* pega a cor do elemento pai (ou você pode definir uma cor) */
+    font-size: 20px;
+}
+
+.body_index {
+    background-image: url(../assets/img/img_2.png);
+     background-repeat: no-repeat; /* Impede a repetição */
+  background-size: cover;       /* Opcional: faz a imagem cobrir toda a tela */
+  background-position: center;  /* Opcional: centraliza a imagem */
+}
+
+.li_index a {
+    text-decoration: none;
+    color: black;
+}
+
+.header_index {
+    border-bottom: 15px solid #2f80ed; /* azul */
+}
+
+.main_index{
+    text-align: center;
 }
