@@ -4,7 +4,7 @@
 
 #### Sistema de Gerenciamento de Ferrovia
 
-### Equipe:
+## Equipe:
 #### -Gabriel da Costa Giacomelli
 #### -Henrique Venso
 #### -Lara Emilia Guzman
