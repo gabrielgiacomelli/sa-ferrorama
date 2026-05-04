@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+     <link rel="stylesheet" href="styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body id="body2" class="bg-light d-flex align-items-center justify-content-center vh-100">
+<main class="container">
+
+<div class="row justify-content-center">
+<div class="col-lg-4">
+<div class="card p-4 shadow">
+<h2 class="text-center mb-4">Login</h2>
+<form id="FormLogin">
+<div class="mb-3">
+<label class="form-label">Email</label>
+<input type="email" id="email" class="form-control" placeholder="Digite seu email">
+</div>
+<div class="mb-3">
+<label class="form-label">Senha</label>
+<input type="password" id="senha" class="form-control" placeholder="Digite sua senha">
+</div>
+<button class="btn btn-primary w-100" type="submit">Entrar</button><br><br>
+<button class="btn w-100 shadow" type="submit">Esqueceu sua senha?</button>
+</form>
+<small style="font-size: 15px; text-align: center;">
+    Não tem conta? 
+    <a href="/public/cadastro.html">cadastre-se</a>
+</small>
+<div class="text-danger">
+<p id="problema"></p>
+</div>
+<script src="../script/script.js"></script>
+</body>
+</html>
