@@ -2,6 +2,8 @@
 
 ### Sistema de Gerenciamento de Ferrovia
 
+### O objetivo de nosso sistema é simular o gerenciamento de um sistema ferroviário. Nele, constam informações como sensores, trens e suas localizações e também sobre a ferroviária.
+
 ### Equipe:
 #### -Gabriel da Costa Giacomelli
 #### -Henrique Venso
@@ -18,7 +20,7 @@
 
 #### Lara - Pesquisa PHP sobre o conceito de CRUD
 
-#### Nomenclatura:
+### Nomenclatura:
 
 #### Snake Case (Ex:lucas_siedschlag)
 
