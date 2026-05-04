@@ -1,3 +1,8 @@
-# sa-ferrorama
+# SA-Ferrorama
 
-### oieeeeeeeeee
+### 
+
+### -Gabriel da Costa Giacomelli
+### -Henrique Venso
+### -Lara Emilia Guzman
+### -Lucas Siedschlag Corrêa
