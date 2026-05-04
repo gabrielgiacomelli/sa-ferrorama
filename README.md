@@ -1,14 +1,15 @@
 # SA-Ferrorama
 
-## Proposta do Sistema:
+### Proposta do Sistema:
 
 #### Sistema de Gerenciamento de Ferrovia
 
-## Equipe:
+### Equipe:
 #### -Gabriel da Costa Giacomelli
 #### -Henrique Venso
 #### -Lara Emilia Guzman
 #### -Lucas Siedschlag Corrêa
+
 
 
 ### Responsabilidades:
@@ -22,3 +23,5 @@
 #### Nomenclatura:
 
 #### Snake Case (Ex:lucas_siedschlag)
+
+##
