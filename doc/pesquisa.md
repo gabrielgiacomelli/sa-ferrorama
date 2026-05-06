@@ -31,6 +31,7 @@ Esta função é usada para remover dados de um sistema. Ela deve ser manuseada 
     $email = "joao@email.com";
 
     try {
+        <!-- Aqui está sendo inserido (criado) um novo registro na tabela -->
         $sql = "INSERT INTO funcionarios (nome, email) VALUES (:nome, :email)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['nome' => $nome, 'email' => $email]);
@@ -49,6 +50,7 @@ Esta função é usada para remover dados de um sistema. Ela deve ser manuseada 
     include 'connection.php';
 
     try {
+        <!-- Aqui os dados da tabela estão sendo lidos (consultados) -->
         $sql = "SELECT id, nome, email FROM funcionarios";
         $stmt = $pdo->query($sql);
 
@@ -71,6 +73,7 @@ Esta função é usada para remover dados de um sistema. Ela deve ser manuseada 
     $novoEmail = "novo_email@email.com";
 
     try {
+        <!-- Aqui um registro existente está sendo atualizado -->
         $sql = "UPDATE funcionarios SET email = :email WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['email' => $novoEmail, 'id' => $id]);
@@ -91,6 +94,7 @@ Esta função é usada para remover dados de um sistema. Ela deve ser manuseada 
     $id = 1;
 
     try {
+        <!-- Aqui está sendo removido (deletado) um registro da tabela -->
         $sql = "DELETE FROM funcionarios WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
