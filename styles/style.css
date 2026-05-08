@@ -13,25 +13,10 @@ body{
     align-items: center; 
 }
 
-.nav_links {
-    display: flex;
-    gap: 50px; 
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
 li a {
     text-decoration: none;
     color: inherit; /* pega a cor do elemento pai (ou você pode definir uma cor) */
     font-size: 20px;
-}
-
-.body_index {
-    background-image: url(../assets/img/img_2.png);
-     background-repeat: no-repeat; /* Impede a repetição */
-  background-size: cover;       /* Opcional: faz a imagem cobrir toda a tela */
-  background-position: center;  /* Opcional: centraliza a imagem */
 }
 
 .li_index a {
@@ -43,19 +28,10 @@ li a {
     border-bottom: 15px solid #2f80ed; /* azul */
 }
 
-.main_index{
-    text-align: center;
-}
-
-.flex{
-    display: flex;
-}
-
 .form-control:focus {
     border-color: #0d6efd;
     box-shadow: 0 0 0 2px rgba(13,110,253,0.2);
 }
-
 
 .card {
     background-color: #f8f9fa;
@@ -77,4 +53,13 @@ li a {
 label {
     margin-bottom: 5px;
     font-size: 14px;
+}
+
+.img1 {
+   position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; 
 }
