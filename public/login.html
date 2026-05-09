@@ -9,13 +9,25 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body id="body2" class="d-flex align-items-center justify-content-center vh-100" >
+<body id="body2" class="d-flex align-items-center justify-content-center vh-100">
     <main class="container">
-
         <div class="row justify-content-center">
             <div class="col-lg-4">
                 <div class="card p-4 shadow-lg">
-                    <h2 class="text-center mb-4">Login</h2>
+
+
+                    <div class="topo-login position-relative mb-4">
+
+                        <img class="logo_login position-absolute start-0 top-50 translate-middle-y"
+                            src="../assets/img/img_1.png" alt="LOGO" style="width: 100px;">
+
+                        <h2 class="text-center">
+                            Login
+                        </h2>
+
+                    </div>
+
+
                     <form id="FormLogin">
                         <div class="mb-3">
                             <label class="form-label">Email</label>
@@ -30,16 +42,12 @@
                         <button class="btn btn-primary w-100" type="submit">Entrar</button><br><br>
                         <button class="btn w-100 shadow" type="submit">Esqueceu sua senha?</button>
                     </form>
-                    <small style="font-size: 15px; text-align: center;">
-                        Não tem conta?
-                        <a href="cadastro.html">cadastre-se</a>
-                    </small><br>
                     <div class="text-danger" style="text-align: center;">
                         <p id="problema"></p>
                     </div>
                     <script src="../scripts/login.js"></script>
                 </div>
-            </div>     
+            </div>
         </div>
     </main>
 </body>
