@@ -23,3 +23,7 @@ document.getElementById("FormLogin").addEventListener("submit", function (e) {
 
 
 });
+
+function esqueceuSenha() {
+    alert("Entre em contato com o suporte para recuperar sua senha.");
+}
