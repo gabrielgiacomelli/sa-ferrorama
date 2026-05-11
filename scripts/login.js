@@ -19,7 +19,7 @@ document.getElementById("FormLogin").addEventListener("submit", function (e) {
         return;
     }
 
-    window.location.href = "";
+    window.location.href = "home.html";
 
 
 });
