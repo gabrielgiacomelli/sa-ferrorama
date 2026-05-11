@@ -19,7 +19,11 @@ document.getElementById("FormLogin").addEventListener("submit", function (e) {
         return;
     }
 
-    window.location.href = "";
+    window.location.href = "home.html";
 
 
 });
+
+function esqueceuSenha() {
+    alert("Entre em contato com o suporte para recuperar sua senha.");
+}
