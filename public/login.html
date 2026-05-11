@@ -10,46 +10,106 @@
 </head>
 
 <body id="body2" class="d-flex align-items-center justify-content-center vh-100">
+
+    <!-- Container principal -->
     <main class="container">
+
+        <!-- Linha centralizada -->
         <div class="row justify-content-center">
+
+            <!-- Coluna do card -->
             <div class="col-lg-4">
+
+                <!-- Card de login -->
                 <div class="card p-4 shadow-lg">
 
-
+                    <!-- Topo do login -->
                     <div class="topo-login position-relative mb-4">
 
-                        <img class="logo_login position-absolute start-0 top-50 translate-middle-y"
-                            src="../assets/img/img_1.png" alt="LOGO" style="width: 100px;">
+                        <!-- Logo no canto esquerdo -->
+                        <img 
+                            class="logo_login position-absolute start-0 top-50 translate-middle-y"
+                            src="../assets/img/img_1.png" 
+                            alt="LOGO"
+                            style="width: 100px;"
+                        >
 
+                        <!-- Título centralizado -->
                         <h2 class="text-center">
                             Login
                         </h2>
 
                     </div>
 
-
+                    <!-- Formulário -->
                     <form id="FormLogin">
+
+                        <!-- Campo Email -->
                         <div class="mb-3">
-                            <label class="form-label" style="font-size: 20px;">Email</label>
-                            <input type="email" id="email" class="form-control" placeholder="Digite seu email"
-                                style="border: 2px solid #000;">
+
+                            <label class="form-label" style="font-size: 20px;">
+                                Email
+                            </label>
+
+                            <input 
+                                type="email"
+                                id="email"
+                                class="form-control"
+                                placeholder="Digite seu email"
+                                style="border: 2px solid #000;"
+                            >
+
                         </div>
+
+                        <!-- Campo Senha -->
                         <div class="mb-3">
-                            <label class="form-label" style="font-size: 20px;">Senha</label>
-                            <input type="password" id="senha" class="form-control" placeholder="Digite sua senha"
-                                style="border: 2px solid #000;">
+
+                            <label class="form-label" style="font-size: 20px;">
+                                Senha
+                            </label>
+
+                            <input 
+                                type="password"
+                                id="senha"
+                                class="form-control"
+                                placeholder="Digite sua senha"
+                                style="border: 2px solid #000;"
+                            >
+
                         </div>
-                        <button class="btn btn-primary w-100" type="submit">Entrar</button><br><br>
-                        <button class="btn w-100 shadow" type="button" onclick="esqueceuSenha()">Esqueceu sua senha?</button>
+
+                        <!-- Botão Entrar -->
+                        <button 
+                            class="btn btn-primary w-100"
+                            type="submit"
+                        >
+                            Entrar
+                        </button>
+
+                        <br><br>
+
+                        <!-- Botão Esqueceu Senha -->
+                        <button 
+                            class="btn w-100 shadow"
+                            type="button"
+                            onclick="esqueceuSenha()"
+                        >
+                            Esqueceu sua senha?
+                        </button>
+
                     </form>
-                    <div class="text-danger" style="text-align: center;">
+
+                    <!-- Mensagem de erro -->
+                    <div class="text-danger text-center">
                         <p id="problema"></p>
                     </div>
+
+                    <!-- Script -->
                     <script src="../scripts/login.js"></script>
+
                 </div>
             </div>
         </div>
     </main>
 </body>
-
 </html>
