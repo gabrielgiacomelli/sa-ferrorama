@@ -10,7 +10,7 @@
 #### -Lucas Siedschlag Corrêa
 
 ### Responsabilidades:
-#### Primeira Etapa:
+#### - Primeira Etapa:
 
 #### Gabriel - Criação do index e tela de login
 
