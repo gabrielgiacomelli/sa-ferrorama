@@ -13,17 +13,6 @@ body{
     align-items: center; 
 }
 
-li a {
-    text-decoration: none;
-    color: inherit; /* pega a cor do elemento pai (ou você pode definir uma cor) */
-    font-size: 20px;
-}
-
-.li_index a {
-    text-decoration: none;
-    color: black;
-}
-
 .header_index {
     border-bottom: 15px solid #2f80ed; /* azul */
 }
@@ -66,16 +55,6 @@ label {
 
 /* NAVBAR */
 
-.img2 {
-    width: 300px;
-    height: 300px;
-    background-color: #f5f5f5;
-    border-radius: 30%;
-    border: 2px solid #fdd607;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-
 .home {
     background-color: #fff;
     padding: 30px;
@@ -90,6 +69,17 @@ label {
     width: 115px;
 }
 
+.sair-headder{
+    display: flex;
+}
+
+#sair{
+    padding-top: 3px;
+}
+
+#img-3{
+    width: 30px;
+}
 
 .center {
     justify-content: center;
@@ -103,26 +93,6 @@ label {
     border: 2px solid #257cf2;
     margin-left: 30px;
     margin-right: 30px;
-}
-
-.cont2 {
-    background-color: #fff;
-    padding: 15px;
-    margin-top: 30px;
-    width: 100%;
-    border-radius: 300px;
-    border: 3px solid #257cf2;
-    align-items: center;
-}
-
-.cont {
-    background-color: #fff;
-    padding: 30px;
-    margin-top: 30px;
-    width: 50%;
-    border-radius: 5px;
-    border: 3px solid #257cf2;
-    align-items: center;
 }
 
 .flex {
@@ -144,13 +114,11 @@ label {
 }
 
 .botao-login {
-    background-color: #257cf2;
+    background-color: #b9d6ff;
     color: #fff;
     font-size: 14px;
     padding: 8px 20px;
     border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s background-color;
 }
 
 .botao-login:hover {
