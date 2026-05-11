@@ -18,7 +18,7 @@
 
 #### Lara - Pesquisa PHP sobre o conceito de CRUD
 
-## - Segunda Etapa:
+#### - Segunda Etapa:
 
 #### Gabriel e Lara - Ajustes na parte do javascript e HTML e estilização do index
 
