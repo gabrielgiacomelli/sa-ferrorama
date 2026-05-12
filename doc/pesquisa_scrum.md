@@ -38,11 +38,11 @@ O sprint planning representa a primeira etapa do projeto. Nela, serão destacada
 
 ### Sprint Review:
 
-São reuniões realizadas ao final de uma Sprint com o intuito de avaliar o progresso entregue por cada integrante da equipe, comparando as entregas com os critérios impostos pelo cliente e observando se o produto está pronto para ser entregue.
+São reuniões realizadas ao final de uma Sprint com o intuito de avaliar o progresso entregue por cada integrante da equipe, comparando as entregas com os critérios impostos pelo cliente e observando se o produto está pronto para ser entregue. O Sprint Review tem seu foco voltado para o produto, ou seja, o que foi feito.
 
 ### Sprint Retrospective:
 
-São observações realizadas em cima da última sprint com o intuito de destacar as relações que ocorreram no decorrer do desenvolvimento do projeto. Nela, são encontrados os erros cometidos com o intuito de melhorar a produtividade da equipe. 
+São observações realizadas em cima da última sprint com o intuito de destacar as relações que ocorreram no decorrer do desenvolvimento do projeto. Nela, são encontrados os erros cometidos com o intuito de melhorar a produtividade da equipe. O Sprint Retrospective terá seu foco voltado no processo e nas pessoas que participaram.
 
 ### Benefícios do uso do SCRUM em projetos de software:
 

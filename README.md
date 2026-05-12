@@ -10,12 +10,21 @@
 #### -Lucas Siedschlag Corrêa
 
 ### Responsabilidades:
+#### - Primeira Etapa:
 
 #### Gabriel - Criação do index e tela de login
 
 #### Henrique e Lucas - Criação do README
 
 #### Lara - Pesquisa PHP sobre o conceito de CRUD
+
+#### - Segunda Etapa:
+
+#### Gabriel e Lara - Ajustes na parte do javascript e HTML e estilização do index
+
+#### Henrique - Pesquisa sobre SCRUM e criação da tela de visualização dos usuários
+
+#### Lucas - Criação da tela HOME 
 
 ### Nomenclatura:
 
