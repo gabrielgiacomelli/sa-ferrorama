@@ -1,25 +1,28 @@
-body{
+/*Tela inicial*/
+
+/* Remove margem padrão */
+body {
     margin: 0;
 }
-.header_index{
-    padding-left: 10px;
-    padding-right: 20px;
+
+/* Cabeçalho */
+.header_index {
     background-color: rgb(235, 235, 235);
+    border-bottom: 15px solid #2f80ed;
+    border-bottom: 15px solid #2f80ed;
+    padding: 0;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
 }
 
-.header_index {
-    border-bottom: 15px solid #2f80ed; /* azul */
-}
 
 .form-control:focus {
     border-color: #0d6efd;
-    box-shadow: 0 0 0 2px rgba(13,110,253,0.2);
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
 }
 
 .card {
@@ -44,12 +47,12 @@ label {
     font-size: 14px;
 }
 
-#login-link{
+#login-link {
     width: 100%;
     height: 100%;
 }
 
-#body2{
+#body2 {
     background-color: rgb(200, 251, 255) !important;
 }
 
@@ -65,19 +68,19 @@ label {
     align-items: center;
 }
 
-.logo{
+.logo {
     width: 115px;
 }
 
-.sair-headder{
+.sair-headder {
     display: flex;
 }
 
-#sair{
+#sair {
     padding-top: 3px;
 }
 
-#img-3{
+#img-3 {
     width: 30px;
 }
 
