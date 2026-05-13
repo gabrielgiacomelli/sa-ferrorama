@@ -10,23 +10,34 @@
 </head>
 
 <body>
+    <!-- é usado para centralizar um elemento exatamente no meio da tela-->
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+
+        <!--define o layout responsivo de um elemento.-->
         <div class="col-lg-11">
+
+            <!--card estilizado com espaçamento interno, borda cinza, cantos arredondados e sombra projetada-->
             <div class="card p-5 shadow-lg border-color: gray  rounded-4">
 
+                <!--título do cadastro, centralizado horizontalmente e com espaçamento inferior-->
                 <h2 class="text-center mb-4">Cadastro</h2>
 
+                <!--formulário de cadastro, organizado em uma grade com espaçamento entre os elementos-->
                 <form>
                     <div class="row g-4">
                         <div class="col-md-4">
+
+                            <!--campo de email-->
                             <label for="email" class="form-label">Email</label>
                             <input id= "email" type="email" class="form-control input-preto" placeholder="Digite seu email"
                                 style= "border: 2px solid #000;"><br><br>
 
+                                <!--campo de senha-->
                             <label class="form-label" for="senha">Senha</label>
                             <input type="password" class="form-control input-preto" placeholder="Digite sua senha"
                                 style= "border: 2px solid #000;" id="senha"><br><br>
 
+                                <!--campo de confirmar senha-->
                             <label class="form-label" for="confirm_senha">Confirmar senha</label>
                             <input type="password" class="form-control input-preto" placeholder="Confirme sua senha"
                                 style= "border: 2px solid #000;" id="confirm_senha"><br><br>
