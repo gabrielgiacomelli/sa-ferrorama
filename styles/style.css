@@ -20,6 +20,11 @@ body {
 #body2 {
     background-color: rgb(200, 251, 255) !important;
 }
+/*Deixa a foto da entrada com 100% da tela*/
+#login-link {
+    width: 100%;
+    height: 100%;
+}
 
 
 
