@@ -1,66 +1,29 @@
-/*Tela inicial*/
+/*Tela index*/
 
 /* Remove margem padrão */
 body {
     margin: 0;
 }
-
-/* body
-remove a margem padrão da página */
+/*Cabeçalho do index, cor cinza claro, com a borda azul em baixo e sem espaçamento interno*/
 .header_index {
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(223, 223, 223);
     border-bottom: 15px solid #2f80ed;
     padding: 0;
 }
-
-/* navbar
-organiza os itens do cabeçalho */
-.navbar{
-    display: flex;
-    /* alinha os itens verticalmente */
-    align-items: center;
-
-    background-color: #fff;
-
-    height: 80px;
-}
+/* Finalização tela index */
 
 
-.form-control:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
-}
 
-.card {
-    background-color: #f8f9fa;
-    border-radius: 20px;
-    padding: 40px;
-}
 
-.btn-primary {
-    border-radius: 10px;
-    padding: 10px 30px;
-    font-weight: 500;
-}
-
-.form-control {
-    height: 42px;
-    border-radius: 8px;
-}
-
-label {
-    margin-bottom: 5px;
-    font-size: 14px;
-}
-
-#login-link {
-    width: 100%;
-    height: 100%;
-}
-
+/*Tela Login*/
+/* Cor de fundo do corpo da página, um tom de azul claro */
 #body2 {
     background-color: rgb(200, 251, 255) !important;
 }
+
+
+
+/*Tela home*/
 
 /* NAVBAR */
 
