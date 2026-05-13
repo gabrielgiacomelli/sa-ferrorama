@@ -1,5 +1,7 @@
 /*Tela inicial*/
 
+
+
 /* Remove margem padrão */
 body {
     margin: 0;
@@ -177,39 +179,11 @@ label {
     }
 }
 
-/* TELA PRINCIPAL */
+/* FIM DA NAVBAR */
 
-/* TELA PRINCIPAL CONTAINERS */
-.amarelo {
-    background-color: #fdd607;
-    padding: 30px;
-    margin-top: 30px;
-    width: 100%;
-    border-radius: 5px;
-    border: 3px solid #fdd607;
-    align-items: center;
-}
+/* COMEÇO DA TELA PRINCIPAL */
 
-.amarelo-sz2 {
-    background-color: #fdd607;
-    padding: 30px;
-    margin-top: 30px;
-    width: 25%;
-    border-radius: 5px;
-    border: 3px solid #fdd607;
-    align-items: center;
-}
-
-amarelo-sz3 {
-    background-color: #fdd607;
-    padding: 30px;
-    margin-top: 30px;
-    width: 80px;
-    height: 225px;
-    border-radius: 5px;
-    border: 3px solid #fdd607;
-    align-items: center;
-}
+    /* COMEÇO TELA PRINCIPAL CONTAINERS */
 
 .roxa {
     background-color: #9b59b6;
@@ -223,10 +197,8 @@ amarelo-sz3 {
 
 .azul {
     background-color: #257cf2;
-    padding: 30px;
-    margin-top: 50px;
     width: 890px;
-    height: 300px;
+    height: auto;
     border-radius: 5px;
     border: 3px solid #257cf2;
     align-items: center;
@@ -234,24 +206,68 @@ amarelo-sz3 {
 
 .azul-sz2 {
     background-color: #257cf2;
-    padding: 30px;
+    display: grid;
     margin-top: 50px;
     height: auto;
-    width: 400px;
+    width: 30%;
     border-radius: 5px;
     border: 3px solid #257cf2;
     align-items: center;
 }
 
+
 .azul-sz3 {
     background-color: #257cf2;
-    padding: 30px;
+    padding-top: 2.5%;
+    padding-right: 5%;
+    padding-bottom: 2.5%;
     margin-top: 50px;
     width: 890px;
-    height: 225px;
+    height: auto;
     border-radius: 5px;
     border: 3px solid #257cf2;
     align-items: center;
+}
+
+.padding-azul{
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+.amarelo {
+    background-color: #fdd607;
+    padding: 30px;
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 5px;
+    border: 3px solid #fdd607;
+    align-items: center;
+}
+
+.amarelo-sz2 {
+    background-color: #fdd607;
+    margin-left: 2.5%;
+    margin-top: 30px;
+    width: 25%;
+    border-radius: 5px;
+    border: 3px solid #fdd607;
+    align-items: center;
+}
+
+.amarelo-sz3 {
+    background-color: #fdd607;
+    padding: 30px;
+    margin-top: 30px;
+    width: 80px;
+    height: 225px;
+    border-radius: 5px;
+    border: 3px solid #fdd607;
+    align-items: center;
+}
+
+.padding-amarelo{
+    padding-left: 10%;
+    padding-right: 2.5%;
 }
 
 .flexivel{
@@ -263,5 +279,132 @@ amarelo-sz3 {
     margin-right: 30px;
 }
 
-/* FIM TELA PRINCIPAL CONTAINERS */
+.padding {
+    padding-left: 35%;
+}
+    /* FIM TELA PRINCIPAL CONTAINERS */
 
+/* COMEÇO CALENDARIO */
+
+#linha-calendario{
+    color: #0b4a9f;
+}
+
+/* Container do calendário com estilo moderno */
+.calendario {
+  margin-left: 60%;  
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: 720px;
+}
+
+/* Cabeçalho do calendário com mês e ano */
+.calendario-header {
+  background-color: #4a90e2;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* Estilização da tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Estilo dos cabeçalhos dos dias */
+th {
+  background-color: #257cf2;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #666;
+}
+
+/* Estilo das células de dias */
+td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  transition: background-color 0.3s ease;
+}
+
+/* Efeito de hover nos dias */
+td:hover {
+  background-color: #e6f2ff;
+  cursor: pointer;
+}
+
+/* Destaque para o dia atual */
+.dia-atual {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+/* Dias de fim de semana com cor diferente */
+.fim-de-semana {
+  color: #38b6ff;
+  font-weight: bold;
+}
+
+#mes-ano{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size: 37px;
+    color: #0b4a9f;
+    text-align: right;
+    font-weight: bold;
+}
+
+
+
+/* FIM DO CALENDARIO */
+
+
+ /* TEXTOS */
+
+
+#eventos{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #0b4a9f;
+    font-size: 20px;
+}
+
+.flexivel-calendario{
+    display: flex;
+    text-align: center;
+}
+
+.bem-vindo-inicial{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #0b4a9f;
+    font-size: 37px;
+    font-weight: bold
+    
+}
+
+#noticias-recentes{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 5%;
+    margin-bottom: -7%;
+    font-size: 27px;
+    color: #0b4a9f;
+    text-align: right;
+    font-weight: bold;
+}
+
+#blog-hlgl{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 2%;
+    margin-bottom: -2%;
+    font-size: 37px;
+    color: #0b4a9f;
+    text-align: right;
+    font-weight: bold;
+}
