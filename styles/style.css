@@ -6,12 +6,14 @@
 body {
     margin: 0;
 }
+
 /*Cabeçalho do index, cor cinza claro, com a borda azul em baixo e sem espaçamento interno*/
 .header_index {
     background-color: rgb(223, 223, 223);
     border-bottom: 15px solid #2f80ed;
     padding: 0;
 }
+
 /* Finalização tela index */
 
 
@@ -22,11 +24,13 @@ body {
 #body2 {
     background-color: rgb(200, 251, 255) !important;
 }
+
 /*Deixa a foto da entrada com 100% da tela*/
 #login-link {
     width: 100%;
     height: 100%;
 }
+
 /*Finalização tela login*/
 
 
@@ -153,7 +157,7 @@ body {
 
 /* COMEÇO DA TELA PRINCIPAL */
 
-    /* COMEÇO TELA PRINCIPAL CONTAINERS */
+/* COMEÇO TELA PRINCIPAL CONTAINERS */
 
 .roxa {
     background-color: #9b59b6;
@@ -199,7 +203,7 @@ body {
     align-items: center;
 }
 
-.padding-azul{
+.padding-azul {
     padding-left: 2.5%;
     padding-right: 2.5%;
 }
@@ -235,16 +239,16 @@ body {
     align-items: center;
 }
 
-.padding-amarelo{
+.padding-amarelo {
     padding-left: 10%;
     padding-right: 2.5%;
 }
 
-.flexivel{
+.flexivel {
     display: flex;
 }
 
-.espacamento{
+.espacamento {
     margin-left: 30px;
     margin-right: 30px;
 }
@@ -252,77 +256,78 @@ body {
 .padding {
     padding-left: 35%;
 }
-    /* FIM TELA PRINCIPAL CONTAINERS */
+
+/* FIM TELA PRINCIPAL CONTAINERS */
 
 /* COMEÇO CALENDARIO */
 
-#linha-calendario{
+#linha-calendario {
     color: #0b4a9f;
 }
 
 /* Container do calendário com estilo moderno */
 .calendario {
-  margin-left: 60%;  
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: white;
-  width: 720px;
+    margin-left: 60%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: 720px;
 }
 
 /* Cabeçalho do calendário com mês e ano */
 .calendario-header {
-  background-color: #4a90e2;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  font-weight: bold;
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
 }
 
 /* Estilização da tabela */
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 /* Estilo dos cabeçalhos dos dias */
 th {
-  background-color: #257cf2;
-  padding: 10px;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  color: #666;
+    background-color: #257cf2;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    color: #666;
 }
 
 /* Estilo das células de dias */
 td {
-  text-align: center;
-  padding: 10px;
-  border: 1px solid #e0e0e0;
-  transition: background-color 0.3s ease;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    transition: background-color 0.3s ease;
 }
 
 /* Efeito de hover nos dias */
 td:hover {
-  background-color: #e6f2ff;
-  cursor: pointer;
+    background-color: #e6f2ff;
+    cursor: pointer;
 }
 
 /* Destaque para o dia atual */
 .dia-atual {
-  color: rgb(255, 0, 0);
-  font-weight: bold;
-  border-radius: 50%;
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    border-radius: 50%;
 }
 
 /* Dias de fim de semana com cor diferente */
 .fim-de-semana {
-  color: #38b6ff;
-  font-weight: bold;
+    color: #38b6ff;
+    font-weight: bold;
 }
 
-#mes-ano{
+#mes-ano {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 0%;
     margin-bottom: 0%;
@@ -337,29 +342,28 @@ td:hover {
 /* FIM DO CALENDARIO */
 
 
- /* TEXTOS */
+/* TEXTOS */
 
 
-#eventos{
+#eventos {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #0b4a9f;
     font-size: 20px;
 }
 
-.flexivel-calendario{
+.flexivel-calendario {
     display: flex;
     text-align: center;
 }
 
-.bem-vindo-inicial{
+.bem-vindo-inicial {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #0b4a9f;
     font-size: 37px;
     font-weight: bold
-    
 }
 
-#noticias-recentes{
+#noticias-recentes {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 5%;
     margin-bottom: -7%;
@@ -369,7 +373,7 @@ td:hover {
     font-weight: bold;
 }
 
-#blog-hlgl{
+#blog-hlgl {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 2%;
     margin-bottom: -2%;
@@ -381,10 +385,42 @@ td:hover {
 
 /* Gestão de Usuários */
 
-#tabela{
+#tabela {
     width: 60%;
     text-align: center;
     background-color: white;
     border: 2px solid black;
     margin: 0 auto;
+}
+
+.tr {
+    border: 2px solid black;
+
+}
+
+.tabel {
+    background-color: white;
+    padding: 30px;
+    width: 80%;
+    margin: auto;
+    border-radius: 30px;
+    border: 3px solid rgb(233, 233, 233);
+    margin-top: 60px;
+}
+
+.linhameio{
+    width: 100%;
+    height: 3px;
+    background-color: #308aff;
+    margin: auto;
+    margin-bottom: 15px;
+    
+}
+
+.textousu{
+    padding-bottom: 15px;
+    color: #2060b9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    
 }
