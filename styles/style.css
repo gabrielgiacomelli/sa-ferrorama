@@ -378,3 +378,13 @@ td:hover {
     text-align: right;
     font-weight: bold;
 }
+
+/* Gestão de Usuários */
+
+#tabela{
+    width: 60%;
+    text-align: center;
+    background-color: white;
+    border: 2px solid black;
+    margin: 0 auto;
+}
