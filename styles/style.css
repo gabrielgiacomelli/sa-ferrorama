@@ -170,11 +170,11 @@ body {
 }
 
 .azul {
-    background-color: #257cf2;
+    background-color: #bef5fc;
     width: 890px;
     height: auto;
     border-radius: 5px;
-    border: 3px solid #257cf2;
+    border: 3px solid #bef5fc;
     align-items: center;
 }
 
@@ -191,15 +191,15 @@ body {
 
 
 .azul-sz3 {
-    background-color: #257cf2;
+    background-color: #ffffff;
     padding-top: 2.5%;
     padding-right: 5%;
     padding-bottom: 2.5%;
     margin-top: 50px;
     width: 890px;
     height: auto;
-    border-radius: 5px;
-    border: 3px solid #257cf2;
+    border-radius: 47px;
+    border: 5px solid #e4e4e4;
     align-items: center;
 }
 
@@ -209,12 +209,12 @@ body {
 }
 
 .amarelo {
-    background-color: #fdd607;
+    background-color: #bef5fc;
     padding: 30px;
     margin-top: 30px;
     width: 100%;
     border-radius: 5px;
-    border: 3px solid #fdd607;
+    border: 3px solid #bef5fc;
     align-items: center;
 }
 
@@ -240,8 +240,8 @@ body {
 }
 
 .padding-amarelo {
-    padding-left: 10%;
     padding-right: 2.5%;
+    padding-bottom: 2.5%;
 }
 
 .flexivel {
@@ -257,6 +257,38 @@ body {
     padding-left: 35%;
 }
 
+/* COMEÇO BLOG HLGL */
+
+.titulo-blog {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #257cf2;
+    margin-left: -4.5%;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: #308aff 1px 1px 2px;
+}
+
+.informacao-blog {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: -4.5%;
+    color: #000000;
+    font-size: 14px;
+}
+
+/* Blog Images */
+.img-blog{
+    width: 200px;
+    height: 150px;
+    background-color: #f5f5f5;
+    border-radius: 10%;
+    border: 2px solid #bef5fc;
+    margin-top: auto;
+    margin-right: 2%;
+}
+
+/* FIM DO BLOG HLGL */
+
+
 /* FIM TELA PRINCIPAL CONTAINERS */
 
 /* COMEÇO CALENDARIO */
@@ -267,13 +299,13 @@ body {
 
 /* Container do calendário com estilo moderno */
 .calendario {
-    margin-left: 60%;
+    margin-left: 0;
+    width: 300px;
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: white;
-    width: 720px;
 }
 
 /* Cabeçalho do calendário com mês e ano */
@@ -348,11 +380,24 @@ td:hover {
 #eventos {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #0b4a9f;
-    font-size: 20px;
+    font-size: 24px;
+    
 }
 
 .flexivel-calendario {
+    
     display: flex;
+    align-items: center;        /* Centraliza verticalmente */
+    justify-content: center;    /* Centraliza o conjunto todo */
+    gap: 20px;                 /* Cria um espaço entre o texto e o calendário */
+    width: 100%;
+
+}
+
+.flexivel-calendario > div:first-child {
+    flex: 1;               /* Ocupa todo o espaço da esquerda */
+    display: flex;
+    justify-content: center; /* Centraliza o texto horizontalmente na área dele */
     text-align: center;
 }
 
