@@ -160,12 +160,12 @@ body {
 /* COMEÇO TELA PRINCIPAL CONTAINERS */
 
 .roxa {
-    background-color: #9b59b6;
+    background-color: #3700ff;
     padding: 30px;
     margin-top: 30px;
     width: 100%;
     border-radius: 5px;
-    border: 3px solid #9b59b6;
+    border: 3px solid #bef5fc;
     align-items: center;
 }
 
@@ -179,13 +179,14 @@ body {
 }
 
 .azul-sz2 {
-    background-color: #257cf2;
+    background-color: #ffffff;
     display: grid;
     margin-top: 50px;
     height: auto;
     width: 30%;
-    border-radius: 5px;
-    border: 3px solid #257cf2;
+    border-radius: 47px;
+    border: 5px solid #e4e4e4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     align-items: center;
 }
 
@@ -209,6 +210,16 @@ body {
 }
 
 .amarelo {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 22px;
+    border: 3px solid #257cf2;
+    align-items: center;
+}
+
+.amarelo-blog {
     background-color: #bef5fc;
     padding: 30px;
     margin-top: 30px;
@@ -219,23 +230,23 @@ body {
 }
 
 .amarelo-sz2 {
-    background-color: #fdd607;
+    background-color: #bef5fc;
     margin-left: 2.5%;
     margin-top: 30px;
     width: 25%;
     border-radius: 5px;
-    border: 3px solid #fdd607;
+    border: 3px solid #bef5fc;
     align-items: center;
 }
 
 .amarelo-sz3 {
-    background-color: #fdd607;
+    background-color: #bef5fc;
     padding: 30px;
     margin-top: 30px;
     width: 80px;
     height: 225px;
     border-radius: 5px;
-    border: 3px solid #fdd607;
+    border: 3px solid #bef5fc;
     align-items: center;
 }
 
@@ -404,25 +415,48 @@ td:hover {
 .bem-vindo-inicial {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #0b4a9f;
-    font-size: 37px;
+    font-size: 55px;
     font-weight: bold
 }
 
+
+/* COMEÇO NOTICIAS RECENTES */
 #noticias-recentes {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 5%;
     margin-bottom: -7%;
-    font-size: 27px;
+    font-size: 25px;
     color: #0b4a9f;
     text-align: right;
     font-weight: bold;
 }
 
+.dia-noticias {
+    background-color: #38b6ff;
+    color: #ffffff;
+    width: 80px;
+    height: 80px;
+    border-radius: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    margin-right: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+
+/* FIM NOTICIAS RECENTES */
+
 #blog-hlgl {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 2%;
     margin-bottom: -2%;
-    font-size: 37px;
+    font-size: 30px;
     color: #0b4a9f;
     text-align: right;
     font-weight: bold;
