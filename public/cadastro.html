@@ -6,10 +6,10 @@
     <title>Cadastro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/style.css"f>
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 
-<body>
+<body id ="body2">
     <!-- é usado para centralizar um elemento exatamente no meio da tela-->
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 
@@ -25,82 +25,92 @@
                 <!--formulário de cadastro, organizado em uma grade com espaçamento entre os elementos-->
                 <form>
                     <div class="row g-4">
+
                         <div class="col-md-4">
 
                             <!--campo de email-->
+
                             <label for="email" class="form-label">Email</label>
-                            <input id= "email" type="email" class="form-control input-preto" placeholder="Digite seu email"
-                                style= "border: 2px solid #000;"><br><br>
+                            <input id="email" type="email" class="form-control mb-4"
+                                placeholder="Digite seu email" style="border: 2px solid #000;">
 
-                                <!--campo de senha-->
+                            <!--campo de senha-->
+
                             <label class="form-label" for="senha">Senha</label>
-                            <input type="password" class="form-control input-preto" placeholder="Digite sua senha"
-                                style= "border: 2px solid #000;" id="senha"><br><br>
+                            <input type="password" class="form-control mb-4" placeholder="Digite sua senha"
+                                style="border: 2px solid #000;" id="senha">
 
-                                <!--campo de confirmar senha-->
+                            <!--campo de confirmar senha-->
+                            
                             <label class="form-label" for="confirm_senha">Confirmar senha</label>
-                            <input type="password" class="form-control input-preto" placeholder="Confirme sua senha"
-                                style= "border: 2px solid #000;" id="confirm_senha"><br><br>
+                            <input type="password" class="form-control mb-4" placeholder="Confirme sua senha"
+                                style="border: 2px solid #000;" id="confirm_senha">
 
-                            <label class="form-label" for="EstadoCivil">Estado Cívil</label><br>
-                            <select id="EstadoCivil" class="form-control" style= "border: 2px solid #000;">
+                            <label class="form-label" for="EstadoCivil">Estado Cívil</label>
+                            <select id="EstadoCivil" class="form-control" style="border: 2px solid #000;">
                                 <option value="">Selecione</option>
                                 <option value="solteiro">Solteiro</option>
                                 <option value="casado">Casado</option>
                                 <option value="divorciado">Divorciado</option>
                                 <option value="separado">Separado</option>
                                 <option value="viuvo">Viúvo</option>
-                            </select><br><br>
+                            </select>
+
                         </div>
 
 
                         <div class="col-md-4">
                             <label class="form-label" for="nome">Nome Completo</label>
-                            <input type="text" class="form-control input-preto" placeholder="Digite seu nome completo"
-                                style= "border: 2px solid #000;" id="nome"><br><br>
+                            <input type="text" class="form-control mb-4" placeholder="Digite seu nome completo"
+                                style="border: 2px solid #000;" id="nome">
 
                             <label class="form-label" for="cpf">CPF</label>
-                            <input type="text" class="form-control input-preto" placeholder="Digite seu CPF"
-                                style= "border: 2px solid #000;" id="cpf"><br><br>
+                            <input type="text" class="form-control mb-4" placeholder="Digite seu CPF"
+                                style="border: 2px solid #000;" id="cpf">
 
                             <label class="form-label" for="data">Data de Nascimento</label>
-                            <input type="date" class="form-control input-preto"
-                                placeholder="Digite sua data de nascimento" style= "border: 2px solid #000;" id="data"><br><br>
+                            <input type="date" class="form-control mb-4"
+                                placeholder="Digite sua data de nascimento" style="border: 2px solid #000;"
+                                id="data">
 
                             <label class="form-label" for="cep">CEP</label>
-                            <input type="text" class="form-control input-preto" placeholder="Digite seu CEP"
-                                style= "border: 2px solid #000;" id="cep"><br><br>
+                            <input type="text" class="form-control" placeholder="Digite seu CEP"
+                                style="border: 2px solid #000;" id="cep">
                         </div>
 
 
                         <div class="col-md-4">
                             <label class="form-label" for="rua">Rua</label>
-                            <input type="text" class="form-control input-preto" placeholder="Digite a rua"
-                                style= "border: 2px solid #000;" id="rua"><br><br>
+                            <input type="text" class="form-control mb-4" placeholder="Digite a rua"
+                                style="border: 2px solid #000;" id="rua">
 
                             <label class="form-label" for="comp">Complemento</label>
-                            <input type="text" class="form-control input-preto" placeholder="Digite um complemento"
-                                style= "border: 2px solid #000;" id="comp"><br><br>
+                            <input type="text" class="form-control mb-4" placeholder="Digite um complemento"
+                                style="border: 2px solid #000;" id="comp">
 
                             <label class="form-label" for="cidade">Cidade</label>
-                            <input type="text" class="form-control input-preto" placeholder="Digite a cidade"
-                                style= "border: 2px solid #000;" id="cidade"><br><br>
+                            <input type="text" class="form-control mb-4" placeholder="Digite a cidade"
+                                style="border: 2px solid #000;" id="cidade">
 
                             <label class="form-label" for="ramal">Ramal</label>
-                            <input type="text" class="form-control input-preto" placeholder="Digite seu ramal"
-                                style= "border: 2px solid #000;" id="ramal"><br><br>
+                            <input type="text" class="form-control mb-3" placeholder="Digite seu ramal"
+                                style="border: 2px solid #000;" id="ramal">
                         </div>
+
                     </div>
+
                     <div class=" d-flex justify-content-center">
                         <button class="btn btn-primary px-5" style="border-color: black;">Cadastrar</button>
                     </div>
-                    <div class=" d-flex justify-content-center">
 
+                    <div class=" d-flex justify-content-center">
                         <small style="font-size: 15px; text-align: center;">
                             Já tem conta? <a href="login.html">Entrar</a>
                         </small><br>
-                        </div>
-                    <p id="resultado"></p>       
+                    </div>
+
+                    <p id="resultado"></p>
+
                 </form>
             </div>
         </div>
