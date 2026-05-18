@@ -2,39 +2,53 @@
 
 ## Sistema de Gerenciamento de Ferrovia
 
-### Equipe:
+## Equipe:
 
-#### -Gabriel da Costa Giacomelli
-#### -Henrique Venso
-#### -Lara Emilia Guzman
-#### -Lucas Siedschlag Corrêa
+##### -Gabriel da Costa Giacomelli
+##### -Henrique Venso
+##### -Lara Emilia Guzman
+##### -Lucas Siedschlag Corrêa
 
-### Responsabilidades:
-#### - Primeira Etapa:
+## Responsabilidades:
 
-#### Gabriel - Criação do index e tela de login
 
-#### Henrique e Lucas - Criação do README
 
-#### Lara - Pesquisa PHP sobre o conceito de CRUD
+**Primeira Etapa:**
 
-#### - Segunda Etapa:
+##### Gabriel - Criação do index e tela de login
 
-#### Gabriel e Lara - Ajustes na parte do javascript e HTML e estilização do index
+##### Henrique e Lucas - Criação do README
 
-#### Henrique - Pesquisa sobre SCRUM e criação da tela de visualização dos usuários
+##### Lara - Pesquisa PHP sobre o conceito de CRUD
 
-#### Lucas - Criação da tela HOME 
+**Segunda Etapa:**
 
-### Nomenclatura:
+##### Gabriel e Lara - Ajustes na parte do javascript e HTML e estilização do index
 
-#### Snake Case (Ex:lucas_siedschlag)
+##### Henrique - Pesquisa sobre SCRUM e criação da tela de visualização dos usuários
 
-### Objetivo:
+##### Lucas - Criação da tela HOME 
+
+**Terceira Etapa:**
+
+##### Gabriel - Fazer pesquisa do XAMPP
+
+##### Lara - Criação das telas de cadastro
+
+##### Henrique - Criação das telas de cadastro de 
+
+##### Lucas - Criação das telas de visualização de sensores 
+
+
+## Nomenclatura:
+
+##### Snake Case (Ex:lucas_siedschlag)
+
+## Objetivo:
 
 #### O objetivo de nosso sistema é simular o gerenciamento de um sistema ferroviário. Nele, constam informações como sensores, trens e suas localizações e também sobre a ferroviária.
 
-### Funcionalidades:
+## Funcionalidades:
 
 | ID | Descrição do Requisito | Tipo | Prioridade |
 | :--- | :--- | :--- | :--- |
