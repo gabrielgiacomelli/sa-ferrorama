@@ -53,10 +53,29 @@
     </nav>
 
     <main>
-
-        <div class="container-fluid py-5 px-5 d-flex gap-4 container-menor">
-            <p>teste</p>
-            <p>teste2</p>
+        <div>
+            <div class="container-menor" style="margin: 150px; justify-self: center;">
+                <p style="font-size: 18px;">Nome:</p>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Insira o Nº do Trem"
+                        style="margin-top: 15px; max-width: 300px; border-radius: 0%; border: 1px solid #353535">
+                </div>
+                <p style="font-size: 18px;">Tipo:</p>
+                <select class="form-select" style="max-width: 120px; border-radius: 0%; border: 1px solid #353535">
+                    <option selected>Selecione</option>
+                    <option value="1">Velocidade</option>
+                    <option value="2">Temperatura</option>
+                    <option value="3">Falhas</option>
+                    <option value="4">Gasolina</option>
+                </select>
+                <p style="font-size: 18px;">Instalação:</p>
+                <select class="form-select" style="max-width: 120px; border-radius: 0%; border: 1px solid #353535">
+                    <option selected>Selecione</option>
+                    <option value="1">Trem</option>
+                    <option value="2">Ferrovia</option>
+                </select>
+                <button type="button" class="btn btn-primary" style="border-radius: 20px; font-size: 20px;">Cadastrar</button>
+            </div>
         </div>
 
     </main>
