@@ -309,7 +309,7 @@ table {
     border-collapse: collapse;
 }
 /* Estilo dos cabeçalhos dos dias */
-th {
+.cal{
     background-color: #257cf2;
     padding: 10px;
     text-transform: uppercase;
@@ -593,6 +593,7 @@ td:hover {
     border: 2px solid black;
 
 }
+
 
 .tabel {
     background-color: white;
