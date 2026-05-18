@@ -3,13 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Cadastro de Usuários</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 
 <body id="body2">
+
+    <!-- Início do header -->
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto">
+                <img class="logo navbar-brand me-auto" src="../assets/img/img_1.png" alt="LOGO">
+            </a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <img class="logo" src="../assets/img/img_1.png" alt="LOGO">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="home.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="sensores.html">Sensores</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-lg-2 active" aria-current="page">Cadastro</a>
+
+                            <div class="dropdown-menu">
+
+                                <a class="nav-link mx-lg-2" href="cadastro-sensor.html"> Cadastro de Sensores </a>
+                                <a class="nav-link mx-lg-2" href=""> Cadastro de Trens </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-rota.html"> Cadastro de Rotas </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-usuario.html"> Cadastro de Usuários </a>
+
+                            </div>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="monitoramento.html">Monitoramento</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="relatorios.html">Relatorios</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="usuarios.html">Usuários</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="sair-headder">
+                <img id="img-3" src="../assets/img/img_3.png" alt="Imagem sair">
+                <a id="sair" class="nav-link mx-lg-2" href="">Sair</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!-- Fim do header -->
+
     <!-- é usado para centralizar um elemento exatamente no meio da tela-->
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 

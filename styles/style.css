@@ -684,8 +684,12 @@ td:hover {
 
 /* COMEÇO CADASTRO */
 
-.marca {
-margin-bottom: 30px;
+.dropdown:hover .dropdown-menu{
+    
+    display: block;
+    justify-self: center;
+    text-align: center;
+
 }
 
 
