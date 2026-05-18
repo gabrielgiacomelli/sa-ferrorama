@@ -54,5 +54,7 @@ O uso do SCRUM é um benefício gigantesco para as equipes por alguns motivos:
 
 ## Referências
 > [Link | O que é uma Daily Scrum? - Scrum.org](https://www.scrum.org/resources/what-is-a-daily-scrum)
+
 > [Link | O que é o Scrum? Detalhes sobre a estrutura Ágil - Atlassian](https://www.atlassian.com/br/agile/scrum)
+
 > [Link | Quais são as principais funções do Scrum? - ClickUp](https://clickup.com/pt-BR/blog/7951/funcoes-do-scrum?utm_source=google&utm_medium=cpc&)
