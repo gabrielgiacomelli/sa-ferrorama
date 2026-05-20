@@ -50,7 +50,8 @@
 
                                 <a class="nav-link mx-lg-2" href="cadastro-sensor.html"> Cadastro de Sensores </a>
                                 <a class="nav-link mx-lg-2" href="cadastro-trem.html"> Cadastro de Trens </a>
-                                <a class="nav-link mx-lg-2 active fw-bold" href="cadastro-rota.html"> Cadastro de Rotas </a>
+                                <a class="nav-link mx-lg-2 active fw-bold" href="cadastro-rota.html"> Cadastro de Rotas
+                                </a>
                                 <a class="nav-link mx-lg-2" href="cadastro-usuario.html"> Cadastro de Usuários </a>
 
                             </div>
@@ -82,19 +83,62 @@
 
     <!-- Fim do header -->
 
-    <!-- é usado para centralizar um elemento exatamente no meio da tela-->
-    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <main>
 
-        <!--define o layout responsivo de um elemento.-->
-        <div class="col-lg-11">
+        <div>
 
-            <!--card estilizado com espaçamento interno, borda cinza, cantos arredondados e sombra projetada-->
-            <div class="card p-5 shadow-lg border-color: gray  rounded-4">
+            <div class="container-menor" style="margin-top: 150px; justify-self: center;">
 
-                
+                <p style="font-size: 18px;">Nome:</p>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Insira o Nº da rota"
+                        style="margin-top: 15px; max-width: 300px; border-radius: 0%; border: 1px solid #353535">
+                </div>
+
+                <p style="font-size: 18px;">Saída:</p>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Insira a saída"
+                        style="margin-top: 15px; max-width: 300px; border-radius: 0%; border: 1px solid #353535">
+                </div>
+
+                <p style="font-size: 18px;">Destino:</p>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Insira o destino"
+                        style="margin-top: 15px; max-width: 300px; border-radius: 0%; border: 1px solid #353535">
+                </div>
+
+                <button type="button" class="btn btn-primary"
+                    style="border-radius: 20px; font-size: 20px;">Cadastrar</button>
+
+            </div>
+
+        </div>
+
+        <div class="trens" style="margin-top: 80px; justify-self: center;">
+            <span style="font-size: 25px; font-weight: 700;">Rotas Cadastradas:</span>
+            <div class="container-maior">
+                <div class="d-flex mt-3 mb-3 gap-5" style="align-items: center;">
+                    <h5 class="ms-5 mb-0" style="font-weight: 700">Busque:</h5>
+                    <div class="d-flex align-items-center gap-2">
+                        <span style="font-size: 20px;">Status</span>
+                        <select class="form-select"
+                            style="max-width: 120px; border-radius: 0%; border: 1px solid #353535; align-self: center;">
+                            <option selected>Selecione</option>
+                            <option value="1">Ativo</option>
+                            <option value="2">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <span style="font-size: 20px;">ID</span>
+                        <input type="text" class="form-control" placeholder="Insira o ID da rota"
+                            style="width: 300px; border-radius: 0%; border: 1px solid #353535">
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
+
+    </main>
 
 
 </body>
