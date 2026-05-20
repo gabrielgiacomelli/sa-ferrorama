@@ -5,6 +5,9 @@
 /* Remove margem padrão */
 body {
     margin: 0;
+    transition: opacity 0.5s ease;
+    animation: fadeIn 0.5s ease forwards;
+    background-color: rgb(200, 251, 255) !important;
 }
 
 /*Cabeçalho do index, cor cinza claro, com a borda azul em baixo e sem espaçamento interno*/
@@ -14,6 +17,29 @@ body {
     padding: 0;
 }
 
+/* efeito ao sair */
+.fade-out {
+    opacity: 0;
+}
+
+/* imagem principal */
+#login-link {
+    width: 300px;
+    transition:
+        transform 0.6s ease,
+        opacity 0.6s ease;
+}
+
+/* animação ao clicar */
+#login-link.animate {
+    transform: scale(1.2);
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 /* Finalização tela index */
 
 

@@ -11,19 +11,6 @@
 </head>
 
 <body class="body_index">
-    <!-- header com logo do site -->
-    <header class="header_index shadow">
-
-        <!-- Barra de navegação -->
-        <nav class="navbar">
-
-            <!-- Logo do sistema -->
-            <div class="logo">
-                <img src="assets/img/img_1.png" alt="LOGO" style="max-height: 80px; width: auto;">
-            </div>
-
-        </nav>
-    </header>
     
     <main>
         <!-- Main com imagem clicável, redireciona para a página de login -->
@@ -37,6 +24,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
+        <script>
+  document.getElementById('login-link').addEventListener('click', function (e) {
+    e.preventDefault(); // impede navegação imediata
+
+    const img = this;
+    img.classList.add('animate'); // dispara a animação CSS
+
+    // aguarda a animação terminar (600ms) antes de navegar
+    setTimeout(() => {
+      window.location.href = 'public/login.html';
+    }, 600);
+  });
+</script>
 
 </body>
 
