@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensores do Trem</title>
+    <title>Cadastro de Relatórios</title>
 
+    <link rel="stylesheet" href="../styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/style.css">
 
 </head>
 
 <body id="body2">
 
-     <!-- Início do header -->
+    <!-- Início do header -->
 
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
@@ -30,21 +30,22 @@
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="home.html">Home</a>
+                            <a class="nav-link mx-lg-2" aria-current="page" href="home.html">Home</a>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link mx-lg-2 active fw-bold">Sensores</a>
+                            <a class="nav-link mx-lg-2">Sensores</a>
 
                             <div class="dropdown-menu">
-                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.html"> Visualizar Sensores Ferrovia </a>
-                                <a class="nav-link mx-lg-2 active fw-bold" href="sensores-trem.html"> Visualizar Sensores Trem </a>
+                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.html"> Visualizar Sensores Ferrovia
+                                </a>
+                                <a class="nav-link mx-lg-2" href="sensores-trem.html"> Visualizar Sensores Trem </a>
                             </div>
 
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link mx-lg-2" aria-current="page">Cadastro</a>
+                            <a class="nav-link mx-lg-2">Cadastro</a>
 
                             <div class="dropdown-menu">
 
@@ -62,15 +63,16 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link mx-lg-2">Relatorios</a>
+                            <a class="nav-link mx-lg-2 active fw-bold">Relatorios</a>
 
                             <div class="dropdown-menu">
 
-                                <a class="nav-link mx-lg-2" href="cadastro-relatorio.html"> Cadastro de Relatórios </a>
+                                <a class="nav-link mx-lg-2 active fw-bold" href="cadastro-relatorio.html"> Cadastro de
+                                    Relatórios </a>
                                 <a class="nav-link mx-lg-2" href="relatorios.html"> Visualizar Relatórios </a>
 
                             </div>
-                            
+
                         </li>
 
                         <li class="nav-item">
@@ -90,6 +92,22 @@
 
     <!-- Fim do header -->
 
+    <main>
+
+        <div class="trens" style="margin-top: 80px; justify-self: center; width: 70%;">
+            <span style="font-size: 25px; font-weight: 700;"> Cadastro de Relatórios </span>
+
+            <input type="text" class="form-control" placeholder="Escreva seu Relatório"
+                style="width: 100%; border-radius: 0%; border: 1px solid #353535">
+            </input>
+        </div>
+
+
+
+
+
+
+    </main>
 
 </body>
 

@@ -60,8 +60,16 @@
                             <a class="nav-link mx-lg-2" href="monitoramento.html">Monitoramento</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="relatorios.html">Relatorios</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-lg-2">Relatorios</a>
+
+                            <div class="dropdown-menu">
+
+                                <a class="nav-link mx-lg-2" href="cadastro-relatorio.html"> Cadastro de Relatórios </a>
+                                <a class="nav-link mx-lg-2" href="relatorios.html"> Visualizar Relatórios </a>
+
+                            </div>
+                            
                         </li>
 
                         <li class="nav-item">
@@ -79,7 +87,134 @@
         </div>
     </nav>
 
-    <!-- Fim do header -->
+    <main>
+        <div>
+            <div class="container-menor2" style="margin-top: 150px; justify-self: center;">
+                <p style="font-size: 18px;">Nome:</p>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Insira o Nome do Sensor"
+                        style="margin-top: 15px; max-width: 70%; border-radius: 0%; border: 1px solid #353535">
+                </div>
+                <p style="font-size: 18px;">Tipo:</p>
+                <select class="form-select" style="max-width: 120px; border-radius: 0%; border: 1px solid #353535">
+                    <option selected>Selecione</option>
+                    <option value="1">Velocidade</option>
+                    <option value="2">Temperatura</option>
+                    <option value="3">Falhas</option>
+                    <option value="4">Gasolina</option>
+                </select>
+                <p style="font-size: 18px;">Instalação:</p>
+                <select class="form-select" style="max-width: 120px; border-radius: 0%; border: 1px solid #353535">
+                    <option selected>Selecione</option>
+                    <option value="1">Trem</option>
+                    <option value="2">Ferrovia</option>
+                </select>
+                <button type="button" class="btn btn-primary"
+                    style="border-radius: 20px; font-size: 20px;">Cadastrar</button>
+            </div>
+        </div>
+        <div class="sensores" style="margin-top: 80px; justify-self: center; width: 80%; height: 390px;">
+            <span style="font-size: 25px; font-weight: 700;">Sensores cadastrados:</span>
+            <div class="container-maior">
+                <div class="d-flex mt-3 mb-3 gap-5" style="align-items: center;">
+                    <h5 class="ms-5 mb-0" style="font-weight: 700">Busque:</h5>
+                    <div class="d-flex align-items-center gap-2">
+                        <span style="font-size: 20px;">Status</span>
+                        <select class="form-select"
+                            style="max-width: 120px; border-radius: 0%; border: 1px solid #353535; align-self: center;">
+                            <option selected>Selecione</option>
+                            <option value="1">Ativo</option>
+                            <option value="2">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <span style="font-size: 20px;">ID</span>
+                        <input type="text" class="form-control" placeholder="Insira o ID do Sensor"
+                            style="width: 300px; border-radius: 0%; border: 1px solid #353535">
+                    </div>
+                </div>
+                <div class="d-flex mt-5 mb-3 gap-5" style="align-items: center;">
+                    <div class="ms-5 gap-2">
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre01</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre02</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre03</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre03</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre04</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre05</p>
+                    </div>
+                    <div class="ms-2 gap-2">
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_VELOCIDADE_01</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_VELOCIDADE_02</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_TEMPERATURA_01</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_TEMPERATURA_02</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_FALHA_03</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_TANQUE_01</p>
+                    </div>
+                    <div class="ms-2 gap-2">
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: ve1</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: ve2</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: te1</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: te2</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: trefa3</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: ga1</p>
+                    </div>
+                    <div class="ms-2 gap-2">
+                        <p style="font-size: 20px; margin-bottom: 8px;">Tipo: Velocidade</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Tipo: Velocidade</p>
+                        <p style="font-size: 20px; margin-bottom: 47px;">Tipo: Temperatura</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Tipo: Falhas</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Tipo: Gasolina</p>
+                    </div>
+                    <div class="ms-2 gap-2" style="text-align: center">
+                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">INATIVO</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
+                    </div>
+                    <div class="ms-auto me-5">
+                        <div class="d-flex gap-1 mb-2">
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Desativar Sensor</button>
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Atualizar</button>
+                        </div>
+                        <div class="d-flex gap-1 mb-2">
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Desativar Sensor</button>
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Atualizar</button>
+                        </div>
+                        <div class="d-flex gap-1 mb-2">
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Desativar Sensor</button>
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Atualizar</button>
+                        </div>
+                        <div class="d-flex gap-1 mb-2">
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Ativar Sensor</button>
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Atualizar</button>
+                        </div>
+                        <div class="d-flex gap-1 mb-2">
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Desativar Sensor</button>
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Atualizar</button>
+                        </div>
+                        <div class="d-flex gap-1 mb-2">
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Desativar Sensor</button>
+                            <button style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
+                                Atualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
 </body>
 
