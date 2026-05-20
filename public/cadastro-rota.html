@@ -91,24 +91,24 @@
 
                 <p style="font-size: 18px;">Nome:</p>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Insira o Nº da rota"
+                    <input type="text" id="nome" class="form-control" placeholder="Insira o Nº da rota"
                         style="margin-top: 15px; max-width: 300px; border-radius: 0%; border: 1px solid #353535">
                 </div>
 
                 <p style="font-size: 18px;">Saída:</p>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Insira a saída"
+                    <input type="text" id="saida" class="form-control" placeholder="Insira a saída"
                         style="margin-top: 15px; max-width: 300px; border-radius: 0%; border: 1px solid #353535">
                 </div>
 
                 <p style="font-size: 18px;">Destino:</p>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Insira o destino"
+                    <input type="text" id="destino" class="form-control" placeholder="Insira o destino"
                         style="margin-top: 15px; max-width: 300px; border-radius: 0%; border: 1px solid #353535">
                 </div>
 
                 <button type="button" class="btn btn-primary"
-                    style="border-radius: 20px; font-size: 20px;">Cadastrar</button>
+                    style="border-radius: 20px; font-size: 20px;" onclick="cadastroRota()">Cadastrar</button>
 
             </div>
 
@@ -140,6 +140,7 @@
 
     </main>
 
+    <script src="../scripts/cadastro-rota.js"></script>
 
 </body>
 
