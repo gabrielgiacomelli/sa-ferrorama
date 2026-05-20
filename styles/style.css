@@ -10,13 +10,6 @@ body {
     background-color: rgb(200, 251, 255) !important;
 }
 
-/*Cabeçalho do index, cor cinza claro, com a borda azul em baixo e sem espaçamento interno*/
-.header_index {
-    background-color: rgb(223, 223, 223);
-    border-bottom: 15px solid #2f80ed;
-    padding: 0;
-}
-
 /* efeito ao sair */
 .fade-out {
     opacity: 0;
@@ -727,7 +720,7 @@ td:hover {
     justify-content: space-between;
     gap: 25px;
     padding: 20px 50px 20px 50px;
-    width: 55%;
+    width: 70%;
     height: 70px;
     border-radius: 20px;
     border: 2px solid #242424;
