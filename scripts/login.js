@@ -1,29 +1,18 @@
-document.getElementById("FormLogin").addEventListener("submit", function (e) {
-
-    e.preventDefault();
-
-    let email = document.getElementById("email").value;
-    let senha = document.getElementById("senha").value;
-    let erro = document.getElementById("problema");
-
-    let emailCorreto = "adm@gmail.com";
-    let senhaCorreta = "1234";
-
-    if (email === "" || senha === "") {
-        erro.textContent = "Preencha todos os campos!";
-        return;
+function createPopup(id){
+    let popupNode = document.querySelector(id);
+    let overlay = popupNode.querySelector(".overlay");
+    let closeBtn = popupNode.querySelector(".close-btn");
+    let telahome = popupNode.querySelector(".fechar-popup");
+    function openPopup(){
+        popupNode.classList.add("active");
     }
-
-    if (email !== emailCorreto || senha !== senhaCorreta) {
-        erro.textContent = "Email ou senha incorretos!";
-        return;
+    function closePopup(){
+        popupNode.classList.remove("active");
     }
-
-    window.location.href = "home.html";
-
-
-});
-
-function esqueceuSenha() {
-    alert("Entre em contato com o suporte para recuperar sua senha.");
+    overlay.addEventListener("click", closePopup);
+    closeBtn.addEventListener("click", closePopup);
+    return openPopup;
 }
+
+let popup = createPopup("#popup");
+document.querySelector("#open-popup").addEventListener("click", popup);

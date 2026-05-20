@@ -762,3 +762,94 @@ td:hover {
     width: 55%;
     height: 390px;
 }
+
+
+/* POPUP DE SAIR DO SITE */
+
+.popup{
+    position: fixed;
+    top: -100vh;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: top 0ms ease-in-out 300ms;
+}
+
+.popup .overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 100ms ease-in-out 200ms;
+}
+.popup .popup-content{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.15);
+    width: 95%;
+    max-width: 350px;
+    background: #fff;
+    padding: 25px;
+    border-radius:20px;
+    opacity: 0;
+    box-shadow: 0px 2px 2px 5px rgba(0, 78, 245, 0.5);
+    transition: all 300ms ease-in-out;
+}
+.popup .popup-content h2{
+    margin: 10px 0px;
+    font-size: 25px;
+    color: #111;
+    text-align: center;
+    font-weight: bold;
+}
+
+.popup .popup-content h6{
+    margin: -5%;
+    color: #222;
+    font-size: 12px;
+    text-align: center;
+}
+
+.popup .popup-content p{
+    margin: 15px 0px;
+    color: #222;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.popup .popup-content .controls{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    font-size: 18px;
+}
+
+.popup.active{
+    top:0px;
+    transition:top 0ms ease-in-out 0ms;
+}
+
+.popup.active .overlay{
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+}
+.popup.active .popup-content{
+    transform: translate(-50%, 50%) scale(1);
+    opacity: 1;
+}
+
+.close-btn:hover {
+    font-weight: bold;
+}
+
+.fechar-popup:hover{
+    font-weight: bold;
+}

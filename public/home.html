@@ -72,7 +72,7 @@
             </div>
             <div class="sair-headder">
                 <img id="img-3" src="../assets/img/img_3.png" alt="Imagem sair">
-                <a id="sair" class="nav-link mx-lg-2" href="">Sair</a>
+                <button id="open-popup" class="nav-link mx-lg-2">Sair</button>
             </div>
         </div>
         </div>
@@ -81,6 +81,19 @@
     <!-- Fim do header -->
 
     <main>
+        <!-- POPUP DE SAIR (overlay) -->
+            <div class="popup" id="popup">
+                <div class="overlay"></div>
+                    <div class="popup-content">
+                        <h2>Aviso</h2>
+                        <p>Você deseja sair da sua conta?</p>
+                        <h6>(Seu progresso será salvo automaticamente)</h6>
+                            <div class="controls">
+                                <button class="fechar-popup nav-link mx-lg-2" onclick="window.location.href='login.html'">Sim</button>
+                                <button class="close-btn nav-link mx-lg-2">Não</button>
+                            </div>
+                    </div>
+            </div>
         <!-- Tela principal -->
         <div class="container-principal">
             <!-- Mensagem de bem vindo -->
@@ -332,6 +345,7 @@
 
     <!-- Scripts -->
     <script src="../scripts/calendario.js"></script>
+    <script src="../scripts/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
