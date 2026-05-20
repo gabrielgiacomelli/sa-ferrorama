@@ -11,7 +11,7 @@
 </head>
 
 <body class="body_index">
-    
+
     <main>
         <!-- Main com imagem clicável, redireciona para a página de login -->
         <a href="public/login.html">
@@ -25,19 +25,19 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-        <script>
-  document.getElementById('login-link').addEventListener('click', function (e) {
-    e.preventDefault(); // impede navegação imediata
+    <script>
+        document.getElementById('login-link').addEventListener('click', function (e) {
+            e.preventDefault(); // impede navegação imediata
 
-    const img = this;
-    img.classList.add('animate'); // dispara a animação CSS
+            const img = this;
+            img.classList.add('animate'); // dispara a animação CSS
 
-    // aguarda a animação terminar (600ms) antes de navegar
-    setTimeout(() => {
-      window.location.href = 'public/login.html';
-    }, 600);
-  });
-</script>
+            // aguarda a animação terminar (600ms) antes de navegar
+            setTimeout(() => {
+                window.location.href = 'public/login.html';
+            }, 600);
+        });
+    </script>
 
 </body>
 
