@@ -15,7 +15,7 @@
 
 **Primeira Etapa:**
 
-##### Gabriel - Criação do index e tela de login
+##### Gabriel - Elaboração da tela index  e  a tela de login
 
 ##### Henrique e Lucas - Criação do README
 
