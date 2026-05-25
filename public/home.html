@@ -16,12 +16,12 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand me-auto">
-                <img class="logo navbar-brand me-auto" src="../icons/logo.png" alt="LOGO">
+                <img class="logo navbar-brand me-auto" src="../assets/icons/logo.png" alt="LOGO">
             </a>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <img class="logo" src="../icons/logo.png" alt="LOGO">
+                    <img class="logo" src="../assets/icons/logo.png" alt="LOGO">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="sair-headder">
-                <img id="img-3" src="../icons/sair.png" alt="Imagem sair">
+                <img id="img-3" src="../assets/icons/sair.png" alt="Imagem sair">
                 <button id="open-popup" class="nav-link mx-lg-2">Sair</button>
             </div>
         </div>
@@ -90,20 +90,6 @@
     <!-- Fim do header -->
 
     <main>
-        <!-- POPUP DE SAIR (overlay) -->
-        <div class="popup" id="popup">
-            <div class="overlay"></div>
-            <div class="popup-content">
-                <h2>Aviso</h2>
-                <p>Você deseja sair da sua conta?</p>
-                <h6>(Seu progresso será salvo automaticamente)</h6>
-                <div class="controls">
-                    <button class="fechar-popup nav-link mx-lg-2"
-                        onclick="window.location.href='login.html'">Sim</button>
-                    <button class="close-btn nav-link mx-lg-2">Não</button>
-                </div>
-            </div>
-        </div>
         <!-- Tela principal -->
         <div class="container-principal">
             <!-- Mensagem de bem vindo -->
@@ -238,7 +224,7 @@
                     <div>
                         <p id="texto-clima">Clima e previsão do tempo</p>
                         <div class="conteudo-clima">
-                            <img id="icone-sol" src="../icons/temperatura.png" alt="Icone do sol">
+                            <img id="icone-sol" src="../assets/icons/temperatura.png" alt="Icone do sol">
 
                             <div id="dados-clima">
                                 <div class="flexivel">
@@ -281,7 +267,7 @@
                             <p id="meio-ambiente">Planeta e Meio Ambiente</p>
 
                             <div class="conteudo-meio-ambiente">
-                                <img src="../icons/ambiente.png" alt="Imagem de meio ambiente" id="img-meio-ambiente">
+                                <img src="../assets/icons/ambiente.png" alt="Imagem de meio ambiente" id="img-meio-ambiente">
 
                                 <div class="textos-meio-ambiente">
                                     <div>
@@ -315,7 +301,7 @@
                             <div class="flexivel">
 
                                 <div class="flexivel padding-amarelo">
-                                    <img class="img-ferrovia" src="../assets/img/info1.png" alt="Imagem de trens">
+                                    <img class="img-ferrovia" src="../assets/img/imagem_de_trens_na_ferrovia.jpg" alt="Imagem de trens">
                                     </img>
                                     
                                     <div class="amarelo-ferrovia">
@@ -326,7 +312,7 @@
 
 
                                 <div class="flexivel padding-amarelo">
-                                    <img class="img-ferrovia" src="../assets/img/info1.png" alt="Imagem trilho de trem">
+                                    <img class="img-ferrovia" src="../assets/img/imagem_trilhos_de_trem.jpg" alt="Imagem trilho de trem">
                                     </img>
 
                                     <div class="amarelo-ferrovia">
@@ -342,7 +328,7 @@
 
                                 <div class="flexivel padding-amarelo">
 
-                                    <img class="img-ferrovia" src="../assets/img/info2.png" alt="Imagem de trem">
+                                    <img class="img-ferrovia" src="../assets/img/imagem_trem_parado.jpg" alt="Imagem de trem">
                                     </img>
 
                                     <div class="amarelo-ferrovia">
@@ -357,7 +343,7 @@
 
                                 <div class="flexivel padding-amarelo">
 
-                                    <img class="img-ferrovia" src="../assets/img/info2.png"
+                                    <img class="img-ferrovia" src="../assets/img/funcionarios.jpg"
                                         alt="Imagem de funcionarios">
                                     </img>
 
@@ -378,8 +364,21 @@
                 </div>
             </div>
         </div>
-    </main>
-
+</main>
+    <!-- POPUP DE SAIR (overlay) -->
+        <div class="popup" id="popup">
+            <div class="overlay"></div>
+            <div class="popup-content">
+                <h2>Aviso</h2>
+                <p>Você deseja sair da sua conta?</p>
+                <h6>(Seu progresso será salvo automaticamente)</h6>
+                <div class="controls">
+                    <button class="fechar-popup nav-link mx-lg-2"
+                        onclick="window.location.href='login.html'">Sim</button>
+                    <button class="close-btn nav-link mx-lg-2">Não</button>
+                </div>
+            </div>
+        </div>
 
     <!-- Scripts -->
     <script src="../scripts/calendario.js"></script>
