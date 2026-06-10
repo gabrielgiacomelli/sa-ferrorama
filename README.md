@@ -15,29 +15,29 @@
 
 **Primeira Etapa:**
 
-##### Gabriel - Criação do index e tela de login
+##### Gabriel - Responsável pelo desenvolvimento inicial do index e da tela de login, fazendo alguns ajustes no mockup.
 
-##### Henrique e Lucas - Criação do README
+##### Henrique e Lucas - Responsáveis por escreverem a primeira etapa do README e inserir as informações importantes sobre a equipe.
 
-##### Lara - Pesquisa PHP sobre o conceito de CRUD
+##### Lara - Responsável por realizar a pesquisa sobre o conceito de CRUD em PHP e fazer um breve resumo na pasta doc.
 
 **Segunda Etapa:**
 
-##### Gabriel e Lara - Ajustes na parte do javascript e HTML e estilização do index
+##### Gabriel e Lara - Na segunda etapa, a função da dupla era realizar a estilização do index, além de ajustar o código na parte do javascript e HTML. 
 
-##### Henrique - Pesquisa sobre SCRUM e criação da tela de visualização dos usuários
+##### Henrique - Responsável pela pesquisa sobre SCRUM, além de dar o início no desenvolvimento da tela de visualização dos usuários.
 
-##### Lucas - Criação da tela HOME 
+##### Lucas - Responsável pelo desenvolvimento e criação da tela HOME, além de fazer alguns ajustes no mockup da parte HOME. 
 
 **Terceira Etapa:**
 
-##### Gabriel - Fazer pesquisa do XAMPP
+##### Gabriel - Responsável por pesquisar e fazer um resumo na pasta doc sobre o pacote de softwares XAMPP.
 
-##### Lara - Criação das telas de cadastro
+##### Lara - Na terceira etapa, ficou responsável pela criação das telas de cadastro de sensores e trens, passando o modelo do mockup para o HTML.
 
-##### Henrique - Criação das telas de cadastro de 
+##### Henrique - Encarregado de criar as telas de cadastro de usuários e rota a partir do modelo mockup, além de fazer algumas mudanças na parte visual do site.
 
-##### Lucas - Criação das telas de visualização de sensores 
+##### Lucas - Atribuído a responsabilidade da criação da tela de visualização de sensores de acordo com o mockup.
 
 
 ## Nomenclatura:
@@ -46,7 +46,7 @@
 
 ## Objetivo:
 
-#### O objetivo de nosso sistema é simular o gerenciamento de um sistema ferroviário. Nele, constam informações como sensores, trens e suas localizações e também sobre a ferroviária.
+#### O objetivo de nosso sistema é simular o gerenciamento de um sistema ferroviário. Nele, é disponibilizado aos usuários a capacidade de acessar informações como sensores, trens e suas localizações, além de permitir o cadastro de novas informações. Em nosso sistema é possível acessar as informações em tempo real, sendo disponibilizado para o usuário uma forma de acompanhar o trajetório seguido pelos trens em nossa ferrovia e outras informações relevantes, como o clima e algumas notícias de nosso blog.
 
 ## Funcionalidades:
 

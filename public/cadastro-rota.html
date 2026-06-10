@@ -14,15 +14,15 @@
 
     <!-- Início do header -->
 
-    <nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand me-auto">
-                <img class="logo navbar-brand me-auto" src="../icons/logo.png" alt="LOGO">
+                <img class="logo navbar-brand me-auto" src="../assets/icons/logo.png" alt="LOGO">
             </a>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <img class="logo" src="../icons/logo.png" alt="LOGO">
+                    <img class="logo" src="../assets/icons/logo.png" alt="LOGO">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -50,8 +50,7 @@
 
                                 <a class="nav-link mx-lg-2" href="cadastro-sensor.html"> Cadastro de Sensores </a>
                                 <a class="nav-link mx-lg-2" href="cadastro-trem.html"> Cadastro de Trens </a>
-                                <a class="nav-link mx-lg-2 active fw-bold" href="cadastro-rota.html"> Cadastro de Rotas
-                                </a>
+                                <a class="nav-link mx-lg-2 active fw-bold " aria-current="page" href="cadastro-rota.html"> Cadastro de Rotas </a>
                                 <a class="nav-link mx-lg-2" href="cadastro-usuario.html"> Cadastro de Usuários </a>
 
                             </div>
@@ -82,7 +81,7 @@
                 </div>
             </div>
             <div class="sair-headder">
-                <img id="img-3" src="../icons/sair.png" alt="Imagem sair">
+                <img id="img-3" src="../assets/icons/sair.png" alt="Imagem sair">
                 <button id="open-popup" class="nav-link mx-lg-2">Sair</button>
             </div>
         </div>
@@ -241,10 +240,27 @@
             </div>
         </div>
 
-    </main>
-
+</main>
+    <!-- POPUP DE SAIR (overlay) -->
+        <div class="popup" id="popup">
+            <div class="overlay"></div>
+            <div class="popup-content">
+                <h2>Aviso</h2>
+                <p>Você deseja sair da sua conta?</p>
+                <h6>(Seu progresso será salvo automaticamente)</h6>
+                <div class="controls">
+                    <button class="fechar-popup nav-link mx-lg-2"
+                        onclick="window.location.href='login.html'">Sim</button>
+                    <button class="close-btn nav-link mx-lg-2">Não</button>
+                </div>
+            </div>
+        </div>
+    <!-- Scripts -->
+    <script src="../scripts/botao-sair.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
     <script src="../scripts/cadastro-rota.js"></script>
-
 </body>
-
+    
 </html>
