@@ -1,58 +1,63 @@
-# SA-Ferrorama
+NOME DO PROJETO: SA-Ferrorama
+NOME DA EQUIPE: HLGL
 
-## Sistema de Gerenciamento de Ferrovia
+INTEGRANTES:
+1. Gabriel da Costa Giacomelli
+2. Lucas Corrêa
+3. Henrique Venso
+4. Lara Emilia Guzman Baratto
 
-## Equipe:
+TURMA: 3 TDES M1
 
-##### -Gabriel da Costa Giacomelli
-##### -Henrique Venso
-##### -Lara Emilia Guzman
-##### -Lucas Siedschlag Corrêa
+IDEIA DO SISTEMA:
 
-## Responsabilidades:
+O Ferrorama é um sistema de gestão ferroviária desenvolvido para auxiliar no controle e gerenciamento de uma rede de trens. O sistema terá como foco o monitoramento de diferentes tipos de sensores, o gerenciamento de trens e rotas, além do controle dos funcionários envolvidos na operação.
 
+A proposta é centralizar essas informações em um único sistema, facilitando o acompanhamento das operações ferroviárias e permitindo que os responsáveis tenham acesso rápido aos dados necessários para o gerenciamento da rede.
+ 
 
+OBJETIVO: 
 
-**Primeira Etapa:**
+O principal objetivo do Ferrorama é desenvolver um sistema capaz de organizar e facilitar a gestão de uma operação ferroviária, permitindo o controle de trens, rotas, sensores e funcionários.
 
-##### Gabriel - Elaboração da tela index  e  a tela de login
+O sistema busca melhorar a organização das informações, facilitar o monitoramento dos sensores e auxiliar os responsáveis na tomada de decisões, proporcionando uma visão mais centralizada e eficiente das operações.
 
-##### Henrique e Lucas - Criação do README
+USUÁRIOS DO SISTEMA:
 
-##### Lara - Pesquisa PHP sobre o conceito de CRUD
+O sistema será utilizado por dois principais tipos de usuários:
 
-**Segunda Etapa:**
+Gerentes: terão acesso às funcionalidades de gerenciamento e acompanhamento do sistema, podendo administrar informações relacionadas aos trens, rotas, sensores e funcionários.
 
-##### Gabriel e Lara - Ajustes na parte do javascript e HTML e estilização do index
-
-##### Henrique - Pesquisa sobre SCRUM e criação da tela de visualização dos usuários
-
-##### Lucas - Criação da tela HOME 
-
-**Terceira Etapa:**
-
-##### Gabriel - Fazer pesquisa do XAMPP
-
-##### Lara - Criação das telas de cadastro
-
-##### Henrique - Criação das telas de cadastro de 
-
-##### Lucas - Criação das telas de visualização de sensores 
+Funcionários: terão acesso às funcionalidades necessárias para realizar suas atividades dentro do sistema, podendo consultar e acompanhar informações relacionadas à operação ferroviária, de acordo com suas permissões.
 
 
-## Nomenclatura:
+FUNCIONALIDADES:
+- 
+- 
+- 
+- 
 
-##### Snake Case (Ex:lucas_siedschlag)
+TECNOLOGIAS:
+- 
+- 
+- 
 
-## Objetivo:
+ESTRUTURA DE PASTAS:
 
-#### O objetivo de nosso sistema é simular o gerenciamento de um sistema ferroviário. Nele, constam informações como sensores, trens e suas localizações e também sobre a ferroviária.
+DIVISÃO DE RESPONSABILIDADES:
+- Gabriel: 
+- Lucas:
+- Henrique:
+- Lara:
 
-## Funcionalidades:
+IDENTIDADE VISUAL:
+Cores:
+Fonte:
+Estilo:
+Logo:
+Referências:
 
-| ID | Descrição do Requisito | Tipo | Prioridade |
-| :--- | :--- | :--- | :--- |
-| **RF01** | O sistema deve permitir que o utilizador realize o login no sistema. | Funcional | Alta |
-| **RF02** | O sistema deve permitir que o utilizador se registe no sistema. | Funcional | Alta |
+CRUD:
+O CRUD será utilizado para: Organização de tarefas, melhorias no site e projeto e implementação de estruturas de segurança.
 
 
