@@ -58,7 +58,7 @@ Entre as principais funcionalidades previstas para o sistema estão:
 
 ---
 
-## 💻 Tecnologias
+##  Tecnologias
 
 O projeto será desenvolvido utilizando as seguintes tecnologias:
 
