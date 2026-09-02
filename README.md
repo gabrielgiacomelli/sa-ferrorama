@@ -3,15 +3,6 @@
 **Equipe:** HLGL
 **Turma:** 3 TDES M1
 
-##  Integrantes
-
-* Gabriel da Costa Giacomelli
-* Lucas Corrêa
-* Henrique Venso
-* Lara Emilia Guzman Baratto
-
----
-
 ##  Sobre o Projeto
 
 O **SA-Ferrorama** é um sistema de gestão ferroviária desenvolvido para auxiliar no controle e gerenciamento de uma rede de trens. O sistema tem como foco o monitoramento de diferentes tipos de sensores, o gerenciamento de trens e rotas e o controle dos funcionários envolvidos na operação.
