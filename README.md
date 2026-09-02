@@ -153,7 +153,7 @@ conexao.php
 * Pesquisa sobre CRUD em PHP;
 * Produção de documentação na pasta `doc`.
 
-### 🔹 Segunda Etapa
+### Segunda Etapa
 
 **Gabriel e Lara**
 
@@ -170,7 +170,7 @@ conexao.php
 * Desenvolvimento da tela Home;
 * Ajustes no mockup da Home.
 
-### 🔹 Terceira Etapa
+### Terceira Etapa
 
 **Gabriel**
 
