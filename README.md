@@ -185,11 +185,11 @@ conexao.php
 
 ## Identidade Visual
 
-A identidade visual do **SA-Ferrorama** será desenvolvida com base no conceito ferroviário e tecnológico do sistema, buscando transmitir organização, segurança, tecnologia e eficiência.
+A identidade visual do **SA-Ferrorama** será desenvolvida com base no conceito minimalista, geométrica e digital. Com foco em transmitir segurança, conhecimento e informação.
 
 ###  Cores
 
-A paleta de cores será definida considerando a temática ferroviária e a necessidade de proporcionar uma boa experiência de uso e leitura.
+A paleta de cores é composta por variações de tons azuis profundos (marinho e cobalto) sobre uma base clara e limpa, inspirada na solidez do setor ferroviário e projetada estrategicamente para garantir alto contraste, legibilidade ideal e uma experiência visual fluida e profissional no portal.
 
 ###  Tipografia
 
@@ -201,11 +201,7 @@ O sistema terá uma proposta visual **moderna, organizada e tecnológica**, util
 
 ###  Logo
 
-A identidade do projeto contará com uma representação visual relacionada ao conceito de ferrovias, trens e gerenciamento.
-
-###  Referências
-
-As referências visuais serão utilizadas para definir elementos como disposição dos componentes, cores, tipografia, navegação e organização das informações, servindo como base para a criação do layout do sistema.
+A identidade do projeto contará com uma representação visual relacionada às inciais de cada integrante da equipe.
 
 ---
 

@@ -32,7 +32,7 @@
             const img = this;
             img.classList.add('animate'); // dispara a animação CSS
 
-            // aguarda a animação terminar (600ms) antes de navegar
+            // Aguarda a animação terminar (600ms) antes de navegar
             setTimeout(() => {
                 window.location.href = 'public/login.html';
             }, 600);
