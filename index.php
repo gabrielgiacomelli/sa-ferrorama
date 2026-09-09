@@ -1,3 +1,8 @@
+<?php
+
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,6 +10,15 @@
     <title> Página Inicial </title>
 </head>
 <body>
-    
+
+    <main>
+        
+
+
+
+
+
+    </main>
+
 </body>
 </html>
