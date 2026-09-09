@@ -28,16 +28,16 @@
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="home.html">Home</a>
+                            <a class="nav-link mx-lg-2" href="home.php">Home</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-lg-2">Sensores</a>
 
                             <div class="dropdown-menu">
-                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.html"> Visualizar Sensores Ferrovia
+                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.php"> Visualizar Sensores Ferrovia
                                 </a>
-                                <a class="nav-link mx-lg-2" href="sensores-trem.html"> Visualizar Sensores Trem </a>
+                                <a class="nav-link mx-lg-2" href="sensores-trem.php"> Visualizar Sensores Trem </a>
                             </div>
 
                         </li>
@@ -47,17 +47,17 @@
 
                             <div class="dropdown-menu">
 
-                                <a class="nav-link mx-lg-2" href="cadastro-sensor.html"> Cadastro de Sensores </a>
-                                <a class="nav-link mx-lg-2" href="cadastro-trem.html"> Cadastro de Trens </a>
-                                <a class="nav-link mx-lg-2" href="cadastro-rota.html"> Cadastro de Rotas </a>
-                                <a class="nav-link mx-lg-2" href="cadastro-usuario.html"> Cadastro de Usuários </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-sensor.php"> Cadastro de Sensores </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-trem.php"> Cadastro de Trens </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-rota.php"> Cadastro de Rotas </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-usuario.php"> Cadastro de Usuários </a>
 
                             </div>
 
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="monitoramento.html">Monitoramento</a>
+                            <a class="nav-link mx-lg-2" href="monitoramento.php">Monitoramento</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -65,15 +65,15 @@
 
                             <div class="dropdown-menu">
 
-                                <a class="nav-link mx-lg-2" href="cadastro-relatorio.html"> Cadastro de Relatórios </a>
-                                <a class="nav-link mx-lg-2" href="relatorios.html"> Visualizar Relatórios </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-relatorio.php"> Cadastro de Relatórios </a>
+                                <a class="nav-link mx-lg-2" href="relatorios.php"> Visualizar Relatórios </a>
 
                             </div>
 
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2 active fw-bold" aria-current="page" href="usuarios.html">Usuários</a>
+                            <a class="nav-link mx-lg-2 active fw-bold" aria-current="page" href="usuarios.php">Usuários</a>
                         </li>
 
                     </ul>
@@ -147,7 +147,7 @@
                 <h6>(Seu progresso será salvo automaticamente)</h6>
                 <div class="controls">
                     <button class="fechar-popup nav-link mx-lg-2"
-                        onclick="window.location.href='login.html'">Sim</button>
+                        onclick="window.location.href='login.php'">Sim</button>
                     <button class="close-btn nav-link mx-lg-2">Não</button>
                 </div>
             </div>
