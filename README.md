@@ -66,42 +66,65 @@ O projeto será desenvolvido utilizando as seguintes tecnologias:
 
 ##  Estrutura do Projeto
 
+## 📁 Estrutura do Projeto
+
 ```text
-SA-Ferrorama/
+SA-FERRORAMA/
 │
 ├── assets/
-│   ├── css/
-│   ├── js/
+│   ├── icons/
+│   │   ├── ambiente.png
+│   │   ├── logo.png
+│   │   ├── sair.png
+│   │   └── temperatura.png
+│   │
 │   └── img/
+│       ├── funcionarios.jpg
+│       ├── imagem_de_trens_na_ferrovia.jpg
+│       ├── imagem_trem_parado.jpg
+│       ├── imagem_trilhos_de_trem.jpg
+│       ├── info1.png
+│       ├── info2.png
+│       └── telainicial.png
+│
+├── database/
+│   └── db_ferorama.sql
 │
 ├── doc/
-│   └── Documentações e pesquisas
+│   ├── pesquisa_crud.md
+│   ├── pesquisa_scrum.md
+│   └── pesquisa_xampp.md
 │
 ├── infra/
-│   └── Configurações do banco de dados
+│   └── conn.php
 │
-├── pages/
-│   └── Páginas do sistema
+├── public/
+│   ├── cadastro-relatorio.php
+│   ├── cadastro-rota.php
+│   ├── cadastro-sensor.php
+│   ├── cadastro-trem.php
+│   ├── cadastro-usuario.php
+│   ├── home.php
+│   ├── login.php
+│   ├── relatorios.php
+│   ├── rota.php
+│   ├── sensores.php
+│   ├── trem.php
+│   └── usuarios.php
+│
+├── scripts/
+│   ├── botao-sair.js
+│   ├── cadastro-rota.js
+│   ├── calendario.js
+│   └── login.js
+│
+├── styles/
 │
 ├── index.php
+├── navbar.php
+├── LICENSE
 └── README.md
 ```
-
-###  Organização das Pastas
-
-| Pasta/Arquivo | Descrição                                               |
-| ------------- | ------------------------------------------------------- |
-| `assets/`     | Arquivos utilizados pela interface do sistema           |
-| `assets/css/` | Arquivos de estilização                                 |
-| `assets/js/`  | Scripts JavaScript                                      |
-| `assets/img/` | Imagens e recursos visuais                              |
-| `doc/`        | Documentações, pesquisas e materiais do projeto         |
-| `infra/`      | Arquivos relacionados à infraestrutura e banco de dados |
-| `pages/`      | Páginas e telas do sistema                              |
-| `index.php`   | Página inicial do sistema                               |
-| `README.md`   | Documentação principal do projeto                       |
-
----
 
 ##  Padrão de Nomenclatura
 
@@ -116,11 +139,11 @@ Para manter o projeto organizado e facilitar o trabalho colaborativo, serão ado
 
 Exemplos:
 
-```text
+
 cadastro_usuario.php
 visualizar_trens.php
 conexao.php
-```
+
 
 ---
 
