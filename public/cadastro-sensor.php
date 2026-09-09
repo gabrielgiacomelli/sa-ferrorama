@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Trem</title>
+    <title>Cadastro de Sensores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
+
 </head>
 
 <body id="body2">
-    <nav class="navbar navbar-expand-lg">
+
+    <!-- Início do header -->
+
+<nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand me-auto">
                 <img class="logo navbar-brand me-auto" src="../assets/icons/logo.png" alt="LOGO">
@@ -25,16 +29,16 @@
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="home.html">Home</a>
+                            <a class="nav-link mx-lg-2" href="home.php">Home</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-lg-2">Sensores</a>
 
                             <div class="dropdown-menu">
-                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.html"> Visualizar Sensores Ferrovia
+                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.php"> Visualizar Sensores Ferrovia
                                 </a>
-                                <a class="nav-link mx-lg-2" href="sensores-trem.html"> Visualizar Sensores Trem </a>
+                                <a class="nav-link mx-lg-2" href="sensores-trem.php"> Visualizar Sensores Trem </a>
                             </div>
 
                         </li>
@@ -44,17 +48,17 @@
 
                             <div class="dropdown-menu">
 
-                                <a class="nav-link mx-lg-2" href="cadastro-sensor.html"> Cadastro de Sensores </a>
-                                <a class="nav-link mx-lg-2 active fw-bold" aria-current="page" href="cadastro-trem.html"> Cadastro de Trens </a>
-                                <a class="nav-link mx-lg-2" href="cadastro-rota.html"> Cadastro de Rotas </a>
-                                <a class="nav-link mx-lg-2" href="cadastro-usuario.html"> Cadastro de Usuários </a>
+                                <a class="nav-link mx-lg-2 active fw-bold" aria-current="page" href="cadastro-sensor.php "> Cadastro de Sensores </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-trem.php"> Cadastro de Trens </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-rota.php"> Cadastro de Rotas </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-usuario.php"> Cadastro de Usuários </a>
 
                             </div>
 
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="monitoramento.html">Monitoramento</a>
+                            <a class="nav-link mx-lg-2" href="monitoramento.php">Monitoramento</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -62,15 +66,15 @@
 
                             <div class="dropdown-menu">
 
-                                <a class="nav-link mx-lg-2" href="cadastro-relatorio.html"> Cadastro de Relatórios </a>
-                                <a class="nav-link mx-lg-2" href="relatorios.html"> Visualizar Relatórios </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-relatorio.php"> Cadastro de Relatórios </a>
+                                <a class="nav-link mx-lg-2" href="relatorios.php"> Visualizar Relatórios </a>
 
                             </div>
 
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="usuarios.html">Usuários</a>
+                            <a class="nav-link mx-lg-2" href="usuarios.php">Usuários</a>
                         </li>
 
                     </ul>
@@ -86,13 +90,12 @@
 
     <main>
         <div>
-            <div class="container-menor" style="margin-top: 150px; justify-self: center;">
+            <div class="container-menor2" style="margin-top: 150px; justify-self: center;">
                 <p style="font-size: 18px;">Nome:</p>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Insira o Nº do Trem"
-                        style="margin-top: 15px; max-width: 80%; border-radius: 0%; border: 1px solid #353535">
+                    <input type="text" class="form-control" placeholder="Insira o Nome do Sensor"
+                        style="margin-top: 15px; max-width: 70%; border-radius: 0%; border: 1px solid #353535">
                     </input>
-
                 </div>
                 <p style="font-size: 18px;">Tipo:</p>
                 <select class="form-select" style="max-width: 120px; border-radius: 0%; border: 1px solid #353535">
@@ -112,8 +115,8 @@
                     style="border-radius: 20px; font-size: 20px;">Cadastrar</button>
             </div>
         </div>
-        <div class="trens" style="margin-top: 80px; justify-self: center; width: 70%;">
-            <span style="font-size: 25px; font-weight: 700;">Trens cadastrados:</span>
+        <div class="sensores" style="margin-top: 80px; justify-self: center; width: 80%; height: 390px;">
+            <span style="font-size: 25px; font-weight: 700;">Sensores cadastrados:</span>
             <div class="container-maior">
                 <div class="d-flex mt-3 mb-3 gap-5" style="align-items: center;">
                     <h5 class="ms-5 mb-0" style="font-weight: 700">Busque:</h5>
@@ -128,57 +131,56 @@
                     </div>
                     <div class="d-flex align-items-center gap-3">
                         <span style="font-size: 20px;">ID</span>
-                        <input type="text" class="form-control" placeholder="Insira o ID do Trem"
+                        <input type="text" class="form-control" placeholder="Insira o ID do Sensor"
                             style="width: 300px; border-radius: 0%; border: 1px solid #353535">
                         </input>
                     </div>
                 </div>
                 <div class="d-flex mt-5 mb-3 gap-5" style="align-items: center;">
                     <div class="ms-5 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro01</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro02</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro03</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro04</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro05</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro06</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre01</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre02</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre03</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre03</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre04</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem ID: tre05</p>
                     </div>
                     <div class="ms-2 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_01</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_02</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_03</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_04</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_05</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_06</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_VELOCIDADE_01</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_VELOCIDADE_02</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_TEMPERATURA_01</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_TEMPERATURA_02</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_FALHA_03</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">SENSOR_TREM_TANQUE_01</p>
                     </div>
                     <div class="ms-2 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre01</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre02</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre03</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre04</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre05</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre06</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: ve1</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: ve2</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: te1</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: te2</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: trefa3</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Sensor ID: ga1</p>
                     </div>
                     <div class="ms-2 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 15</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 100</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 15</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 100</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 24</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 100</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Tipo: Velocidade</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Tipo: Velocidade</p>
+                        <p style="font-size: 20px; margin-bottom: 47px;">Tipo: Temperatura</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Tipo: Falhas</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Tipo: Gasolina</p>
                     </div>
                     <div class="ms-2 gap-2" style="text-align: center">
                         <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
                         <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
                         <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
                         <p style="font-size: 20px; margin-bottom: 8px;">INATIVO</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
                         <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
                     </div>
                     <div class="ms-auto me-5">
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Trem</button>
+                                Desativar Sensor</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -186,7 +188,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Trem</button>
+                                Desativar Sensor</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -194,7 +196,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Trem</button>
+                                Desativar Sensor</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -202,7 +204,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Trem</button>
+                                Ativar Sensor</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -210,7 +212,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Ativar Trem</button>
+                                Desativar Sensor</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -218,7 +220,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Trem</button>
+                                Desativar Sensor</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -227,7 +229,6 @@
                 </div>
             </div>
         </div>
-
 </main>
     <!-- POPUP DE SAIR (overlay) -->
         <div class="popup" id="popup">
@@ -238,7 +239,7 @@
                 <h6>(Seu progresso será salvo automaticamente)</h6>
                 <div class="controls">
                     <button class="fechar-popup nav-link mx-lg-2"
-                        onclick="window.location.href='login.html'">Sim</button>
+                        onclick="window.location.href='login.php'">Sim</button>
                     <button class="close-btn nav-link mx-lg-2">Não</button>
                 </div>
             </div>
@@ -249,7 +250,5 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 </body>
-
     
-
 </html>

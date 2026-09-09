@@ -1,44 +1,102 @@
-<html lang="en">
+<?php
 
+
+?>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/style.css">
-
+    <title> Página Inicial </title>
 </head>
-
-<body class="body_index">
+<body>
 
     <main>
-        <!-- Main com imagem clicável, redireciona para a página de login -->
-        <a href="public/login.html">
+        <body id="body2">
 
-            <!-- Imagem principal da tela inicial -->
-            <img id="login-link" src="assets/img/telainicial.png" alt="Imagem Tela Inicial">
+    <!-- Início do header -->
 
-        </a>
+<nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto">
+                <img class="logo navbar-brand me-auto" src="../assets/icons/logo.png" alt="LOGO">
+            </a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <img class="logo" src="../assets/icons/logo.png" alt="LOGO">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="home.php">Home</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-lg-2">Sensores</a>
+
+                            <div class="dropdown-menu">
+                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.php"> Visualizar Sensores Ferrovia
+                                </a>
+                                <a class="nav-link mx-lg-2" href="sensores-trem.php"> Visualizar Sensores Trem </a>
+                            </div>
+
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-lg-2">Cadastro</a>
+
+                            <div class="dropdown-menu">
+
+                                <a class="nav-link mx-lg-2" href="cadastro-sensor.php"> Cadastro de Sensores </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-trem.php"> Cadastro de Trens </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-rota.php"> Cadastro de Rotas </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-usuario.php"> Cadastro de Usuários </a>
+
+                            </div>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="monitoramento.php">Monitoramento</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-lg-2 active fw-bold" aria-current="page">Relatorios</a>
+
+                            <div class="dropdown-menu">
+
+                                <a class="nav-link mx-lg-2 active fw-bold" aria-current="page" href="cadastro-relatorio.php"> Cadastro de Relatórios </a>
+                                <a class="nav-link mx-lg-2" href="relatorios.php"> Visualizar Relatórios </a>
+
+                            </div>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="usuarios.php">Usuários</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="sair-headder">
+                <img id="img-3" src="../assets/icons/sair.png" alt="Imagem sair">
+                <button id="open-popup" class="nav-link mx-lg-2">Sair</button>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!-- Fim do header -->
+
+
+
+
+
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-
-    <script>
-        document.getElementById('login-link').addEventListener('click', function (e) {
-            e.preventDefault(); // impede navegação imediata
-
-            const img = this;
-            img.classList.add('animate'); // dispara a animação CSS
-
-            // Aguarda a animação terminar (600ms) antes de navegar
-            setTimeout(() => {
-                window.location.href = 'public/login.html';
-            }, 600);
-        });
-    </script>
 
 </body>
-
 </html>

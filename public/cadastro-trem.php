@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Rotas</title>
+    <title>Cadastro Trem</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
-
 </head>
 
 <body id="body2">
-
-    <!-- Início do header -->
-
-<nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand me-auto">
                 <img class="logo navbar-brand me-auto" src="../assets/icons/logo.png" alt="LOGO">
@@ -29,16 +25,16 @@
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="home.html">Home</a>
+                            <a class="nav-link mx-lg-2" href="home.php">Home</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-lg-2">Sensores</a>
 
                             <div class="dropdown-menu">
-                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.html"> Visualizar Sensores Ferrovia
+                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.php"> Visualizar Sensores Ferrovia
                                 </a>
-                                <a class="nav-link mx-lg-2" href="sensores-trem.html"> Visualizar Sensores Trem </a>
+                                <a class="nav-link mx-lg-2" href="sensores-trem.php"> Visualizar Sensores Trem </a>
                             </div>
 
                         </li>
@@ -48,17 +44,17 @@
 
                             <div class="dropdown-menu">
 
-                                <a class="nav-link mx-lg-2" href="cadastro-sensor.html"> Cadastro de Sensores </a>
-                                <a class="nav-link mx-lg-2" href="cadastro-trem.html"> Cadastro de Trens </a>
-                                <a class="nav-link mx-lg-2 active fw-bold " aria-current="page" href="cadastro-rota.html"> Cadastro de Rotas </a>
-                                <a class="nav-link mx-lg-2" href="cadastro-usuario.html"> Cadastro de Usuários </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-sensor.php"> Cadastro de Sensores </a>
+                                <a class="nav-link mx-lg-2 active fw-bold" aria-current="page" href="cadastro-trem.php"> Cadastro de Trens </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-rota.php"> Cadastro de Rotas </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-usuario.php"> Cadastro de Usuários </a>
 
                             </div>
 
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="monitoramento.html">Monitoramento</a>
+                            <a class="nav-link mx-lg-2" href="monitoramento.php">Monitoramento</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -66,15 +62,15 @@
 
                             <div class="dropdown-menu">
 
-                                <a class="nav-link mx-lg-2" href="cadastro-relatorio.html"> Cadastro de Relatórios </a>
-                                <a class="nav-link mx-lg-2" href="relatorios.html"> Visualizar Relatórios </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-relatorio.php"> Cadastro de Relatórios </a>
+                                <a class="nav-link mx-lg-2" href="relatorios.php"> Visualizar Relatórios </a>
 
                             </div>
 
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="usuarios.html">Usuários</a>
+                            <a class="nav-link mx-lg-2" href="usuarios.php">Usuários</a>
                         </li>
 
                     </ul>
@@ -88,44 +84,36 @@
         </div>
     </nav>
 
-    <!-- Fim do header -->
-
     <main>
-
-        <!--Início do campo de cadastro de rotas-->
-
         <div>
             <div class="container-menor" style="margin-top: 150px; justify-self: center;">
                 <p style="font-size: 18px;">Nome:</p>
                 <div class="input-group mb-3">
-                    <input type="text" id="nome" class="form-control" placeholder="Insira o Nº da rota"
-                        style="margin-top: 15px; max-width: 300px; border-radius: 0%; border: 1px solid #353535">
+                    <input type="text" class="form-control" placeholder="Insira o Nº do Trem"
+                        style="margin-top: 15px; max-width: 80%; border-radius: 0%; border: 1px solid #353535">
                     </input>
-                </div>
 
-                <p style="font-size: 18px;">Saída:</p>
-                <div class="input-group mb-3">
-                    <input type="text" id="saida" class="form-control" placeholder="Insira a saída"
-                        style="margin-top: 15px; max-width: 300px; border-radius: 0%; border: 1px solid #353535">
-                    </input>
                 </div>
-
-                <p style="font-size: 18px;">Destino:</p>
-                <div class="input-group mb-3">
-                    <input type="text" id="destino" class="form-control" placeholder="Insira o destino"
-                        style="margin-top: 15px; max-width: 300px; border-radius: 0%; border: 1px solid #353535">
-                    </input>
-                </div>
-
+                <p style="font-size: 18px;">Tipo:</p>
+                <select class="form-select" style="max-width: 120px; border-radius: 0%; border: 1px solid #353535">
+                    <option selected>Selecione</option>
+                    <option value="1">Velocidade</option>
+                    <option value="2">Temperatura</option>
+                    <option value="3">Falhas</option>
+                    <option value="4">Gasolina</option>
+                </select>
+                <p style="font-size: 18px;">Instalação:</p>
+                <select class="form-select" style="max-width: 120px; border-radius: 0%; border: 1px solid #353535">
+                    <option selected>Selecione</option>
+                    <option value="1">Trem</option>
+                    <option value="2">Ferrovia</option>
+                </select>
                 <button type="button" class="btn btn-primary"
                     style="border-radius: 20px; font-size: 20px;">Cadastrar</button>
             </div>
         </div>
-
-        <!--Fim do campo de cadastro de rotas-->
-
         <div class="trens" style="margin-top: 80px; justify-self: center; width: 70%;">
-            <span style="font-size: 25px; font-weight: 700;">Rotas cadastradas:</span>
+            <span style="font-size: 25px; font-weight: 700;">Trens cadastrados:</span>
             <div class="container-maior">
                 <div class="d-flex mt-3 mb-3 gap-5" style="align-items: center;">
                     <h5 class="ms-5 mb-0" style="font-weight: 700">Busque:</h5>
@@ -147,14 +135,6 @@
                 </div>
                 <div class="d-flex mt-5 mb-3 gap-5" style="align-items: center;">
                     <div class="ms-5 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">ROTA_01</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ROTA_02</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ROTA_03</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ROTA_04</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ROTA_05</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ROTA_06</p>
-                    </div>
-                    <div class="ms-2 gap-2">
                         <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro01</p>
                         <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro02</p>
                         <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro03</p>
@@ -163,20 +143,28 @@
                         <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro06</p>
                     </div>
                     <div class="ms-2 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">Saída: São Paulo</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Saída: São Paulo</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Saída: São Paulo</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Saída: São Paulo</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Saída: São Paulo</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Saída: São Paulo</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_01</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_02</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_03</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_04</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_05</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_06</p>
                     </div>
                     <div class="ms-2 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">Destino: Rio de Janeiro</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Destino: Rio de Janeiro</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Destino: Rio de Janeiro</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Destino: Rio de Janeiro</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Destino: Rio de Janeiro</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Destino: Rio de Janeiro</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre01</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre02</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre03</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre04</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre05</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre06</p>
+                    </div>
+                    <div class="ms-2 gap-2">
+                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 15</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 100</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 15</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 100</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 24</p>
+                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 100</p>
                     </div>
                     <div class="ms-2 gap-2" style="text-align: center">
                         <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
@@ -190,7 +178,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Rota</button>
+                                Desativar Trem</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -198,7 +186,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Rota</button>
+                                Desativar Trem</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -206,7 +194,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Rota</button>
+                                Desativar Trem</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -214,7 +202,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Rota</button>
+                                Desativar Trem</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -222,7 +210,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Ativar Rota</button>
+                                Ativar Trem</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -230,7 +218,7 @@
                         <div class="d-flex gap-1 mb-2">
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Rota</button>
+                                Desativar Trem</button>
                             <button
                                 style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
                                 Atualizar</button>
@@ -250,7 +238,7 @@
                 <h6>(Seu progresso será salvo automaticamente)</h6>
                 <div class="controls">
                     <button class="fechar-popup nav-link mx-lg-2"
-                        onclick="window.location.href='login.html'">Sim</button>
+                        onclick="window.location.href='login.php'">Sim</button>
                     <button class="close-btn nav-link mx-lg-2">Não</button>
                 </div>
             </div>
@@ -260,7 +248,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="../scripts/cadastro-rota.js"></script>
 </body>
+
     
+
 </html>

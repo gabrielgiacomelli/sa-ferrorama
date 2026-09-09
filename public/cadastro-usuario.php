@@ -1,3 +1,34 @@
+
+<?php
+
+include "../infra/conn.php";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+$email = $_POST["email"];
+$senha = $_POST["senha"];
+$confirm_senha = $_POST["confirm_senha"];
+$nome = $_POST["nome"];
+$cpf = $_POST["cpf"];
+$data_nascimento = $_POST["data_nascimento"];
+$cep = $_POST["cep"];
+$complemento = $_POST["complemento"];
+$telefone = $_POST["telefone"];
+
+
+$sql = "INSERT INTO usuarios(email, senha, confirm_senha, nome, cpf, data_nascimento, cep, complemento, telefone) VALUES ('$email', '$senha', '$confirm_senha', '$nome', '$cpf', '$data_nascimento', '$cep', '$complemento', '$telefone')";
+
+mysqli_query($conn, $sql);
+
+}
+
+
+
+
+
+?>
+
+
 <html lang="en">
 
 <head>
@@ -28,16 +59,16 @@
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="home.html">Home</a>
+                            <a class="nav-link mx-lg-2" href="home.php">Home</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-lg-2">Sensores</a>
 
                             <div class="dropdown-menu">
-                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.html"> Visualizar Sensores Ferrovia
+                                <a class="nav-link mx-lg-2" href="sensores-ferrovia.php"> Visualizar Sensores Ferrovia
                                 </a>
-                                <a class="nav-link mx-lg-2" href="sensores-trem.html"> Visualizar Sensores Trem </a>
+                                <a class="nav-link mx-lg-2" href="sensores-trem.php"> Visualizar Sensores Trem </a>
                             </div>
 
                         </li>
@@ -47,17 +78,17 @@
 
                             <div class="dropdown-menu">
 
-                                <a class="nav-link mx-lg-2" href="cadastro-sensor.html"> Cadastro de Sensores </a>
-                                <a class="nav-link mx-lg-2" href="cadastro-trem.html"> Cadastro de Trens </a>
-                                <a class="nav-link mx-lg-2" href="cadastro-rota.html"> Cadastro de Rotas </a>
-                                <a class="nav-link mx-lg-2 active fw-bold" aria-current="page" href="cadastro-usuario.html" > Cadastro de Usuários </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-sensor.php"> Cadastro de Sensores </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-trem.php"> Cadastro de Trens </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-rota.php"> Cadastro de Rotas </a>
+                                <a class="nav-link mx-lg-2 active fw-bold" aria-current="page" href="cadastro-usuario.php" > Cadastro de Usuários </a>
 
                             </div>
 
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="monitoramento.html">Monitoramento</a>
+                            <a class="nav-link mx-lg-2" href="monitoramento.php">Monitoramento</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -65,15 +96,15 @@
 
                             <div class="dropdown-menu">
 
-                                <a class="nav-link mx-lg-2" href="cadastro-relatorio.html"> Cadastro de Relatórios </a>
-                                <a class="nav-link mx-lg-2" href="relatorios.html"> Visualizar Relatórios </a>
+                                <a class="nav-link mx-lg-2" href="cadastro-relatorio.php"> Cadastro de Relatórios </a>
+                                <a class="nav-link mx-lg-2" href="relatorios.php"> Visualizar Relatórios </a>
 
                             </div>
 
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="usuarios.html">Usuários</a>
+                            <a class="nav-link mx-lg-2" href="usuarios.php">Usuários</a>
                         </li>
 
                     </ul>
@@ -103,7 +134,7 @@
                 <h2 class="text-center mb-4">Cadastro de Usuários</h2>
 
                 <!--formulário de cadastro, organizado em uma grade com espaçamento entre os elementos-->
-                <form>
+                <form method = "POST">
                     <div class="row g-4">
 
                         <div class="col-md-4">
@@ -112,14 +143,14 @@
 
                             <label for="email" class="form-label">Email</label>
                             <input id="email" type="email" class="form-control mb-4" placeholder="Digite seu email"
-                                style="border: 2px solid #000;">
+                                style="border: 2px solid #000;" name = "email">
                             </input>
 
                             <!--campo de senha-->
 
                             <label class="form-label" for="senha">Senha</label>
                             <input type="password" class="form-control mb-4" placeholder="Digite sua senha"
-                                style="border: 2px solid #000;" id="senha">
+                                style="border: 2px solid #000;" id="senha" name = "senha">
                             </input>
 
 
@@ -127,7 +158,7 @@
 
                             <label class="form-label" for="confirm_senha">Confirmar senha</label>
                             <input type="password" class="form-control mb-4" placeholder="Confirme sua senha"
-                                style="border: 2px solid #000;" id="confirm_senha">
+                                style="border: 2px solid #000;" id="confirm_senha" name = "confirm_senha">
                             </input>
 
                         </div>
@@ -137,21 +168,21 @@
                         <div class="col-md-4">
                             <label class="form-label" for="nome">Nome Completo</label>
                             <input type="text" class="form-control mb-4" placeholder="Digite seu nome completo"
-                                style="border: 2px solid #000;" id="nome">
+                                style="border: 2px solid #000;" id="nome" name = "nome">
                             </input>
 
                             <!--Campo de CPF-->
 
                             <label class="form-label" for="cpf">CPF</label>
                             <input type="text" class="form-control mb-4" placeholder="Digite seu CPF"
-                                style="border: 2px solid #000;" id="cpf">
+                                style="border: 2px solid #000;" id="cpf" name = "cpf">
                             </input>
 
                             <!--Campo de data de nascimento-->
 
                             <label class="form-label" for="data">Data de Nascimento</label>
                             <input type="date" class="form-control mb-4" placeholder="Digite sua data de nascimento"
-                                style="border: 2px solid #000;" id="data">
+                                style="border: 2px solid #000;" id="data" name = "data_nascimento">
                             </input>
 
                         </div>
@@ -164,7 +195,7 @@
 
                             <label class="form-label" for="cep">CEP</label>
                             <input type="text" class="form-control mb-4" placeholder="Digite seu CEP"
-                                style="border: 2px solid #000;" id="cep">
+                                style="border: 2px solid #000;" id="cep" name = "cep">
                             </input>
 
 
@@ -172,7 +203,7 @@
 
                             <label class="form-label" for="comp">Complemento</label>
                             <input type="text" class="form-control mb-4" placeholder="Digite um complemento"
-                                style="border: 2px solid #000;" id="comp">
+                                style="border: 2px solid #000;" id="comp" name = "complemento">
                             </input>
 
 
@@ -180,7 +211,7 @@
 
                             <label class="form-label" for="cidade">Telefone</label>
                             <input type="text" class="form-control mb-4" placeholder="Digite o telefone"
-                                style="border: 2px solid #000;" id="cidade">
+                                style="border: 2px solid #000;" id="cidade" name = "telefone">
                             </input>
 
                         </div>
@@ -208,7 +239,7 @@
                 <h6>(Seu progresso será salvo automaticamente)</h6>
                 <div class="controls">
                     <button class="fechar-popup nav-link mx-lg-2"
-                        onclick="window.location.href='login.html'">Sim</button>
+                        onclick="window.location.href='login.php'">Sim</button>
                     <button class="close-btn nav-link mx-lg-2">Não</button>
                 </div>
             </div>
