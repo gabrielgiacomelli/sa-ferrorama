@@ -1,3 +1,34 @@
+
+<?php
+
+include "../infra/conn.php";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+$email = $_POST["email"];
+$senha = $_POST["senha"];
+$confirm_senha = $_POST["confirm_senha"];
+$nome = $_POST["nome"];
+$cpf = $_POST["cpf"];
+$data_nascimento = $_POST["data_nascimento"];
+$cep = $_POST["cep"];
+$complemento = $_POST["complemento"];
+$telefone = $_POST["telefone"];
+
+
+$sql = "INSERT INTO usuarios(email, senha, confirm_senha, nome, cpf, data_nascimento, cep, complemento, telefone) VALUES ('$email', '$senha', '$confirm_senha', '$nome', '$cpf', '$data_nascimento', '$cep', '$complemento', '$telefone')";
+
+mysqli_query($conn, $sql);
+
+}
+
+
+
+
+
+?>
+
+
 <html lang="en">
 
 <head>
@@ -103,7 +134,7 @@
                 <h2 class="text-center mb-4">Cadastro de Usuários</h2>
 
                 <!--formulário de cadastro, organizado em uma grade com espaçamento entre os elementos-->
-                <form>
+                <form method = "POST">
                     <div class="row g-4">
 
                         <div class="col-md-4">
@@ -112,14 +143,14 @@
 
                             <label for="email" class="form-label">Email</label>
                             <input id="email" type="email" class="form-control mb-4" placeholder="Digite seu email"
-                                style="border: 2px solid #000;">
+                                style="border: 2px solid #000;" name = "email">
                             </input>
 
                             <!--campo de senha-->
 
                             <label class="form-label" for="senha">Senha</label>
                             <input type="password" class="form-control mb-4" placeholder="Digite sua senha"
-                                style="border: 2px solid #000;" id="senha">
+                                style="border: 2px solid #000;" id="senha" name = "senha">
                             </input>
 
 
@@ -127,7 +158,7 @@
 
                             <label class="form-label" for="confirm_senha">Confirmar senha</label>
                             <input type="password" class="form-control mb-4" placeholder="Confirme sua senha"
-                                style="border: 2px solid #000;" id="confirm_senha">
+                                style="border: 2px solid #000;" id="confirm_senha" name = "confirm_senha">
                             </input>
 
                         </div>
@@ -137,21 +168,21 @@
                         <div class="col-md-4">
                             <label class="form-label" for="nome">Nome Completo</label>
                             <input type="text" class="form-control mb-4" placeholder="Digite seu nome completo"
-                                style="border: 2px solid #000;" id="nome">
+                                style="border: 2px solid #000;" id="nome" name = "nome">
                             </input>
 
                             <!--Campo de CPF-->
 
                             <label class="form-label" for="cpf">CPF</label>
                             <input type="text" class="form-control mb-4" placeholder="Digite seu CPF"
-                                style="border: 2px solid #000;" id="cpf">
+                                style="border: 2px solid #000;" id="cpf" name = "cpf">
                             </input>
 
                             <!--Campo de data de nascimento-->
 
                             <label class="form-label" for="data">Data de Nascimento</label>
                             <input type="date" class="form-control mb-4" placeholder="Digite sua data de nascimento"
-                                style="border: 2px solid #000;" id="data">
+                                style="border: 2px solid #000;" id="data" name = "data_nascimento">
                             </input>
 
                         </div>
@@ -164,7 +195,7 @@
 
                             <label class="form-label" for="cep">CEP</label>
                             <input type="text" class="form-control mb-4" placeholder="Digite seu CEP"
-                                style="border: 2px solid #000;" id="cep">
+                                style="border: 2px solid #000;" id="cep" name = "cep">
                             </input>
 
 
@@ -172,7 +203,7 @@
 
                             <label class="form-label" for="comp">Complemento</label>
                             <input type="text" class="form-control mb-4" placeholder="Digite um complemento"
-                                style="border: 2px solid #000;" id="comp">
+                                style="border: 2px solid #000;" id="comp" name = "complemento">
                             </input>
 
 
@@ -180,7 +211,7 @@
 
                             <label class="form-label" for="cidade">Telefone</label>
                             <input type="text" class="form-control mb-4" placeholder="Digite o telefone"
-                                style="border: 2px solid #000;" id="cidade">
+                                style="border: 2px solid #000;" id="cidade" name = "telefone">
                             </input>
 
                         </div>
