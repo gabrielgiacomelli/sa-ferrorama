@@ -66,8 +66,6 @@ O projeto será desenvolvido utilizando as seguintes tecnologias:
 
 ##  Estrutura do Projeto
 
-##  Estrutura do Projeto
-
 ```text
 SA-FERRORAMA/
 │
