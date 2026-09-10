@@ -1,3 +1,8 @@
+<?php
+include "../infra/conn.php";
+
+?>
+
 <html lang="en">
 
 <head>
@@ -10,7 +15,6 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 </head>
- a
 <body id="body2">
 
     <!-- Início do header -->
