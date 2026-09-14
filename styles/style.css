@@ -536,17 +536,22 @@ li#navbar-sair{
     gap: 16px;
 }
 
-.block {
-    border-radius: 20px; 
-}
-
 .bg-light   { background-color: var(--cor-azul-ferroviario-claro); }
 .bg-dark    { background-color: var(--cor-azul-ferroviario); }
 
-/* Proporções das linhas do mosaico */
-.h-medium { flex: 2.2; }
-.h-large  { flex: 3.5; }
-.h-xlarge { flex: 4.8; }
+
+.block {
+    border-radius: 20px;
+    width: 100%;
+    height: 0; 
+}
+
+.h-small    { flex-grow: 0.8; }
+.h-smedium  { flex-grow: 1.5; }
+.h-medium   { flex-grow: 2.5; }
+.h-large    { flex-grow: 3.5; }
+.h-xlarge   { flex-grow: 4.8; }
+
 
 /*                                  Index                                     */
 /* -------------------------------------------------------------------------- */

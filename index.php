@@ -35,50 +35,50 @@
             </div>
         </section>
 
-        <!-- mosaico -->
+                <!-- mosaico -->
         <section class="right-side">
             <div class="mosaic">
                 
                 <!-- Coluna 1 -->
                 <div class="col">
-                    <div class="block h-medium bg-light"></div>
-                    <div class="block h-medium bg-dark"></div>
-                    <div class="block h-xlarge bg-light"></div>
+                    <div class="block h-smedium bg-light"></div>
+                    <div class="block h-smedium bg-dark"></div>
+                    <div class="block h-large bg-light"></div>
                 </div>
                 
                 <!-- Coluna 2 -->
                 <div class="col">
-                    <div class="block h-large bg-light"></div>
-                    <div class="block h-medium bg-dark"></div>
+                    <div class="block h-medium bg-light"></div>
+                    <div class="block h-smedium bg-dark"></div>
                     <div class="block h-medium bg-light"></div>
                 </div>
                 
                 <!-- Coluna 3 -->
                 <div class="col">
-                    <div class="block h-xlarge bg-light"></div>
-                    <div class="block h-medium bg-dark"></div>
-                    <div class="block h-xlarge bg-light"></div>
+                    <div class="block h-large bg-light"></div>
+                    <div class="block h-smedium bg-dark"></div>
+                    <div class="block h-smedium bg-light"></div>
                 </div>
                 
-                <!-- Coluna 4 -->
+                <!-- Coluna 4 (Contém os 4 blocos da base do print) -->
                 <div class="col">
                     <div class="block h-xlarge bg-light"></div>
-                    <div class="block h-medium bg-light"></div>
-                    <div class="block h-large bg-dark"></div>
+                    <div class="block h-smedium bg-dark"></div>
+                    <div class="block h-small bg-light"></div>
                 </div>
                 
                 <!-- Coluna 5 -->
                 <div class="col">
                     <div class="block h-large bg-light"></div>
-                    <div class="block h-large bg-light"></div>
-                    <div class="block h-medium bg-light"></div>
+                    <div class="block h-smedium bg-dark"></div>
+                    <div class="block h-smedium bg-light"></div>
                 </div>
                 
                 <!-- Coluna 6 -->
                 <div class="col">
-                    <div class="block h-xlarge bg-light"></div>
-                    <div class="block h-medium bg-dark"></div>
-                    <div class="block h-large bg-light"></div>
+                    <div class="block h-medium bg-light"></div>
+                    <div class="block h-smedium bg-dark"></div>
+                    <div class="block h-medium bg-light"></div>
                 </div>
 
             </div>
