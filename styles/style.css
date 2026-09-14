@@ -158,3 +158,343 @@ li#navbar-sair{
 /*                                 Navbar                                     */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                            Cadastro Usuário                                */
+
+
+#cadastro-usuarios {
+    width: 100%;
+    min-height: calc(100vh - 45px);
+
+    background: #f3f5f8;
+}
+
+
+#cadastro-usuarios .cadastro-usuarios-main {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 124px;
+}
+
+#cadastro-usuarios .cadastro-usuarios-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+#cadastro-usuarios .cadastro-usuarios-card {
+    width: 862px;
+    height: 379px;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    padding: 57px 28px 35px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+
+#cadastro-usuarios .cadastro-usuarios-colunas {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    gap: 20px;
+}
+
+
+#cadastro-usuarios .cadastro-usuarios-coluna {
+    width: calc(33.333% - 13.33px);
+
+    flex: 0 0 calc(33.333% - 13.33px);
+}
+
+#cadastro-usuarios .cadastro-usuarios-campo {
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+#cadastro-usuarios .cadastro-usuarios-campo label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #1d3557;
+
+    font-size: 15px;
+    font-weight: 400;
+}
+
+
+#cadastro-usuarios .cadastro-usuarios-campo input {
+    display: block;
+
+    width: 100%;
+    height: 36px;
+
+    padding: 5px 7px;
+
+    border: 2px solid #28558d;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+#cadastro-usuarios .cadastro-usuarios-campo input::placeholder {
+    color: #555555;
+
+    opacity: 1;
+}
+
+#cadastro-usuarios .cadastro-usuarios-campo input:focus {
+    border-color: #173f70;
+
+    box-shadow: 0 0 0 1px #173f70;
+}
+
+#cadastro-usuarios .cadastro-usuarios-botao {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 16px;
+}
+
+#cadastro-usuarios .cadastro-usuarios-botao button {
+    width: 130px;
+    height: 34px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 15px;
+
+    background: #193655;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+}
+
+
+#cadastro-usuarios .cadastro-usuarios-botao button:hover {
+    background: #24486d;
+}
+
+#cadastro-usuarios #usuario-resultado {
+    margin-top: 10px;
+
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+
+    #cadastro-usuarios .cadastro-usuarios-card {
+        width: 90%;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    #cadastro-usuarios .cadastro-usuarios-main {
+        padding-top: 50px;
+    }
+
+
+    #cadastro-usuarios .cadastro-usuarios-card {
+        width: 90%;
+        height: auto;
+
+        padding: 35px 25px;
+    }
+
+
+    #cadastro-usuarios .cadastro-usuarios-colunas {
+        flex-direction: column;
+    }
+
+
+    #cadastro-usuarios .cadastro-usuarios-coluna {
+        width: 100%;
+
+        flex: 0 0 100%;
+    }
+
+}
+
+
+/*                           Cadastro Usuários                                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/*                            Cadastro Usuário                                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                  Index                                     */
+
+
+#index-page {
+    background-color: var(--cor-background);
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.topbar {
+    background-color: var(--cor-azul-ferroviario);
+    height: 55px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-stripe {
+    background-color: var(--cor-azul-ferroviario-claro);
+    height: 100%;
+    width: 120px;
+    clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
+}
+
+.login-box {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 60px;
+}
+
+.btn-login {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.main-grid {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 55px);
+}
+
+.left-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 8%;
+    padding-right: 4%;
+}
+
+.brand {
+    margin-bottom: 30px;
+}
+
+.brand span {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2D3748;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.logo {
+    max-width: 600px;
+    height: auto;
+    display: block;
+}
+
+.slogan h2 {
+    font-size: 34px;
+    color: var(--cor-azul-ferroviario);
+    font-weight: 700;
+    line-height: 1.3;
+    max-width: 380px;
+    margin: 25px 0 60px 0;
+}
+
+.footer-msg p {
+    font-size: 15px;
+    color: #718096;
+    margin: 0;
+}
+
+.right-side {
+    flex: 1.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.mosaic {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    height: 85%;
+    max-width: 750px; 
+}
+
+.col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bg-light   { background-color: var(--cor-azul-ferroviario-claro); }
+.bg-dark    { background-color: var(--cor-azul-ferroviario); }
+
+
+.block {
+    border-radius: 20px;
+    width: 100%;
+    height: 0; 
+}
+
+.h-small    { flex-grow: 0.8; }
+.h-smedium  { flex-grow: 1.5; }
+.h-medium   { flex-grow: 2.5; }
+.h-large    { flex-grow: 3.5; }
+.h-xlarge   { flex-grow: 4.8; }
+
+
+/*                                  Index                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
