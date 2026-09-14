@@ -2,9 +2,10 @@
 
 $host = "localhost";
 $user = "root";
+$password = "root";
 $banco = "sa_ferrorama_db";
 
-$conn = @new mysqli($host, $user, "", $banco, 3307);
+$conn =  new mysqli($host, $user, $password, $banco);
 
 
 if ($conn->connect_error){

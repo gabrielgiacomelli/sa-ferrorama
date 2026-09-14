@@ -41,5 +41,6 @@ CREATE TABLE relatorios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_usuarios INT NOT NULL,
     conteudo VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_relatorios_usuarios 
     FOREIGN KEY (id_usuarios) REFERENCES usuarios(id)
 );
