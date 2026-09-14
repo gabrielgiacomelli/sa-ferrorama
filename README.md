@@ -251,16 +251,46 @@ Além do desenvolvimento das operações, a equipe também considera aspectos de
 
 | ID       | Descrição                                                        |
 | -------- | ---------------------------------------------------------------- |
-| **RF01** | O sistema deve permitir que o usuário realize login.             |
-| **RF02** | O sistema deve permitir o cadastro de usuários.                  |
-| **RF03** | O sistema deve permitir a visualização dos usuários cadastrados. |
-| **RF04** | O sistema deve permitir editar usuários cadastrados.             |
-| **RF05** | O sistema deve permitir excluir usuários cadastrados.            |
-| **RF06** | O sistema deve permitir cadastrar trens.                         |
-| **RF07** | O sistema deve permitir visualizar trens cadastrados.            |
-| **RF08** | O sistema deve permitir cadastrar sensores.                      |
-| **RF09** | O sistema deve permitir visualizar sensores cadastrados.         |
-| **RF10** | O sistema deve permitir alterar informações já cadastradas.      |
+| **RF01** | O sistema deve permitir que o administrador realize o login usando suas credenciais (email e senha). |
+| **RF02** | O sistema deve criar e manter uma sessão ativa para autenticar o usuário após o login. |
+| **RF03** | O sistema deve permitir que o administrador solicite a redefinição de senha caso a tenha esquecido. |
+| **RF04** | O sistema deve permitir ao usuário encerrar a sessão ativa de forma segura ao sair.  |
+| **RF05** | O sistema deve permitir ao administrador visualizar a tela principal (Home) logo após realizar o login com sucesso. |
+| **RF06** | O sistema deve permitir ao administrador cadastrar novos usuários no sistema. |
+| **RF07** | O sistema deve permitir ao administrador listar e visualizar os detalhes dos usuários cadastrados.|
+| **RF08** | O sistema deve permitir ao administrador buscar usuários cadastrados por ID. |
+| **RF09** | O sistema deve permitir ao administrador editar e atualizar as informações de usuários já cadastrados. |
+| **RF10** | O sistema deve permitir ao administrador excluir usuários cadastrados. |
+|**RF11**| O sistema deve permitir ao administrador cadastrar novas rotas no sistema. |
+|**RF12**| O sistema deve permitir ao administrador visualizar a listagem de rotas cadastradas com suas informações detalhadas.|
+|**RF13**| O sistema deve permitir ao administrador buscar rotas cadastradas por ID. |
+|**RF14**| O sistema deve permitir ao administrador editar e atualizar os dados de uma rota cadastrada. |
+|**RF15**| O sistema deve permitir ao administrador desativar temporariamente uma rota.|
+|**RF16**| O sistema deve permitir ao administrador remover permanentemente uma rota do sistema.|
+|**RF17**| O sistema deve permitir ao administrador cadastrar novos trens no sistema. |
+|**RF18**| O sistema deve permitir ao administrador visualizar a listagem de trens cadastrados com suas informações detalhadas.|
+|**RF19**| O sistema deve permitir ao administrador buscar trens cadastrados por ID.|
+|**RF20**| O sistema deve permitir ao administrador editar e atualizar os dados de um trem cadastrado. |
+|**RF21**| O sistema deve permitir ao administrador desativar temporariamente um trem.|
+|**RF22**| O sistema deve permitir ao administrador remover permanentemente um trem do sistema. |
+|**RF23**| O sistema deve permitir ao administrador cadastrar novos sensores no sistema. |
+|**RF24**| O sistema deve permitir ao administrador visualizar a listagem de sensores cadastrados com suas informações detalhadas.|
+|**RF25**| O sistema deve permitir ao administrador buscar sensores cadastrados por ID. |
+|**RF26**| O sistema deve permitir ao administrador editar e atualizar os dados de um sensor cadastrado.|
+|**RF27**|O sistema deve permitir ao administrador desativar temporariamente um sensor.|
+|**RF28**| O sistema deve permitir ao administrador remover permanentemente um sensor do sistema. |
+|**RF29**| O sistema deve permitir ao administrador acessar uma tela de monitoramento.  |
+|**RF30**| O sistema deve permitir ao administrador inserir o ID do trem que deseja monitorar. |
+|**RF31**| O sistema deve permitir ao administrador inserir o ID do trem que deseja monitorar. |
+|**RF32**| O sistema deve apresentar gráficos e análises visuais do desempenho do trem selecionado. |
+|**RF33**| O sistema deve permitir ao administrador cadastrar novos relatórios no sistema.  |
+|**RF34**| O sistema deve permitir ao administrador visualizar a listagem com todos os relatórios que já foram cadastrados. |
+|**RF35**| O sistema deve permitir ao administrador abrir e ler o conteúdo completo de um relatório selecionado. |
+|**RF36**| O sistema deve permitir ao administrador buscar relatórios cadastrados por ID. |
+|**RF37**| O sistema deve permitir ao administrador editar os dados de um relatório cadastrado.  |
+|**RF38**| O sistema deve permitir ao administrador remover permanentemente um relatório do sistema. |
+
+
 
 ---
 
@@ -268,11 +298,15 @@ Além do desenvolvimento das operações, a equipe também considera aspectos de
 
 | ID        | Descrição                                                       |
 | --------- | --------------------------------------------------------------- |
-| **RNF01** | O sistema deve possuir uma interface amigável ao usuário.       |
-| **RNF02** | O sistema deve ser desenvolvido utilizando PHP.                 |
-| **RNF03** | O sistema deve utilizar banco de dados MySQL.                   |
-| **RNF04** | O sistema deve funcionar nos principais navegadores modernos.   |
-| **RNF05** | O sistema deve utilizar Bootstrap para estilização das páginas. |
+| **RNF01** | O sistema deve responder às requisições dos usuários em menos de 3 segundos.  |
+| **RNF02** | O sistema deve suportar até 1TB de armazenamento de dados operacionais sem sofrer degradação de performance.  |
+| **RNF03** | O sistema deve suportar o acesso de pelo menos 300 usuários simultâneos sem perder performance. |
+| **RNF04** | O sistema deve ser totalmente responsivo, adaptando sua interface para desktops, tablets e smartphones.    |
+| **RNF05** |  O sistema deve seguir as diretrizes da Lei Geral de Proteção de Dados (LGPD) para o tratamento seguro de informações pessoais. |
+|**RNF06**| O sistema deve utilizar criptografia via protocolo SSL/TLS para proteger os dados trafegados entre o navegador e o servidor.  |
+|**RNF07**| O sistema deve implementar criptografia transparente de dados (TDE) para proteger as informações armazenadas no banco de dados. |
+|**RNF08**| O sistema deve operar em regime de alta disponibilidade, permanecendo ativo e acessível continuamente (24/7). |
+
 
 ---
 
