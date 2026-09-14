@@ -1,166 +1,338 @@
-
 <?php
 
 include "../infra/conn.php";
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$email = $_POST["email"];
-$senha = $_POST["senha"];
-$confirm_senha = $_POST["confirm_senha"];
-$nome = $_POST["nome"];
-$cpf = $_POST["cpf"];
-$data_nascimento = $_POST["data_nascimento"];
-$cep = $_POST["cep"];
-$complemento = $_POST["complemento"];
-$telefone = $_POST["telefone"];
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+    $confirm_senha = $_POST["confirm_senha"];
+    $nome = $_POST["nome"];
+    $cpf = $_POST["cpf"];
+    $data_nascimento = $_POST["data_nascimento"];
+    $cep = $_POST["cep"];
+    $complemento = $_POST["complemento"];
+    $telefone = $_POST["telefone"];
 
+    $sql = "INSERT INTO usuarios
+    (email, senha, confirm_senha, nome, cpf, data_nascimento, cep, complemento, telefone)
+    VALUES
+    ('$email', '$senha', '$confirm_senha', '$nome', '$cpf', '$data_nascimento', '$cep', '$complemento', '$telefone')";
 
-$sql = "INSERT INTO usuarios(email, senha, confirm_senha, nome, cpf, data_nascimento, cep, complemento, telefone) VALUES ('$email', '$senha', '$confirm_senha', '$nome', '$cpf', '$data_nascimento', '$cep', '$complemento', '$telefone')";
-
-mysqli_query($conn, $sql);
-
+    mysqli_query($conn, $sql);
 }
 
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 <?php
+
 $paginaAtual = "cadastro";
 $submenuAtual = "usuarios";
+
 include("navbar.php");
+
 ?>
-
-<main>
-    <!-- é usado para centralizar um elemento exatamente no meio da tela-->
-    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-
-        <!--define o layout responsivo de um elemento.-->
-        <div class="col-lg-11">
-
-            <!--card estilizado com espaçamento interno, borda cinza, cantos arredondados e sombra projetada-->
-            <div class="card p-5 shadow-lg border-color: gray  rounded-4">
-
-                <!--título do cadastro, centralizado horizontalmente e com espaçamento inferior-->
-                <h2 class="text-center mb-4">Cadastro de Usuários</h2>
-
-                <!--formulário de cadastro, organizado em uma grade com espaçamento entre os elementos-->
-                <form method = "POST">
-                    <div class="row g-4">
-
-                        <div class="col-md-4">
-
-                            <!--campo de email-->
-
-                            <label for="email" class="form-label">Email</label>
-                            <input id="email" type="email" class="form-control mb-4" placeholder="Digite seu email"
-                                style="border: 2px solid #000;" name = "email">
-                            </input>
-
-                            <!--campo de senha-->
-
-                            <label class="form-label" for="senha">Senha</label>
-                            <input type="password" class="form-control mb-4" placeholder="Digite sua senha"
-                                style="border: 2px solid #000;" id="senha" name = "senha">
-                            </input>
+<body>
 
 
-                            <!--campo de confirmar senha-->
 
-                            <label class="form-label" for="confirm_senha">Confirmar senha</label>
-                            <input type="password" class="form-control mb-4" placeholder="Confirme sua senha"
-                                style="border: 2px solid #000;" id="confirm_senha" name = "confirm_senha">
-                            </input>
+
+<!-- =====================================================
+     INÍCIO EXCLUSIVO DO CADASTRO DE USUÁRIOS
+====================================================== -->
+
+<div id="cadastro-usuarios">
+
+    <main class="cadastro-usuarios-main">
+
+        <div class="cadastro-usuarios-container">
+
+            <div class="cadastro-usuarios-card">
+
+                <form method="POST">
+
+                    <!-- =================================================
+                         COLUNAS
+                    ================================================== -->
+
+                    <div class="cadastro-usuarios-colunas">
+
+
+                        <!-- =========================
+                             COLUNA 1
+                        ========================== -->
+
+                        <div class="cadastro-usuarios-coluna">
+
+
+                            <!-- EMAIL -->
+
+                            <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-email">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="usuario-email"
+                                    name="email"
+                                    placeholder="Digite seu email"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- SENHA -->
+
+                            <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-senha">
+                                    Senha
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="usuario-senha"
+                                    name="senha"
+                                    placeholder="Digite sua senha"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- CONFIRMAR SENHA -->
+
+                            <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-confirm-senha">
+                                    Confirmar senha
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="usuario-confirm-senha"
+                                    name="confirm_senha"
+                                    placeholder="Confirme sua senha"
+                                    required
+                                >
+
+                            </div>
+
 
                         </div>
 
-                        <!--Campo de nome completo-->
 
-                        <div class="col-md-4">
-                            <label class="form-label" for="nome">Nome Completo</label>
-                            <input type="text" class="form-control mb-4" placeholder="Digite seu nome completo"
-                                style="border: 2px solid #000;" id="nome" name = "nome">
-                            </input>
+                        <!-- =========================
+                             COLUNA 2
+                        ========================== -->
 
-                            <!--Campo de CPF-->
+                        <div class="cadastro-usuarios-coluna">
 
-                            <label class="form-label" for="cpf">CPF</label>
-                            <input type="text" class="form-control mb-4" placeholder="Digite seu CPF"
-                                style="border: 2px solid #000;" id="cpf" name = "cpf">
-                            </input>
 
-                            <!--Campo de data de nascimento-->
+                            <!-- NOME -->
 
-                            <label class="form-label" for="data">Data de Nascimento</label>
-                            <input type="date" class="form-control mb-4" placeholder="Digite sua data de nascimento"
-                                style="border: 2px solid #000;" id="data" name = "data_nascimento">
-                            </input>
+                            <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-nome">
+                                    Nome Completo
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="usuario-nome"
+                                    name="nome"
+                                    placeholder="Digite seu nome completo"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- CPF -->
+
+                            <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-cpf">
+                                    CPF
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="usuario-cpf"
+                                    name="cpf"
+                                    placeholder="Digite seu CPF"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- DATA DE NASCIMENTO -->
+
+                            <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-data">
+                                    Data de Nascimento
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="usuario-data"
+                                    name="data_nascimento"
+                                    required
+                                >
+
+                            </div>
+
 
                         </div>
 
 
+                        <!-- =========================
+                             COLUNA 3
+                        ========================== -->
 
-                        <div class="col-md-4">
-
-                            <!--Campo de CEP-->
-
-                            <label class="form-label" for="cep">CEP</label>
-                            <input type="text" class="form-control mb-4" placeholder="Digite seu CEP"
-                                style="border: 2px solid #000;" id="cep" name = "cep">
-                            </input>
+                        <div class="cadastro-usuarios-coluna">
 
 
-                            <!--Campo de complemento-->
+                            <!-- CEP -->
 
-                            <label class="form-label" for="comp">Complemento</label>
-                            <input type="text" class="form-control mb-4" placeholder="Digite um complemento"
-                                style="border: 2px solid #000;" id="comp" name = "complemento">
-                            </input>
+                            <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-cep">
+                                    CEP
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="usuario-cep"
+                                    name="cep"
+                                    placeholder="Digite seu CEP"
+                                    required
+                                >
+
+                            </div>
 
 
-                            <!--Campo de telefone-->
+                            <!-- COMPLEMENTO -->
 
-                            <label class="form-label" for="cidade">Telefone</label>
-                            <input type="text" class="form-control mb-4" placeholder="Digite o telefone"
-                                style="border: 2px solid #000;" id="cidade" name = "telefone">
-                            </input>
+                            <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-complemento">
+                                    Complemento
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="usuario-complemento"
+                                    name="complemento"
+                                    placeholder="Digite um complemento"
+                                >
+
+                            </div>
+
+
+                            <!-- TELEFONE -->
+
+                            <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-telefone">
+                                    Telefone
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="usuario-telefone"
+                                    name="telefone"
+                                    placeholder="Digite seu telefone"
+                                    required
+                                >
+
+                            </div>
+
 
                         </div>
 
                     </div>
 
-                    <!--Botão de cadastro-->
 
-                    <div class=" d-flex justify-content-center">
-                        <button class="btn btn-primary px-5" style="border-color: black;">Cadastrar</button>
+                    <!-- =================================================
+                         BOTÃO
+                    ================================================== -->
+
+                    <div class="cadastro-usuarios-botao">
+
+                        <button type="submit">
+                            Cadastrar
+                        </button>
+
                     </div>
 
-                    <p id="resultado"></p>
+
+                    <p id="usuario-resultado"></p>
 
                 </form>
+
             </div>
-        </div>
-</main>
-    <!-- POPUP DE SAIR (overlay) -->
-        <div class="popup" id="popup">
-            <div class="overlay"></div>
-            <div class="popup-content">
-                <h2>Aviso</h2>
-                <p>Você deseja sair da sua conta?</p>
-                <h6>(Seu progresso será salvo automaticamente)</h6>
-                <div class="controls">
-                    <button class="fechar-popup nav-link mx-lg-2"
-                        onclick="window.location.href='login.php'">Sim</button>
-                    <button class="close-btn nav-link mx-lg-2">Não</button>
-                </div>
-            </div>
+
         </div>
 
-    <!-- Scripts -->
-    <script src="../scripts/botao-sair.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+    </main>
+
+
+    <!-- =================================================
+         POPUP DE SAIR
+    ================================================== -->
+
+    <div class="popup" id="popup">
+
+        <div class="overlay"></div>
+
+        <div class="popup-content">
+
+            <h2>Aviso</h2>
+
+            <p>
+                Você deseja sair da sua conta?
+            </p>
+
+            <h6>
+                (Seu progresso será salvo automaticamente)
+            </h6>
+
+            <div class="controls">
+
+                <button
+                    class="fechar-popup nav-link mx-lg-2"
+                    onclick="window.location.href='login.php'">
+                    Sim
+                </button>
+
+                <button class="close-btn nav-link mx-lg-2">
+                    Não
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SCRIPTS -->
+
+<script src="../scripts/botao-sair.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
 </body>
 
 </html>
