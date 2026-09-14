@@ -492,8 +492,8 @@ li#navbar-sair{
     margin-bottom: 5px;
 }
 
-.logo-mockup {
-    max-width: 280px;
+.logo {
+    max-width: 600px;
     height: auto;
     display: block;
 }

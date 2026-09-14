@@ -23,7 +23,7 @@
         <section class="left-side">
             <div class="brand">
                 <span>Ferrovia</span>
-                <img src="assets/icons/logo.png" alt="HLGL" class="logo-mockup">
+                <img src="assets/icons/logo.png" alt="HLGL" class="logo">
             </div>
             
             <div class="slogan">
