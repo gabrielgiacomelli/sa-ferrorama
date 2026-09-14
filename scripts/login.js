@@ -19,10 +19,9 @@ document.getElementById("FormLogin").addEventListener("submit", function (e) {
         return;
     }
 
-    window.location.href = "home.html";
-
-
+    window.location.href = "home.php";
 });
+
 
 function esqueceuSenha() {
     alert("Entre em contato com o suporte para recuperar sua senha.");
