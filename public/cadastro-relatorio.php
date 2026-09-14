@@ -4,14 +4,17 @@ include "../infra/conn.php";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 $conteudo = $_POST["conteudo"];
+$id_usuarios = $_POST["id_usuarios"];
 
 
 
-$sql = "INSERT INTO usuarios(conteudo) VALUES ('$conteudo')";
+$sql = "INSERT INTO relatorios(conteudo, id_usuarios) VALUES ('$conteudo', '$id_usuarios')";
 
 mysqli_query($conn, $sql);
 
 }
+
+$usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
 
 ?>
 
@@ -52,7 +55,21 @@ include("navbar.php");
                             <input id="conteudo" type="text" placeholder="Digite seu relatório" name = "conteudo">
                             </input>
 
-                        <button>Cadastrar</button>
+                            <label for="idade"> Usuário relacinado: </label>
+                            <select name="id_usuarios" required>
+
+                                <?php
+                                while($usuario = mysqli_fetch_assoc($usuarios)){ ?>
+
+                                <option value="<?php echo $usuario['id']; ?>">
+                                    <?php echo $usuario['nome']; ?>
+                                </option>
+
+                                <?php } ?>
+
+                            </select>
+
+                        <button type="submit">Cadastrar</button>
 
                 </form>
 
