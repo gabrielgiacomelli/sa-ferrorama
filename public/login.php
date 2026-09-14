@@ -17,28 +17,23 @@ include "../infra/conn.php";
 
 <body id="body2" class="d-flex align-items-center justify-content-center vh-100">
 
-    <!-- cria a estrutura visual de uma tela de login centralizada, responsiva e com estilo de card-->
     <main class="container">
         <div class="row justify-content-center">
             <div class="col-lg-4">
                 <div class="card p-4 shadow-lg">
                     <div class="topo-login position-relative mb-4">
 
-                        <!-- Logo no canto esquerdo -->
                         <img class="logo_login position-absolute start-0 top-50 translate-middle-y"
                             src="../assets/icons/logo.png" alt="LOGO" style="width: 100px;">
 
-                        <!-- Título centralizado -->
                         <h2 class="text-center">
                             Login
                         </h2>
-a
+
                     </div>
 
-                    <!-- Formulário -->
                     <form id="FormLogin">
 
-                        <!-- Campo Email -->
                         <div class="mb-3">
 
                             <label class="form-label" style="font-size: 20px;">
@@ -52,7 +47,6 @@ a
 
                         </div>
 
-                        <!-- Campo Senha -->
                         <div class="mb-3">
 
                             <label class="form-label" style="font-size: 20px;">
@@ -66,21 +60,18 @@ a
 
                         </div>
 
-                        <!-- Botão Entrar -->
                         <button class="btn btn-primary w-100" type="submit">
                             Entrar
                         </button>
 
                         <br><br>
 
-                        <!-- Botão Esqueceu Senha -->
                         <button class="btn w-100 shadow" type="button" onclick="esqueceuSenha()">
                             Esqueceu sua senha?
                         </button>
 
                     </form>
 
-                    <!-- Mensagem de erro -->
                     <div class="text-danger text-center">
                         <p id="problema"></p>
                     </div>
