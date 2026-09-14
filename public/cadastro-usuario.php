@@ -36,13 +36,6 @@ include("navbar.php");
 ?>
 <body>
 
-
-
-
-<!-- =====================================================
-     INÍCIO EXCLUSIVO DO CADASTRO DE USUÁRIOS
-====================================================== -->
-
 <div id="cadastro-usuarios">
 
     <main class="cadastro-usuarios-main">
@@ -53,21 +46,10 @@ include("navbar.php");
 
                 <form method="POST">
 
-                    <!-- =================================================
-                         COLUNAS
-                    ================================================== -->
 
                     <div class="cadastro-usuarios-colunas">
 
-
-                        <!-- =========================
-                             COLUNA 1
-                        ========================== -->
-
                         <div class="cadastro-usuarios-coluna">
-
-
-                            <!-- EMAIL -->
 
                             <div class="cadastro-usuarios-campo">
 
@@ -85,9 +67,6 @@ include("navbar.php");
 
                             </div>
 
-
-                            <!-- SENHA -->
-
                             <div class="cadastro-usuarios-campo">
 
                                 <label for="usuario-senha">
@@ -103,9 +82,6 @@ include("navbar.php");
                                 >
 
                             </div>
-
-
-                            <!-- CONFIRMAR SENHA -->
 
                             <div class="cadastro-usuarios-campo">
 
@@ -126,15 +102,7 @@ include("navbar.php");
 
                         </div>
 
-
-                        <!-- =========================
-                             COLUNA 2
-                        ========================== -->
-
                         <div class="cadastro-usuarios-coluna">
-
-
-                            <!-- NOME -->
 
                             <div class="cadastro-usuarios-campo">
 
@@ -152,9 +120,6 @@ include("navbar.php");
 
                             </div>
 
-
-                            <!-- CPF -->
-
                             <div class="cadastro-usuarios-campo">
 
                                 <label for="usuario-cpf">
@@ -170,9 +135,6 @@ include("navbar.php");
                                 >
 
                             </div>
-
-
-                            <!-- DATA DE NASCIMENTO -->
 
                             <div class="cadastro-usuarios-campo">
 
@@ -192,15 +154,7 @@ include("navbar.php");
 
                         </div>
 
-
-                        <!-- =========================
-                             COLUNA 3
-                        ========================== -->
-
                         <div class="cadastro-usuarios-coluna">
-
-
-                            <!-- CEP -->
 
                             <div class="cadastro-usuarios-campo">
 
@@ -218,9 +172,6 @@ include("navbar.php");
 
                             </div>
 
-
-                            <!-- COMPLEMENTO -->
-
                             <div class="cadastro-usuarios-campo">
 
                                 <label for="usuario-complemento">
@@ -235,9 +186,6 @@ include("navbar.php");
                                 >
 
                             </div>
-
-
-                            <!-- TELEFONE -->
 
                             <div class="cadastro-usuarios-campo">
 
@@ -260,11 +208,6 @@ include("navbar.php");
 
                     </div>
 
-
-                    <!-- =================================================
-                         BOTÃO
-                    ================================================== -->
-
                     <div class="cadastro-usuarios-botao">
 
                         <button type="submit">
@@ -283,11 +226,6 @@ include("navbar.php");
         </div>
 
     </main>
-
-
-    <!-- =================================================
-         POPUP DE SAIR
-    ================================================== -->
 
     <div class="popup" id="popup">
 
@@ -325,8 +263,6 @@ include("navbar.php");
 
 </div>
 
-
-<!-- SCRIPTS -->
 
 <script src="../scripts/botao-sair.js"></script>
 

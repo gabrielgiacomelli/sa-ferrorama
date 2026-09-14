@@ -120,13 +120,13 @@ li#navbar-sair{
 
     transform: translateX(-50%);
 
-    min-width: 180px;
+    min-width: 110px;
 
-    background: white;
+    background: var(--cor-branca);
 
     border-radius: 10px;
 
-    padding: 10px 0;
+    padding: 0px 0;
 
     list-style: none;
 
@@ -141,7 +141,7 @@ li#navbar-sair{
 
 .dropdown-menu a{
     display: block;
-    padding: 8px 20px;
+    padding: 4px 20px;
     color: var(--cor-azul-ferroviario) !important;
 }
 
@@ -163,15 +163,6 @@ li#navbar-sair{
 /* -------------------------------------------------------------------------- */
 /*                            Cadastro Usuário                                */
 
-/* =========================================================
-   CADASTRO DE USUÁRIOS
-   ESTILOS EXCLUSIVOS DESTA PÁGINA
-========================================================= */
-
-
-/* =========================================================
-   ÁREA PRINCIPAL
-========================================================= */
 
 #cadastro-usuarios {
     width: 100%;
@@ -191,22 +182,12 @@ li#navbar-sair{
     padding-top: 124px;
 }
 
-
-/* =========================================================
-   CONTAINER
-========================================================= */
-
 #cadastro-usuarios .cadastro-usuarios-container {
     width: 100%;
 
     display: flex;
     justify-content: center;
 }
-
-
-/* =========================================================
-   CARD DO CADASTRO
-========================================================= */
 
 #cadastro-usuarios .cadastro-usuarios-card {
     width: 862px;
@@ -221,10 +202,6 @@ li#navbar-sair{
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
 }
 
-
-/* =========================================================
-   COLUNAS
-========================================================= */
 
 #cadastro-usuarios .cadastro-usuarios-colunas {
     width: 100%;
@@ -242,21 +219,11 @@ li#navbar-sair{
     flex: 0 0 calc(33.333% - 13.33px);
 }
 
-
-/* =========================================================
-   CAMPOS
-========================================================= */
-
 #cadastro-usuarios .cadastro-usuarios-campo {
     width: 100%;
 
     margin-bottom: 18px;
 }
-
-
-/* =========================================================
-   LABEL
-========================================================= */
 
 #cadastro-usuarios .cadastro-usuarios-campo label {
     display: block;
@@ -269,10 +236,6 @@ li#navbar-sair{
     font-weight: 400;
 }
 
-
-/* =========================================================
-   INPUT
-========================================================= */
 
 #cadastro-usuarios .cadastro-usuarios-campo input {
     display: block;
@@ -297,32 +260,17 @@ li#navbar-sair{
     box-sizing: border-box;
 }
 
-
-/* =========================================================
-   PLACEHOLDER
-========================================================= */
-
 #cadastro-usuarios .cadastro-usuarios-campo input::placeholder {
     color: #555555;
 
     opacity: 1;
 }
 
-
-/* =========================================================
-   INPUT SELECIONADO
-========================================================= */
-
 #cadastro-usuarios .cadastro-usuarios-campo input:focus {
     border-color: #173f70;
 
     box-shadow: 0 0 0 1px #173f70;
 }
-
-
-/* =========================================================
-   BOTÃO
-========================================================= */
 
 #cadastro-usuarios .cadastro-usuarios-botao {
     width: 100%;
@@ -332,7 +280,6 @@ li#navbar-sair{
 
     margin-top: 16px;
 }
-
 
 #cadastro-usuarios .cadastro-usuarios-botao button {
     width: 130px;
@@ -361,21 +308,11 @@ li#navbar-sair{
     background: #24486d;
 }
 
-
-/* =========================================================
-   RESULTADO
-========================================================= */
-
 #cadastro-usuarios #usuario-resultado {
     margin-top: 10px;
 
     text-align: center;
 }
-
-
-/* =========================================================
-   RESPONSIVIDADE
-========================================================= */
 
 @media (max-width: 900px) {
 
@@ -413,6 +350,11 @@ li#navbar-sair{
     }
 
 }
+
+
+/*                           Cadastro Usuários                                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 
 /*                            Cadastro Usuário                                */
 /* -------------------------------------------------------------------------- */
