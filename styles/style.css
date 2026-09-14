@@ -82,11 +82,13 @@ li#navbar-sair{
 }
 
 #navbar-sair {
-    border-bottom: none; /* Remove a linha de baixo do botão sair */
+    border-bottom: none;
     display: flex;
     align-items: center;
     gap: 8px; /* Espaço entre a palavra Sair e o futuro ícone */
 }
+
+/* Fazer a parte do icone posteriormente */
 
 #navbar-ferroviario{
     width: 100%;
@@ -99,8 +101,11 @@ li#navbar-sair{
     margin: 0;
     padding: 0;
 }
-
-/* Parte do dropdown */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                             Navbar DROPDOWN                                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 
 .dropdown{
     position: relative;
@@ -145,3 +150,11 @@ li#navbar-sair{
     font-style: bold;
     font-weight: 900 !important;
 }
+
+/*                            Navbar DROPDOWN                                 */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/*                                 Navbar                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
