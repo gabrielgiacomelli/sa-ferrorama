@@ -4,6 +4,12 @@ include "../infra/conn.php";
 ?>
 
 <html lang="en">
+<?php
+$paginaAtual = "gestao";
+$submenuAtual = "gestao-trens";
+include("navbar.php");
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
