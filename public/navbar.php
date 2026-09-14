@@ -105,7 +105,7 @@
                                             Usuários
                                             </a>
                                         </li>
-
+                                        
                                     </ul>
                                 </li>
 
@@ -114,6 +114,10 @@
                                     class="<?= $paginaAtual == 'monitoramento' ? 'ativo' : '' ?>">
                                     Monitoramento
                                     </a>
+                                </li>
+
+                                <li id="navbar-sair">
+                                    <a href="">Sair</a>
                                 </li>
                             </ul>
 
