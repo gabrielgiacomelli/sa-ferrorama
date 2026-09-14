@@ -11,7 +11,7 @@ $submenuAtual = "sensores";
 include("navbar.php");
 ?>
 
-<body id="body2">
+<body>
 
     <main>
         <div>
