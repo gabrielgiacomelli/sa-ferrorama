@@ -1121,3 +1121,125 @@ li#navbar-sair{
 /*                           Cadastro de Trens                                */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                            Cadastro de Rotas                               */
+
+#cadastro-rotas {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--cor-background);
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: 60px;
+}
+
+#cadastro-rotas h2 {
+    width: 100%;
+    margin: 55px 0 40px 0;
+    text-align: center;
+    color: var(--cor-azul-ferroviario);
+    font-family: Arial, sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#cadastro-rotas .cadastro-rotas-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+#cadastro-rotas .cadastro-rotas-card {
+    width: 275px;
+    background-color: var(--cor-branca);
+    border: 1px solid #111;
+    border-radius: 15px;
+    padding: 22px 34px 10px;
+    box-sizing: border-box;
+}
+
+#cadastro-rotas .cadastro-rotas-campo {
+    width: 100%;
+    margin-bottom: 11px;
+}
+
+#cadastro-rotas .cadastro-rotas-campo label {
+    display: block;
+    margin-bottom: 5px;
+    color: #111;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#cadastro-rotas .cadastro-rotas-campo input {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #353535;
+    border-radius: 0;
+    background-color: var(--cor-branca);
+    color: #111;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+#cadastro-rotas .cadastro-rotas-campo input::placeholder {
+    color: #555;
+    opacity: 1;
+}
+
+#cadastro-rotas .cadastro-rotas-campo input:focus {
+    border-color: var(--cor-azul-ferroviario-claro);
+    box-shadow: 0 0 0 1px var(--cor-azul-ferroviario-claro);
+}
+
+#cadastro-rotas .cadastro-rotas-botao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#cadastro-rotas .cadastro-rotas-botao button {
+    height: 35px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--cor-azul-ferroviario);
+    color: var(--cor-branca);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#cadastro-rotas .cadastro-rotas-botao button:hover {
+    background-color: var(--cor-azul-ferroviario-claro);
+}
+
+@media (max-width: 700px) {
+    #cadastro-rotas h2 {
+        font-size: 32px;
+        margin-top: 35px;
+        margin-bottom: 30px;
+    }
+
+    #cadastro-rotas .cadastro-rotas-card {
+        width: 90%;
+        max-width: 275px;
+    }
+}
+
+/*                           Cadastro de Rotas                                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
