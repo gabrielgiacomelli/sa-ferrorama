@@ -6,11 +6,9 @@
         rel="stylesheet">
 </head>
     <header >
-            <div>
-        
-                <div id="navbar-ferroviario-contraste">
                     <div id="navbar-ferroviario">
-                        <nav >
+                        <div id="navbar-esquerda"></div>
+                        <nav>
                             <ul id="navbar-flex">
                                 <li>
                                     <a href="home.php"
@@ -116,14 +114,18 @@
                                     </a>
                                 </li>
 
-                                <li id="navbar-sair">
-                                    <a href="">Sair</a>
-                                </li>
                             </ul>
 
                         </nav>
-                    </div>
-                </div>
 
-            </div>
+                        <div id="navbar-direita"></div>
+                        <ul>
+                            <li id="navbar-sair">
+                                    <a href="">Sair</a>
+                                </li>
+                        </ul>
+                    </div>
+
+                <div id="navbar-ferroviario-contraste-linha"></div> 
+
     </header>
