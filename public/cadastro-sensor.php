@@ -13,48 +13,71 @@ include("navbar.php");
 <body>
 
     <main id="cadastro-sensores">
+
         <div class="cadastro-sensores-container">
 
-            <div class="cadastro-sensores-card">
+            <form class="cadastro-sensores-card" method="POST">
 
                 <div class="cadastro-sensores-campo">
                     <label for="sensor-nome">Nome:</label>
                     <input
                         type="text"
                         id="sensor-nome"
-                        placeholder="Ex: ROTA_01"
+                        name="nome"
+                        placeholder="Ex: Motor Trem"
+                        required
                     >
                 </div>
 
                 <div class="cadastro-sensores-campo">
-                    <label for="sensor-tipo">Tipo:</label>
-                    <select id="sensor-tipo">
-                        <option selected disabled>Selecione</option>
-                        <option value="1">Velocidade</option>
-                        <option value="2">Temperatura</option>
-                        <option value="3">Falhas</option>
-                        <option value="4">Gasolina</option>
+                    <label for="sensor-instalacao">Instalação:</label>
+                    <select
+                        id="sensor-instalacao"
+                        name="instalacao"
+                        required
+                    >
+                        <option value="" selected disabled>Selecione</option>
+                        <option value="trem">Trem</option>
+                        <option value="ferrovia">Ferrovia</option>
                     </select>
                 </div>
 
                 <div class="cadastro-sensores-campo">
-                    <label for="sensor-instalacao">Instalação:</label>
-                    <select id="sensor-instalacao">
-                        <option selected disabled>Selecione</option>
-                        <option value="1">Trem</option>
-                        <option value="2">Ferrovia</option>
+                    <label for="sensor-tipo">Função:</label>
+                    <select
+                        id="sensor-tipo"
+                        name="tipo"
+                        required
+                    >
+                        <option value="" selected disabled>Selecione</option>
+                        <option value="velocidade">Velocidade</option>
+                        <option value="temperatura">Temperatura</option>
+                        <option value="falhas">Falhas</option>
+                        <option value="gasolina">Gasolina</option>
                     </select>
                 </div>
 
+                <div class="cadastro-sensores-campo">
+                    <label for="sensor-zona">Zona:</label>
+                    <input
+                        type="text"
+                        id="sensor-zona"
+                        name="zona"
+                        placeholder="Ex: Zona 01"
+                        required
+                    >
+                </div>
+
                 <div class="cadastro-sensores-botao">
-                    <button type="button">
-                        Cadastrar
+                    <button type="submit">
+                        Cadastrar Sensor
                     </button>
                 </div>
 
-            </div>
+            </form>
 
         </div>
+
     </main>
 
     <script src="../scripts/botao-sair.js"></script>
