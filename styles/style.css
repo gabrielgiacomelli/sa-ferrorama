@@ -792,3 +792,209 @@ li#navbar-sair{
 /*                           Cadastro de sensores                             */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                            Cadastro de Relatórios                          */
+
+#cadastro-relatorios {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: var(--cor-background);
+
+    font-family: Arial, sans-serif;
+
+    box-sizing: border-box;
+
+    padding-top: 60px;
+}
+
+#cadastro-relatorios h2 {
+    width: 100%;
+
+    margin: 55px 0 65px 0;
+
+    text-align: center;
+
+    color: var(--cor-azul-ferroviario);
+
+    font-family: Arial, sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+#cadastro-relatorios .container {
+    width: 100%;
+    max-width: none;
+
+    min-height: auto !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 0;
+}
+
+#cadastro-relatorios .col-lg-11 {
+    width: 84%;
+
+    max-width: none;
+
+    padding: 0;
+}
+
+#cadastro-relatorios .card {
+    width: 100%;
+
+    min-height: 325px;
+
+    padding: 0 !important;
+
+    background-color: transparent;
+
+    border: none !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+#cadastro-relatorios form {
+    width: 100%;
+
+    margin: 0;
+}
+
+#cadastro-relatorios .row {
+    width: 100%;
+
+    margin: 0;
+
+    display: block;
+}
+
+#cadastro-relatorios .col-md-4 {
+    width: 100%;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+#cadastro-relatorios .form-label {
+    display: none;
+}
+
+#cadastro-relatorios #conteudo {
+    display: block;
+
+    width: 100%;
+    height: 327px;
+
+    box-sizing: border-box;
+
+    padding: 8px 14px;
+
+    resize: none;
+
+    border: 1px solid #222;
+    border-radius: 0;
+
+    background-color: var(--cor-branca);
+
+    color: #111;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    outline: none;
+}
+
+#cadastro-relatorios #conteudo::placeholder {
+    color: #52627a;
+
+    opacity: 1;
+}
+
+#cadastro-relatorios #conteudo:focus {
+    border-color: var(--cor-azul-ferroviario-claro);
+
+    box-shadow: 0 0 0 1px var(--cor-azul-ferroviario-claro);
+}
+
+#cadastro-relatorios select {
+    width: 250px;
+
+    height: 35px;
+
+    margin-top: 15px;
+
+    padding: 5px;
+
+    border: 1px solid #353535;
+    border-radius: 0;
+
+    background-color: var(--cor-branca);
+
+    color: #111;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    outline: none;
+}
+
+#cadastro-relatorios button {
+    height: 35px;
+
+    margin-top: 15px;
+
+    padding: 0 18px;
+
+    border: none;
+    border-radius: 15px;
+
+    background-color: var(--cor-azul-ferroviario);
+
+    color: var(--cor-branca);
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#cadastro-relatorios button:hover {
+    background-color: var(--cor-azul-ferroviario-claro);
+}
+
+@media (max-width: 700px) {
+
+    #cadastro-relatorios h2 {
+        font-size: 32px;
+
+        margin-top: 35px;
+        margin-bottom: 40px;
+    }
+
+    #cadastro-relatorios .col-lg-11 {
+        width: 90%;
+    }
+
+    #cadastro-relatorios #conteudo {
+        height: 300px;
+    }
+
+}
+
+/*                           Cadastro de Relatórios                           */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */

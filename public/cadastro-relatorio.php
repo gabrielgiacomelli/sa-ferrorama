@@ -1,26 +1,23 @@
 <?php
 include "../infra/conn.php";
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$conteudo = $_POST["conteudo"];
-$id_usuarios = $_POST["id_usuarios"];
+    $conteudo = $_POST["conteudo"];
+    $id_usuarios = $_POST["id_usuarios"];
 
+    $sql = "INSERT INTO relatorios (conteudo, id_usuarios)
+            VALUES ('$conteudo', '$id_usuarios')";
 
-
-$sql = "INSERT INTO relatorios(conteudo, id_usuarios) VALUES ('$conteudo', '$id_usuarios')";
-
-mysqli_query($conn, $sql);
-
+    mysqli_query($conn, $sql);
 }
 
 $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
-
 ?>
 
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-
-<html lang="en">
 <?php
 $paginaAtual = "cadastro";
 $submenuAtual = "relatorios";
@@ -29,51 +26,82 @@ include("navbar.php");
 
 <body>
 
+    <main id="cadastro-relatorios">
 
-<main>
+        <h2>Cadastro de Relatórios</h2>
 
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="container">
 
-        <!--define o layout responsivo de um elemento.-->
-        <div class="col-lg-11">
+            <div class="col-lg-11">
 
-            <!--card estilizado com espaçamento interno, borda cinza, cantos arredondados e sombra projetada-->
-            <div class="card p-5 shadow-lg border-color: gray  rounded-4">
+                <div class="card">
 
-                <!--título do cadastro, centralizado horizontalmente e com espaçamento inferior-->
-                <h2 class="text-center mb-4">Cadastro de Usuários</h2>
+                    <form method="POST">
 
-                <!--formulário de cadastro, organizado em uma grade com espaçamento entre os elementos-->
-                <form method = "POST">
-                    <div class="row g-4">
+                        <div class="row">
 
-                        <div class="col-md-4">
+                            <div class="col-md-4">
 
-                            <!--campo de email-->
+                                <textarea
+                                    id="conteudo"
+                                    name="conteudo"
+                                    placeholder="Escreva seu relatório"
+                                    required
+                                ></textarea>
 
-                            <label for="conteudo" class="form-label"> Relatórios </label>
-                            <input id="conteudo" type="text" placeholder="Digite seu relatório" name = "conteudo">
-                            </input>
+                                <label for="id_usuarios">
+                                    Usuário relacionado:
+                                </label>
 
-                            <label for="idade"> Usuário relacinado: </label>
-                            <select name="id_usuarios" required>
+                                <select
+                                    id="id_usuarios"
+                                    name="id_usuarios"
+                                    required
+                                >
 
-                                <?php
-                                while($usuario = mysqli_fetch_assoc($usuarios)){ ?>
+                                    <option value="" selected disabled>
+                                        Selecione o usuário
+                                    </option>
 
-                                <option value="<?php echo $usuario['id']; ?>">
-                                    <?php echo $usuario['nome']; ?>
-                                </option>
+                                    <?php
+                                    while ($usuario = mysqli_fetch_assoc($usuarios)) {
+                                    ?>
 
-                                <?php } ?>
+                                        <option value="<?php echo $usuario['id']; ?>">
+                                            <?php echo $usuario['nome']; ?>
+                                        </option>
 
-                            </select>
+                                    <?php
+                                    }
+                                    ?>
 
-                        <button type="submit">Cadastrar</button>
+                                </select>
 
-                </form>
+                                <button type="submit">
+                                    Cadastrar
+                                </button>
 
-</main>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../scripts/botao-sair.js"></script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9H9JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous">
+    </script>
 
 </body>
 
