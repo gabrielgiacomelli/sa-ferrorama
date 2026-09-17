@@ -7,7 +7,8 @@ include "../infra/conn.php";
 <?php
 $paginaAtual = "cadastro";
 $submenuAtual = "sensores";
-include("navbar.php");
+include("../includes/navbar.php");
+
 ?>
 
 <body>

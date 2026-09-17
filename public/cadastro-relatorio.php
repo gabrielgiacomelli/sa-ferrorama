@@ -21,7 +21,7 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
 <?php
 $paginaAtual = "cadastro";
 $submenuAtual = "relatorios";
-include("navbar.php");
+include("../includes/navbar.php");
 ?>
 
 <body>

@@ -8,7 +8,7 @@ include "../infra/conn.php";
 <?php
 $paginaAtual = "gestao";
 $submenuAtual = "gestao-usuarios";
-include("navbar.php");
+include("../includes/navbar.php");
 ?>
 
     <!-- início da tabela de gestão de usuários -->

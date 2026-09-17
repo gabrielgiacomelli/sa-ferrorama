@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 $paginaAtual = "cadastro";
 $submenuAtual = "rotas";
-include("navbar.php");
+include("../includes/navbar.php");
 ?>
 
 <body>
