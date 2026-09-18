@@ -3,8 +3,8 @@ include "../infra/conn.php";
 ?>
 
 <html lang="pt-BR">
-
-<?php
+    
+    <?php
 $paginaAtual = "cadastro";
 $submenuAtual = "sensores";
 include("../includes/navbar.php");
@@ -12,11 +12,13 @@ include("../includes/navbar.php");
 ?>
 
 <body>
-
+    
     <main id="cadastro-sensores">
+        
+        <h2>Cadastro de Sensores</h2>
 
         <div class="cadastro-sensores-container">
-
+            
             <form class="cadastro-sensores-card" method="POST">
 
                 <div class="cadastro-sensores-campo">
@@ -74,11 +76,8 @@ include("../includes/navbar.php");
                         Cadastrar Sensor
                     </button>
                 </div>
-
             </form>
-
         </div>
-
     </main>
 
     <script src="../scripts/botao-sair.js"></script>
