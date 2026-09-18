@@ -1296,286 +1296,123 @@ li#navbar-sair{
 /* -------------------------------------------------------------------------- */
 
 
-/* -------------------------------------------------------------------------- */
-/*                                 Home                                       */
-/* -------------------------------------------------------------------------- */
+/* ================================================= */
+/*                      HOME                         */
+/* ================================================= */
 
 #home-page-body {
-    background-color: var(--cor-background);
     margin: 0;
-    padding: 0;
+    background-color: var(--cor-background);
+    font-family: Arial, sans-serif;
 }
 
 .container-principal {
-    max-width: 1200px;
+    width: 1100px;
     margin: 0 auto;
-    padding: 90px 20px 40px 20px;
+    padding-top: 90px;
+    padding-bottom: 50px;
 }
 
 .bem-vindo-inicial {
-    font-size: 36px;
-    font-weight: 800;
     color: var(--cor-azul-ferroviario);
-    margin-bottom: 30px;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 30px 0;
 }
 
-.flex {
+
+/* ---------------- PARTE DE CIMA ---------------- */
+
+.home-superior {
     display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    width: 100%;
+    gap: 40px;
 }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
-.card-sz {
-    background-color: var(--cor-branca);
-    border-radius: 24px;
+/* Notícias */
+
+.card-noticias-home {
+    width: 390px;
+    height: 460px;
     padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-}
+    box-sizing: border-box;
 
-.card-sz.sz {
-    flex: 1.1;
-    max-width: 440px;
+    background-color: var(--cor-branca);
+    border-radius: 25px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 #noticias-recentes {
     text-align: center;
-    font-size: 22px;
-    font-weight: 700;
     color: var(--cor-azul-ferroviario);
-    margin-bottom: 25px;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    margin: 0 0 20px;
+}
+
+.scroll-noticias-home {
+    height: 380px;
+    overflow-y: auto;
 }
 
 .amarelo-flex {
+    display: flex;
+    align-items: center;
+
+    height: 58px;
+    margin-bottom: 18px;
+
     border: 2px solid var(--cor-azul-ferroviario-claro);
-    border-radius: 18px;
-    height: 65px;
-    gap: 0;
-    margin-bottom: 14px;
+    border-radius: 17px;
+
     overflow: hidden;
-    background-color: var(--cor-branca);
 }
 
 .dia-noticias {
+    width: 70px;
+    height: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 75px;
-    height: 100%;
-    border-right: 2px solid var(--cor-azul-ferroviario-claro);
-    font-weight: 700;
-    font-size: 13px;
+
     color: var(--cor-azul-ferroviario);
-    line-height: 1.2;
-    text-align: center;
+    font-weight: bold;
+
+    border-right: 2px solid var(--cor-azul-ferroviario-claro);
 }
 
 .dia-noticias p {
     margin: 0;
-    font-size: 18px;
-    font-weight: 800;
+    font-size: 17px;
+}
+
+.flex-column {
+    display: flex;
+    align-items: center;
 }
 
 .flex-column p {
-    font-size: 13px;
-    color: #1a1a1a;
-    font-weight: 600;
-    margin: 0 0 0 15px;
-}
-
-.data-secundaria {
-    display: none; 
-}
-
-.padding {
-    flex: 1.4;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-#blog-hlgl {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--cor-azul-ferroviario);
-    margin-bottom: 15px;
-}
-
-.padding-amarelo {
-    background-color: var(--cor-branca);
-    border-radius: 20px;
-    padding: 15px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-}
-
-.img-blog {
-    width: 100px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.amarelo-blog {
-    flex: 1;
-    padding-left: 15px;
-}
-
-.titulo-blog {
-    font-weight: 700;
-    color: var(--cor-azul-ferroviario);
-    margin: 0 0 4px 0;
-}
-
-.informacao-blog {
-    font-size: 13px;
-    color: #555;
-    margin: 0;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                       Seção de clima e alertas na home                     */
-/* -------------------------------------------------------------------------- */
-
-.bloco-inferior-clima {
-    margin-top: 30px;
-}
-
-.layout-split-clima {
-    display: flex;
-    width: 100%;
-    gap: 40px;
-}
-
-.sub-bloco-clima, .sub-bloco-alertas {
-    flex: 1;
-}
-
-#texto-clima, #texto-alerta {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--cor-azul-ferroviario);
-    margin-bottom: 20px;
-}
-
-.conteudo-clima {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 15px;
-}
-
-#icone-sol {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-}
-
-.flex-row {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-}
-
-#temperatura {
-    font-size: 48px;
-    font-weight: 800;
-    color: var(--cor-azul-ferroviario);
-}
-
-.unidades-graus {
-    font-size: 18px;
-    font-weight: 600;
-    color: #718096;
-}
-
-.informacoes-tempo p {
-    font-size: 13px;
-    color: #4a5568;
-    margin: 2px 0 2px 20px;
-}
-
-.status-clima-texto {
-    gap: 10px;
-    font-size: 16px;
-    color: #2d3748;
-}
-
-.linhameio {
-    width: 2px;
-    background-color: #e2e8f0;
-    align-self: stroke;
-}
-
-.alerta-label {
-    font-size: 14px;
-    color: var(--cor-azul-ferroviario);
-    margin: 10px 0 2px 0;
-}
-
-.alerta-desc {
-    font-size: 13px;
-    color: #4a5568;
-    margin: 0 0 10px 0;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                           Ajustes da tela home                             */
-/* -------------------------------------------------------------------------- */
-
-
-.amarelo-flex {
-    display: flex;
-    align-items: center;
-}
-
-.card-sz.sz {
-    height: 480px;
-    display: flex;
-    flex-direction: column;
-}
-
-.scroll-noticias-home {
-    flex: 1;
-    overflow-y: auto;
-    padding-right: 5px;
-}
-
-.scroll-noticias-home::-webkit-scrollbar {
-    width: 6px;
-}
-.scroll-noticias-home::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
+    margin: 0 10px 0 15px !important;
+    font-size: 12px;
+    color: #222;
 }
 
 
-.flex-column p {
-    margin: 0 0 0 15px !important;
-    line-height: 1.3;
-}
+/* ---------------- MOSAICO ---------------- */
 
 .right-side-home {
-    flex: 1.4;
-    height: 480px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1;
+    height: 460px;
 }
 
 .mosaic-home {
     display: flex;
-    gap: 16px;
-    width: 100%;
+    gap: 12px;
     height: 100%;
 }
 
@@ -1583,47 +1420,237 @@ li#navbar-sair{
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .block-home {
-    border-radius: 20px;
     width: 100%;
     height: 0;
+    border-radius: 18px;
 }
 
+.bg-light {
+    background-color: var(--cor-azul-ferroviario-claro);
+}
 
-.h-small    { flex-grow: 0.5; }
-.h-smedium  { flex-grow: 1.8; }
-.h-medium   { flex-grow: 2.2; }
-.h-large    { flex-grow: 3.5; }
-.h-xlarge   { flex-grow: 4.8; }
+.bg-dark {
+    background-color: var(--cor-azul-ferroviario);
+}
 
+.h-small {
+    flex-grow: 0.7;
+}
+
+.h-smedium {
+    flex-grow: 1.5;
+}
+
+.h-medium {
+    flex-grow: 2.3;
+}
+
+.h-large {
+    flex-grow: 3.5;
+}
+
+.h-xlarge {
+    flex-grow: 4.8;
+}
 
 .letra-mosaico {
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: var(--cor-branca) !important;
-    font-size: 52px;
-    font-weight: 900;
-    font-family: sans-serif;
+    justify-content: center;
+
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 
-.popup {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100vh;
-    z-index: 10000;
+/* ---------------- PARTE DE BAIXO ---------------- */
+
+.home-inferior {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
 }
-.overlay {
-    position: absolute; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+
+
+/* Clima */
+
+.card-clima-home {
+    width: 430px;
+    padding: 25px 30px;
+    box-sizing: border-box;
+
+    background-color: white;
+    border-radius: 25px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
-.popup-content {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--cor-branca); padding: 30px; border-radius: 20px;
-    text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+.card-clima-home h2 {
+    text-align: center;
+
+    color: var(--cor-azul-ferroviario);
+    font-size: 21px;
+
+    margin: 0 0 20px;
+}
+
+.clima-principal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icone-sol {
+    font-size: 60px;
+}
+
+.temperatura-home {
+    display: flex;
+    align-items: baseline;
+}
+
+.temperatura-home strong {
+    font-size: 50px;
+}
+
+.temperatura-home span {
+    font-size: 15px;
+}
+
+.informacoes-tempo-home {
+    font-size: 10px;
+}
+
+.informacoes-tempo-home p {
+    margin: 3px 0;
+}
+
+.clima-legendas {
+    display: flex;
+    justify-content: space-around;
+
+    margin: 10px 0 20px;
+}
+
+.card-clima-home hr {
+    border: none;
+    border-top: 2px solid #222;
+}
+
+.alerta-home {
+    margin-bottom: 20px;
+}
+
+.alerta-home strong {
+    font-size: 13px;
+}
+
+.alerta-home p {
+    font-size: 12px;
+    margin: 3px 0;
+}
+
+
+/* ---------------- LADO DIREITO ---------------- */
+
+.home-direita-inferior {
+    flex: 1;
+}
+
+
+/* Meio ambiente */
+
+.card-planeta-home {
+    padding: 20px 25px;
+
+    background-color: white;
+    border-radius: 25px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-planeta-home h2 {
+    text-align: center;
+    color: var(--cor-azul-ferroviario);
+    font-size: 21px;
+}
+
+.planeta-item {
+    display: flex;
+    gap: 15px;
+}
+
+.icone-planta {
+    font-size: 40px;
+}
+
+.planeta-item h3,
+.planeta-texto h3 {
+    font-size: 14px;
+    margin: 0 0 5px;
+}
+
+.planeta-item p,
+.planeta-texto p {
+    font-size: 11px;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.planeta-texto {
+    margin-left: 55px;
+    margin-top: 10px;
+}
+
+
+/* Dados da ferrovia */
+
+.dados-home {
+    margin-top: 40px;
+}
+
+.dados-home h2 {
+    text-align: center;
+    color: var(--cor-azul-ferroviario);
+    font-size: 25px;
+}
+
+.dados-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.dado-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.imagem-dado {
+    width: 120px;
+    height: 70px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.dado-item h3 {
+    color: var(--cor-azul-ferroviario);
+    font-size: 13px;
+    margin: 0 0 5px;
+}
+
+.dado-item p {
+    font-size: 11px;
+    margin: 0;
 }
