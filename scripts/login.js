@@ -19,13 +19,7 @@ document.getElementById("FormLogin").addEventListener("submit", function (e) {
         return;
     }
 
-<<<<<<< HEAD
     window.location.href = "../public/home.php";
-
-
-=======
-    window.location.href = "home.php";
->>>>>>> 66066d3b7775a7a8685175c0e8a0c4ecb34ad6aa
 });
 
 
