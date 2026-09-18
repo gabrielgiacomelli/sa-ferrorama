@@ -1527,3 +1527,103 @@ li#navbar-sair{
     color: #4a5568;
     margin: 0 0 10px 0;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                           Ajustes da tela home                             */
+/* -------------------------------------------------------------------------- */
+
+
+.amarelo-flex {
+    display: flex;
+    align-items: center;
+}
+
+.card-sz.sz {
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-noticias-home {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.scroll-noticias-home::-webkit-scrollbar {
+    width: 6px;
+}
+.scroll-noticias-home::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+
+.flex-column p {
+    margin: 0 0 0 15px !important;
+    line-height: 1.3;
+}
+
+.right-side-home {
+    flex: 1.4;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mosaic-home {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+.col-home {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.block-home {
+    border-radius: 20px;
+    width: 100%;
+    height: 0;
+}
+
+
+.h-small    { flex-grow: 0.5; }
+.h-smedium  { flex-grow: 1.8; }
+.h-medium   { flex-grow: 2.2; }
+.h-large    { flex-grow: 3.5; }
+.h-xlarge   { flex-grow: 4.8; }
+
+
+.letra-mosaico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--cor-branca) !important;
+    font-size: 52px;
+    font-weight: 900;
+    font-family: sans-serif;
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    z-index: 10000;
+}
+.overlay {
+    position: absolute; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+.popup-content {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--cor-branca); padding: 30px; border-radius: 20px;
+    text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
