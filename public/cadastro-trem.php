@@ -1,180 +1,112 @@
 <?php
 include "../infra/conn.php";
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $peso_total = $_POST["peso_total"];
+    $quantidade_vagoes = $_POST["quantidade_vagoes"];
+    $proprietario = $_POST["proprietario"];
+
+    $sql = "INSERT INTO trens (peso_total, quantidade_vagoes, proprietario)
+            VALUES ('$peso_total', '$quantidade_vagoes', '$proprietario')";
+
+    mysqli_query($conn, $sql);
+}
 ?>
 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <?php
 $paginaAtual = "cadastro";
 $submenuAtual = "trens";
-include("navbar.php");
+include("../includes/navbar.php");
 ?>
-    <main>
-        <div>
-            <div class="container-menor" style="margin-top: 150px; justify-self: center;">
-                <p style="font-size: 18px;">Nome:</p>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Insira o Nº do Trem"
-                        style="margin-top: 15px; max-width: 80%; border-radius: 0%; border: 1px solid #353535">
-                    </input>
+
+<body>
+
+    <main id="cadastro-trens">
+
+        <h2>Cadastro de Trens</h2>
+
+        <div class="cadastro-trens-container">
+
+            <form class="cadastro-trens-card" method="POST">
+
+                <div class="cadastro-trens-campo">
+
+                    <label for="peso-total">
+                        Peso total
+                    </label>
+
+                    <input
+                        type="text"
+                        id="peso-total"
+                        name="peso_total"
+                        placeholder="Ex: 400T"
+                        required
+                    >
 
                 </div>
-                <p style="font-size: 18px;">Tipo:</p>
-                <select class="form-select" style="max-width: 120px; border-radius: 0%; border: 1px solid #353535">
-                    <option selected>Selecione</option>
-                    <option value="1">Velocidade</option>
-                    <option value="2">Temperatura</option>
-                    <option value="3">Falhas</option>
-                    <option value="4">Gasolina</option>
-                </select>
-                <p style="font-size: 18px;">Instalação:</p>
-                <select class="form-select" style="max-width: 120px; border-radius: 0%; border: 1px solid #353535">
-                    <option selected>Selecione</option>
-                    <option value="1">Trem</option>
-                    <option value="2">Ferrovia</option>
-                </select>
-                <button type="button" class="btn btn-primary"
-                    style="border-radius: 20px; font-size: 20px;">Cadastrar</button>
-            </div>
-        </div>
-        <div class="trens" style="margin-top: 80px; justify-self: center; width: 70%;">
-            <span style="font-size: 25px; font-weight: 700;">Trens cadastrados:</span>
-            <div class="container-maior">
-                <div class="d-flex mt-3 mb-3 gap-5" style="align-items: center;">
-                    <h5 class="ms-5 mb-0" style="font-weight: 700">Busque:</h5>
-                    <div class="d-flex align-items-center gap-2">
-                        <span style="font-size: 20px;">Status</span>
-                        <select class="form-select"
-                            style="max-width: 120px; border-radius: 0%; border: 1px solid #353535; align-self: center;">
-                            <option selected>Selecione</option>
-                            <option value="1">Ativo</option>
-                            <option value="2">Inativo</option>
-                        </select>
-                    </div>
-                    <div class="d-flex align-items-center gap-3">
-                        <span style="font-size: 20px;">ID</span>
-                        <input type="text" class="form-control" placeholder="Insira o ID do Trem"
-                            style="width: 300px; border-radius: 0%; border: 1px solid #353535">
-                        </input>
-                    </div>
+
+
+                <div class="cadastro-trens-campo">
+
+                    <label for="quantidade-vagoes">
+                        Quantidade de vagões:
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantidade-vagoes"
+                        name="quantidade_vagoes"
+                        placeholder="Ex: 45"
+                        required
+                    >
+
                 </div>
-                <div class="d-flex mt-5 mb-3 gap-5" style="align-items: center;">
-                    <div class="ms-5 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro01</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro02</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro03</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro04</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro05</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Rota: ro06</p>
-                    </div>
-                    <div class="ms-2 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_01</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_02</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_03</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_04</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_05</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Trem_06</p>
-                    </div>
-                    <div class="ms-2 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre01</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre02</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre03</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre04</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre05</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ID Trem: tre06</p>
-                    </div>
-                    <div class="ms-2 gap-2">
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 15</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 100</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 15</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 100</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 24</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">Vagões: 100</p>
-                    </div>
-                    <div class="ms-2 gap-2" style="text-align: center">
-                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">INATIVO</p>
-                        <p style="font-size: 20px; margin-bottom: 8px;">ATIVO</p>
-                    </div>
-                    <div class="ms-auto me-5">
-                        <div class="d-flex gap-1 mb-2">
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Trem</button>
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Atualizar</button>
-                        </div>
-                        <div class="d-flex gap-1 mb-2">
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Trem</button>
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Atualizar</button>
-                        </div>
-                        <div class="d-flex gap-1 mb-2">
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Trem</button>
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Atualizar</button>
-                        </div>
-                        <div class="d-flex gap-1 mb-2">
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Trem</button>
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Atualizar</button>
-                        </div>
-                        <div class="d-flex gap-1 mb-2">
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Ativar Trem</button>
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Atualizar</button>
-                        </div>
-                        <div class="d-flex gap-1 mb-2">
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Desativar Trem</button>
-                            <button
-                                style="width: 150px; padding: 5px; border-radius: 0%; border: 1px solid #353535; background-color:white ; font-size: 15px;">
-                                Atualizar</button>
-                        </div>
-                    </div>
+
+
+                <div class="cadastro-trens-campo">
+
+                    <label for="proprietario">
+                        Proprietário
+                    </label>
+
+                    <input
+                        type="text"
+                        id="proprietario"
+                        name="proprietario"
+                        placeholder="Ex: Funcionario_01"
+                        required
+                    >
+
                 </div>
-            </div>
+
+
+                <div class="cadastro-trens-botao">
+
+                    <button type="submit">
+                        Cadastrar Trem
+                    </button>
+
+                </div>
+
+            </form>
+
         </div>
 
-</main>
-    <!-- POPUP DE SAIR (overlay) -->
-        <div class="popup" id="popup">
-            <div class="overlay"></div>
-            <div class="popup-content">
-                <h2>Aviso</h2>
-                <p>Você deseja sair da sua conta?</p>
-                <h6>(Seu progresso será salvo automaticamente)</h6>
-                <div class="controls">
-                    <button class="fechar-popup nav-link mx-lg-2"
-                        onclick="window.location.href='login.php'">Sim</button>
-                    <button class="close-btn nav-link mx-lg-2">Não</button>
-                </div>
-            </div>
-        </div>
-    <!-- Scripts -->
+    </main>
+
+
     <script src="../scripts/botao-sair.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-</body>
 
-    
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9H9JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous">
+    </script>
+
+</body>
 
 </html>

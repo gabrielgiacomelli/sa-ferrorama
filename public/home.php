@@ -1,10 +1,9 @@
-<?php
-$paginaAtual = "home";
-?>
+
 
 <html lang="en">
 <?php
-include("navbar.php");
+$paginaAtual = "home";
+include("../includes/navbar.php");
 ?>
 
     <main>

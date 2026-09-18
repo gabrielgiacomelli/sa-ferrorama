@@ -26,14 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+    
 <?php
-
 $paginaAtual = "cadastro";
 $submenuAtual = "usuarios";
-
-include("navbar.php");
-
+include("../includes/navbar.php");
 ?>
+
 <body>
 
 <div id="cadastro-usuarios">
@@ -226,40 +225,6 @@ include("navbar.php");
         </div>
 
     </main>
-
-    <div class="popup" id="popup">
-
-        <div class="overlay"></div>
-
-        <div class="popup-content">
-
-            <h2>Aviso</h2>
-
-            <p>
-                Você deseja sair da sua conta?
-            </p>
-
-            <h6>
-                (Seu progresso será salvo automaticamente)
-            </h6>
-
-            <div class="controls">
-
-                <button
-                    class="fechar-popup nav-link mx-lg-2"
-                    onclick="window.location.href='login.php'">
-                    Sim
-                </button>
-
-                <button class="close-btn nav-link mx-lg-2">
-                    Não
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
 
 </div>
 

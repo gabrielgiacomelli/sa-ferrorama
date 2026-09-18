@@ -1,16 +1,15 @@
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.1">
     <link rel="stylesheet" href="../styles/style.css?v=1.1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
         rel="stylesheet">
+    
 </head>
     <header >
-            <div>
-        
-                <div id="navbar-ferroviario-contraste">
                     <div id="navbar-ferroviario">
-                        <nav >
+                        <div id="navbar-esquerda"></div>
+                        <nav>
                             <ul id="navbar-flex">
                                 <li>
                                     <a href="home.php"
@@ -105,7 +104,7 @@
                                             Usuários
                                             </a>
                                         </li>
-
+                                        
                                     </ul>
                                 </li>
 
@@ -115,11 +114,19 @@
                                     Monitoramento
                                     </a>
                                 </li>
+
                             </ul>
 
                         </nav>
-                    </div>
-                </div>
 
-            </div>
+                        <div id="navbar-direita"></div>
+                        <ul>
+                            <li id="navbar-sair">
+                                    <a href="">Sair</a>
+                                </li>
+                        </ul>
+                    </div>
+
+                <div id="navbar-ferroviario-contraste-linha"></div> 
+
     </header>

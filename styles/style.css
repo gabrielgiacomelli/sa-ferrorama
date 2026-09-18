@@ -78,7 +78,8 @@ header{
 
 li#navbar-sair{
     position: absolute;
-    right: 30px;
+    right: 60px;
+    top: 26%;
 }
 
 #navbar-sair {
@@ -86,21 +87,61 @@ li#navbar-sair{
     display: flex;
     align-items: center;
     gap: 8px; /* Espaço entre a palavra Sair e o futuro ícone */
+    
+}
+#navbar-sair a{
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 8px;
 }
 
 /* Fazer a parte do icone posteriormente */
 
 #navbar-ferroviario{
     width: 100%;
-    height: 60px;
+    height: 45px;
     background-color: var(--cor-azul-ferroviario);
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
-#navbar-ferroviario-contraste {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+#navbar-esquerda{
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 110px;
+    height: 100%;
+
+    background: var(--cor-azul-ferroviario-claro);
+
+    clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
 }
+
+#navbar-direita{
+    position: absolute;
+    right: -20px;
+    top: 49px;
+
+    width: 110px;
+    height: 100%;
+
+    background: var(--cor-azul-ferroviario-claro);
+
+    clip-path: polygon(0 0,100% 0, 100% 100%,20% 0);
+}
+
+#navbar-ferroviario-contraste-linha {
+    background-color: var(--cor-azul-ferroviario-claro);
+    height: 3.5px;
+    width: 100%;
+}
+
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                             Navbar DROPDOWN                                */
@@ -115,7 +156,7 @@ li#navbar-sair{
     display: none;
 
     position: absolute;
-    top: 100%;
+    top: 110%;
     left: 50%;
 
     transform: translateX(-50%);
@@ -124,9 +165,9 @@ li#navbar-sair{
 
     background: var(--cor-branca);
 
-    border-radius: 10px;
+    border-radius: 15px;
 
-    padding: 0px 0;
+    padding: 2px 0;
 
     list-style: none;
 
@@ -141,14 +182,13 @@ li#navbar-sair{
 
 .dropdown-menu a{
     display: block;
-    padding: 4px 20px;
+    padding: 1px 20px;
     color: var(--cor-azul-ferroviario) !important;
 }
 
 .submenu-ativo{
     color: var(--cor-azul-ferroviario) !important;
-    font-style: bold;
-    font-weight: 900 !important;
+    font-weight: 800 !important;
 }
 
 /*                            Navbar DROPDOWN                                 */
@@ -378,7 +418,7 @@ li#navbar-sair{
 
 .topbar {
     background-color: var(--cor-azul-ferroviario);
-    height: 55px;
+    height: 45px;
     width: 100%;
     position: relative;
     display: flex;
@@ -389,8 +429,19 @@ li#navbar-sair{
 .topbar-stripe {
     background-color: var(--cor-azul-ferroviario-claro);
     height: 100%;
-    width: 120px;
+    width: 110px;
     clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
+}
+
+#topbar-direita{
+    position: absolute;
+    right: -20px;
+
+    width: 120px;
+    height: 8.35%;
+
+    background: var(--cor-azul-ferroviario-claro);
+    clip-path: polygon(0 0,100% 0, 100% 100%,20% 0);
 }
 
 .login-box {
@@ -496,5 +547,750 @@ li#navbar-sair{
 
 
 /*                                  Index                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                  Login                                     */
+#body2 {
+    margin: 0;
+    min-height: 100vh;
+
+    background-color: #f3f4f7;
+
+    font-family: Arial, sans-serif;
+}
+
+#body2 .login-container {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#body2 .logo-top {
+    color: #1d3557;
+
+    font-size: 68px;
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 55px;
+}
+
+#body2 .login-card {
+    width: 310px;
+
+    background-color: #f8f8f8;
+
+    border-radius: 14px;
+
+    padding: 22px 23px 34px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+#body2 .login-card h2 {
+    text-align: center;
+
+    font-size: 25px;
+    font-weight: 400;
+
+    margin: 0 0 18px;
+}
+
+#body2 .campo {
+    margin-bottom: 12px;
+}
+
+#body2 .campo label {
+    display: block;
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+
+    color: #111;
+}
+
+#body2 .campo input {
+    width: 100%;
+    height: 40px;
+
+    border: 2px solid #111;
+
+    border-radius: 6px;
+
+    padding: 7px;
+
+    font-size: 16px;
+
+    box-sizing: border-box;
+}
+
+#body2 .campo input::placeholder {
+    color: #666;
+}
+
+#body2 .btn-entrar {
+    width: 100%;
+    height: 38px;
+
+    margin-top: 0;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: #1d3557;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+#body2 .btn-entrar:hover {
+    background-color: #162a45;
+}
+
+#body2 .btn-esqueci {
+    width: 100%;
+    height: 39px;
+
+    margin-top: 12px;
+
+    border: none;
+    border-radius: 20px;
+
+    background-color: #f8f8f8;
+
+    color: #111;
+
+    font-size: 16px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+    cursor: pointer;
+}
+
+
+
+#body2 .btn-esqueci:hover {
+    background-color: #eeeeee;
+}
+
+#body2 #problema {
+    margin-top: 10px;
+
+    margin-bottom: 0;
+
+    font-size: 14px;
+}
+
+
+/*                                  Login                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                            Cadastro de sensores                            */
+
+#cadastro-sensores {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: var(--cor-background);
+
+    font-family: Arial, sans-serif;
+}
+
+#cadastro-sensores .cadastro-sensores-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 124px;
+
+    box-sizing: border-box;
+}
+
+#cadastro-sensores .cadastro-sensores-card {
+    width: 275px;
+
+    background-color: var(--cor-branca);
+
+    border: 1px solid #111;
+    border-radius: 15px;
+
+    padding: 15px 17px 10px;
+
+    box-sizing: border-box;
+}
+
+#cadastro-sensores .cadastro-sensores-campo {
+    width: 100%;
+
+    margin-bottom: 11px;
+}
+
+#cadastro-sensores .cadastro-sensores-campo label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #111;
+
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#cadastro-sensores .cadastro-sensores-campo input,
+#cadastro-sensores .cadastro-sensores-campo select {
+    display: block;
+
+    width: 100%;
+    height: 34px;
+
+    padding: 5px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #353535;
+    border-radius: 0;
+
+    background-color: var(--cor-branca);
+
+    color: #111;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    outline: none;
+}
+
+#cadastro-sensores .cadastro-sensores-campo input::placeholder {
+    color: #555;
+
+    opacity: 1;
+}
+
+#cadastro-sensores .cadastro-sensores-campo input:focus,
+#cadastro-sensores .cadastro-sensores-campo select:focus {
+    border-color: var(--cor-azul-ferroviario-claro);
+
+    box-shadow: 0 0 0 1px var(--cor-azul-ferroviario-claro);
+}
+
+#cadastro-sensores .cadastro-sensores-botao {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#cadastro-sensores .cadastro-sensores-botao button {
+    height: 35px;
+
+    padding: 0 14px;
+
+    border: none;
+    border-radius: 15px;
+
+    background-color: var(--cor-azul-ferroviario);
+
+    color: var(--cor-branca);
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#cadastro-sensores .cadastro-sensores-botao button:hover {
+    background-color: var(--cor-azul-ferroviario-claro);
+}
+
+@media (max-width: 700px) {
+
+    #cadastro-sensores .cadastro-sensores-container {
+        padding-top: 80px;
+    }
+
+    #cadastro-sensores .cadastro-sensores-card {
+        width: 90%;
+        max-width: 275px;
+    }
+
+}
+
+
+
+/*                           Cadastro de sensores                             */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                            Cadastro de Relatórios                          */
+
+#cadastro-relatorios {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: var(--cor-background);
+
+    font-family: Arial, sans-serif;
+
+    box-sizing: border-box;
+
+    padding-top: 60px;
+}
+
+#cadastro-relatorios h2 {
+    width: 100%;
+
+    margin: 55px 0 65px 0;
+
+    text-align: center;
+
+    color: var(--cor-azul-ferroviario);
+
+    font-family: Arial, sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+#cadastro-relatorios .container {
+    width: 100%;
+    max-width: none;
+
+    min-height: auto !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 0;
+}
+
+#cadastro-relatorios .col-lg-11 {
+    width: 84%;
+
+    max-width: none;
+
+    padding: 0;
+}
+
+#cadastro-relatorios .card {
+    width: 100%;
+
+    min-height: 325px;
+
+    padding: 0 !important;
+
+    background-color: transparent;
+
+    border: none !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+#cadastro-relatorios form {
+    width: 100%;
+
+    margin: 0;
+}
+
+#cadastro-relatorios .row {
+    width: 100%;
+
+    margin: 0;
+
+    display: block;
+}
+
+#cadastro-relatorios .col-md-4 {
+    width: 100%;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+#cadastro-relatorios .form-label {
+    display: none;
+}
+
+#cadastro-relatorios #conteudo {
+    display: block;
+
+    width: 100%;
+    height: 327px;
+
+    box-sizing: border-box;
+
+    padding: 8px 14px;
+
+    resize: none;
+
+    border: 1px solid #222;
+    border-radius: 0;
+
+    background-color: var(--cor-branca);
+
+    color: #111;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    outline: none;
+}
+
+#cadastro-relatorios #conteudo::placeholder {
+    color: #52627a;
+
+    opacity: 1;
+}
+
+#cadastro-relatorios #conteudo:focus {
+    border-color: var(--cor-azul-ferroviario-claro);
+
+    box-shadow: 0 0 0 1px var(--cor-azul-ferroviario-claro);
+}
+
+#cadastro-relatorios select {
+    width: 250px;
+
+    height: 35px;
+
+    margin-top: 15px;
+
+    padding: 5px;
+
+    border: 1px solid #353535;
+    border-radius: 0;
+
+    background-color: var(--cor-branca);
+
+    color: #111;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    outline: none;
+}
+
+#cadastro-relatorios button {
+    height: 35px;
+
+    margin-top: 15px;
+
+    padding: 0 18px;
+
+    border: none;
+    border-radius: 15px;
+
+    background-color: var(--cor-azul-ferroviario);
+
+    color: var(--cor-branca);
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#cadastro-relatorios button:hover {
+    background-color: var(--cor-azul-ferroviario-claro);
+}
+
+@media (max-width: 700px) {
+
+    #cadastro-relatorios h2 {
+        font-size: 32px;
+
+        margin-top: 35px;
+        margin-bottom: 40px;
+    }
+
+    #cadastro-relatorios .col-lg-11 {
+        width: 90%;
+    }
+
+    #cadastro-relatorios #conteudo {
+        height: 300px;
+    }
+
+}
+
+/*                           Cadastro de Relatórios                           */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                            Cadastro de Trens                               */
+
+
+#cadastro-trens {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--cor-background);
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: 60px;
+}
+
+#cadastro-trens h2 {
+    width: 100%;
+    margin: 55px 0 40px 0;
+    text-align: center;
+    color: var(--cor-azul-ferroviario);
+    font-family: Arial, sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#cadastro-trens .cadastro-trens-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-card {
+    width: 275px;
+    background-color: var(--cor-branca);
+    border: 1px solid #111;
+    border-radius: 15px;
+    padding: 22px 34px 10px;
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-campo {
+    width: 100%;
+    margin-bottom: 11px;
+}
+
+#cadastro-trens .cadastro-trens-campo label {
+    display: block;
+    margin-bottom: 5px;
+    color: #111;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#cadastro-trens .cadastro-trens-campo input {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #353535;
+    border-radius: 0;
+    background-color: var(--cor-branca);
+    color: #111;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+#cadastro-trens .cadastro-trens-campo input::placeholder {
+    color: #555;
+    opacity: 1;
+}
+
+#cadastro-trens .cadastro-trens-campo input:focus {
+    border-color: var(--cor-azul-ferroviario-claro);
+    box-shadow: 0 0 0 1px var(--cor-azul-ferroviario-claro);
+}
+
+#cadastro-trens .cadastro-trens-botao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#cadastro-trens .cadastro-trens-botao button {
+    height: 35px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--cor-azul-ferroviario);
+    color: var(--cor-branca);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#cadastro-trens .cadastro-trens-botao button:hover {
+    background-color: var(--cor-azul-ferroviario-claro);
+}
+
+@media (max-width: 700px) {
+    #cadastro-trens h2 {
+        font-size: 32px;
+        margin-top: 35px;
+        margin-bottom: 30px;
+    }
+
+    #cadastro-trens .cadastro-trens-card {
+        width: 90%;
+        max-width: 275px;
+    }
+}
+/*                           Cadastro de Trens                                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                            Cadastro de Rotas                               */
+
+#cadastro-rotas {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--cor-background);
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: 60px;
+}
+
+#cadastro-rotas h2 {
+    width: 100%;
+    margin: 55px 0 40px 0;
+    text-align: center;
+    color: var(--cor-azul-ferroviario);
+    font-family: Arial, sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#cadastro-rotas .cadastro-rotas-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+#cadastro-rotas .cadastro-rotas-card {
+    width: 275px;
+    background-color: var(--cor-branca);
+    border: 1px solid #111;
+    border-radius: 15px;
+    padding: 22px 34px 10px;
+    box-sizing: border-box;
+}
+
+#cadastro-rotas .cadastro-rotas-campo {
+    width: 100%;
+    margin-bottom: 11px;
+}
+
+#cadastro-rotas .cadastro-rotas-campo label {
+    display: block;
+    margin-bottom: 5px;
+    color: #111;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#cadastro-rotas .cadastro-rotas-campo input {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #353535;
+    border-radius: 0;
+    background-color: var(--cor-branca);
+    color: #111;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+#cadastro-rotas .cadastro-rotas-campo input::placeholder {
+    color: #555;
+    opacity: 1;
+}
+
+#cadastro-rotas .cadastro-rotas-campo input:focus {
+    border-color: var(--cor-azul-ferroviario-claro);
+    box-shadow: 0 0 0 1px var(--cor-azul-ferroviario-claro);
+}
+
+#cadastro-rotas .cadastro-rotas-botao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#cadastro-rotas .cadastro-rotas-botao button {
+    height: 35px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--cor-azul-ferroviario);
+    color: var(--cor-branca);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#cadastro-rotas .cadastro-rotas-botao button:hover {
+    background-color: var(--cor-azul-ferroviario-claro);
+}
+
+@media (max-width: 700px) {
+    #cadastro-rotas h2 {
+        font-size: 32px;
+        margin-top: 35px;
+        margin-bottom: 30px;
+    }
+
+    #cadastro-rotas .cadastro-rotas-card {
+        width: 90%;
+        max-width: 275px;
+    }
+}
+
+/*                           Cadastro de Rotas                                */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */

@@ -9,7 +9,7 @@ include "../infra/conn.php";
 <?php
 $paginaAtual = "gestao";
 $submenuAtual = "gestao-rotas";
-include("navbar.php");
+include("../includes/navbar.php");
 ?>
 
 <head>

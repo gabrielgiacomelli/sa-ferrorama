@@ -7,7 +7,7 @@ include "../infra/conn.php";
 <?php
 $paginaAtual = "gestao";
 $submenuAtual = "gestao-trens";
-include("navbar.php");
+include("../includes/navbar.php");
 ?>
 
 <head>
