@@ -1,5 +1,5 @@
 <?php
-// PHP
+// php
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

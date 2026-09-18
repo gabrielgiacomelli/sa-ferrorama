@@ -1,13 +1,21 @@
 
-
-<html lang="en">
+<html lang="pt-BR">
 <?php
 $paginaAtual = "home";
 include("../includes/navbar.php");
 ?>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - HLGL</title>
+    <!-- Corrigido o sinal menor-que duplicado -->
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body id="home-page-body">
+
     <main>
-        <!-- POPUP DE SAIR (overlay) -->
         <div class="popup" id="popup">
             <div class="overlay"></div>
             <div class="popup-content">
@@ -15,295 +23,76 @@ include("../includes/navbar.php");
                 <p>Você deseja sair da sua conta?</p>
                 <h6>(Seu progresso será salvo automaticamente)</h6>
                 <div class="controls">
-                    <button class="fechar-popup nav-link mx-lg-2"
-                        onclick="window.location.href='login.php'">Sim</button>
+                    <button class="fechar-popup nav-link mx-lg-2" onclick="window.location.href='login.php'">Sim</button>
                     <button class="close-btn nav-link mx-lg-2">Não</button>
                 </div>
             </div>
         </div>
-        <!-- Tela principal -->
+
         <div class="container-principal">
-            <!-- Mensagem de bem vindo -->
+            
             <div class="amarelo-sz2">
                 <p class="bem-vindo-inicial">BEM-VINDO!</p>
             </div>
-            <div class="flexivel padding-azul">
 
-                <div class="card-sz sz padding-azul">
+            <div class="flex">
+                <!-- Esquerda: notícias com caixa de scroll interna -->
+                <div class="card-sz sz">
                     <p id="noticias-recentes">Notícias recentes</p>
-                    <div class="amarelo flexivel">
-                        <div class="dia-noticias">
-                            Abr
-                            <br>
-                            <p>15</p>
-                        </div>
-                        <div class="flexivel-column">
-                            <p>Dia amanhece chuvoso</p>
-                            <p>15/04/2025</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="amarelo flexivel">
-                        <div class="dia-noticias">
-                            Abr
-                            <br>
-                            <p>27</p>
-                        </div>
-                        <div class="flexivel-column">
-                            <p>Professora passa atividade para alunos do SESI</p>
-                            <p>27/04/2025</p>
-                        </div>
-                    </div>
-
-                    <div class="amarelo flexivel">
-                        <div class="dia-noticias">
-                            Abr
-                            <br>
-                            <p>29</p>
-                        </div>
-                        <div class="flexivel-column">
-                            <p>Alunos do SESI continuam a atividade</p>
-                            <p>29/04/2025</p>
-                        </div>
-                    </div>
-
-                    <div class="amarelo flexivel">
-                        <div class="dia-noticias">
-                            Abr
-                            <br>
-                            <p>30</p>
-                        </div>
-                        <div class="flexivel-column">
-                            <p>Feriado nacional Dia do Trabalho</p>
-                            <p>30/04/2025</p>
-                        </div>
-                    </div>
-
-                    <div class="amarelo flexivel margin-noticias">
-                        <div class="dia-noticias">
-                            Mai
-                            <br>
-                            <p>15</p>
-                        </div>
-                        <div class="flexivel-column">
-                            <p>Ferias!</p>
-                            <p>15/05/2025</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="padding">
-                        <div class="grid espacamento">
-                            <p id="blog-hlgl">Blog HLGL</p>
-                            <div class="flexivel padding-amarelo">
-                                <img class="img-blog" src="../assets/img/info1.png" alt="Imagem Trem bala">
-                                <div class="amarelo-blog">
-                                    <p class="titulo-blog" style="font-size: 150%;">Tecnologia</p>
-                                    <p class="informacao-blog">Trens bala são a novidade. Clique e saiba mais</p>
-                                </div>
-                            </div>
-                            <div class="flexivel padding-amarelo">
-                                <img class="img-blog" src="../assets/img/info2.png" alt="Imagem Cursos Técnicos">
-                                <div class="amarelo-blog">
-                                    <p class="titulo-blog" style="font-size: 150%;">Cursos Técnicos</p>
-                                    <p class="informacao-blog">Faça o curso mais inovador do mercado. Parceria paga com
-                                        SESI</p>
-                                </div>
-
+                    
+                    <div class="scroll-noticias-home">
+                        <div class="amarelo-flex">
+                            <div class="dia-noticias">Abr<p>15</p></div>
+                            <div class="flex-column">
+                                <p>Dia amanhece chuvoso</p>
                             </div>
                         </div>
-                        <div class="card-sz sz1 espacamento">
-                            <p id="mes-ano"></p>
-                            <div class="flexivel-calendario">
-                                <div>
-                                    <p id="eventos">Nenhum evento marcado para hoje.</p>
-                                </div>
 
-                                <div class="calendario">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th class="cal"></th>
-                                                <th class="cal"></th>
-                                                <th class="cal"></th>
-                                                <th class="cal"></th>
-                                                <th class="cal"></th>
-                                                <th class="cal"></th>
-                                                <th class="cal"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="dias-calendario">
-                                            <!-- Dias gerados pelo javascript -->
-                                        </tbody>
-                                    </table>
-                                </div>
+                        <div class="amarelo-flex">
+                            <div class="dia-noticias">Abr<p>27</p></div>
+                            <div class="flex-column">
+                                <p>Professora passa atividade para alunos do SESI</p>
+                            </div>
+                        </div>
 
+                        <div class="amarelo-flex">
+                            <div class="dia-noticias">Abr<p>29</p></div>
+                            <div class="flex-column">
+                                <p>Alunos do SESI continuam a atividade</p>
+                            </div>
+                        </div>
+
+                        <div class="amarelo-flex">
+                            <div class="dia-noticias">Abr<p>30</p></div>
+                            <div class="flex-column">
+                                <p>Feriado nacional Dia do Trabalho</p>
+                            </div>
+                        </div>
+
+                        <div class="amarelo-flex">
+                            <div class="dia-noticias">Mai<p>15</p></div>
+                            <div class="flex-column">
+                                <p>Ferias!</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="container-principal">
-            <div class="flexivel padding-azul">
-
-                <div class="card-sz sz padding-azul">
-                    <div>
-                        <p id="texto-clima">Clima e previsão do tempo</p>
-                        <div class="conteudo-clima">
-                            <img id="icone-sol" src="../icons/temperatura.png" alt="Icone do sol">
-
-                            <div id="dados-clima">
-                                <div class="flexivel">
-                                    <p id="temperatura">22</p>
-                                    <p id="condicao">C°|</p>
-                                    <p id="condicao">F°</p>
-                                    <div class="informacoes-tempo">
-                                        <p>Chuva: 0%</p>
-                                        <p>Umidade: 43%</p>
-                                        <p>Vento: 3 km/h</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="flexivel espacamento informacao-clima">
-                            <p class="fw-bold fs-3" id="texto-tipo-clima">Clima</p>
-                            <p class="fs-3 ">Ensolarado</p>
-                        </div>
+                <!-- Direita: Mosaico HLGL no lugar do Blog conforme mockup -->
+                <section class="right-side-home">
+                    <div class="mosaic-home">
+                        <div class="col-home"><div class="block-home h-large bg-light"></div><div class="block-home h-smedium bg-dark"></div><div class="block-home h-xlarge bg-light"></div></div>
+                        <div class="col-home"><div class="block-home h-xlarge bg-light"></div><div class="block-home h-medium bg-dark"></div><div class="block-home h-large bg-light"></div></div>
+                        <div class="col-home"><div class="block-home h-xlarge bg-light"></div><div class="block-home h-smedium bg-dark letra-mosaico">H</div><div class="block-home h-smedium bg-light"></div></div>
+                        <div class="col-home"><div class="block-home h-xlarge bg-light"></div><div class="block-home h-smedium bg-dark letra-mosaico">L</div><div class="block-home h-small bg-light"></div></div>
+                        <div class="col-home"><div class="block-home h-xlarge bg-light"></div><div class="block-home h-medium bg-dark letra-mosaico">G</div><div class="block-home h-smedium bg-light"></div></div>
+                        <div class="col-home"><div class="block-home h-large bg-light"></div><div class="block-home h-smedium bg-dark letra-mosaico">L</div><div class="block-home h-xlarge bg-light"></div></div>
                     </div>
+                </section>
 
-                    <div class="linhameio"></div>
-
-                    <div>
-                        <p id="texto-alerta">Alerta de riscos naturais</p>
-                        <div>
-                            <p class="fw-bold fs-5">Status</p>
-                            <p>Condições climáticas ideais para circulação.</p>
-                            <p class="fw-bold fs-5">Umidade Baixa</p>
-                            <p>Risco moderado de incêndios em áreas de vegetação</p>
-                            <p class="fw-bold fs-5">Possibilidade de Neblina</p>
-                            <p> Se o sol se puser, a queda de temperatura rápida pode afetar a visibilidade.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="padding">
-                        <div class="card-sz sz1 espacamento">
-                            <p id="meio-ambiente">Planeta e Meio Ambiente</p>
-
-                            <div class="conteudo-meio-ambiente">
-                                <img src="../icons/ambiente.png" alt="Imagem de meio ambiente" id="img-meio-ambiente">
-
-                                <div class="textos-meio-ambiente">
-                                    <div>
-                                        <p class="fw-bold fs-5">Redução de Gases do Efeito Estufa</p>
-                                        <p> Ao optar pelo transporte ferroviário em vez do rodoviário,
-                                            nossa operação evitou a emissão de 12.500 toneladas de gás carbônico na
-                                            atmosfera
-                                            apenas neste mês.
-                                            Iscesso representa uma redução significativa no impacto ambiental,
-                                            equivalente ao plantio de aproximadamente 87.000 árvores.</p>
-                                    </div>
-                                    <div>
-                                        <p class="fw-bold fs-5">Eficiência Energética por Quilômetro</p>
-                                        <p> Nossas locomotivas modernas conseguem transportar uma tonelada de carga por
-                                            mais
-                                            de
-                                            400 quilômetros com apenas um litro de combustível.
-                                            Isso faz do transporte ferroviário uma das alternativas terrestres mais
-                                            eficientes e
-                                            sustentáveis do mercado.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="grid espacamento">
-
-                            <p id="dados-ferrovia">Dados gerais da Ferrovia</p>
-
-                            <div class="flexivel">
-
-                                <div class="flexivel padding-amarelo">
-                                    <img class="img-ferrovia" src="../assets/img/info1.png" alt="Imagem de trens">
-                                    </img>
-                                    
-                                    <div class="amarelo-ferrovia">
-                                        <p class="titulo-ferrovia">Trens em circulação hoje</p>
-                                        <p class="informacao-ferrovia">45 trens em movimento.</p>
-                                    </div>
-                                </div>
-
-
-                                <div class="flexivel padding-amarelo">
-                                    <img class="img-ferrovia" src="../assets/img/info1.png" alt="Imagem trilho de trem">
-                                    </img>
-
-                                    <div class="amarelo-ferrovia">
-                                        <p class="titulo-ferrovia">Tamanho da linha</p>
-                                        <p class="informacao-ferrovia">850 km de trilhos.</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                            <div class="flexivel">
-
-                                <div class="flexivel padding-amarelo">
-
-                                    <img class="img-ferrovia" src="../assets/img/info2.png" alt="Imagem de trem">
-                                    </img>
-
-                                    <div class="amarelo-ferrovia">
-
-                                        <p class="titulo-ferrovia">Cidades atendidas</p>
-                                        <p class="informacao-ferrovia">12 municípios.</p>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="flexivel padding-amarelo">
-
-                                    <img class="img-ferrovia" src="../assets/img/info2.png"
-                                        alt="Imagem de funcionarios">
-                                    </img>
-
-                                    <div class="amarelo-ferrovia">
-
-                                        <p class="titulo-ferrovia">Total de funcionários</p>
-                                        <p class="informacao-ferrovia">1.200 colaboradores.</p>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
             </div>
         </div>
     </main>
-
-
-    <!-- Scripts -->
-    <script src="../scripts/calendario.js"></script>
-    <script src="../scripts/botao-sair.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
 </body>
-
 </html>
+
