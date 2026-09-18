@@ -1,6 +1,9 @@
 <?php
 include "../infra/conn.php";
 
+$sql = "SELECT * FROM relatorios";
+$relatorios = mysqli_query($conn, $sql);
+
 ?>
 
 <html lang="en">
@@ -14,35 +17,21 @@ include("../includes/navbar.php");
 
         <div class="trens" style="margin-top: 80px; justify-self: center; width: 70%;">
             <span style="font-size: 25px; font-weight: 700;"> Histórico de Relatórios </span>
-
-            <input type="text" class="form-control" placeholder="12/04/2026, o motor apresentou falha às 18:56"
-                style="width: 100%; border-radius: 0%; border: 1px solid #353535; margin-bottom: 30px;">
-
-            </input>
-
-            <input type="text" class="form-control" placeholder="15/04/2026, chuva intensa piora o atrito entre os trilhos e danifica uma das rodas, entretanto, não há a necessidade de conserto, já que os danos são mínimos."
-                style="width: 100%; border-radius: 0%; border: 1px solid #353535; margin-bottom: 30px;">
-
-            </input>
-
-            <input type="text" class="form-control"
-                placeholder="16/04/2026, o motor é avaliado e consertado pelos engenheiros da equipe."
-                style="width: 100%; border-radius: 0%; border: 1px solid #353535; margin-bottom: 30px;">
-
-            </input>
-
-            <input type="text" class="form-control"
-                placeholder="17/04/2026, o motor apresenta falhas novamente. Não é possível consertar."
-                style="width: 100%; border-radius: 0%; border: 1px solid #353535; margin-bottom: 30px;">
-
-            </input>
-
-            <input type="text" class="form-control" placeholder="18/04/2026, o motor é trocado por um novo."
-                style="width: 100%; border-radius: 0%; border: 1px solid #353535; margin-bottom: 30px;">
-
-            </input>
-
         </div>
+
+        <tr>
+            <th> ID</th>
+            <th> Usuário relacionado </th>
+            <th> Conteúdo </th>
+        </tr>
+
+        <?php
+        while($relatorio = mysqli_fetch_assoc($relatorios)){ ?>
+        <td> <?php echo $relatorio["id"]?> </td>
+        <td> <?php echo $relatorio["id_usuarios"]?> </td>
+        <td> <?php echo $relatorio["conteudo"]?> </td>
+
+        <?php } ?>
 
 </main>
     <!-- POPUP DE SAIR (overlay) -->
