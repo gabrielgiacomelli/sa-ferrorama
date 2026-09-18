@@ -13,25 +13,55 @@ $submenuAtual = "gestao-relatorios";
 include("../includes/navbar.php");
 ?>
 
-<main>
+<main id ="gestao-relatorios">
 
         <div class="trens" style="margin-top: 80px; justify-self: center; width: 70%;">
             <span style="font-size: 25px; font-weight: 700;"> Histórico de Relatórios </span>
         </div>
 
-        <tr>
-            <th> ID</th>
-            <th> Usuário relacionado </th>
-            <th> Conteúdo </th>
-        </tr>
-
         <?php
         while($relatorio = mysqli_fetch_assoc($relatorios)){ ?>
-        <td> <?php echo $relatorio["id"]?> </td>
-        <td> <?php echo $relatorio["id_usuarios"]?> </td>
+
+
+<div class="gestao-relatorios-espaco">
+
+    <div class="gestao-relatorios-flex">
+        <div>
+            <div class = "gestao-relatorios card">
+                <th> ID </th>
+
+                <td> <?php echo $relatorio["id"]?> </td>
+            </div>
+            
+
+                
+                <div class = "gestao-relatorios card">
+                <th> Usuário </th>
+
+                <td> <?php echo $relatorio["id_usuarios"]?> </td>
+                </div>
+            </div>
+
+
+            <div class = "gestao-relatorios card">
+        <th> Conteúdo </th>
+
         <td> <?php echo $relatorio["conteudo"]?> </td>
+    </div>
+    </div>
+
+    </div>
+
 
         <?php } ?>
+
+
+
+
+
+
+
+
 
 </main>
     <!-- POPUP DE SAIR (overlay) -->

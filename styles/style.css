@@ -1804,3 +1804,53 @@ li#navbar-sair{
 
     font-size: 11px;
 }
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                             Gestão de Relatórios                           */
+
+
+#gestao-relatorios {
+
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: var(--cor-background);
+
+    font-family: Arial, sans-serif;
+
+    box-sizing: border-box;
+
+    padding-top: 60px;
+
+}
+
+.gestao-relatorios {
+
+    display: flex;
+align-items: center;
+    
+    padding: 20px;
+    margin: 5px;
+}
+
+.gestao-relatorios-flex{
+
+    display: flex;
+
+}
+
+.gestao-relatorios-espaco {
+
+padding-top: 30px;
+width: 100%;
+justify-content: center;
+display: flex;
+
+}
+
+
+
+
+/*                            Gestão de Relatórios                            */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
