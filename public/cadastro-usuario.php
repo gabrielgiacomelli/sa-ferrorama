@@ -2,6 +2,9 @@
 
 include "../infra/conn.php";
 
+$mensagem = "";
+$tipoMensagem = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email = $_POST["email"];
@@ -14,23 +17,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $complemento = $_POST["complemento"];
     $telefone = $_POST["telefone"];
 
-    $sql = "INSERT INTO usuarios
-    (email, senha, confirm_senha, nome, cpf, data_nascimento, cep, complemento, telefone)
-    VALUES
-    ('$email', '$senha', '$confirm_senha', '$nome', '$cpf', '$data_nascimento', '$cep', '$complemento', '$telefone')";
 
-    mysqli_query($conn, $sql);
+    if ($senha !== $confirm_senha) {
+
+        $mensagem = "As senhas não são iguais.";
+        $tipoMensagem = "erro";
+
+    } else {
+
+        $sql = "INSERT INTO usuarios
+        (email, senha, confirm_senha, nome, cpf, data_nascimento, cep, complemento, telefone)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $stmt = mysqli_prepare($conn, $sql);
+
+        if ($stmt) {
+
+            mysqli_stmt_bind_param(
+                $stmt,
+                "sssssssss",
+                $email,
+                $senha,
+                $confirm_senha,
+                $nome,
+                $cpf,
+                $data_nascimento,
+                $cep,
+                $complemento,
+                $telefone
+            );
+
+            if (mysqli_stmt_execute($stmt)) {
+
+                $mensagem = "Usuário cadastrado com sucesso!";
+                $tipoMensagem = "sucesso";
+
+            } else {
+
+                $mensagem = "Erro ao cadastrar o usuário.";
+                $tipoMensagem = "erro";
+            }
+
+            mysqli_stmt_close($stmt);
+
+        } else {
+
+            $mensagem = "Erro ao preparar o cadastro.";
+            $tipoMensagem = "erro";
+        }
+    }
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-    
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Usuários</title>
+
+</head>
+
 <?php
+
 $paginaAtual = "cadastro";
 $submenuAtual = "usuarios";
+
 include("../includes/navbar.php");
+
 ?>
 
 <body>
@@ -39,7 +98,7 @@ include("../includes/navbar.php");
 
     <main class="cadastro-usuarios-main">
 
-    <h1>Cadastro de usuários</h1>
+        <h1>Cadastro de usuários</h1>
 
         <div class="cadastro-usuarios-container">
 
@@ -47,8 +106,10 @@ include("../includes/navbar.php");
 
                 <form method="POST">
 
-
                     <div class="cadastro-usuarios-colunas">
+
+
+                        <!-- PRIMEIRA COLUNA -->
 
                         <div class="cadastro-usuarios-coluna">
 
@@ -68,6 +129,7 @@ include("../includes/navbar.php");
 
                             </div>
 
+
                             <div class="cadastro-usuarios-campo">
 
                                 <label for="usuario-senha">
@@ -83,6 +145,7 @@ include("../includes/navbar.php");
                                 >
 
                             </div>
+
 
                             <div class="cadastro-usuarios-campo">
 
@@ -100,8 +163,10 @@ include("../includes/navbar.php");
 
                             </div>
 
-
                         </div>
+
+
+                        <!-- SEGUNDA COLUNA -->
 
                         <div class="cadastro-usuarios-coluna">
 
@@ -121,6 +186,7 @@ include("../includes/navbar.php");
 
                             </div>
 
+
                             <div class="cadastro-usuarios-campo">
 
                                 <label for="usuario-cpf">
@@ -137,6 +203,7 @@ include("../includes/navbar.php");
 
                             </div>
 
+
                             <div class="cadastro-usuarios-campo">
 
                                 <label for="usuario-data">
@@ -152,8 +219,10 @@ include("../includes/navbar.php");
 
                             </div>
 
-
                         </div>
+
+
+                        <!-- TERCEIRA COLUNA -->
 
                         <div class="cadastro-usuarios-coluna">
 
@@ -173,6 +242,7 @@ include("../includes/navbar.php");
 
                             </div>
 
+
                             <div class="cadastro-usuarios-campo">
 
                                 <label for="usuario-complemento">
@@ -187,6 +257,7 @@ include("../includes/navbar.php");
                                 >
 
                             </div>
+
 
                             <div class="cadastro-usuarios-campo">
 
@@ -204,10 +275,10 @@ include("../includes/navbar.php");
 
                             </div>
 
-
                         </div>
 
                     </div>
+
 
                     <div class="cadastro-usuarios-botao">
 
@@ -218,7 +289,16 @@ include("../includes/navbar.php");
                     </div>
 
 
-                    <p id="usuario-resultado"></p>
+                    <?php if (!empty($mensagem)): ?>
+
+                        <p
+                            id="usuario-resultado"
+                            class="<?= $tipoMensagem ?>"
+                        >
+                            <?= htmlspecialchars($mensagem) ?>
+                        </p>
+
+                    <?php endif; ?>
 
                 </form>
 
@@ -233,8 +313,7 @@ include("../includes/navbar.php");
 
 <script src="../scripts/botao-sair.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

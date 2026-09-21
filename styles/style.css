@@ -203,23 +203,44 @@ li#navbar-sair{
 /* -------------------------------------------------------------------------- */
 /*                            Cadastro Usuário                                */
 
-
 #cadastro-usuarios {
     width: 100%;
     min-height: calc(100vh - 45px);
-
     background: #f3f5f8;
+    box-sizing: border-box;
 }
-
 
 #cadastro-usuarios .cadastro-usuarios-main {
     width: 100%;
 
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
 
-    padding-top: 124px;
+    padding-top: 85px;
+
+    box-sizing: border-box;
+}
+
+#cadastro-usuarios .cadastro-usuarios-main h1 {
+    width: 100%;
+
+    margin: 0 0 35px 0;
+    padding: 0;
+
+    color: #193655;
+
+    font-family: Arial, sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+
+    line-height: 1.1;
+    letter-spacing: 1px;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    box-sizing: border-box;
 }
 
 #cadastro-usuarios .cadastro-usuarios-container {
@@ -227,21 +248,35 @@ li#navbar-sair{
 
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+
+    box-sizing: border-box;
 }
 
 #cadastro-usuarios .cadastro-usuarios-card {
     width: 862px;
-    height: 379px;
+
+    min-height: 379px;
 
     background: #ffffff;
 
     border-radius: 15px;
 
-    padding: 57px 28px 35px;
+    padding: 57px 28px 30px;
 
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+
+    box-sizing: border-box;
 }
 
+#cadastro-usuarios .cadastro-usuarios-card form {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
 
 #cadastro-usuarios .cadastro-usuarios-colunas {
     width: 100%;
@@ -250,32 +285,45 @@ li#navbar-sair{
     flex-direction: row;
 
     gap: 20px;
-}
 
+    box-sizing: border-box;
+}
 
 #cadastro-usuarios .cadastro-usuarios-coluna {
     width: calc(33.333% - 13.33px);
 
     flex: 0 0 calc(33.333% - 13.33px);
+
+    box-sizing: border-box;
 }
 
 #cadastro-usuarios .cadastro-usuarios-campo {
     width: 100%;
 
-    margin-bottom: 18px;
+    margin: 0 0 18px 0;
+    padding: 0;
+
+    box-sizing: border-box;
 }
 
 #cadastro-usuarios .cadastro-usuarios-campo label {
     display: block;
 
-    margin-bottom: 3px;
+    width: 100%;
+
+    margin: 0 0 4px 0;
+    padding: 0;
 
     color: #1d3557;
 
+    font-family: Arial, sans-serif;
     font-size: 15px;
     font-weight: 400;
-}
 
+    line-height: 18px;
+
+    box-sizing: border-box;
+}
 
 #cadastro-usuarios .cadastro-usuarios-campo input {
     display: block;
@@ -283,6 +331,7 @@ li#navbar-sair{
     width: 100%;
     height: 36px;
 
+    margin: 0;
     padding: 5px 7px;
 
     border: 2px solid #28558d;
@@ -317,14 +366,18 @@ li#navbar-sair{
 
     display: flex;
     justify-content: center;
+    align-items: center;
 
-    margin-top: 16px;
+    margin-top: 10px;
+
+    box-sizing: border-box;
 }
 
 #cadastro-usuarios .cadastro-usuarios-botao button {
     width: 130px;
     height: 34px;
 
+    margin: 0;
     padding: 0;
 
     border: none;
@@ -341,17 +394,34 @@ li#navbar-sair{
     cursor: pointer;
 
     box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
-}
 
+    box-sizing: border-box;
+}
 
 #cadastro-usuarios .cadastro-usuarios-botao button:hover {
     background: #24486d;
 }
 
 #cadastro-usuarios #usuario-resultado {
-    margin-top: 10px;
+    width: 100%;
+
+    margin: 12px 0 0 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 
     text-align: center;
+
+    box-sizing: border-box;
+}
+
+#cadastro-usuarios #usuario-resultado.sucesso {
+    color: #1d6b3a;
+}
+
+#cadastro-usuarios #usuario-resultado.erro {
+    color: #b3261e;
 }
 
 @media (max-width: 900px) {
@@ -362,13 +432,17 @@ li#navbar-sair{
 
 }
 
-
 @media (max-width: 700px) {
 
     #cadastro-usuarios .cadastro-usuarios-main {
-        padding-top: 50px;
+        padding-top: 45px;
     }
 
+    #cadastro-usuarios .cadastro-usuarios-main h1 {
+        font-size: 32px;
+
+        margin-bottom: 30px;
+    }
 
     #cadastro-usuarios .cadastro-usuarios-card {
         width: 90%;
@@ -377,11 +451,11 @@ li#navbar-sair{
         padding: 35px 25px;
     }
 
-
     #cadastro-usuarios .cadastro-usuarios-colunas {
         flex-direction: column;
-    }
 
+        gap: 0;
+    }
 
     #cadastro-usuarios .cadastro-usuarios-coluna {
         width: 100%;
@@ -1099,119 +1173,205 @@ li#navbar-sair{
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                            Cadastro de Trens                               */
-
-
 #cadastro-trens {
     width: 100%;
     min-height: 100vh;
+    margin: 0;
+    padding: 75px 0 0 0;
     background-color: var(--cor-background);
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    padding-top: 60px;
+    overflow-x: hidden;
 }
 
 #cadastro-trens h2 {
+    display: block;
     width: 100%;
-    margin: 55px 0 40px 0;
-    text-align: center;
+    height: auto;
+    margin: 0 0 38px 0;
+    padding: 0;
     color: var(--cor-azul-ferroviario);
+    text-align: center;
     font-family: Arial, sans-serif;
     font-size: 44px;
     font-weight: 800;
+    line-height: 52px;
     letter-spacing: 1px;
     text-transform: uppercase;
+    box-sizing: border-box;
 }
 
 #cadastro-trens .cadastro-trens-container {
-    width: 100%;
     display: flex;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
     justify-content: center;
     align-items: flex-start;
     box-sizing: border-box;
 }
 
 #cadastro-trens .cadastro-trens-card {
+    display: block;
     width: 275px;
+    height: auto;
+    min-height: 286px;
+    margin: 0;
+    padding: 22px 33px 10px 33px;
     background-color: var(--cor-branca);
-    border: 1px solid #111;
+    border: 1px solid #111111;
     border-radius: 15px;
-    padding: 22px 34px 10px;
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-card form {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 #cadastro-trens .cadastro-trens-campo {
+    display: block;
     width: 100%;
-    margin-bottom: 11px;
+    height: auto;
+    margin: 0 0 11px 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 #cadastro-trens .cadastro-trens-campo label {
     display: block;
-    margin-bottom: 5px;
-    color: #111;
+    width: 100%;
+    height: 19px;
+    margin: 0 0 5px 0;
+    padding: 0;
+    color: #111111;
+    font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: 400;
+    line-height: 19px;
+    text-align: left;
+    box-sizing: border-box;
 }
 
 #cadastro-trens .cadastro-trens-campo input {
     display: block;
-    width: 100%;
+    width: 100% !important;
+    max-width: none !important;
     height: 34px;
-    padding: 5px;
-    box-sizing: border-box;
+    margin: 0;
+    padding: 5px 7px;
     border: 1px solid #353535;
     border-radius: 0;
+    outline: none;
     background-color: var(--cor-branca);
-    color: #111;
+    color: #111111;
     font-family: Arial, sans-serif;
     font-size: 14px;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-campo select,
+#cadastro-trens .cadastro-trens-campo select#id_usuarios {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    height: 34px !important;
+    margin: 0 !important;
+    padding: 5px 7px !important;
+    border: 1px solid #353535 !important;
+    border-radius: 0 !important;
     outline: none;
+    background-color: var(--cor-branca);
+    color: #111111;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
 #cadastro-trens .cadastro-trens-campo input::placeholder {
-    color: #555;
+    color: #555555;
     opacity: 1;
 }
 
-#cadastro-trens .cadastro-trens-campo input:focus {
-    border-color: var(--cor-azul-ferroviario-claro);
+#cadastro-trens .cadastro-trens-campo input:focus,
+#cadastro-trens .cadastro-trens-campo select:focus {
+    border-color: var(--cor-azul-ferroviario-claro) !important;
     box-shadow: 0 0 0 1px var(--cor-azul-ferroviario-claro);
 }
 
 #cadastro-trens .cadastro-trens-botao {
-    width: 100%;
     display: flex;
+    width: 100%;
+    height: 35px;
+    margin: 20px 0 0 0;
+    padding: 0;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 0;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 #cadastro-trens .cadastro-trens-botao button {
+    display: block;
+    width: auto;
     height: 35px;
+    margin: 0;
     padding: 0 14px;
     border: none;
     border-radius: 15px;
+    outline: none;
     background-color: var(--cor-azul-ferroviario);
     color: var(--cor-branca);
     font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
+    line-height: 35px;
+    text-align: center;
+    white-space: nowrap;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 #cadastro-trens .cadastro-trens-botao button:hover {
     background-color: var(--cor-azul-ferroviario-claro);
 }
 
+#cadastro-trens .cadastro-trens-mensagem {
+    display: block;
+    width: 100%;
+    margin: 12px 0 5px 0;
+    padding: 0;
+    color: var(--cor-azul-ferroviario);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
 @media (max-width: 700px) {
+
+    #cadastro-trens {
+        padding-top: 40px;
+    }
+
     #cadastro-trens h2 {
-        font-size: 32px;
-        margin-top: 35px;
         margin-bottom: 30px;
+        font-size: 32px;
+        line-height: 38px;
     }
 
     #cadastro-trens .cadastro-trens-card {
-        width: 90%;
-        max-width: 275px;
+        width: 275px;
+        max-width: 90%;
     }
 }
 /*                           Cadastro de Trens                                */
