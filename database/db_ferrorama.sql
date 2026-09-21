@@ -16,25 +16,25 @@ CREATE TABLE usuarios (
 
 CREATE TABLE rotas (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
     saida VARCHAR(255) NOT NULL,
     destino VARCHAR (255) NOT NULL
 );
 
 CREATE TABLE trens (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_rotas INT NOT NULL,
-    tipo VARCHAR(255) NOT NULL,
-    instalacao VARCHAR(255) NOT NULL,
-    FOREIGN KEY (id_rotas) REFERENCES rotas(id)
+    id_usuarios INT NOT NULL
+    peso DECIMAL(8, 2) NOT NULL,
+    quantidade_vagoes INT NOT NULL,
+    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id)
 );
 
 CREATE TABLE sensores (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_trens INT NOT NULL,
     nome VARCHAR(255) NOT NULL,
-    tipo VARCHAR(100) NOT NULL,
     instalacao VARCHAR(200) NOT NULL,
-    FOREIGN KEY (id_trens) REFERENCES trens(id)
+    funcao VARCHAR(100) NOT NULL,
+    zona VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE relatorios (

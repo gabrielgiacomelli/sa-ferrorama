@@ -1,49 +1,109 @@
 <?php
+
 include "../infra/conn.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$mensagem = "";
 
-    $peso_total = $_POST["peso_total"];
+/* Cadastrar trem */
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $peso = $_POST["peso"];
     $quantidade_vagoes = $_POST["quantidade_vagoes"];
-    $proprietario = $_POST["proprietario"];
+    $id_usuarios = $_POST["id_usuarios"];
 
-    $sql = "INSERT INTO trens (peso_total, quantidade_vagoes, proprietario)
-            VALUES ('$peso_total', '$quantidade_vagoes', '$proprietario')";
+    $sql = "INSERT INTO trens (id_usuarios, peso, quantidade_vagoes)
+            VALUES (?, ?, ?)";
 
-    mysqli_query($conn, $sql);
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt) {
+
+        mysqli_stmt_bind_param(
+            $stmt,
+            "dii",
+            $peso,
+            $id_usuarios,
+            $quantidade_vagoes
+        );
+
+        if (mysqli_stmt_execute($stmt)) {
+            $mensagem = "Trem cadastrado com sucesso!";
+        } else {
+            $mensagem = "Erro ao cadastrar o trem.";
+        }
+
+        mysqli_stmt_close($stmt);
+
+    } else {
+        $mensagem = "Erro ao preparar o cadastro.";
+    }
 }
+
+
+/* Buscar usuários cadastrados */
+$sqlUsuarios = "SELECT id, nome FROM usuarios ORDER BY nome ASC";
+
+$stmtUsuarios = mysqli_prepare($conn, $sqlUsuarios);
+
+$resultadoUsuarios = false;
+
+if ($stmtUsuarios) {
+
+    mysqli_stmt_execute($stmtUsuarios);
+
+    $resultadoUsuarios = mysqli_stmt_get_result($stmtUsuarios);
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<?php
-$paginaAtual = "cadastro";
-$submenuAtual = "trens";
-include("../includes/navbar.php");
-?>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Trens</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
 
 <body>
 
-    <main id="cadastro-trens">
+<?php
 
-        <h2>Cadastro de Trens</h2>
+$paginaAtual = "cadastro";
+$submenuAtual = "trens";
 
-        <div class="cadastro-trens-container">
+include("../includes/navbar.php");
 
-            <form class="cadastro-trens-card" method="POST">
+?>
+
+<main id="cadastro-trens">
+
+    <h2>Cadastro de Trens</h2>
+
+    <div class="cadastro-trens-container">
+
+        <div class="cadastro-trens-card">
+
+            <form method="POST">
 
                 <div class="cadastro-trens-campo">
 
-                    <label for="peso-total">
+                    <label for="peso">
                         Peso total
                     </label>
 
                     <input
-                        type="text"
-                        id="peso-total"
-                        name="peso_total"
-                        placeholder="Ex: 400T"
+                        type="number"
+                        id="peso"
+                        name="peso"
+                        step="0.01"
+                        min="0"
+                        placeholder="Ex: 400"
                         required
                     >
 
@@ -52,14 +112,15 @@ include("../includes/navbar.php");
 
                 <div class="cadastro-trens-campo">
 
-                    <label for="quantidade-vagoes">
+                    <label for="quantidade_vagoes">
                         Quantidade de vagões:
                     </label>
 
                     <input
                         type="number"
-                        id="quantidade-vagoes"
+                        id="quantidade_vagoes"
                         name="quantidade_vagoes"
+                        min="1"
                         placeholder="Ex: 45"
                         required
                     >
@@ -69,17 +130,33 @@ include("../includes/navbar.php");
 
                 <div class="cadastro-trens-campo">
 
-                    <label for="proprietario">
+                    <label for="id_usuarios">
                         Proprietário
                     </label>
 
-                    <input
-                        type="text"
-                        id="proprietario"
-                        name="proprietario"
-                        placeholder="Ex: Funcionario_01"
+                    <select
+                        id="id_usuarios"
+                        name="id_usuarios"
                         required
                     >
+
+                        <option value="" selected disabled>
+                            Selecione um usuário
+                        </option>
+
+                        <?php if ($resultadoUsuarios): ?>
+
+                            <?php while ($usuario = mysqli_fetch_assoc($resultadoUsuarios)): ?>
+
+                                <option value="<?= $usuario["id"] ?>">
+                                    <?= htmlspecialchars($usuario["nome"]) ?>
+                                </option>
+
+                            <?php endwhile; ?>
+
+                        <?php endif; ?>
+
+                    </select>
 
                 </div>
 
@@ -94,19 +171,28 @@ include("../includes/navbar.php");
 
             </form>
 
+
+            <?php if (!empty($mensagem)): ?>
+
+                <p class="cadastro-trens-mensagem">
+                    <?= htmlspecialchars($mensagem) ?>
+                </p>
+
+            <?php endif; ?>
+
         </div>
 
-    </main>
+    </div>
 
-
-    <script src="../scripts/botao-sair.js"></script>
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9H9JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous">
-    </script>
+</main>
 
 </body>
-
 </html>
+
+<?php
+
+if ($stmtUsuarios) {
+    mysqli_stmt_close($stmtUsuarios);
+}
+
+?>
