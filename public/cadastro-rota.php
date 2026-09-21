@@ -1,5 +1,9 @@
 <?php
+
 include "../infra/conn.php";
+
+$mensagem = "";
+$tipoMensagem = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -12,27 +16,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt = mysqli_prepare($conn, $sql);
 
-    mysqli_stmt_bind_param(
-        $stmt,
-        "sss",
-        $nome,
-        $saida,
-        $destino
-    );
+    if ($stmt) {
 
-    mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_param(
+            $stmt,
+            "sss",
+            $nome,
+            $saida,
+            $destino
+        );
 
-    mysqli_stmt_close($stmt);
+        if (mysqli_stmt_execute($stmt)) {
+
+            $mensagem = "Rota cadastrada com sucesso!";
+            $tipoMensagem = "sucesso";
+
+        } else {
+
+            $mensagem = "Erro ao cadastrar a rota.";
+            $tipoMensagem = "erro";
+        }
+
+        mysqli_stmt_close($stmt);
+
+    } else {
+
+        $mensagem = "Erro ao preparar o cadastro.";
+        $tipoMensagem = "erro";
+    }
 }
+
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Rotas</title>
+
+</head>
+
 <?php
+
 $paginaAtual = "cadastro";
 $submenuAtual = "rotas";
+
 include("../includes/navbar.php");
+
 ?>
 
 <body>
@@ -43,7 +78,10 @@ include("../includes/navbar.php");
 
         <div class="cadastro-rotas-container">
 
-            <form class="cadastro-rotas-card" method="POST">
+            <form
+                class="cadastro-rotas-card"
+                method="POST"
+            >
 
                 <div class="cadastro-rotas-campo">
 
@@ -61,6 +99,7 @@ include("../includes/navbar.php");
 
                 </div>
 
+
                 <div class="cadastro-rotas-campo">
 
                     <label for="rota-saida">
@@ -76,6 +115,7 @@ include("../includes/navbar.php");
                     >
 
                 </div>
+
 
                 <div class="cadastro-rotas-campo">
 
@@ -93,6 +133,7 @@ include("../includes/navbar.php");
 
                 </div>
 
+
                 <div class="cadastro-rotas-botao">
 
                     <button type="submit">
@@ -101,11 +142,24 @@ include("../includes/navbar.php");
 
                 </div>
 
+
+                <?php if (!empty($mensagem)): ?>
+
+                    <p
+                        id="rota-resultado"
+                        class="<?= $tipoMensagem ?>"
+                    >
+                        <?= htmlspecialchars($mensagem) ?>
+                    </p>
+
+                <?php endif; ?>
+
             </form>
 
         </div>
 
     </main>
+
 
     <script src="../scripts/botao-sair.js"></script>
 
@@ -116,4 +170,5 @@ include("../includes/navbar.php");
     </script>
 
 </body>
+
 </html>
