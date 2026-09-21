@@ -194,17 +194,13 @@ include("../includes/navbar.php");
 
                 </div>
 
+<?php if ($mensagem !== ""): ?>
 
-                <?php if (!empty($mensagem)): ?>
+    <div class="cadastro-mensagem <?php echo $tipoMensagem; ?>">
+        <?php echo htmlspecialchars($mensagem); ?>
+    </div>
 
-                    <p
-                        id="sensor-resultado"
-                        class="<?= $tipoMensagem ?>"
-                    >
-                        <?= htmlspecialchars($mensagem) ?>
-                    </p>
-
-                <?php endif; ?>
+<?php endif; ?>
 
             </form>
 
