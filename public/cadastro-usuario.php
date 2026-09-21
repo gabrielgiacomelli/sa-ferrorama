@@ -289,16 +289,13 @@ include("../includes/navbar.php");
                     </div>
 
 
-                    <?php if (!empty($mensagem)): ?>
+                   <?php if ($mensagem !== ""): ?>
 
-                        <p
-                            id="usuario-resultado"
-                            class="<?= $tipoMensagem ?>"
-                        >
-                            <?= htmlspecialchars($mensagem) ?>
-                        </p>
+    <div class="cadastro-mensagem <?php echo $tipoMensagem; ?>">
+        <?php echo htmlspecialchars($mensagem); ?>
+    </div>
 
-                    <?php endif; ?>
+<?php endif; ?>
 
                 </form>
 

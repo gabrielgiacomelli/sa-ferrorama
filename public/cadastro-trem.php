@@ -3,15 +3,21 @@
 include "../infra/conn.php";
 
 $mensagem = "";
+$tipoMensagem = "";
 
-/* Cadastrar trem */
+
+/* =========================
+   CADASTRAR TREM
+========================= */
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $peso = $_POST["peso"];
     $quantidade_vagoes = $_POST["quantidade_vagoes"];
     $id_usuarios = $_POST["id_usuarios"];
 
-    $sql = "INSERT INTO trens (id_usuarios, peso, quantidade_vagoes)
+    $sql = "INSERT INTO trens
+            (id_usuarios, peso, quantidade_vagoes)
             VALUES (?, ?, ?)";
 
     $stmt = mysqli_prepare($conn, $sql);
@@ -20,27 +26,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         mysqli_stmt_bind_param(
             $stmt,
-            "dii",
-            $peso,
+            "idi",
             $id_usuarios,
+            $peso,
             $quantidade_vagoes
         );
 
         if (mysqli_stmt_execute($stmt)) {
+
             $mensagem = "Trem cadastrado com sucesso!";
+            $tipoMensagem = "sucesso";
+
         } else {
+
             $mensagem = "Erro ao cadastrar o trem.";
+            $tipoMensagem = "erro";
         }
 
         mysqli_stmt_close($stmt);
 
     } else {
+
         $mensagem = "Erro ao preparar o cadastro.";
+        $tipoMensagem = "erro";
     }
 }
 
 
-/* Buscar usuários cadastrados */
+/* =========================
+   BUSCAR USUÁRIOS
+========================= */
+
 $sqlUsuarios = "SELECT id, nome FROM usuarios ORDER BY nome ASC";
 
 $stmtUsuarios = mysqli_prepare($conn, $sqlUsuarios);
@@ -62,15 +78,20 @@ if ($stmtUsuarios) {
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Cadastro de Trens</title>
 
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css"
+    >
 
 </head>
-
-<body>
 
 <?php
 
@@ -81,6 +102,8 @@ include("../includes/navbar.php");
 
 ?>
 
+<body>
+
 <main id="cadastro-trens">
 
     <h2>Cadastro de Trens</h2>
@@ -90,6 +113,9 @@ include("../includes/navbar.php");
         <div class="cadastro-trens-card">
 
             <form method="POST">
+
+
+                <!-- PESO -->
 
                 <div class="cadastro-trens-campo">
 
@@ -110,6 +136,8 @@ include("../includes/navbar.php");
                 </div>
 
 
+                <!-- QUANTIDADE DE VAGÕES -->
+
                 <div class="cadastro-trens-campo">
 
                     <label for="quantidade_vagoes">
@@ -128,6 +156,8 @@ include("../includes/navbar.php");
                 </div>
 
 
+                <!-- PROPRIETÁRIO -->
+
                 <div class="cadastro-trens-campo">
 
                     <label for="id_usuarios">
@@ -140,15 +170,22 @@ include("../includes/navbar.php");
                         required
                     >
 
-                        <option value="" selected disabled>
+                        <option
+                            value=""
+                            selected
+                            disabled
+                        >
                             Selecione um usuário
                         </option>
+
 
                         <?php if ($resultadoUsuarios): ?>
 
                             <?php while ($usuario = mysqli_fetch_assoc($resultadoUsuarios)): ?>
 
-                                <option value="<?= $usuario["id"] ?>">
+                                <option
+                                    value="<?= htmlspecialchars($usuario["id"]) ?>"
+                                >
                                     <?= htmlspecialchars($usuario["nome"]) ?>
                                 </option>
 
@@ -161,6 +198,8 @@ include("../includes/navbar.php");
                 </div>
 
 
+                <!-- BOTÃO -->
+
                 <div class="cadastro-trens-botao">
 
                     <button type="submit">
@@ -169,16 +208,19 @@ include("../includes/navbar.php");
 
                 </div>
 
+
+                <!-- MENSAGEM -->
+
+             <?php if ($mensagem !== ""): ?>
+
+    <div class="cadastro-mensagem <?php echo $tipoMensagem; ?>">
+        <?php echo htmlspecialchars($mensagem); ?>
+    </div>
+
+<?php endif; ?>
+
+
             </form>
-
-
-            <?php if (!empty($mensagem)): ?>
-
-                <p class="cadastro-trens-mensagem">
-                    <?= htmlspecialchars($mensagem) ?>
-                </p>
-
-            <?php endif; ?>
 
         </div>
 
@@ -186,7 +228,19 @@ include("../includes/navbar.php");
 
 </main>
 
+
+<script src="../scripts/botao-sair.js"></script>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9H9JcYn3nv7wiPVlz7YYwJrVwcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous">
+</script>
+
+
 </body>
+
 </html>
 
 <?php
