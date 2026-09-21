@@ -5,7 +5,9 @@ include "../infra/conn.php";
 $mensagem = "";
 $tipoMensagem = "";
 
+
 /* Excluir usuário */
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
 
     $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
@@ -25,9 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
                 if (mysqli_stmt_execute($stmt)) {
 
                     if (mysqli_stmt_affected_rows($stmt) > 0) {
+
                         $mensagem = "Usuário excluído com sucesso!";
                         $tipoMensagem = "sucesso";
+
                     } else {
+
                         $mensagem = "Usuário não encontrado.";
                         $tipoMensagem = "erro";
                     }
@@ -51,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
 
 
 /* Buscar usuários */
+
 $sql = "SELECT id, nome, email, telefone
         FROM usuarios
         ORDER BY id ASC";
@@ -66,6 +72,7 @@ if ($stmt) {
     $resultado = mysqli_stmt_get_result($stmt);
 
     while ($usuario = mysqli_fetch_assoc($resultado)) {
+
         $usuarios[] = $usuario;
     }
 
@@ -75,18 +82,28 @@ if ($stmt) {
 ?>
 
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Gestão de Usuários</title>
 
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css"
+    >
 
 </head>
+
+<body>
 
 <?php
 
@@ -97,37 +114,37 @@ include("../includes/navbar.php");
 
 ?>
 
-<body>
 
 <main id="gestao-usuarios">
 
     <h1>USUÁRIOS CADASTRADOS</h1>
 
 
-    <div class="gestao-usuarios-container">
+    <div class="gestao-container">
 
-        <div class="gestao-usuarios-card">
+        <div class="gestao-card">
 
             <h2>Gestão de Usuários</h2>
 
-
-            <div class="gestao-usuarios-linha"></div>
+            <div class="gestao-linha"></div>
 
 
             <?php if ($mensagem !== ""): ?>
 
-                <div class="gestao-mensagem <?php echo $tipoMensagem; ?>">
+                <div
+                    class="gestao-mensagem <?= htmlspecialchars($tipoMensagem) ?>"
+                >
 
-                    <?php echo htmlspecialchars($mensagem); ?>
+                    <?= htmlspecialchars($mensagem) ?>
 
                 </div>
 
             <?php endif; ?>
 
 
-            <div class="gestao-usuarios-tabela-container">
+            <div class="gestao-tabela-container">
 
-                <table class="gestao-usuarios-tabela">
+                <table class="gestao-tabela">
 
                     <thead>
 
@@ -147,6 +164,7 @@ include("../includes/navbar.php");
 
                     </thead>
 
+
                     <tbody>
 
                     <?php if (count($usuarios) > 0): ?>
@@ -156,51 +174,40 @@ include("../includes/navbar.php");
                             <tr>
 
                                 <td>
-                                    <?php echo htmlspecialchars($usuario["nome"]); ?>
+                                    <?= htmlspecialchars($usuario["nome"]) ?>
                                 </td>
 
                                 <td>
-                                    <?php echo htmlspecialchars($usuario["id"]); ?>
+                                    <?= htmlspecialchars($usuario["id"]) ?>
                                 </td>
 
                                 <td>
-                                    <?php echo htmlspecialchars($usuario["email"]); ?>
+                                    <?= htmlspecialchars($usuario["email"]) ?>
                                 </td>
 
                                 <td>
-                                    <?php echo htmlspecialchars($usuario["telefone"]); ?>
+                                    <?= htmlspecialchars($usuario["telefone"]) ?>
                                 </td>
 
                                 <td>
 
-                                    <div class="gestao-usuarios-acoes">
+                                    <div class="gestao-acoes">
 
                                         <a
-                                            href="editar-usuario.php?id=<?php echo $usuario["id"]; ?>"
-                                            class="gestao-btn-atualizar"
+                                            href="editar-usuario.php?id=<?= $usuario["id"] ?>"
+                                            class="gestao-btn atualizar"
                                         >
                                             Atualizar
                                         </a>
 
 
-                                        <form method="POST">
-
-                                            <input
-                                                type="hidden"
-                                                name="id"
-                                                value="<?php echo $usuario["id"]; ?>"
-                                            >
-
-                                            <button
-                                                type="submit"
-                                                name="excluir"
-                                                class="gestao-btn-excluir"
-                                                onclick="return confirm('Tem certeza que deseja excluir este usuário?');"
-                                            >
-                                                Excluir
-                                            </button>
-
-                                        </form>
+                                        <button
+                                            type="button"
+                                            class="gestao-btn excluir"
+                                            onclick="abrirPopup(<?= $usuario["id"] ?>)"
+                                        >
+                                            Excluir
+                                        </button>
 
                                     </div>
 
@@ -216,7 +223,7 @@ include("../includes/navbar.php");
 
                             <td
                                 colspan="5"
-                                class="gestao-usuarios-vazio"
+                                class="gestao-vazio"
                             >
                                 Nenhum usuário cadastrado.
                             </td>
@@ -236,6 +243,101 @@ include("../includes/navbar.php");
     </div>
 
 </main>
+
+
+<!-- POP-UP DE CONFIRMAÇÃO -->
+
+<div
+    id="popup-excluir"
+    class="popup-overlay"
+>
+
+    <div class="popup-card">
+
+        <h3>Excluir usuário?</h3>
+
+        <p>
+            Tem certeza que deseja excluir este usuário?
+        </p>
+
+
+        <div class="popup-acoes">
+
+            <button
+                type="button"
+                class="popup-btn cancelar"
+                onclick="fecharPopup()"
+            >
+                Cancelar
+            </button>
+
+
+            <form
+                method="POST"
+                id="form-excluir"
+            >
+
+                <input
+                    type="hidden"
+                    name="id"
+                    id="excluir_id"
+                >
+
+                <input
+                    type="hidden"
+                    name="excluir"
+                    value="1"
+                >
+
+
+                <button
+                    type="submit"
+                    class="popup-btn confirmar"
+                >
+                    Excluir
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function abrirPopup(id) {
+
+    document.getElementById("excluir_id").value = id;
+
+    document
+        .getElementById("popup-excluir")
+        .classList.add("ativo");
+}
+
+
+function fecharPopup() {
+
+    document
+        .getElementById("popup-excluir")
+        .classList.remove("ativo");
+}
+
+
+document
+    .getElementById("popup-excluir")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+
+            fecharPopup();
+        }
+
+    });
+
+</script>
 
 
 <script src="../scripts/botao-sair.js"></script>

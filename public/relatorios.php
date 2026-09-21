@@ -6,55 +6,46 @@ $mensagem = "";
 $tipoMensagem = "";
 
 
-/* Excluir relatório */
+/* EXCLUIR RELATÓRIO */
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir_id"])) {
 
-    $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
+    $id = (int) $_POST["excluir_id"];
 
-    if ($id) {
+    $sql = "DELETE FROM relatorios WHERE id = ?";
 
-        $sql = "DELETE FROM relatorios WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
 
-        $stmt = mysqli_prepare($conn, $sql);
+    if ($stmt) {
 
-        if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "i", $id);
 
-            mysqli_stmt_bind_param($stmt, "i", $id);
-
-            if (mysqli_stmt_execute($stmt)) {
-
-                if (mysqli_stmt_affected_rows($stmt) > 0) {
-
-                    $mensagem = "Relatório excluído com sucesso!";
-                    $tipoMensagem = "sucesso";
-
-                } else {
-
-                    $mensagem = "Relatório não encontrado.";
-                    $tipoMensagem = "erro";
-                }
-
-            } else {
-
-                $mensagem = "Não foi possível excluir o relatório.";
-                $tipoMensagem = "erro";
-            }
-
-            mysqli_stmt_close($stmt);
+        if (mysqli_stmt_execute($stmt)) {
+            $mensagem = "Relatório excluído com sucesso!";
+            $tipoMensagem = "sucesso";
+        } else {
+            $mensagem = "Erro ao excluir o relatório.";
+            $tipoMensagem = "erro";
         }
+
+        mysqli_stmt_close($stmt);
+
+    } else {
+
+        $mensagem = "Erro ao preparar a exclusão.";
+        $tipoMensagem = "erro";
     }
 }
 
 
-/* Buscar relatórios */
+/* BUSCAR RELATÓRIOS */
 
 $sql = "SELECT
             relatorios.id,
             relatorios.conteudo,
             usuarios.nome AS usuario
         FROM relatorios
-        INNER JOIN usuarios
+        LEFT JOIN usuarios
             ON relatorios.id_usuarios = usuarios.id
         ORDER BY relatorios.id ASC";
 
@@ -69,7 +60,6 @@ if ($stmt) {
     $resultado = mysqli_stmt_get_result($stmt);
 
     while ($relatorio = mysqli_fetch_assoc($resultado)) {
-
         $relatorios[] = $relatorio;
     }
 
@@ -90,7 +80,7 @@ if ($stmt) {
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Gestão de Relatórios</title>
+    <title>Relatórios Cadastrados</title>
 
     <link
         rel="stylesheet"
@@ -99,6 +89,7 @@ if ($stmt) {
 
 </head>
 
+<body>
 
 <?php
 
@@ -110,39 +101,36 @@ include("../includes/navbar.php");
 ?>
 
 
-<body>
-
 <main id="gestao-relatorios">
 
     <h1>RELATÓRIOS CADASTRADOS</h1>
 
 
-    <div class="gestao-relatorios-container">
+    <div class="gestao-container">
 
-        <div class="gestao-relatorios-card">
+        <div class="gestao-card">
 
             <h2>Gestão de Relatórios</h2>
 
+            <div class="gestao-linha"></div>
 
-            <div class="gestao-relatorios-linha"></div>
 
-
-            <?php if ($mensagem !== ""): ?>
+            <?php if (!empty($mensagem)): ?>
 
                 <div
-                    class="gestao-mensagem <?php echo $tipoMensagem; ?>"
+                    class="gestao-mensagem <?= htmlspecialchars($tipoMensagem) ?>"
                 >
 
-                    <?php echo htmlspecialchars($mensagem); ?>
+                    <?= htmlspecialchars($mensagem) ?>
 
                 </div>
 
             <?php endif; ?>
 
 
-            <div class="gestao-relatorios-tabela-container">
+            <div class="gestao-tabela-container">
 
-                <table class="gestao-relatorios-tabela">
+                <table class="gestao-tabela">
 
                     <thead>
 
@@ -163,101 +151,72 @@ include("../includes/navbar.php");
 
                     <tbody>
 
-                    <?php if (count($relatorios) > 0): ?>
+                        <?php if (count($relatorios) > 0): ?>
 
-                        <?php foreach ($relatorios as $relatorio): ?>
+                            <?php foreach ($relatorios as $relatorio): ?>
 
-                            <tr>
+                                <tr>
 
-                                <td>
-                                    <?php
-                                    echo htmlspecialchars(
-                                        $relatorio["id"]
-                                    );
-                                    ?>
-                                </td>
+                                    <td>
+                                        <?= htmlspecialchars($relatorio["id"]) ?>
+                                    </td>
 
+                                    <td class="gestao-conteudo">
 
-                                <td class="gestao-relatorio-conteudo">
+                                        <?= htmlspecialchars($relatorio["conteudo"]) ?>
 
-                                    <?php
-                                    echo nl2br(
-                                        htmlspecialchars(
-                                            $relatorio["conteudo"]
-                                        )
-                                    );
-                                    ?>
+                                    </td>
 
-                                </td>
+                                    <td>
 
+                                        <?= htmlspecialchars(
+                                            $relatorio["usuario"] ?? "Não informado"
+                                        ) ?>
 
-                                <td>
+                                    </td>
 
-                                    <?php
-                                    echo htmlspecialchars(
-                                        $relatorio["usuario"]
-                                    );
-                                    ?>
+                                    <td>
 
-                                </td>
+                                        <div class="gestao-acoes">
 
-
-                                <td>
-
-                                    <div class="gestao-relatorios-acoes">
-
-                                        <a
-                                            href="editar-relatorio.php?id=<?php echo $relatorio["id"]; ?>"
-                                            class="gestao-btn-atualizar"
-                                        >
-                                            Atualizar
-                                        </a>
-
-
-                                        <form method="POST">
-
-                                            <input
-                                                type="hidden"
-                                                name="id"
-                                                value="<?php
-                                                echo $relatorio["id"];
-                                                ?>"
+                                            <a
+                                                href="editar-relatorio.php?id=<?= $relatorio["id"] ?>"
+                                                class="gestao-btn atualizar"
                                             >
+                                                Atualizar
+                                            </a>
 
 
                                             <button
-                                                type="submit"
-                                                name="excluir"
-                                                class="gestao-btn-excluir"
-                                                onclick="return confirm('Tem certeza que deseja excluir este relatório?');"
+                                                type="button"
+                                                class="gestao-btn excluir"
+                                                onclick="abrirPopup(<?= $relatorio["id"] ?>)"
                                             >
                                                 Excluir
                                             </button>
 
-                                        </form>
+                                        </div>
 
-                                    </div>
+                                    </td>
 
+                                </tr>
+
+                            <?php endforeach; ?>
+
+                        <?php else: ?>
+
+                            <tr>
+
+                                <td
+                                    colspan="4"
+                                    class="gestao-vazio"
+                                >
+                                    Nenhum relatório cadastrado.
                                 </td>
 
                             </tr>
 
-                        <?php endforeach; ?>
-
-                    <?php else: ?>
-
-                        <tr>
-
-                            <td
-                                colspan="4"
-                                class="gestao-relatorios-vazio"
-                            >
-                                Nenhum relatório cadastrado.
-                            </td>
-
-                        </tr>
-
-                    <?php endif; ?>
+                        <?php endif; ?>
 
                     </tbody>
 
@@ -272,14 +231,90 @@ include("../includes/navbar.php");
 </main>
 
 
-<script src="../scripts/botao-sair.js"></script>
+<!-- POP-UP -->
+
+<div
+    id="popup-excluir"
+    class="popup-overlay"
+>
+
+    <div class="popup-card">
+
+        <h3>Excluir relatório?</h3>
+
+        <p>
+            Tem certeza que deseja excluir este relatório?
+        </p>
+
+        <div class="popup-acoes">
+
+            <button
+                type="button"
+                class="popup-btn cancelar"
+                onclick="fecharPopup()"
+            >
+                Cancelar
+            </button>
 
 
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9H9JcYn3nv7wiPVlz7YYwJrVwcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous">
+            <form
+                method="POST"
+                id="form-excluir"
+            >
+
+                <input
+                    type="hidden"
+                    name="excluir_id"
+                    id="excluir_id"
+                >
+
+                <button
+                    type="submit"
+                    class="popup-btn confirmar"
+                >
+                    Excluir
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function abrirPopup(id) {
+
+    document.getElementById("excluir_id").value = id;
+
+    document.getElementById("popup-excluir").classList.add("ativo");
+}
+
+function fecharPopup() {
+
+    document
+        .getElementById("popup-excluir")
+        .classList.remove("ativo");
+}
+
+
+document
+    .getElementById("popup-excluir")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            fecharPopup();
+        }
+
+    });
+
 </script>
+
+
+<script src="../scripts/botao-sair.js"></script>
 
 </body>
 

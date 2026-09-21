@@ -2668,3 +2668,361 @@ li#navbar-sair{
 /*                            Gestão de Usuários                              */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                             Pop Up De Confirmação                          */
+#gestao-relatorios,
+#gestao-usuarios,
+#gestao-trens,
+#gestao-sensores,
+#gestao-rotas {
+    width: 100%;
+    min-height: calc(100vh - 45px);
+    background: #f3f5f8;
+    padding-top: 80px;
+    box-sizing: border-box;
+}
+
+#gestao-relatorios h1,
+#gestao-usuarios h1,
+#gestao-trens h1,
+#gestao-sensores h1,
+#gestao-rotas h1 {
+    margin: 0;
+    text-align: center;
+
+    color: #193655;
+
+    font-family: Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.gestao-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    margin-top: 45px;
+}
+
+.gestao-card {
+    width: 92%;
+    max-width: 1160px;
+
+    background: #ffffff;
+
+    border-radius: 35px;
+
+    padding: 25px 38px 30px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.gestao-card h2 {
+    margin: 0;
+
+    color: #193655;
+
+    font-family: Arial, sans-serif;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.gestao-linha {
+    width: 100%;
+    height: 3px;
+
+    background: #193655;
+
+    margin-top: 12px;
+    margin-bottom: 15px;
+}
+
+.gestao-tabela-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.gestao-tabela {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    border: 3px solid #222;
+
+    font-family: Arial, sans-serif;
+}
+
+.gestao-tabela th {
+    padding: 10px;
+
+    color: #111;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+.gestao-tabela td {
+    padding: 14px 10px;
+
+    color: #222;
+
+    font-size: 15px;
+
+    text-align: center;
+
+    border: none;
+}
+
+.gestao-tabela tbody tr {
+    height: 55px;
+}
+
+.gestao-conteudo {
+    max-width: 500px;
+
+    text-align: left !important;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gestao-acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.gestao-btn {
+    min-width: 78px;
+    height: 33px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 10px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #222;
+
+    background: #f5f5f5;
+
+    color: #555;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.gestao-btn:hover {
+    background: #e5e5e5;
+}
+
+.gestao-btn.excluir {
+    color: #555;
+}
+
+.gestao-vazio {
+    padding: 30px !important;
+
+    font-size: 16px !important;
+}
+
+.gestao-mensagem {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 20px;
+
+    margin: 15px 0;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.gestao-mensagem.sucesso {
+    background: #e7f7ed;
+    border: 1px solid #63b77a;
+    color: #23733a;
+}
+
+.gestao-mensagem.erro {
+    background: #fdeaea;
+    border: 1px solid #d66;
+    color: #a22;
+}
+
+
+/* POP-UP */
+
+.popup-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.popup-overlay.ativo {
+    display: flex;
+}
+
+.popup-card {
+    width: 380px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    animation: aparecerPopup 0.2s ease;
+}
+
+.popup-card h3 {
+    margin: 0 0 12px;
+
+    color: #193655;
+
+    font-family: Arial, sans-serif;
+    font-size: 23px;
+}
+
+.popup-card p {
+    margin: 0 0 25px;
+
+    color: #444;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+.popup-acoes {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.popup-acoes form {
+    margin: 0;
+}
+
+.popup-btn {
+    min-width: 105px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    padding: 0 18px;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.popup-btn.cancelar {
+    background: #dfe3e8;
+
+    color: #333;
+}
+
+.popup-btn.cancelar:hover {
+    background: #cdd2d8;
+}
+
+.popup-btn.confirmar {
+    background: #193655;
+
+    color: #ffffff;
+}
+
+.popup-btn.confirmar:hover {
+    background: #24486d;
+}
+
+@keyframes aparecerPopup {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    #gestao-relatorios h1,
+    #gestao-usuarios h1,
+    #gestao-trens h1,
+    #gestao-sensores h1,
+    #gestao-rotas h1 {
+        font-size: 30px;
+    }
+
+    .gestao-card {
+        width: 94%;
+        padding: 20px;
+    }
+
+    .popup-card {
+        width: 90%;
+        max-width: 380px;
+    }
+
+}
+
+/*                            Pop Up de confirmação                           */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
