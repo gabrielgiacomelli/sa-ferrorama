@@ -39,6 +39,8 @@ include("../includes/navbar.php");
 
     <main class="cadastro-usuarios-main">
 
+    <h1>Cadastro de usuários</h1>
+
         <div class="cadastro-usuarios-container">
 
             <div class="cadastro-usuarios-card">
