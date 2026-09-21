@@ -246,20 +246,20 @@ li#navbar-sair{
 
     margin: 0 0 35px 0;
     padding: 0;
-
-    color: #193655;
-
-    font-family: Arial, sans-serif;
-    font-size: 44px;
-    font-weight: 800;
-
-    line-height: 1.1;
-    letter-spacing: 1px;
+    padding-top: 8vh;
+    
 
     text-align: center;
+
+    color: var(--cor-azul-ferroviario);
+
+    font-family: var(--fonte-horizon);
+    font-size: 5.5vh;
+    font-weight: 800;
+
     text-transform: uppercase;
 
-    box-sizing: border-box;
+    line-height: 1;
 }
 
 #cadastro-usuarios .cadastro-usuarios-container {
@@ -826,7 +826,7 @@ li#navbar-sair{
     color: var(--cor-azul-ferroviario);
 
     font-family: var(--fonte-horizon);
-    font-size: 44px;
+    font-size: 5.5vh;
     font-weight: 800;
 
     text-transform: uppercase;
@@ -909,7 +909,7 @@ li#navbar-sair{
     outline: none;
 }
 
-#cadastro-sensores .cadastro-sensores-campo input::placeholder {
+#hsensores .cadastro-sensores-campo input::placeholder {
     color: #555;
 
     opacity: 1;
@@ -1005,19 +1005,22 @@ li#navbar-sair{
 #cadastro-relatorios h2 {
     width: 100%;
 
-    margin: 55px 0 65px 0;
+    margin: 0 0 35px 0;
+    padding: 0;
+    padding-top: 8vh;
+    
 
     text-align: center;
 
     color: var(--cor-azul-ferroviario);
 
-    font-family: Arial, sans-serif;
-    font-size: 44px;
+    font-family: var(--fonte-horizon);
+    font-size: 5.5vh;
     font-weight: 800;
 
-    letter-spacing: 1px;
-
     text-transform: uppercase;
+
+    line-height: 1;
 }
 
 
@@ -1207,23 +1210,24 @@ li#navbar-sair{
 }
 
 #cadastro-trens h2 {
-    display: block;
     width: 100%;
-    height: auto;
-    margin: 0 0 38px 0;
-    padding: 0;
-    color: var(--cor-azul-ferroviario);
-    text-align: center;
-    font-family: Arial, sans-serif;
-    
-    font-family: var(--fonte-horizon);
-    font-size: 44px;
-    font-weight: 800;
-    line-height: 52px;
 
-    letter-spacing: 1px;
+    margin: 0 0 35px 0;
+    padding: 0;
+    padding-top: 8vh;
+    
+
+    text-align: center;
+
+    color: var(--cor-azul-ferroviario);
+
+    font-family: var(--fonte-horizon);
+    font-size: 5.5vh;
+    font-weight: 800;
+
     text-transform: uppercase;
-    box-sizing: border-box;
+
+    line-height: 1;
 }
 
 #cadastro-trens .cadastro-trens-container {
@@ -1418,14 +1422,23 @@ li#navbar-sair{
 
 #cadastro-rotas h2 {
     width: 100%;
-    margin: 55px 0 40px 0;
+
+    margin: 0 0 35px 0;
+    padding: 0;
+    padding-top: 8vh;
+    
+
     text-align: center;
+
     color: var(--cor-azul-ferroviario);
-    font-family: Arial, sans-serif;
-    font-size: 44px;
+
+    font-family: var(--fonte-horizon);
+    font-size: 5.5vh;
     font-weight: 800;
-    letter-spacing: 1px;
+
     text-transform: uppercase;
+
+    line-height: 1;
 }
 
 #cadastro-rotas .cadastro-rotas-container {
