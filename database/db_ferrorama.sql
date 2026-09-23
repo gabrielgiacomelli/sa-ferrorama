@@ -23,7 +23,7 @@ CREATE TABLE rotas (
 
 CREATE TABLE trens (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuarios INT NOT NULL
+    id_usuarios INT NOT NULL,
     peso DECIMAL(8, 2) NOT NULL,
     quantidade_vagoes INT NOT NULL,
     FOREIGN KEY (id_usuarios) REFERENCES usuarios(id)
