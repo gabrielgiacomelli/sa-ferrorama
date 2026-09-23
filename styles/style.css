@@ -2631,6 +2631,49 @@ li#navbar-sair{
     max-width: 900px;
 }
 
+/* ================================================= */
+/*        MOSAICO (compartilhado index e home)     */
+/* ================================================= */
+
+.mosaico {
+    display: flex;
+    width: 100%;
+    gap: 12px;
+}
+
+.mosaico-coluna {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mosaico-bloco {
+    width: 100%;
+    height: 0;
+    border-radius: 20px;
+    border: 1px solid var(--cor-azul-ferroviario);
+}
+
+.mosaico-bloco.cor-clara  { background-color: var(--cor-azul-ferroviario-claro); }
+.mosaico-bloco.cor-escura { background-color: var(--cor-azul-ferroviario); }
+
+.mosaico-bloco.altura-pp { flex-grow: 0.7; }
+.mosaico-bloco.altura-p  { flex-grow: 1.5; }
+.mosaico-bloco.altura-m  { flex-grow: 2.3; }
+.mosaico-bloco.altura-g  { flex-grow: 3.5; }
+.mosaico-bloco.altura-gg { flex-grow: 4.8; }
+
+.mosaico-letra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: var(--fonte-horizon);
+    font-size: 60px;
+    font-weight: 900;
+}
+
 
 /* ================================================= */
 /*                      HOME                         */
