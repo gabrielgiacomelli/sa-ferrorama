@@ -71,35 +71,35 @@
                                     <ul class="dropdown-menu">
 
                                         <li>
-                                            <a href="sensores.php"
+                                            <a href="gestao-sensores.php"
                                             class="<?= $submenuAtual == 'gestao-sensores' ? 'submenu-ativo' : '' ?>">
                                             Sensores
                                             </a>
                                         </li>
 
                                         <li>
-                                            <a href="trem.php"
+                                            <a href="gestao-trem.php"
                                             class="<?= $submenuAtual == 'gestao-trens' ? 'submenu-ativo' : '' ?>">
                                             Trens
                                             </a>
                                         </li>
 
                                         <li>
-                                            <a href="rota.php"
+                                            <a href="gestao-rota.php"
                                             class="<?= $submenuAtual == 'gestao-rotas' ? 'submenu-ativo' : '' ?>">
                                             Rotas
                                             </a>
                                         </li>
 
                                         <li>
-                                            <a href="relatorios.php"
+                                            <a href="gestao-relatorios.php"
                                             class="<?= $submenuAtual == 'gestao-relatorios' ? 'submenu-ativo' : '' ?>">
                                             Relatórios
                                             </a>
                                         </li>
 
                                         <li>
-                                            <a href="usuarios.php"
+                                            <a href="gestao-usuarios.php"
                                             class="<?= $submenuAtual == 'gestao-usuarios' ? 'submenu-ativo' : '' ?>">
                                             Usuários
                                             </a>
