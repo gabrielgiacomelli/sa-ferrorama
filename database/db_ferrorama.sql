@@ -34,7 +34,8 @@ CREATE TABLE sensores (
     nome VARCHAR(255) NOT NULL,
     instalacao VARCHAR(200) NOT NULL,
     funcao VARCHAR(100) NOT NULL,
-    zona VARCHAR(100) NOT NULL
+    zona VARCHAR(100) NOT NULL,
+    status VARCHAR(100) NOT NULL DEFAULT 'Ativo'
 );
 
 CREATE TABLE relatorios (
