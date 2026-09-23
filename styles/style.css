@@ -541,303 +541,167 @@ li#navbar-sair{
 
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
-/*                                  Index                                     */
-
-
-#index-page {
-    background-color: var(--cor-background);
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.topbar {
-    background-color: var(--cor-azul-ferroviario);
-    height: 45px;
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.topbar-stripe {
-    background-color: var(--cor-azul-ferroviario-claro);
-    height: 100%;
-    width: 110px;
-    clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
-}
-
-#topbar-direita{
-    position: absolute;
-    right: -20px;
-
-    width: 120px;
-    height: 8.35%;
-
-    background: var(--cor-azul-ferroviario-claro);
-    clip-path: polygon(0 0,100% 0, 100% 100%,20% 0);
-}
-
-.login-box {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding-right: 60px;
-}
-
-.btn-login {
-    color: var(--cor-branca);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-}
-
-.main-grid {
-    display: flex;
-    flex: 1;
-    height: calc(100vh - 55px);
-}
-
-.left-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 8%;
-    padding-right: 4%;
-}
-
-.brand {
-    margin-bottom: 30px;
-}
-
-.brand span {
-    font-family: var(--font-chau);
-    font-size: 42px;
-    font-weight: 700;
-    color: #2D3748;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.logo {
-    max-width: 600px;
-    height: auto;
-    display: block;
-}
-
-.slogan h2 {
-    font-size: 36.4px;
-    color: var(--cor-azul-ferroviario);
-    font-family: var(--fonte-open-sans);
-    font-weight: 700;
-    line-height: 1.3;
-    max-width: 380px;
-    margin: 25px 0 60px 0;
-}
-
-.footer-msg p {
-    font-family: var(--fonte-open-sans);
-    font-size: 21.5px;
-    color: #718096;
-    margin: 0;
-}
-
-.right-side {
-    flex: 1.4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-}
-
-.mosaic {
-    display: flex;
-    gap: 16px;
-    width: 100%;
-    height: 85%;
-    max-width: 750px; 
-}
-
-.col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.bg-light   { background-color: var(--cor-azul-ferroviario-claro); }
-.bg-dark    { background-color: var(--cor-azul-ferroviario); }
-
-
-.block {
-    border-radius: 20px;
-    width: 100%;
-    height: 0; 
-}
-
-.h-small    { flex-grow: 0.8; }
-.h-smedium  { flex-grow: 1.5; }
-.h-medium   { flex-grow: 2.5; }
-.h-large    { flex-grow: 3.5; }
-.h-xlarge   { flex-grow: 4.8; }
-
-
-/*                                  Index                                     */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
 /*                                  Login                                     */
 #body2 {
     margin: 0;
     min-height: 100vh;
-
-    background-color: #f3f4f7;
-
+    background: #f3f5f8;
     font-family: Arial, sans-serif;
 }
 
 #body2 .login-container {
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    padding: 30px 20px;
 }
 
 #body2 .logo-top {
-    color: #1d3557;
-
-    font-family: var(Horizon);
-    font-size: 68px;
-    font-weight: 800;
-
-    letter-spacing: -3px;
-
-    margin-bottom: 55px;
+    margin-bottom: 65px;
+    color: #193655;
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1;
 }
 
 #body2 .login-card {
-    width: 310px;
-
-    background-color: #f8f8f8;
-
-    border-radius: 14px;
-
-    padding: 22px 23px 34px;
-
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    width: 335px;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
 }
 
 #body2 .login-card h2 {
+    margin: 0 0 20px;
     text-align: center;
-
-    font-size: 25px;
+    color: #111;
+    font-size: 24px;
     font-weight: 400;
-
-    margin: 0 0 18px;
 }
 
 #body2 .campo {
-    margin-bottom: 12px;
+    width: 100%;
+    margin-bottom: 14px;
 }
 
 #body2 .campo label {
     display: block;
-
-    font-size: 16px;
-
     margin-bottom: 5px;
-
     color: #111;
+    font-size: 14px;
 }
 
 #body2 .campo input {
     width: 100%;
-    height: 40px;
-
-    border: 2px solid #111;
-
-    border-radius: 6px;
-
-    padding: 7px;
-
-    font-size: 16px;
-
+    height: 38px;
     box-sizing: border-box;
+    padding: 0 10px;
+    border: 2px solid #222;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
 }
 
-#body2 .campo input::placeholder {
-    color: #666;
+#body2 .campo input:focus {
+    border-color: #193655;
 }
 
 #body2 .btn-entrar {
+    display: flex;
     width: 100%;
     height: 38px;
-
-    margin-top: 0;
-
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
     border: none;
-    border-radius: 7px;
-
-    background-color: #1d3557;
-
-    color: white;
-
-    font-size: 16px;
-    font-weight: 600;
-
+    border-radius: 10px;
+    background: #193655;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
 }
 
 #body2 .btn-entrar:hover {
-    background-color: #162a45;
+    background: #24486d;
 }
 
+/* BOTÃO ESQUECI A SENHA */
+
 #body2 .btn-esqueci {
+    display: flex;
     width: 100%;
-    height: 39px;
+    height: 38px;
+    margin-top: 10px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 
-    margin-top: 12px;
+    background: #e5e9ee;
+    border: 1px solid #c7cdd4;
+    border-radius: 10px;
 
-    border: none;
-    border-radius: 20px;
-
-    background-color: #f8f8f8;
-
-    color: #111;
-
-    font-size: 16px;
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    color: #193655;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
 
     cursor: pointer;
 }
 
-
-
 #body2 .btn-esqueci:hover {
-    background-color: #eeeeee;
+    background: #d8dee5;
+    color: #193655;
 }
+
+/* MENSAGEM DE ERRO */
 
 #body2 #problema {
-    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 14px 0 0;
+    padding: 12px 14px;
 
-    margin-bottom: 0;
+    background: #fdeaea;
+    border: 1px solid #d66b6b;
+    border-radius: 10px;
 
+    color: #a52b2b;
+    text-align: center;
     font-size: 14px;
+    line-height: 1.4;
 }
 
+/* REMOVE ESTILOS ANTIGOS DO BOOTSTRAP */
 
+#body2 .text-danger {
+    color: inherit !important;
+}
+
+#body2 .text-center {
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+
+    #body2 .logo-top {
+        margin-bottom: 45px;
+        font-size: 52px;
+    }
+
+    #body2 .login-card {
+        width: 100%;
+        max-width: 335px;
+    }
+
+}
 /*                                  Login                                     */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
@@ -1588,473 +1452,6 @@ li#navbar-sair{
 /* -------------------------------------------------------------------------- */
 
 
-/* ================================================= */
-/*                      HOME                         */
-/* ================================================= */
-
-#home-page-body {
-    margin: 0;
-    background-color: var(--cor-background);
-    font-family: Arial, sans-serif;
-}
-
-.home-container {
-    width: 1100px;
-    margin: 0 auto;
-    padding-top: 90px;
-    padding-bottom: 80px;
-}
-
-.home-titulo {
-    margin: 30px 0 45px;
-
-    color: var(--cor-azul-ferroviario);
-
-    font-family: var(--fonte-popins);
-    font-size: 45px;
-    font-weight: 800;
-}
-
-.home-parte-superior {
-    display: flex;
-    gap: 40px;
-
-    height: 570px;
-}
-
-
-/* ---------------- Notícias ---------------- */
-
-.home-noticias {
-    width: 390px;
-    height: 460px;
-
-    padding: 25px;
-
-    box-sizing: border-box;
-
-    background-color: var(--cor-branca);
-
-    border-radius: 25px;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-
-    flex-shrink: 0;
-}
-
-.home-noticias-titulo {
-    margin: 0 0 20px;
-
-    text-align: right;
-    
-
-    color: var(--cor-azul-ferroviario);
-
-    font-family: var(--fonte-poppins);
-    font-size: 25px;
-    font-weight: 700;
-}
-
-
-/* Lista das notícias */
-
-.home-noticias-lista {
-    height: 370px;
-
-    overflow-y: auto;
-
-    padding-right: 5px;
-}
-
-.home-noticia {
-    display: flex;
-    align-items: center;
-
-    height: 58px;
-
-    margin-bottom: 18px;
-
-    border: 2px solid var(--cor-azul-ferroviario-claro);
-    border-radius: 17px;
-
-    background-color: white;
-
-    overflow: hidden;
-}
-
-
-/* Data */
-
-.home-noticia-data {
-    width: 70px;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
-
-    border-right: 2px solid var(--cor-azul-ferroviario-claro);
-
-    color: var(--cor-azul-ferroviario);
-
-    font-family: var(--fonte-open-sans);
-    font-size: 20.3px;
-    font-weight: 700;
-
-    flex-shrink: 0;
-}
-
-.home-noticia-data p {
-    margin: 0;
-    
-    font-weight: 800;
-}
-
-
-/* Texto */
-
-.home-noticia-texto {
-    margin-left: 15px;
-    margin-right: 10px;
-
-    font-family: var(--fonte-open-sans);
-    font-size: 13.5px;
-    line-height: 1.3;
-
-    color: #222;
-}
-
-
-/* ================================================= */
-/*               Mosaico da tela home                */
-/* ================================================= */
-
-.home-mosaico-container {
-    flex: 1;
-
-    height: 570px;
-}
-
-.mosaico-home {
-    display: flex;
-
-    width: 100%;
-    height: 100%;
-
-    gap: 12px;
-}
-
-.coluna-mosaico {
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 12px;
-}
-
-.bloco-mosaico {
-    width: 100%;
-    height: 0;
-
-    border-radius: 18px;
-}
-
-
-/* CORES DO MOSAICO */
-
-.mosaico-claro {
-    background-color: #28558d;
-}
-
-.mosaico-escuro {
-    background-color: #1a2f4c;
-}
-
-
-/* TAMANHOS DOS BLOCOS */
-
-.h-small {
-    flex-grow: 0.7;
-}
-
-.h-smedium {
-    flex-grow: 1.5;
-}
-
-.h-medium {
-    flex-grow: 2.3;
-}
-
-.h-large {
-    flex-grow: 3.5;
-}
-
-.h-xlarge {
-    flex-grow: 4.8;
-}
-
-
-/* LETRAS */
-
-.letra-mosaico {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-
-    font-size: 50px;
-    font-weight: 900;
-}
-
-
-/* ================================================= */
-/*              Parte debaixo home                   */
-/* ================================================= */
-
-/*
-   Essa parte fica abaixo da primeira tela.
-   Para vê-la, o usuário precisa rolar a página.
-*/
-
-.home-parte-inferior {
-    display: flex;
-
-    gap: 40px;
-
-    margin-top: 70px;
-}
-
-
-/* ================================================= */
-/*                  Clima no home                    */
-/* ================================================= */
-
-.home-clima {
-    width: 430px;
-
-    padding: 25px 30px;
-
-    box-sizing: border-box;
-
-    background-color: white;
-
-    border-radius: 25px;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-
-    flex-shrink: 0;
-}
-
-.home-clima-titulo {
-    margin: 0 0 20px;
-
-    text-align: center;
-
-    color: var(--cor-azul-ferroviario);
-
-    font-size: 21px;
-}
-
-
-/* Temperatura */
-
-.home-temperatura {
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-}
-
-.home-sol {
-    font-size: 60px;
-}
-
-.home-graus {
-    font-size: 50px;
-    font-weight: bold;
-}
-
-.home-unidade {
-    font-size: 15px;
-}
-
-.home-info-tempo {
-    font-size: 10px;
-}
-
-.home-info-tempo p {
-    margin: 3px 0;
-}
-
-
-/* Clima */
-
-.home-clima-status {
-    display: flex;
-
-    justify-content: space-around;
-
-    margin: 10px 0 20px;
-}
-
-.home-clima hr {
-    border: none;
-    border-top: 2px solid #222;
-}
-
-
-/* Alertas */
-
-.home-alertas-titulo {
-    text-align: center;
-
-    color: var(--cor-azul-ferroviario);
-
-    font-size: 21px;
-}
-
-.home-alerta {
-    margin-bottom: 20px;
-}
-
-.home-alerta strong {
-    font-size: 13px;
-}
-
-.home-alerta p {
-    margin: 3px 0;
-
-    font-size: 12px;
-    line-height: 1.3;
-}
-
-
-/* ================================================= */
-/*        Lado direito do mosaico no home            */
-/* ================================================= */
-
-.home-inferior-direita {
-    flex: 1;
-}
-
-
-/* ================================================= */
-/*                 Planeta no home                   */
-/* ================================================= */
-
-.home-planeta {
-    padding: 20px 25px;
-
-    background-color: white;
-
-    border-radius: 25px;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-}
-
-.home-planeta-titulo {
-    margin: 0 0 15px;
-
-    text-align: center;
-
-    color: var(--cor-azul-ferroviario);
-
-    font-size: 21px;
-}
-
-.home-planeta-item {
-    display: flex;
-
-    gap: 15px;
-}
-
-.home-planta {
-    font-size: 40px;
-}
-
-.home-planeta h3 {
-    margin: 0 0 5px;
-
-    font-size: 14px;
-}
-
-.home-planeta p {
-    margin: 0;
-
-    font-size: 11px;
-    line-height: 1.3;
-}
-
-.home-planeta-segundo {
-    margin-left: 55px;
-    margin-top: 10px;
-}
-
-
-/* ================================================= */
-/*           Dados da ferrovia no Home               */
-/* ================================================= */
-
-.home-dados {
-    margin-top: 50px;
-}
-
-.home-dados-titulo {
-    margin-bottom: 20px;
-
-    text-align: center;
-
-    color: var(--cor-azul-ferroviario);
-
-    font-size: 25px;
-}
-
-.home-dados-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 20px 30px;
-}
-
-.home-dado {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-}
-
-.home-dado-imagem {
-    width: 120px;
-    height: 70px;
-
-    flex-shrink: 0;
-
-    border-radius: 10px;
-
-    object-fit: cover;
-}
-
-.home-dado h3 {
-    margin: 0 0 5px;
-
-    color: var(--cor-azul-ferroviario);
-
-    font-size: 13px;
-}
-
-.home-dado p {
-    margin: 0;
-
-    font-size: 11px;
-}
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                             Gestão de Relatórios                           */
@@ -3032,46 +2429,55 @@ li#navbar-sair{
 /*                             Recuperar Senha                                */
 .recuperar-card {
     width: 335px;
+    padding: 24px 20px;
+    box-sizing: border-box;
 }
 
 .recuperar-card h2 {
     margin: 0 0 18px;
     text-align: center;
+    color: #111;
+    font-size: 24px;
+    font-weight: 400;
 }
 
 .recuperar-card .campo {
+    width: 100%;
     margin-bottom: 14px;
 }
 
 .recuperar-card .campo label {
     display: block;
     margin-bottom: 5px;
+    color: #111;
+    font-size: 14px;
 }
 
-.recuperar-card input {
+.recuperar-card .campo input {
     width: 100%;
     height: 38px;
     box-sizing: border-box;
-    border: 2px solid #111;
+    padding: 0 10px;
+    border: 2px solid #222;
     border-radius: 6px;
-    padding: 0 12px;
-    font-size: 15px;
     outline: none;
+    font-size: 14px;
 }
 
-.recuperar-card input:focus {
+.recuperar-card .campo input:focus {
     border-color: #193655;
 }
 
 .recuperar-card .btn-entrar {
     width: 100%;
     height: 38px;
-    margin-top: 0;
+    margin: 0;
+    padding: 0;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     background: #193655;
-    color: white;
-    font-size: 15px;
+    color: #fff;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -3080,53 +2486,372 @@ li#navbar-sair{
     background: #24486d;
 }
 
-.recuperar-resultado {
+/* BLOCO DO RESULTADO */
+
+.recuperar-card .recuperar-resultado {
     width: 100%;
     box-sizing: border-box;
-    margin-top: 15px;
-    padding: 13px;
+    margin-top: 14px;
+    padding: 12px 14px;
     border-radius: 10px;
     text-align: center;
 }
 
-.recuperar-resultado p {
+.recuperar-card .recuperar-resultado p {
     margin: 0;
+    padding: 0;
     font-size: 14px;
     line-height: 1.4;
 }
 
-.recuperar-resultado.sucesso {
-    background: #e7f7ed;
-    border: 1px solid #63b77a;
-    color: #23733a;
+/* RESULTADO POSITIVO */
+
+.recuperar-card .recuperar-resultado.sucesso {
+    background: #e8f7ed;
+    border: 1px solid #6fbe83;
+    color: #26733b;
 }
 
-.recuperar-resultado.erro {
+/* RESULTADO NEGATIVO */
+
+.recuperar-card .recuperar-resultado.erro {
     background: #fdeaea;
-    border: 1px solid #d66;
-    color: #a22;
+    border: 1px solid #d66b6b;
+    color: #a52b2b;
 }
 
-.voltar-login {
+/* BOTÃO VOLTAR */
+
+.recuperar-card .voltar-login {
     display: flex;
     width: 100%;
     height: 38px;
-    box-sizing: border-box;
     margin-top: 12px;
+    padding: 0;
+    box-sizing: border-box;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    background: #e1e5ea;
+
+    background: #e5e9ee;
+    border: 1px solid #c7cdd4;
+    border-radius: 10px;
+
     color: #193655;
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
+
+    cursor: pointer;
 }
 
-.voltar-login:hover {
-    background: #d3d8de;
+.recuperar-card .voltar-login:hover {
+    background: #d8dee5;
     color: #193655;
 }
 /*                            Recuperar Senha                                 */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
+
+
+/* ================================================= */
+/*                      INDEX                        */
+/* ================================================= */
+
+#index-page {
+    background-color: var(--cor-background);
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.topbar {
+    background-color: var(--cor-azul-ferroviario);
+    height: 45px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-stripe {
+    background-color: var(--cor-azul-ferroviario-claro);
+    height: 100%;
+    width: 110px;
+    clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
+}
+
+#topbar-direita {
+    position: absolute;
+    right: -20px;
+    width: 120px;
+    height: 8.35%;
+    background: var(--cor-azul-ferroviario-claro);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 0);
+}
+
+.login-box {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 60px;
+}
+
+.btn-login {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.main-grid {
+    display: flex;
+    flex: 1;   
+}
+
+/* ---------- Lado esquerdo (texto) ---------- */
+
+.left-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 14%;
+    padding-right: 2%;
+}
+
+.brand {
+    margin-bottom: 0;
+}
+
+.brand span {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2D3748;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.logo {
+    max-width: 420px;           
+    height: auto;
+    display: block;
+}
+
+.slogan h2 {
+    font-size: 40px;       
+    color: var(--cor-azul-ferroviario);
+    font-weight: 700;
+    line-height: 1.3;
+    max-width: 460px;             
+    margin: 20px 0 145px 0;
+}
+
+.footer-msg p {
+    font-size: 26px;
+    color: var(--cor-azul-ferroviario);
+    margin: 0;
+}
+
+/* ---------- Lado direito (mosaico) ---------- */
+
+.right-side {
+    flex: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.right-side .mosaico {
+    height: 90%;
+    max-width: 900px;
+}
+
+/* ================================================= */
+/*        MOSAICO (compartilhado index e home)     */
+/* ================================================= */
+
+.mosaico {
+    display: flex;
+    width: 100%;
+    gap: 12px;
+}
+
+.mosaico-coluna {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mosaico-bloco {
+    width: 100%;
+    height: 0;
+    border-radius: 20px;
+    border: 1px solid var(--cor-azul-ferroviario);
+}
+
+.mosaico-bloco.cor-clara  { background-color: var(--cor-azul-ferroviario-claro); }
+.mosaico-bloco.cor-escura { background-color: var(--cor-azul-ferroviario); }
+
+.mosaico-bloco.altura-pp { flex-grow: 0.7; }
+.mosaico-bloco.altura-p  { flex-grow: 1.5; }
+.mosaico-bloco.altura-m  { flex-grow: 2.3; }
+.mosaico-bloco.altura-g  { flex-grow: 3.5; }
+.mosaico-bloco.altura-gg { flex-grow: 4.8; }
+
+.mosaico-letra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: var(--fonte-horizon);
+    font-size: 60px;
+    font-weight: 900;
+}
+
+
+/* ================================================= */
+/*                      HOME                         */
+/* ================================================= */
+
+#home-page-body {
+    margin: 0;
+    background-color: var(--cor-background);
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;          
+    flex-direction: column;     
+}
+
+#home-page-body main {      
+    flex: 1;
+    display: flex;
+    min-height: 0;
+}
+
+.home-container {
+    width: 100%;
+    flex: 1;           
+    padding-top: 48.5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;              
+}
+
+.home-titulo {
+    margin: 0 0 30px;
+    color: var(--cor-azul-ferroviario);
+    font-family: var(--fonte-poppins);
+    font-size: 56px;          
+    font-weight: 800;
+}
+
+.home-parte-superior {
+    display: flex;
+    flex: 1;                     
+}
+
+/* ---------- Lado esquerdo (texto) ---------- */
+
+.home-esquerda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 14%;            
+    padding-right: 2%;
+}
+
+.home-noticias {
+    width: 460px;              
+    height: 520px;               
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: var(--cor-branca);
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+}
+
+.home-noticias-titulo {
+    margin: 0 0 20px;
+    text-align: center;
+    color: var(--cor-azul-ferroviario);
+    font-family: var(--fonte-poppins);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.home-noticias-lista {
+    height: 420px;                
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.home-noticia {
+    display: flex;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 18px;
+    border: 2px solid var(--cor-azul-ferroviario-claro);
+    border-radius: 17px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.home-noticia:last-child {
+    margin-bottom: 0;
+}
+
+.home-noticia-data {
+    width: 70px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-right: 2px solid var(--cor-azul-ferroviario-claro);
+    color: var(--cor-azul-ferroviario);
+    font-family: var(--fonte-open-sans);
+    font-size: 20.3px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.home-noticia-data p {
+    margin: 0;
+    font-weight: 800;
+}
+
+.home-noticia-texto {
+    margin-left: 15px;
+    margin-right: 10px;
+    font-family: var(--fonte-open-sans);
+    font-size: 13.5px;
+    line-height: 1.3;
+    color: #222;
+}
+
+/* ---------- Lado direito (mosaico) ---------- */
+
+.home-mosaico-container {
+    flex: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.home-mosaico-container .mosaico {
+    height: 90%;
+    max-width: 900px;
+}
