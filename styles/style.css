@@ -270,8 +270,9 @@ li#navbar-sair{
 
 #cadastro-usuarios {
     width: 100%;
+    height: 100%;
     min-height: calc(100vh - 45px);
-    background: #f3f5f8;
+    background: var(--cor-background);
     box-sizing: border-box;
 }
 
@@ -535,7 +536,314 @@ li#navbar-sair{
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
-/*                            Cadastro Usuário                                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                              Editar Usuário                                */
+
+#editar-usuarios {
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 45px);
+    background: var(--cor-background);
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-main {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 85px;
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-main h1 {
+    width: 100%;
+
+    margin: 0 0 35px 0;
+    padding: 0;
+    padding-top: 8vh;
+
+    text-align: center;
+
+    color: var(--cor-azul-ferroviario);
+
+    font-family: var(--fonte-horizon);
+    font-size: 5.5vh;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    line-height: 1;
+}
+
+#editar-usuarios .editar-usuarios-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-card {
+    width: 862px;
+
+    min-height: 379px;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    padding: 57px 28px 30px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-card form {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-colunas {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    gap: 20px;
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-coluna {
+    width: calc(33.333% - 13.33px);
+
+    flex: 0 0 calc(33.333% - 13.33px);
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-campo {
+    width: 100%;
+
+    margin: 0 0 18px 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-campo label {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 4px 0;
+    padding: 0;
+
+    color: #1d3557;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 18px;
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-campo input {
+    display: block;
+
+    width: 100%;
+    height: 36px;
+
+    margin: 0;
+    padding: 5px 7px;
+
+    border: 2px solid #28558d;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-campo input::placeholder {
+    color: #555555;
+
+    opacity: 1;
+}
+
+#editar-usuarios .editar-usuarios-campo input:focus {
+    border-color: #173f70;
+
+    box-shadow: 0 0 0 1px #173f70;
+}
+
+#editar-usuarios .editar-usuarios-botao {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10px;
+
+    box-sizing: border-box;
+}
+
+
+#editar-usuarios .editar-usuarios-botao button {
+    width: 130px;
+    height: 34px;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    border-radius: 15px;
+
+    background: #193655;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-botao button:hover {
+    background: #24486d;
+}
+
+#editar-usuarios #usuario-resultado {
+    width: 100%;
+
+    margin: 12px 0 0 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+#editar-usuarios .editar-usuarios-botao-voltar {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10px;
+}
+
+#editar-usuarios .editar-usuarios-botao-voltar a {
+    width: 130px;
+    height: 34px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 15px;
+
+    background: var(--cor-azul-ferroviario);
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+
+    transition: 0.2s;
+}
+
+#editar-usuarios .editar-usuarios-botao-voltar a:hover {
+    background: #5a6268;
+}
+
+
+
+#editar-usuarios #usuario-resultado.sucesso {
+    color: #1d6b3a;
+}
+
+#editar-usuarios #usuario-resultado.erro {
+    color: #b3261e;
+}
+
+@media (max-width: 900px) {
+
+    #editar-usuarios .editar-usuarios-card {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    #editar-usuarios .editar-usuarios-main {
+        padding-top: 45px;
+    }
+
+    #editar-usuarios .editar-usuarios-main h1 {
+        font-size: 32px;
+
+        margin-bottom: 30px;
+    }
+
+    #editar-usuarios .editar-usuarios-card {
+        width: 90%;
+        height: auto;
+
+        padding: 35px 25px;
+    }
+
+    #editar-usuarios .editar-usuarios-colunas {
+        flex-direction: column;
+
+        gap: 0;
+    }
+
+    #editar-usuarios .editar-usuarios-coluna {
+        width: 100%;
+
+        flex: 0 0 100%;
+    }
+
+}
+
+/*                              Editar Usuário                                */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
@@ -2389,9 +2697,10 @@ li#navbar-sair{
 /*                             Gestão de Usuários                             */
 #gestao-usuarios {
     width: 100%;
+    height: 100%;
     min-height: calc(100vh - 43px);
 
-    background: #f3f5f8;
+    background: var(--cor-background);
 
     padding-top: 84px;
 
