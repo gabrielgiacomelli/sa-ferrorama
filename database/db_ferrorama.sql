@@ -18,7 +18,8 @@ CREATE TABLE rotas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     saida VARCHAR(255) NOT NULL,
-    destino VARCHAR (255) NOT NULL
+    destino VARCHAR (255) NOT NULL,
+    status VARCHAR(100) NOT NULL DEFAULT 'Ativo'
 );
 
 CREATE TABLE trens (
@@ -26,7 +27,8 @@ CREATE TABLE trens (
     id_usuarios INT NOT NULL,
     peso DECIMAL(8, 2) NOT NULL,
     quantidade_vagoes INT NOT NULL,
-    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id)
+    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id),
+    status VARCHAR(100) NOT NULL DEFAULT 'Ativo'
 );
 
 CREATE TABLE sensores (
