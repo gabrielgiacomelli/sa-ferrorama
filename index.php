@@ -19,18 +19,18 @@
     </div>
     <div id="navbar-ferroviario-contraste-linha">
         <div id="topbar-direita"></div>
-    </div>    
-    
+    </div>
+
 
 
     <main class="main-grid">
-        
+
         <section class="left-side">
             <div class="brand">
                 <span>Ferrovia</span>
                 <img src="assets/icons/logo.png" alt="HLGL" class="logo">
             </div>
-            
+
             <div class="slogan">
                 <h2>Informações sobre trens, clima e muito mais!</h2>
             </div>
@@ -40,50 +40,44 @@
             </div>
         </section>
 
-                <!-- mosaico -->
+        <!-- mosaico -->
         <section class="right-side">
-            <div class="mosaic">
-                
-                <!-- Coluna 1 -->
-                <div class="col">
-                    <div class="block h-smedium bg-light"></div>
-                    <div class="block h-smedium bg-dark"></div>
-                    <div class="block h-large bg-light"></div>
+            <div class="mosaico">
+
+                <div class="mosaico-coluna">
+                    <div class="mosaico-bloco cor-clara altura-p"></div>
+                    <div class="mosaico-bloco cor-escura altura-p"></div>
+                    <div class="mosaico-bloco cor-clara altura-g"></div>
                 </div>
-                
-                <!-- Coluna 2 -->
-                <div class="col">
-                    <div class="block h-medium bg-light"></div>
-                    <div class="block h-smedium bg-dark"></div>
-                    <div class="block h-medium bg-light"></div>
+
+                <div class="mosaico-coluna">
+                    <div class="mosaico-bloco cor-clara altura-m"></div>
+                    <div class="mosaico-bloco cor-escura altura-p"></div>
+                    <div class="mosaico-bloco cor-clara altura-m"></div>
                 </div>
-                
-                <!-- Coluna 3 -->
-                <div class="col">
-                    <div class="block h-large bg-light"></div>
-                    <div class="block h-smedium bg-dark"></div>
-                    <div class="block h-smedium bg-light"></div>
+
+                <div class="mosaico-coluna">
+                    <div class="mosaico-bloco cor-clara altura-g"></div>
+                    <div class="mosaico-bloco cor-escura altura-p"></div>
+                    <div class="mosaico-bloco cor-clara altura-p"></div>
                 </div>
-                
-                <!-- Coluna 4 (Contém os 4 blocos da base do print) -->
-                <div class="col">
-                    <div class="block h-xlarge bg-light"></div>
-                    <div class="block h-smedium bg-dark"></div>
-                    <div class="block h-small bg-light"></div>
+
+                <div class="mosaico-coluna">
+                    <div class="mosaico-bloco cor-clara altura-gg"></div>
+                    <div class="mosaico-bloco cor-escura altura-p"></div>
+                    <div class="mosaico-bloco cor-clara altura-pp"></div>
                 </div>
-                
-                <!-- Coluna 5 -->
-                <div class="col">
-                    <div class="block h-large bg-light"></div>
-                    <div class="block h-smedium bg-dark"></div>
-                    <div class="block h-smedium bg-light"></div>
+
+                <div class="mosaico-coluna">
+                    <div class="mosaico-bloco cor-clara altura-g"></div>
+                    <div class="mosaico-bloco cor-escura altura-p"></div>
+                    <div class="mosaico-bloco cor-clara altura-p"></div>
                 </div>
-                
-                <!-- Coluna 6 -->
-                <div class="col">
-                    <div class="block h-medium bg-light"></div>
-                    <div class="block h-smedium bg-dark"></div>
-                    <div class="block h-medium bg-light"></div>
+
+                <div class="mosaico-coluna">
+                    <div class="mosaico-bloco cor-clara altura-m"></div>
+                    <div class="mosaico-bloco cor-escura altura-p"></div>
+                    <div class="mosaico-bloco cor-clara altura-m"></div>
                 </div>
 
             </div>
