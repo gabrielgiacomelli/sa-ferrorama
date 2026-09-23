@@ -13,11 +13,13 @@ $relatorio = mysqli_fetch_assoc($resultado);
 
 ?>
 
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Relatório</title>
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 
 <body>
@@ -27,15 +29,9 @@ $relatorio = mysqli_fetch_assoc($resultado);
         <h2>Editar Relatório</h2>
 
         <div class="container">
-
             <div class="col-lg-11">
-
-                <div class="card">
-
-                    <form
-                        action="atualizar-relatorio.php"
-                        method="POST"
-                    >
+                <div class="card editar-relatorio-card">
+                    <form action="atualizar-relatorio.php" method="POST">
 
                         <input
                             type="hidden"
@@ -44,37 +40,31 @@ $relatorio = mysqli_fetch_assoc($resultado);
                         >
 
                         <div class="row">
-
                             <div class="col-md-4">
 
                                 <textarea
                                     id="conteudo"
                                     name="conteudo"
-                                    placeholder="Escreva seu relatório"
+                                    placeholder="Atualize seu relatório"
                                     required
                                 ><?php echo htmlspecialchars($relatorio["conteudo"]); ?></textarea>
-
 
                                 <button type="submit">
                                     Atualizar
                                 </button>
 
                             </div>
-
                         </div>
-
                     </form>
 
+                    <a href="gestao-relatorios.php" class="botao-voltar">
+                        Voltar
+                    </a>
+
                 </div>
-
             </div>
-
         </div>
-
     </main>
-
-
-    <script src="../scripts/botao-sair.js"></script>
 
 </body>
 </html>

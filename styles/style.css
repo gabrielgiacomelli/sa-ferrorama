@@ -1417,102 +1417,270 @@ li#navbar-sair{
 
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
-/*                            Editar Relatórios                               */
-
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f1f3f6;
-    margin: 0;
-    color: #163b60;
-}
-
+/*                              Editar Relatórios                              */
 
 #cadastro-relatorios {
-    min-height: 100vh;
-    padding-top: 45px;
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 45px);
+
+    background: var(--cor-background);
+
+    box-sizing: border-box;
 }
 
+#cadastro-relatorios {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 85px;
+
+    box-sizing: border-box;
+}
 
 #cadastro-relatorios h2 {
+    width: 100%;
+
+    margin: 0 0 35px 0;
+    padding: 0;
+    padding-top: 8vh;
+
     text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-    letter-spacing: 2px;
+
+    color: var(--cor-azul-ferroviario);
+
+    font-family: var(--fonte-horizon);
+    font-size: 5.5vh;
+    font-weight: 800;
+
     text-transform: uppercase;
-    margin: 0 0 40px 0;
-    color: #163b60;
+
+    line-height: 1;
 }
 
-
-.container {
+#cadastro-relatorios .container {
     width: 100%;
+
     display: flex;
     justify-content: center;
-}
+    align-items: flex-start;
 
-
-.col-lg-11 {
-    width: 850px;
-}
-
-
-.card {
-    background-color: #ffffff;
-    border-radius: 30px;
-    padding: 35px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
-}
-
-
-.row {
-    width: 100%;
-}
-
-
-.col-md-4 {
-    width: 100%;
-}
-
-
-textarea {
-    width: 100%;
-    min-height: 180px;
     box-sizing: border-box;
-    padding: 15px;
-    border: 1px solid #c7c7c7;
-    border-radius: 8px;
+}
+
+#cadastro-relatorios .col-lg-11 {
+    width: 862px;
+
+    box-sizing: border-box;
+}
+
+#cadastro-relatorios .card {
+    width: 100%;
+
+    min-height: 0;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    padding: 57px 28px 20px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+
+    box-sizing: border-box;
+}
+
+#cadastro-relatorios .card form {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+#cadastro-relatorios .row {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    box-sizing: border-box;
+}
+
+#cadastro-relatorios .col-md-4 {
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+#cadastro-relatorios textarea {
+    display: block;
+
+    width: 100%;
+    height: 180px;
+
+    margin: 0 0 20px 0;
+    padding: 8px;
+
+    border: 2px solid #28558d;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
     resize: vertical;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 20px;
-}
 
-
-textarea:focus {
     outline: none;
-    border: 2px solid #1f466d;
+
+    box-sizing: border-box;
 }
 
+#cadastro-relatorios textarea::placeholder {
+    color: #555555;
 
-button {
-    width: 150px;
-    padding: 10px 15px;
+    opacity: 1;
+}
+
+#cadastro-relatorios textarea:focus {
+    border-color: #173f70;
+
+    box-shadow: 0 0 0 1px #173f70;
+}
+
+#cadastro-relatorios .col-md-4 > button {
+    width: 130px;
+    height: 34px;
+
+    display: block;
+
+    margin: 10px auto 0;
+    padding: 0;
+
     border: none;
-    border-radius: 5px;
-    background-color: #1f466d;
+    border-radius: 15px;
+
+    background: #193655;
+
     color: #ffffff;
-    font-size: 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
     cursor: pointer;
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+
+    box-sizing: border-box;
+}
+
+#cadastro-relatorios .col-md-4 > button:hover {
+    background: #24486d;
+}
+
+#cadastro-relatorios .botao-voltar {
+    width: 130px;
+    height: 34px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px auto 0;
+
+    border-radius: 15px;
+
+    background: var(--cor-azul-ferroviario);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+
+    transition: 0.2s;
+
+    box-sizing: border-box;
+}
+
+#cadastro-relatorios .botao-voltar:hover {
+    background: #5a6268;
 }
 
 
-button:hover {
-    background-color: #163b60;
+#cadastro-relatorios .editar-relatorio-card {
+    background: transparent;
+
+    box-shadow: none;
+
+    padding: 57px 0 0;
+
+    border-radius: 0;
 }
 
-/*                            Editar Relatórios                               */
+#cadastro-relatorios .editar-relatorio-card form {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+#cadastro-relatorios .editar-relatorio-card .col-md-4 {
+    width: 100%;
+}
+
+
+@media (max-width: 900px) {
+
+    #cadastro-relatorios .col-lg-11 {
+        width: 90%;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    #cadastro-relatorios {
+        padding-top: 45px;
+    }
+
+    #cadastro-relatorios h2 {
+        font-size: 32px;
+
+        margin-bottom: 30px;
+    }
+
+    #cadastro-relatorios .col-lg-11 {
+        width: 90%;
+    }
+
+    #cadastro-relatorios .card {
+        height: auto;
+
+        padding: 35px 25px;
+    }
+
+    #cadastro-relatorios .editar-relatorio-card {
+        padding: 35px 0 0;
+    }
+
+}
+
+
+/*                             Editar Relatórios                              */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
