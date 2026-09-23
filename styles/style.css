@@ -1107,6 +1107,108 @@ li#navbar-sair{
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                            Editar Relatórios                               */
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f1f3f6;
+    margin: 0;
+    color: #163b60;
+}
+
+
+#cadastro-relatorios {
+    min-height: 100vh;
+    padding-top: 45px;
+}
+
+
+#cadastro-relatorios h2 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+    color: #163b60;
+}
+
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.col-lg-11 {
+    width: 850px;
+}
+
+
+.card {
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 35px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+}
+
+
+.row {
+    width: 100%;
+}
+
+
+.col-md-4 {
+    width: 100%;
+}
+
+
+textarea {
+    width: 100%;
+    min-height: 180px;
+    box-sizing: border-box;
+    padding: 15px;
+    border: 1px solid #c7c7c7;
+    border-radius: 8px;
+    resize: vertical;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+textarea:focus {
+    outline: none;
+    border: 2px solid #1f466d;
+}
+
+
+button {
+    width: 150px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f466d;
+    color: #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+button:hover {
+    background-color: #163b60;
+}
+
+/*                            Editar Relatórios                               */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+
 
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
