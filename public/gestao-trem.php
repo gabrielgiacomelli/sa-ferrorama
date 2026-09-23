@@ -68,7 +68,7 @@ if ($stmt) {
 
     $resultado = mysqli_stmt_get_result($stmt);
 
-    while ($sensor = mysqli_fetch_assoc($resultado)) {
+    while ($trem = mysqli_fetch_assoc($resultado)) {
 
         $trens[] = $trem;
     }
@@ -236,10 +236,10 @@ include("../includes/navbar.php");
 
     <div class="popup-card">
 
-        <h3>Excluir sensor?</h3>
+        <h3>Excluir trem?</h3>
 
         <p>
-            Tem certeza que deseja excluir este sensor?
+            Tem certeza que deseja excluir este trem?
         </p>
 
 
