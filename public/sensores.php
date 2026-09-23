@@ -3,13 +3,18 @@ include "../infra/conn.php";
 
 ?>
 
-<html lang="en">
+<html lang="pt-BR">
 <?php
 $paginaAtual = "gestao";
 $submenuAtual = "gestao-sensores";
 include("../includes/navbar.php");
 ?>
 
+<head>
+    <title>Sensores Cadastrados</title>
+</head>
+
+<body>
 <main>
     <div class="trens" style="margin-top: 80px; justify-self: center; width: 70%;">
             <span style="font-size: 25px; font-weight: 700;">Sensores da Ferrovia cadastrados:</span>

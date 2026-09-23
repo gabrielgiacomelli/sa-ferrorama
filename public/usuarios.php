@@ -84,27 +84,6 @@ if ($stmt) {
 <!DOCTYPE html>
 
 <html lang="pt-BR">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Gestão de Usuários</title>
-
-    <link
-        rel="stylesheet"
-        href="../assets/css/style.css"
-    >
-
-</head>
-
-<body>
-
 <?php
 
 $paginaAtual = "gestao";
@@ -113,6 +92,12 @@ $submenuAtual = "usuarios";
 include("../includes/navbar.php");
 
 ?>
+<head>
+    <title>Usuários Cadastrados</title>
+</head>
+
+<body>
+
 
 
 <main id="gestao-usuarios">

@@ -1,17 +1,14 @@
 <html lang="pt-BR">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - HLGL</title>
-    <link rel="stylesheet" href="../styles/style.css">
-</head>
-
-<body id="home-page-body">
 <?php
 $paginaAtual = "home";
 include("../includes/navbar.php");
 ?>
+<head>
+    <title>Home - HLGL</title>
+</head>
+
+<body id="home-page-body">
 
 <main>
 
