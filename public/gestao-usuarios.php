@@ -87,7 +87,7 @@ if ($stmt) {
 <?php
 
 $paginaAtual = "gestao";
-$submenuAtual = "usuarios";
+$submenuAtual = "gestao-usuarios";
 
 include("../includes/navbar.php");
 
