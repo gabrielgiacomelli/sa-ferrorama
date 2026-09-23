@@ -545,146 +545,163 @@ li#navbar-sair{
 #body2 {
     margin: 0;
     min-height: 100vh;
-
-    background-color: #f3f4f7;
-
+    background: #f3f5f8;
     font-family: Arial, sans-serif;
 }
 
 #body2 .login-container {
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    padding: 30px 20px;
 }
 
 #body2 .logo-top {
-    color: #1d3557;
-
-    font-family: var(Horizon);
-    font-size: 68px;
-    font-weight: 800;
-
-    letter-spacing: -3px;
-
-    margin-bottom: 55px;
+    margin-bottom: 65px;
+    color: #193655;
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1;
 }
 
 #body2 .login-card {
-    width: 310px;
-
-    background-color: #f8f8f8;
-
-    border-radius: 14px;
-
-    padding: 22px 23px 34px;
-
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    width: 335px;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
 }
 
 #body2 .login-card h2 {
+    margin: 0 0 20px;
     text-align: center;
-
-    font-size: 25px;
+    color: #111;
+    font-size: 24px;
     font-weight: 400;
-
-    margin: 0 0 18px;
 }
 
 #body2 .campo {
-    margin-bottom: 12px;
+    width: 100%;
+    margin-bottom: 14px;
 }
 
 #body2 .campo label {
     display: block;
-
-    font-size: 16px;
-
     margin-bottom: 5px;
-
     color: #111;
+    font-size: 14px;
 }
 
 #body2 .campo input {
     width: 100%;
-    height: 40px;
-
-    border: 2px solid #111;
-
-    border-radius: 6px;
-
-    padding: 7px;
-
-    font-size: 16px;
-
+    height: 38px;
     box-sizing: border-box;
+    padding: 0 10px;
+    border: 2px solid #222;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
 }
 
-#body2 .campo input::placeholder {
-    color: #666;
+#body2 .campo input:focus {
+    border-color: #193655;
 }
 
 #body2 .btn-entrar {
+    display: flex;
     width: 100%;
     height: 38px;
-
-    margin-top: 0;
-
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
     border: none;
-    border-radius: 7px;
-
-    background-color: #1d3557;
-
-    color: white;
-
-    font-size: 16px;
-    font-weight: 600;
-
+    border-radius: 10px;
+    background: #193655;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
 }
 
 #body2 .btn-entrar:hover {
-    background-color: #162a45;
+    background: #24486d;
 }
 
+/* BOTÃO ESQUECI A SENHA */
+
 #body2 .btn-esqueci {
+    display: flex;
     width: 100%;
-    height: 39px;
+    height: 38px;
+    margin-top: 10px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 
-    margin-top: 12px;
+    background: #e5e9ee;
+    border: 1px solid #c7cdd4;
+    border-radius: 10px;
 
-    border: none;
-    border-radius: 20px;
-
-    background-color: #f8f8f8;
-
-    color: #111;
-
-    font-size: 16px;
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    color: #193655;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
 
     cursor: pointer;
 }
 
-
-
 #body2 .btn-esqueci:hover {
-    background-color: #eeeeee;
+    background: #d8dee5;
+    color: #193655;
 }
+
+/* MENSAGEM DE ERRO */
 
 #body2 #problema {
-    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 14px 0 0;
+    padding: 12px 14px;
 
-    margin-bottom: 0;
+    background: #fdeaea;
+    border: 1px solid #d66b6b;
+    border-radius: 10px;
 
+    color: #a52b2b;
+    text-align: center;
     font-size: 14px;
+    line-height: 1.4;
 }
 
+/* REMOVE ESTILOS ANTIGOS DO BOOTSTRAP */
 
+#body2 .text-danger {
+    color: inherit !important;
+}
+
+#body2 .text-center {
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+
+    #body2 .logo-top {
+        margin-bottom: 45px;
+        font-size: 52px;
+    }
+
+    #body2 .login-card {
+        width: 100%;
+        max-width: 335px;
+    }
+
+}
 /*                                  Login                                     */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
@@ -2412,46 +2429,55 @@ li#navbar-sair{
 /*                             Recuperar Senha                                */
 .recuperar-card {
     width: 335px;
+    padding: 24px 20px;
+    box-sizing: border-box;
 }
 
 .recuperar-card h2 {
     margin: 0 0 18px;
     text-align: center;
+    color: #111;
+    font-size: 24px;
+    font-weight: 400;
 }
 
 .recuperar-card .campo {
+    width: 100%;
     margin-bottom: 14px;
 }
 
 .recuperar-card .campo label {
     display: block;
     margin-bottom: 5px;
+    color: #111;
+    font-size: 14px;
 }
 
-.recuperar-card input {
+.recuperar-card .campo input {
     width: 100%;
     height: 38px;
     box-sizing: border-box;
-    border: 2px solid #111;
+    padding: 0 10px;
+    border: 2px solid #222;
     border-radius: 6px;
-    padding: 0 12px;
-    font-size: 15px;
     outline: none;
+    font-size: 14px;
 }
 
-.recuperar-card input:focus {
+.recuperar-card .campo input:focus {
     border-color: #193655;
 }
 
 .recuperar-card .btn-entrar {
     width: 100%;
     height: 38px;
-    margin-top: 0;
+    margin: 0;
+    padding: 0;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     background: #193655;
-    color: white;
-    font-size: 15px;
+    color: #fff;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -2460,51 +2486,66 @@ li#navbar-sair{
     background: #24486d;
 }
 
-.recuperar-resultado {
+/* BLOCO DO RESULTADO */
+
+.recuperar-card .recuperar-resultado {
     width: 100%;
     box-sizing: border-box;
-    margin-top: 15px;
-    padding: 13px;
+    margin-top: 14px;
+    padding: 12px 14px;
     border-radius: 10px;
     text-align: center;
 }
 
-.recuperar-resultado p {
+.recuperar-card .recuperar-resultado p {
     margin: 0;
+    padding: 0;
     font-size: 14px;
     line-height: 1.4;
 }
 
-.recuperar-resultado.sucesso {
-    background: #e7f7ed;
-    border: 1px solid #63b77a;
-    color: #23733a;
+/* RESULTADO POSITIVO */
+
+.recuperar-card .recuperar-resultado.sucesso {
+    background: #e8f7ed;
+    border: 1px solid #6fbe83;
+    color: #26733b;
 }
 
-.recuperar-resultado.erro {
+/* RESULTADO NEGATIVO */
+
+.recuperar-card .recuperar-resultado.erro {
     background: #fdeaea;
-    border: 1px solid #d66;
-    color: #a22;
+    border: 1px solid #d66b6b;
+    color: #a52b2b;
 }
 
-.voltar-login {
+/* BOTÃO VOLTAR */
+
+.recuperar-card .voltar-login {
     display: flex;
     width: 100%;
     height: 38px;
-    box-sizing: border-box;
     margin-top: 12px;
+    padding: 0;
+    box-sizing: border-box;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    background: #e1e5ea;
+
+    background: #e5e9ee;
+    border: 1px solid #c7cdd4;
+    border-radius: 10px;
+
     color: #193655;
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
+
+    cursor: pointer;
 }
 
-.voltar-login:hover {
-    background: #d3d8de;
+.recuperar-card .voltar-login:hover {
+    background: #d8dee5;
     color: #193655;
 }
 /*                            Recuperar Senha                                 */
