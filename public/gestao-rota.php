@@ -4,6 +4,10 @@ include "../infra/conn.php";
 $mensagem = "";
 $tipoMensagem = "";
 
+/* Desativar rota */
+
+
+
 /* Excluir rota */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
@@ -185,11 +189,19 @@ include("../includes/navbar.php");
                                             Atualizar
                                         </a>
 
+                                        <button
+                                            type="button"
+                                            class="gestao-btn desativar"
+                                            onclick="abrirPopup_2(<?= $rota["id"] ?>)"
+                                        >
+                                            Desativar
+                                        </button>
+
 
                                         <button
                                             type="button"
                                             class="gestao-btn excluir"
-                                            onclick="abrirPopup(<?= $rota["id"] ?>)"
+                                            onclick="abrirPopup_1(<?= $rota["id"] ?>)"
                                         >
                                             Excluir
                                         </button>
@@ -232,6 +244,8 @@ include("../includes/navbar.php");
 
 <!-- POP-UP DE CONFIRMAÇÃO -->
 
+<!-- POP-UP DE EXCLUIR -->
+
 <div
     id="popup-excluir"
     class="popup-overlay"
@@ -251,7 +265,7 @@ include("../includes/navbar.php");
             <button
                 type="button"
                 class="popup-btn cancelar"
-                onclick="fecharPopup()"
+                onclick="fecharPopup_1()"
             >
                 Cancelar
             </button>
@@ -290,9 +304,69 @@ include("../includes/navbar.php");
 
 </div>
 
+<!-- POP-UP DE DESATIVAR -->
+
+<div
+    id="popup-desativar"
+    class="popup-overlay"
+>
+
+    <div class="popup-card">
+
+        <h3>Desativar rota?</h3>
+
+        <p>
+            Tem certeza que deseja desativar esta rota?
+        </p>
+
+
+        <div class="popup-acoes">
+
+            <button
+                type="button"
+                class="popup-btn cancelar"
+                onclick="fecharPopup_2()"
+            >
+                Cancelar
+            </button>
+
+
+            <form
+                method="POST"
+                id="form-desativar"
+            >
+
+                <input
+                    type="hidden"
+                    name="id"
+                    id="desativar_id"
+                >
+
+                <input
+                    type="hidden"
+                    name="desativar"
+                    value="1"
+                >
+
+
+                <button
+                    type="submit"
+                    class="popup-btn confirmar"
+                >
+                    Desativar
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
 <script>
 
-function abrirPopup(id) {
+function abrirPopup_1(id) {
 
     document.getElementById("excluir_id").value = id;
 
@@ -301,10 +375,26 @@ function abrirPopup(id) {
         .classList.add("ativo");
 }
 
-function fecharPopup() {
+function abrirPopup_2(id) {
+
+    document.getElementById("desativar_id").value = id;
+
+    document
+        .getElementById("popup-desativar")
+        .classList.add("ativo");
+}
+
+function fecharPopup_1() {
 
     document
         .getElementById("popup-excluir")
+        .classList.remove("ativo");
+}
+
+function fecharPopup_2() {
+
+    document
+        .getElementById("popup-desativar")
         .classList.remove("ativo");
 }
 
