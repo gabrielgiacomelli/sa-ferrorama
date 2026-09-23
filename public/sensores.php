@@ -3,13 +3,18 @@ include "../infra/conn.php";
 
 ?>
 
-<html lang="en">
+<html lang="pt-BR">
 <?php
 $paginaAtual = "gestao";
 $submenuAtual = "gestao-sensores";
 include("../includes/navbar.php");
 ?>
 
+<head>
+    <title>Sensores Cadastrados</title>
+</head>
+
+<body>
 <main>
     
 

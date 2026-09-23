@@ -70,35 +70,18 @@ if ($stmt) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Relatórios Cadastrados</title>
-
-    <link
-        rel="stylesheet"
-        href="../assets/css/style.css"
-    >
-
-</head>
-
-<body>
-
 <?php
-
 $paginaAtual = "gestao";
-$submenuAtual = "relatorios";
+$submenuAtual = "gestao-relatorios";
 
 include("../includes/navbar.php");
 
 ?>
+<head>
+    <title>Relatórios Cadastrados</title>
+</head>
+
+<body>
 
 
 <main id="gestao-relatorios">

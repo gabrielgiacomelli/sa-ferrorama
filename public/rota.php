@@ -5,7 +5,7 @@ include "../infra/conn.php";
 
 
 
-<html lang="en">
+<html lang="pt-BR">
 <?php
 $paginaAtual = "gestao";
 $submenuAtual = "gestao-rotas";
@@ -13,10 +13,9 @@ include("../includes/navbar.php");
 ?>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rotas cadastradas</title>
 </head>
+
 <body>
     
 </body>
