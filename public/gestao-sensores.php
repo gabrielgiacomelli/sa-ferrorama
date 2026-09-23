@@ -295,7 +295,6 @@ include("../includes/navbar.php");
 
 </div>
 
-
 <script>
 
 function abrirPopup(id) {
@@ -307,14 +306,12 @@ function abrirPopup(id) {
         .classList.add("ativo");
 }
 
-
 function fecharPopup() {
 
     document
         .getElementById("popup-excluir")
         .classList.remove("ativo");
 }
-
 
 document
     .getElementById("popup-excluir")
