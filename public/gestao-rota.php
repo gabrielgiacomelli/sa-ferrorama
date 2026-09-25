@@ -6,6 +6,54 @@ $tipoMensagem = "";
 
 /* Desativar rota */
 
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["desativar"])) {
+
+$id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
+
+if ($id){
+
+$sql = "UPDATE rotas SET status = 'Inativo' WHERE id = ?";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+        if ($stmt) {
+
+            mysqli_stmt_bind_param($stmt, "i", $id);
+
+            try {
+
+                if (mysqli_stmt_execute($stmt)) {
+
+                    if (mysqli_stmt_affected_rows($stmt) > 0) {
+
+                        $mensagem = "Rota desativada com sucesso!";
+                        $tipoMensagem = "sucesso";
+
+                    } else {
+
+                        $mensagem = "Rota não encontrada.";
+                        $tipoMensagem = "erro";
+                    }
+
+                } else {
+
+                    $mensagem = "Não foi possível desativar a rota.";
+                    $tipoMensagem = "erro";
+                }
+
+                } catch (mysqli_sql_exception $e) {
+
+                $mensagem = "Não é possível excluir esta rota porque ele possui registros relacionados.";
+                $tipoMensagem = "erro";
+            }
+
+            mysqli_stmt_close($stmt);
+        }
+    }
+}
+
+
+
 
 
 /* Excluir rota */
@@ -304,6 +352,66 @@ include("../includes/navbar.php");
 
 </div>
 
+<!-- POP-UP DE ATIVAR -->
+
+<div
+    id="popup-ativar"
+    class="popup-overlay"
+>
+
+    <div class="popup-card">
+
+        <h3>Ativar rota?</h3>
+
+        <p>
+            Tem certeza que deseja ativar esta rota?
+        </p>
+
+
+        <div class="popup-acoes">
+
+            <button
+                type="button"
+                class="popup-btn cancelar"
+                onclick="fecharPopup_3()"
+            >
+                Cancelar
+            </button>
+
+
+            <form
+                method="POST"
+                id="form-ativar"
+            >
+
+                <input
+                    type="hidden"
+                    name="id"
+                    id="ativar_id"
+                >
+
+                <input
+                    type="hidden"
+                    name="ativar"
+                    value="1"
+                >
+
+
+                <button
+                    type="submit"
+                    class="popup-btn confirmar"
+                >
+                    Ativar
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
 <!-- POP-UP DE DESATIVAR -->
 
 <div
@@ -384,6 +492,15 @@ function abrirPopup_2(id) {
         .classList.add("ativo");
 }
 
+function abrirPopup_3(id) {
+
+    document.getElementById("ativar_id").value = id;
+
+    document
+        .getElementById("popup-ativar")
+        .classList.add("ativo");
+}
+
 function fecharPopup_1() {
 
     document
@@ -396,6 +513,18 @@ function fecharPopup_2() {
     document
         .getElementById("popup-desativar")
         .classList.remove("ativo");
+}
+
+function fecharPopup_3() {
+
+    document
+        .getElementById("popup-ativar")
+        .classList.remove("ativo");
+}
+
+function validarPopup(){
+
+
 }
 
 document
