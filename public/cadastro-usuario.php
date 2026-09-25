@@ -5,65 +5,235 @@ include "../infra/conn.php";
 $mensagem = "";
 $tipoMensagem = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-    $confirm_senha = $_POST["confirm_senha"];
-    $nome = $_POST["nome"];
-    $cpf = $_POST["cpf"];
-    $data_nascimento = $_POST["data_nascimento"];
-    $cep = $_POST["cep"];
-    $complemento = $_POST["complemento"];
-    $telefone = $_POST["telefone"];
+    $email = trim($_POST["email"] ?? "");
+    $senha = $_POST["senha"] ?? "";
+    $confirm_senha = $_POST["confirm_senha"] ?? "";
+    $nome = trim($_POST["nome"] ?? "");
+    $cpf = preg_replace("/\D/", "", $_POST["cpf"] ?? "");
+    $data_nascimento = $_POST["data_nascimento"] ?? "";
+    $cep = preg_replace("/\D/", "", $_POST["cep"] ?? "");
+    $complemento = trim($_POST["complemento"] ?? "");
+    $telefone = preg_replace("/\D/", "", $_POST["telefone"] ?? "");
 
+    if (
+        empty($email) ||
+        empty($senha) ||
+        empty($confirm_senha) ||
+        empty($nome) ||
+        empty($cpf) ||
+        empty($data_nascimento) ||
+        empty($cep) ||
+        empty($telefone)
+    ) {
 
-    if ($senha !== $confirm_senha) {
+        $mensagem = "Preencha todos os campos obrigatórios.";
+        $tipoMensagem = "erro";
+
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+        $mensagem = "Digite um email válido.";
+        $tipoMensagem = "erro";
+
+    } elseif (strlen($senha) < 8) {
+
+        $mensagem = "A senha deve possuir pelo menos 8 caracteres.";
+        $tipoMensagem = "erro";
+
+    } elseif (!preg_match("/[A-Za-z]/", $senha)) {
+
+        $mensagem = "A senha deve possuir pelo menos uma letra.";
+        $tipoMensagem = "erro";
+
+    } elseif (!preg_match("/[0-9]/", $senha)) {
+
+        $mensagem = "A senha deve possuir pelo menos um número.";
+        $tipoMensagem = "erro";
+
+    } elseif ($senha !== $confirm_senha) {
 
         $mensagem = "As senhas não são iguais.";
         $tipoMensagem = "erro";
 
+    } elseif (strlen($cpf) !== 11) {
+
+        $mensagem = "Digite um CPF válido.";
+        $tipoMensagem = "erro";
+
+    } elseif (strlen($cep) !== 8) {
+
+        $mensagem = "Digite um CEP válido.";
+        $tipoMensagem = "erro";
+
+    } elseif (strlen($telefone) < 10 || strlen($telefone) > 11) {
+
+        $mensagem = "Digite um telefone válido.";
+        $tipoMensagem = "erro";
+
     } else {
 
-        $sql = "INSERT INTO usuarios
-        (email, senha, confirm_senha, nome, cpf, data_nascimento, cep, complemento, telefone)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        $stmt = mysqli_prepare($conn, $sql);
+        $data = DateTime::createFromFormat("Y-m-d", $data_nascimento);
 
-        if ($stmt) {
+        if (
+            !$data ||
+            $data->format("Y-m-d") !== $data_nascimento
+        ) {
 
-            mysqli_stmt_bind_param(
-                $stmt,
-                "sssssssss",
-                $email,
-                $senha,
-                $confirm_senha,
-                $nome,
-                $cpf,
-                $data_nascimento,
-                $cep,
-                $complemento,
-                $telefone
-            );
+            $mensagem = "Digite uma data de nascimento válida.";
+            $tipoMensagem = "erro";
 
-            if (mysqli_stmt_execute($stmt)) {
+        } elseif ($data > new DateTime()) {
 
-                $mensagem = "Usuário cadastrado com sucesso!";
-                $tipoMensagem = "sucesso";
-
-            } else {
-
-                $mensagem = "Erro ao cadastrar o usuário.";
-                $tipoMensagem = "erro";
-            }
-
-            mysqli_stmt_close($stmt);
+            $mensagem = "A data de nascimento não pode ser futura.";
+            $tipoMensagem = "erro";
 
         } else {
 
-            $mensagem = "Erro ao preparar o cadastro.";
-            $tipoMensagem = "erro";
+
+            $sql = "SELECT id FROM usuarios WHERE email = ? OR cpf = ?";
+
+            $stmt = mysqli_prepare($conn, $sql);
+
+            if ($stmt) {
+
+                mysqli_stmt_bind_param(
+                    $stmt,
+                    "ss",
+                    $email,
+                    $cpf
+                );
+
+                mysqli_stmt_execute($stmt);
+
+                $resultado = mysqli_stmt_get_result($stmt);
+
+                if (mysqli_num_rows($resultado) > 0) {
+
+                    $usuarioExistente = mysqli_fetch_assoc($resultado);
+
+
+                    $sqlEmail = "SELECT id FROM usuarios WHERE email = ?";
+
+                    $stmtEmail = mysqli_prepare($conn, $sqlEmail);
+
+                    mysqli_stmt_bind_param(
+                        $stmtEmail,
+                        "s",
+                        $email
+                    );
+
+                    mysqli_stmt_execute($stmtEmail);
+
+                    $resultadoEmail = mysqli_stmt_get_result($stmtEmail);
+
+                    if (mysqli_num_rows($resultadoEmail) > 0) {
+
+                        $mensagem = "Este email já está cadastrado.";
+                        $tipoMensagem = "erro";
+
+                    } else {
+
+                        $mensagem = "Este CPF já está cadastrado.";
+                        $tipoMensagem = "erro";
+                    }
+
+                    mysqli_stmt_close($stmtEmail);
+
+                } else {
+
+
+                    $senha_hash = password_hash(
+                        $senha,
+                        PASSWORD_DEFAULT
+                    );
+
+
+                    $sql = "INSERT INTO usuarios
+                    (
+                        email,
+                        senha,
+                        nome,
+                        cpf,
+                        data_nascimento,
+                        cep,
+                        complemento,
+                        telefone
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+                    $stmtInsert = mysqli_prepare($conn, $sql);
+
+                    if ($stmtInsert) {
+
+                        mysqli_stmt_bind_param(
+                            $stmtInsert,
+                            "ssssssss",
+                            $email,
+                            $senha_hash,
+                            $nome,
+                            $cpf,
+                            $data_nascimento,
+                            $cep,
+                            $complemento,
+                            $telefone
+                        );
+
+                        try {
+
+                            if (mysqli_stmt_execute($stmtInsert)) {
+
+                                $mensagem = "Usuário cadastrado com sucesso!";
+                                $tipoMensagem = "sucesso";
+
+
+                                $email = "";
+                                $nome = "";
+                                $cpf = "";
+                                $data_nascimento = "";
+                                $cep = "";
+                                $complemento = "";
+                                $telefone = "";
+
+                            } else {
+
+                                $mensagem = "Erro ao cadastrar o usuário.";
+                                $tipoMensagem = "erro";
+                            }
+
+                        } catch (mysqli_sql_exception $e) {
+
+                     
+
+                            if ($e->getCode() == 1062) {
+
+                                $mensagem = "Email ou CPF já cadastrado.";
+                                $tipoMensagem = "erro";
+
+                            } else {
+
+                                $mensagem = "Não foi possível cadastrar o usuário.";
+                                $tipoMensagem = "erro";
+                            }
+                        }
+
+                        mysqli_stmt_close($stmtInsert);
+
+                    } else {
+
+                        $mensagem = "Erro ao preparar o cadastro.";
+                        $tipoMensagem = "erro";
+                    }
+                }
+
+                mysqli_stmt_close($stmt);
+
+            } else {
+
+                $mensagem = "Erro ao verificar os dados.";
+                $tipoMensagem = "erro";
+            }
         }
     }
 }
@@ -71,7 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
 
@@ -109,7 +279,6 @@ include("../includes/navbar.php");
                     <div class="cadastro-usuarios-colunas">
 
 
-                        <!-- PRIMEIRA COLUNA -->
 
                         <div class="cadastro-usuarios-coluna">
 
@@ -124,6 +293,8 @@ include("../includes/navbar.php");
                                     id="usuario-email"
                                     name="email"
                                     placeholder="Digite seu email"
+                                    value="<?php echo htmlspecialchars($email ?? ""); ?>"
+                                    maxlength="255"
                                     required
                                 >
 
@@ -141,6 +312,7 @@ include("../includes/navbar.php");
                                     id="usuario-senha"
                                     name="senha"
                                     placeholder="Digite sua senha"
+                                    minlength="8"
                                     required
                                 >
 
@@ -158,6 +330,7 @@ include("../includes/navbar.php");
                                     id="usuario-confirm-senha"
                                     name="confirm_senha"
                                     placeholder="Confirme sua senha"
+                                    minlength="8"
                                     required
                                 >
 
@@ -166,7 +339,6 @@ include("../includes/navbar.php");
                         </div>
 
 
-                        <!-- SEGUNDA COLUNA -->
 
                         <div class="cadastro-usuarios-coluna">
 
@@ -181,6 +353,8 @@ include("../includes/navbar.php");
                                     id="usuario-nome"
                                     name="nome"
                                     placeholder="Digite seu nome completo"
+                                    value="<?php echo htmlspecialchars($nome ?? ""); ?>"
+                                    maxlength="255"
                                     required
                                 >
 
@@ -198,6 +372,8 @@ include("../includes/navbar.php");
                                     id="usuario-cpf"
                                     name="cpf"
                                     placeholder="Digite seu CPF"
+                                    value="<?php echo htmlspecialchars($cpf ?? ""); ?>"
+                                    maxlength="14"
                                     required
                                 >
 
@@ -214,6 +390,7 @@ include("../includes/navbar.php");
                                     type="date"
                                     id="usuario-data"
                                     name="data_nascimento"
+                                    value="<?php echo htmlspecialchars($data_nascimento ?? ""); ?>"
                                     required
                                 >
 
@@ -222,7 +399,6 @@ include("../includes/navbar.php");
                         </div>
 
 
-                        <!-- TERCEIRA COLUNA -->
 
                         <div class="cadastro-usuarios-coluna">
 
@@ -237,6 +413,8 @@ include("../includes/navbar.php");
                                     id="usuario-cep"
                                     name="cep"
                                     placeholder="Digite seu CEP"
+                                    value="<?php echo htmlspecialchars($cep ?? ""); ?>"
+                                    maxlength="9"
                                     required
                                 >
 
@@ -254,6 +432,8 @@ include("../includes/navbar.php");
                                     id="usuario-complemento"
                                     name="complemento"
                                     placeholder="Digite um complemento"
+                                    value="<?php echo htmlspecialchars($complemento ?? ""); ?>"
+                                    maxlength="100"
                                 >
 
                             </div>
@@ -270,6 +450,8 @@ include("../includes/navbar.php");
                                     id="usuario-telefone"
                                     name="telefone"
                                     placeholder="Digite seu telefone"
+                                    value="<?php echo htmlspecialchars($telefone ?? ""); ?>"
+                                    maxlength="15"
                                     required
                                 >
 
@@ -289,13 +471,15 @@ include("../includes/navbar.php");
                     </div>
 
 
-                   <?php if ($mensagem !== ""): ?>
+                    <?php if ($mensagem !== ""): ?>
 
-    <div class="cadastro-mensagem <?php echo $tipoMensagem; ?>">
-        <?php echo htmlspecialchars($mensagem); ?>
-    </div>
+                        <div class="cadastro-mensagem <?php echo htmlspecialchars($tipoMensagem); ?>">
 
-<?php endif; ?>
+                            <?php echo htmlspecialchars($mensagem); ?>
+
+                        </div>
+
+                    <?php endif; ?>
 
                 </form>
 

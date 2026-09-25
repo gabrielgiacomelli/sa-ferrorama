@@ -5,6 +5,14 @@ include "../infra/conn.php";
 $mensagem = "";
 $tipoMensagem = "";
 
+// mensagem de sucesso no editar relatório 
+if (isset($_GET["sucesso"]) && $_GET["sucesso"] === "relatorio") {
+
+    $mensagem = "Relatório atualizado com sucesso!";
+    $tipoMensagem = "sucesso";
+
+}
+
 
 /* EXCLUIR RELATÓRIO */
 

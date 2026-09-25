@@ -9,6 +9,6 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("si", $conteudo, $id);
 $stmt->execute();
 
-header("Location: gestao-relatorios.php");
+header("Location: gestao-relatorios.php?sucesso=relatorio");
 
 ?>
