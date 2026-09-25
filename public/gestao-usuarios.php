@@ -6,58 +6,145 @@ $mensagem = "";
 $tipoMensagem = "";
 
 
-/* Excluir usuário */
+/*
+|----------------------------------------------------------
+| EXCLUIR USUÁRIO
+|----------------------------------------------------------
+*/
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
 
-    $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
+    $id = filter_input(
+        INPUT_POST,
+        "id",
+        FILTER_VALIDATE_INT
+    );
 
-    if ($id) {
+    if (!$id || $id <= 0) {
 
-        $sql = "DELETE FROM usuarios WHERE id = ?";
+        $mensagem = "Usuário inválido.";
+        $tipoMensagem = "erro";
+
+    } else {
+
+        /*
+        | Verifica se o usuário realmente existe
+        */
+
+        $sql = "SELECT id FROM usuarios WHERE id = ?";
 
         $stmt = mysqli_prepare($conn, $sql);
 
         if ($stmt) {
 
-            mysqli_stmt_bind_param($stmt, "i", $id);
+            mysqli_stmt_bind_param(
+                $stmt,
+                "i",
+                $id
+            );
 
-            try {
+            mysqli_stmt_execute($stmt);
 
-                if (mysqli_stmt_execute($stmt)) {
+            $resultado = mysqli_stmt_get_result($stmt);
 
-                    if (mysqli_stmt_affected_rows($stmt) > 0) {
+            if (mysqli_num_rows($resultado) === 0) {
 
-                        $mensagem = "Usuário excluído com sucesso!";
-                        $tipoMensagem = "sucesso";
+                $mensagem = "Usuário não encontrado.";
+                $tipoMensagem = "erro";
 
-                    } else {
+                mysqli_stmt_close($stmt);
 
-                        $mensagem = "Usuário não encontrado.";
-                        $tipoMensagem = "erro";
+            } else {
+
+                mysqli_stmt_close($stmt);
+
+
+                /*
+                |------------------------------------------------------
+                | EXCLUIR
+                |------------------------------------------------------
+                */
+
+                $sql = "DELETE FROM usuarios WHERE id = ?";
+
+                $stmt = mysqli_prepare($conn, $sql);
+
+                if ($stmt) {
+
+                    mysqli_stmt_bind_param(
+                        $stmt,
+                        "i",
+                        $id
+                    );
+
+                    try {
+
+                        if (mysqli_stmt_execute($stmt)) {
+
+                            if (mysqli_stmt_affected_rows($stmt) > 0) {
+
+                                $mensagem = "Usuário excluído com sucesso!";
+                                $tipoMensagem = "sucesso";
+
+                            } else {
+
+                                $mensagem = "Não foi possível excluir o usuário.";
+                                $tipoMensagem = "erro";
+                            }
+
+                        } else {
+
+                            $mensagem = "Não foi possível excluir o usuário.";
+                            $tipoMensagem = "erro";
+                        }
+
+                    } catch (mysqli_sql_exception $e) {
+
+                        /*
+                        | Erro de chave estrangeira
+                        */
+
+                        if ($e->getCode() == 1451) {
+
+                            $mensagem = "Não é possível excluir este usuário porque ele possui registros relacionados.";
+                            $tipoMensagem = "erro";
+
+                        } else {
+
+                            $mensagem = "Não foi possível excluir o usuário.";
+                            $tipoMensagem = "erro";
+                        }
                     }
+
+                    mysqli_stmt_close($stmt);
 
                 } else {
 
-                    $mensagem = "Não foi possível excluir o usuário.";
+                    $mensagem = "Erro ao preparar a exclusão.";
                     $tipoMensagem = "erro";
                 }
-
-            } catch (mysqli_sql_exception $e) {
-
-                $mensagem = "Não é possível excluir este usuário porque ele possui registros relacionados.";
-                $tipoMensagem = "erro";
             }
 
-            mysqli_stmt_close($stmt);
+        } else {
+
+            $mensagem = "Erro ao verificar o usuário.";
+            $tipoMensagem = "erro";
         }
     }
 }
 
 
-/* Buscar usuários */
+/*
+|----------------------------------------------------------
+| BUSCAR USUÁRIOS
+|----------------------------------------------------------
+*/
 
-$sql = "SELECT id, nome, email, telefone
+$sql = "SELECT
+            id,
+            nome,
+            email,
+            telefone
         FROM usuarios
         ORDER BY id ASC";
 
@@ -84,6 +171,26 @@ if ($stmt) {
 <!DOCTYPE html>
 
 <html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Usuários Cadastrados</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+</head>
+
+
 <?php
 
 $paginaAtual = "gestao";
@@ -92,13 +199,9 @@ $submenuAtual = "gestao-usuarios";
 include("../includes/navbar.php");
 
 ?>
-<head>
-    <title>Usuários Cadastrados</title>
-</head>
+
 
 <body>
-
-
 
 <main id="gestao-usuarios">
 
@@ -117,10 +220,10 @@ include("../includes/navbar.php");
             <?php if ($mensagem !== ""): ?>
 
                 <div
-                    class="gestao-mensagem <?= htmlspecialchars($tipoMensagem) ?>"
+                    class="gestao-mensagem <?php echo htmlspecialchars($tipoMensagem); ?>"
                 >
 
-                    <?= htmlspecialchars($mensagem) ?>
+                    <?php echo htmlspecialchars($mensagem); ?>
 
                 </div>
 
@@ -135,7 +238,7 @@ include("../includes/navbar.php");
 
                         <tr>
 
-                            <th>Usuários</th>
+                            <th>Usuário</th>
 
                             <th>ID</th>
 
@@ -159,40 +262,82 @@ include("../includes/navbar.php");
                             <tr>
 
                                 <td>
-                                    <?= htmlspecialchars($usuario["nome"]) ?>
+
+                                    <?php
+                                    echo htmlspecialchars(
+                                        $usuario["nome"],
+                                        ENT_QUOTES,
+                                        "UTF-8"
+                                    );
+                                    ?>
+
                                 </td>
 
-                                <td>
-                                    <?= htmlspecialchars($usuario["id"]) ?>
-                                </td>
 
                                 <td>
-                                    <?= htmlspecialchars($usuario["email"]) ?>
+
+                                    <?php
+                                    echo htmlspecialchars(
+                                        $usuario["id"],
+                                        ENT_QUOTES,
+                                        "UTF-8"
+                                    );
+                                    ?>
+
                                 </td>
 
+
                                 <td>
-                                    <?= htmlspecialchars($usuario["telefone"]) ?>
+
+                                    <?php
+                                    echo htmlspecialchars(
+                                        $usuario["email"],
+                                        ENT_QUOTES,
+                                        "UTF-8"
+                                    );
+                                    ?>
+
                                 </td>
+
+
+                                <td>
+
+                                    <?php
+                                    echo htmlspecialchars(
+                                        $usuario["telefone"],
+                                        ENT_QUOTES,
+                                        "UTF-8"
+                                    );
+                                    ?>
+
+                                </td>
+
 
                                 <td>
 
                                     <div class="gestao-acoes">
 
+
+                                        <!-- ATUALIZAR -->
+
                                         <a
-                                            href="editar-usuario.php?id=<?= $usuario["id"] ?>"
+                                            href="editar-usuario.php?id=<?php echo (int) $usuario["id"]; ?>"
                                             class="gestao-btn atualizar"
                                         >
                                             Atualizar
                                         </a>
 
 
+                                        <!-- EXCLUIR -->
+
                                         <button
                                             type="button"
                                             class="gestao-btn excluir"
-                                            onclick="abrirPopup(<?= $usuario["id"] ?>)"
+                                            onclick="abrirPopup(<?php echo (int) $usuario["id"]; ?>)"
                                         >
                                             Excluir
                                         </button>
+
 
                                     </div>
 
@@ -201,6 +346,7 @@ include("../includes/navbar.php");
                             </tr>
 
                         <?php endforeach; ?>
+
 
                     <?php else: ?>
 
@@ -248,6 +394,7 @@ include("../includes/navbar.php");
 
         <div class="popup-acoes">
 
+
             <button
                 type="button"
                 class="popup-btn cancelar"
@@ -267,6 +414,7 @@ include("../includes/navbar.php");
                     name="id"
                     id="excluir_id"
                 >
+
 
                 <input
                     type="hidden"
@@ -318,6 +466,7 @@ document
         if (event.target === this) {
 
             fecharPopup();
+
         }
 
     });
@@ -327,11 +476,11 @@ document
 
 <script src="../scripts/botao-sair.js"></script>
 
+
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9H9JcYn3nv7wiPVlz7YYwJrVwcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous">
-</script>
+></script>
+
 
 </body>
 
