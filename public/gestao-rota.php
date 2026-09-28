@@ -317,7 +317,7 @@ include("../includes/navbar.php");
                                             class="gestao-btn excluir"
                                             onclick="abrirPopup_1(<?= $rota["id"] ?>)"
                                         >
-                                            Excluir
+                                            Excluir                                        
                                         </button>
 
                                             <?php endif; ?>
