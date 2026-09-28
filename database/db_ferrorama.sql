@@ -11,7 +11,8 @@ CREATE TABLE usuarios (
     data_nascimento DATE NOT NULL,
     cep VARCHAR(9) NOT NULL,
     complemento VARCHAR(100) NOT NULL, 
-    telefone VARCHAR(15) NOT NULL
+    telefone VARCHAR(15) NOT NULL,
+    acesso VARCHAR(25) NOT NULL DEFAULT 'Funcionário'
 );
 
 CREATE TABLE rotas (
