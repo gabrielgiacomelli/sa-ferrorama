@@ -304,9 +304,6 @@ document
 
 </script>
 
-
-<script src="../scripts/botao-sair.js"></script>
-
 </body>
 
 </html>
