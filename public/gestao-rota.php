@@ -4,6 +4,59 @@ include "../infra/conn.php";
 $mensagem = "";
 $tipoMensagem = "";
 
+
+/* Ativar rota */
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["ativar"])) {
+
+$id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
+
+if ($id){
+
+$sql = "UPDATE rotas SET status = 'Ativo' WHERE id = ?";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+        if ($stmt) {
+
+            mysqli_stmt_bind_param($stmt, "i", $id);
+
+            try {
+
+                if (mysqli_stmt_execute($stmt)) {
+
+                    if (mysqli_stmt_affected_rows($stmt) > 0) {
+
+                        $mensagem = "Rota ativada com sucesso!";
+                        $tipoMensagem = "sucesso";
+
+                    } else {
+
+                        $mensagem = "Rota não encontrada.";
+                        $tipoMensagem = "erro";
+                    }
+
+                } else {
+
+                    $mensagem = "Não foi possível ativar a rota.";
+                    $tipoMensagem = "erro";
+                }
+
+                } catch (mysqli_sql_exception $e) {
+
+                $mensagem = "Não é possível ativar esta rota porque ele possui registros relacionados.";
+                $tipoMensagem = "erro";
+            }
+
+            mysqli_stmt_close($stmt);
+        }
+    }
+}
+
+
+
+
+
 /* Desativar rota */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["desativar"])) {
@@ -43,7 +96,7 @@ $stmt = mysqli_prepare($conn, $sql);
 
                 } catch (mysqli_sql_exception $e) {
 
-                $mensagem = "Não é possível excluir esta rota porque ele possui registros relacionados.";
+                $mensagem = "Não é possível desativar esta rota porque ele possui registros relacionados.";
                 $tipoMensagem = "erro";
             }
 
@@ -237,12 +290,28 @@ include("../includes/navbar.php");
                                             Atualizar
                                         </a>
 
+                                        <?php
+                                        if($rota["status"] === "Ativo"): ?>
                                         <button
                                             type="button"
                                             class="gestao-btn desativar"
                                             onclick="abrirPopup_2(<?= $rota["id"] ?>)"
                                         >
                                             Desativar
+                                            
+                                        </button>
+
+                                        <?php else: ?>
+
+                                        <button
+                                            type="button"
+                                            class="gestao-btn ativar"
+                                            onclick="abrirPopup_3(<?= $rota["id"] ?>)"
+                                        >
+                                            Ativar
+
+                                            <?php endif; ?>
+                                            
                                         </button>
 
 
