@@ -310,11 +310,6 @@ include("../includes/navbar.php");
                                         >
                                             Ativar
                                             
-
-                                            
-
-                                            
-                                            
                                         </button>
 
                                         <button
@@ -593,11 +588,6 @@ function fecharPopup_3() {
     document
         .getElementById("popup-ativar")
         .classList.remove("ativo");
-}
-
-function validarPopup(){
-
-
 }
 
 document
