@@ -193,7 +193,7 @@ include("../includes/navbar.php");
 ?>
 
 <head>
-    <title>Rotas cadastradas</title>
+    <title>Rotas Cadastradas</title>
 </head>
 
 <body>
