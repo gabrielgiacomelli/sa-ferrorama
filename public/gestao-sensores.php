@@ -5,6 +5,106 @@ include "../infra/conn.php";
 $mensagem = "";
 $tipoMensagem = "";
 
+/* Ativar sensor */
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["ativar"])) {
+
+$id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
+
+if ($id){
+
+$sql = "UPDATE sensores SET status = 'Ativo' WHERE id = ?";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+        if ($stmt) {
+
+            mysqli_stmt_bind_param($stmt, "i", $id);
+
+            try {
+
+                if (mysqli_stmt_execute($stmt)) {
+
+                    if (mysqli_stmt_affected_rows($stmt) > 0) {
+
+                        $mensagem = "Sensor ativado com sucesso!";
+                        $tipoMensagem = "sucesso";
+
+                    } else {
+
+                        $mensagem = "Sensor não encontrado.";
+                        $tipoMensagem = "erro";
+                    }
+
+                } else {
+
+                    $mensagem = "Não foi possível ativar o sensor.";
+                    $tipoMensagem = "erro";
+                }
+
+                } catch (mysqli_sql_exception $e) {
+
+                $mensagem = "Não é possível ativar este sensor porque ele possui registros relacionados.";
+                $tipoMensagem = "erro";
+            }
+
+            mysqli_stmt_close($stmt);
+        }
+    }
+}
+
+
+
+
+
+/* Desativar rota */
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["desativar"])) {
+
+$id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
+
+if ($id){
+
+$sql = "UPDATE sensores SET status = 'Inativo' WHERE id = ?";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+        if ($stmt) {
+
+            mysqli_stmt_bind_param($stmt, "i", $id);
+
+            try {
+
+                if (mysqli_stmt_execute($stmt)) {
+
+                    if (mysqli_stmt_affected_rows($stmt) > 0) {
+
+                        $mensagem = "Sensor desativado com sucesso!";
+                        $tipoMensagem = "sucesso";
+
+                    } else {
+
+                        $mensagem = "Sensor não encontrado.";
+                        $tipoMensagem = "erro";
+                    }
+
+                } else {
+
+                    $mensagem = "Não foi possível desativar o sensor.";
+                    $tipoMensagem = "erro";
+                }
+
+                } catch (mysqli_sql_exception $e) {
+
+                $mensagem = "Não é possível desativar este sensor porque ele possui registros relacionados.";
+                $tipoMensagem = "erro";
+            }
+
+            mysqli_stmt_close($stmt);
+        }
+    }
+}
+
 
 /* Excluir sensor */
 
@@ -191,13 +291,38 @@ include("../includes/navbar.php");
                                         </a>
 
 
+                                        <?php
+                                        if($sensor["status"] === "Ativo"): ?>
+                                        <button
+                                            type="button"
+                                            class="gestao-btn desativar"
+                                            onclick="abrirPopup_2(<?= $sensor["id"] ?>)"
+                                        >
+                                            Desativar
+                                            
+                                        </button>
+
+                                        <?php else: ?>
+
+                                        <button
+                                            type="button"
+                                            class="gestao-btn ativar"
+                                            onclick="abrirPopup_3(<?= $sensor["id"] ?>)"
+                                        >
+                                            Ativar
+                                            
+                                        </button>
+
                                         <button
                                             type="button"
                                             class="gestao-btn excluir"
-                                            onclick="abrirPopup(<?= $sensor["id"] ?>)"
+                                            onclick="abrirPopup_1(<?= $sensor["id"] ?>)"
                                         >
                                             Excluir
+
                                         </button>
+
+                                            <?php endif; ?>
 
                                     </div>
 
@@ -237,6 +362,8 @@ include("../includes/navbar.php");
 
 <!-- POP-UP DE CONFIRMAÇÃO -->
 
+<!-- POP-UP DE EXCLUIR -->
+
 <div
     id="popup-excluir"
     class="popup-overlay"
@@ -256,7 +383,7 @@ include("../includes/navbar.php");
             <button
                 type="button"
                 class="popup-btn cancelar"
-                onclick="fecharPopup()"
+                onclick="fecharPopup_1()"
             >
                 Cancelar
             </button>
@@ -295,9 +422,129 @@ include("../includes/navbar.php");
 
 </div>
 
+<!-- POP-UP DE ATIVAR -->
+
+<div
+    id="popup-ativar"
+    class="popup-overlay"
+>
+
+    <div class="popup-card">
+
+        <h3>Ativar sensor?</h3>
+
+        <p>
+            Tem certeza que deseja ativar este sensor?
+        </p>
+
+
+        <div class="popup-acoes">
+
+            <button
+                type="button"
+                class="popup-btn cancelar"
+                onclick="fecharPopup_3()"
+            >
+                Cancelar
+            </button>
+
+
+            <form
+                method="POST"
+                id="form-ativar"
+            >
+
+                <input
+                    type="hidden"
+                    name="id"
+                    id="ativar_id"
+                >
+
+                <input
+                    type="hidden"
+                    name="ativar"
+                    value="1"
+                >
+
+
+                <button
+                    type="submit"
+                    class="popup-btn confirmar"
+                >
+                    Ativar
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- POP-UP DE DESATIVAR -->
+
+<div
+    id="popup-desativar"
+    class="popup-overlay"
+>
+
+    <div class="popup-card">
+
+        <h3>Desativar sensor?</h3>
+
+        <p>
+            Tem certeza que deseja desativar este sensor?
+        </p>
+
+
+        <div class="popup-acoes">
+
+            <button
+                type="button"
+                class="popup-btn cancelar"
+                onclick="fecharPopup_2()"
+            >
+                Cancelar
+            </button>
+
+
+            <form
+                method="POST"
+                id="form-desativar"
+            >
+
+                <input
+                    type="hidden"
+                    name="id"
+                    id="desativar_id"
+                >
+
+                <input
+                    type="hidden"
+                    name="desativar"
+                    value="1"
+                >
+
+
+                <button
+                    type="submit"
+                    class="popup-btn confirmar"
+                >
+                    Desativar
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
 <script>
 
-function abrirPopup(id) {
+function abrirPopup_1(id) {
 
     document.getElementById("excluir_id").value = id;
 
@@ -306,12 +553,45 @@ function abrirPopup(id) {
         .classList.add("ativo");
 }
 
-function fecharPopup() {
+function abrirPopup_2(id) {
+
+    document.getElementById("desativar_id").value = id;
+
+    document
+        .getElementById("popup-desativar")
+        .classList.add("ativo");
+}
+
+function abrirPopup_3(id) {
+
+    document.getElementById("ativar_id").value = id;
+
+    document
+        .getElementById("popup-ativar")
+        .classList.add("ativo");
+}
+
+function fecharPopup_1() {
 
     document
         .getElementById("popup-excluir")
         .classList.remove("ativo");
 }
+
+function fecharPopup_2() {
+
+    document
+        .getElementById("popup-desativar")
+        .classList.remove("ativo");
+}
+
+function fecharPopup_3() {
+
+    document
+        .getElementById("popup-ativar")
+        .classList.remove("ativo");
+}
+
 
 document
     .getElementById("popup-excluir")
