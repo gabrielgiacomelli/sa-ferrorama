@@ -60,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cep = preg_replace("/\D/", "", $_POST["cep"] ?? "");
     $complemento = trim($_POST["complemento"] ?? "");
     $telefone = preg_replace("/\D/", "", $_POST["telefone"] ?? "");
+    $acesso = ($_POST["acesso"] ?? "");
 
 
     /*
@@ -74,7 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         empty($cpf) ||
         empty($data_nascimento) ||
         empty($cep) ||
-        empty($telefone)
+        empty($telefone) ||
+        empty($acesso) 
     ) {
 
         $mensagem = "Preencha todos os campos obrigatórios.";
@@ -253,7 +255,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 data_nascimento = ?,
                                 cep = ?,
                                 complemento = ?,
-                                telefone = ?
+                                telefone = ?,
+                                acesso = ?
                                 WHERE id = ?";
 
                         $stmt = mysqli_prepare($conn, $sql);
@@ -267,7 +270,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                             mysqli_stmt_bind_param(
                                 $stmt,
-                                "ssssssssi",
+                                "sssssssssi",
                                 $email,
                                 $senha_hash,
                                 $nome,
@@ -276,6 +279,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 $cep,
                                 $complemento,
                                 $telefone,
+                                $acesso,
                                 $id
                             );
 
@@ -298,6 +302,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     $usuario["complemento"] = $complemento;
                                     $usuario["telefone"] = $telefone;
                                     $usuario["senha"] = $senha_hash;
+                                    $usuario["acesso"] = $acesso;
 
                                 } else {
 
@@ -547,6 +552,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
 
                     </div>
+
+                    <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-acesso">
+                                    Acesso
+                                </label>
+
+                                <select name="acesso" id="usuario-acesso">
+                                    <option value="" selected disabled>
+
+                                        Selecione
+
+                                    </option>
+
+                                    <option value="Funcionário">
+
+                                        Funcionário
+
+                                    </option>
+
+                                    <option value="Administrador">
+
+                                        Administrador
+
+                                    </option>
+
+                                </select>
+
+                            </div>
 
 
                     <div class="editar-usuarios-botao">

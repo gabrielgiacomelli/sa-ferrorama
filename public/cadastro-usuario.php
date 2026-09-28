@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cep = preg_replace("/\D/", "", $_POST["cep"] ?? "");
     $complemento = trim($_POST["complemento"] ?? "");
     $telefone = preg_replace("/\D/", "", $_POST["telefone"] ?? "");
+    $acesso = ($_POST["acesso"] ?? "");
 
     if (
         empty($email) ||
@@ -25,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         empty($cpf) ||
         empty($data_nascimento) ||
         empty($cep) ||
-        empty($telefone)
+        empty($telefone) ||
+        empty($acesso) 
     ) {
 
         $mensagem = "Preencha todos os campos obrigatórios.";
@@ -159,9 +161,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         data_nascimento,
                         cep,
                         complemento,
-                        telefone
+                        telefone,
+                        acesso
                     )
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                     $stmtInsert = mysqli_prepare($conn, $sql);
 
@@ -169,7 +172,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         mysqli_stmt_bind_param(
                             $stmtInsert,
-                            "ssssssss",
+                            "sssssssss",
                             $email,
                             $senha_hash,
                             $nome,
@@ -177,7 +180,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             $data_nascimento,
                             $cep,
                             $complemento,
-                            $telefone
+                            $telefone,
+                            $acesso
                         );
 
                         try {
@@ -195,6 +199,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 $cep = "";
                                 $complemento = "";
                                 $telefone = "";
+                                $acesso = "";
 
                             } else {
 
@@ -460,6 +465,35 @@ include("../includes/navbar.php");
                         </div>
 
                     </div>
+
+                            <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-acesso">
+                                    Acesso
+                                </label>
+
+                                <select name="acesso" id="usuario-acesso">
+                                    <option value="" selected disabled>
+
+                                        Selecione
+
+                                    </option>
+
+                                    <option value="Funcionário">
+
+                                        Funcionário
+
+                                    </option>
+
+                                    <option value="Administrador">
+
+                                        Administrador
+
+                                    </option>
+
+                                </select>
+
+                            </div>
 
 
                     <div class="cadastro-usuarios-botao">

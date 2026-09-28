@@ -144,7 +144,8 @@ $sql = "SELECT
             id,
             nome,
             email,
-            telefone
+            telefone,
+            acesso
         FROM usuarios
         ORDER BY id ASC";
 
@@ -246,6 +247,8 @@ include("../includes/navbar.php");
 
                             <th>Telefone</th>
 
+                            <th> Acesso </th>
+
                             <th>Ações</th>
 
                         </tr>
@@ -312,6 +315,18 @@ include("../includes/navbar.php");
 
                                 </td>
 
+                                <td>
+
+                                    <?php
+                                    echo htmlspecialchars(
+                                        $usuario["acesso"],
+                                        ENT_QUOTES,
+                                        "UTF-8"
+                                    );
+                                    ?>
+
+                                </td>
+
 
                                 <td>
 
@@ -353,7 +368,7 @@ include("../includes/navbar.php");
                         <tr>
 
                             <td
-                                colspan="5"
+                                colspan="6"
                                 class="gestao-vazio"
                             >
                                 Nenhum usuário cadastrado.
