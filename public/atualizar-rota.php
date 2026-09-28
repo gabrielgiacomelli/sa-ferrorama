@@ -5,13 +5,12 @@ $id = $_POST["id"];
 $nome = $_POST["nome"];
 $saida = $_POST["saida"];
 $destino = $_POST["destino"];
-$id_usuarios = $_POST["id_usuarios"];
 
-$sql = "UPDATE rotas SET nome=?, saida=?, destino=?, id_usuarios=? WHERE id = ?";
+$sql = "UPDATE rotas SET nome=?, saida=?, destino=? WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssii", $nome, $saida, $destino, $id_usuarios, $id);
+$stmt->bind_param("sssi", $nome, $saida, $destino, $id);
 $stmt->execute();
 
-header("Location: gestao-trem.php?sucesso=rota");
+header("Location: gestao-rota.php?sucesso=rota");
 
 ?>
