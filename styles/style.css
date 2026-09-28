@@ -1900,6 +1900,248 @@ li#navbar-sair{
 
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
+/*                                Editar Trens                                */
+
+#cadastro-trens {
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 45px);
+
+    background: var(--cor-background);
+
+    box-sizing: border-box;
+}
+
+#cadastro-trens {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 85px;
+
+    box-sizing: border-box;
+}
+
+#cadastro-trens h2 {
+    width: 100%;
+
+    margin: 0 0 35px 0;
+    padding: 0;
+    padding-top: 8vh;
+
+    text-align: center;
+
+    color: var(--cor-azul-ferroviario);
+
+    font-family: var(--fonte-horizon);
+    font-size: 5.5vh;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    line-height: 1;
+}
+
+#cadastro-trens .cadastro-trens-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-card {
+    width: 862px;
+
+    min-height: 0;
+
+    background: transparent;
+
+    border-radius: 15px;
+
+    padding: 57px 0 0;
+
+    box-shadow: none;
+
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-card form {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-campo {
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--cor-azul-ferroviario);
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#cadastro-trens .cadastro-trens-campo input,
+#cadastro-trens .cadastro-trens-campo select {
+    width: 100%;
+    height: 40px;
+
+    padding: 8px;
+
+    border: 2px solid #28558d;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-campo input:focus,
+#cadastro-trens .cadastro-trens-campo select:focus {
+    border-color: #173f70;
+
+    box-shadow: 0 0 0 1px #173f70;
+}
+
+#cadastro-trens .cadastro-trens-botao {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 10px;
+
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-botao button {
+    width: 130px;
+    height: 34px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 15px;
+
+    background: #193655;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+
+    box-sizing: border-box;
+}
+
+#cadastro-trens .cadastro-trens-botao button:hover {
+    background: #24486d;
+}
+
+#cadastro-trens .botao-voltar {
+    width: 130px;
+    height: 34px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px auto 0;
+
+    border-radius: 15px;
+
+    background: var(--cor-azul-ferroviario);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+
+    transition: 0.2s;
+
+    box-sizing: border-box;
+}
+
+#cadastro-trens .botao-voltar:hover {
+    background: #5a6268;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                Responsivo                                  */
+
+@media (max-width: 900px) {
+
+    #cadastro-trens .cadastro-trens-card {
+        width: 90%;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    #cadastro-trens {
+        padding-top: 45px;
+    }
+
+    #cadastro-trens h2 {
+        font-size: 32px;
+
+        margin-bottom: 30px;
+    }
+
+    #cadastro-trens .cadastro-trens-card {
+        width: 90%;
+
+        padding: 35px 0 0;
+    }
+
+}
+
+
+/*                                Editar Trens                                 */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 /*                            Cadastro de Rotas                               */
 
 #cadastro-rotas {
