@@ -5,71 +5,201 @@ include "../infra/conn.php";
 $mensagem = "";
 $tipoMensagem = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$conteudo = "";
+$id_usuarios = "";
 
-    $conteudo = $_POST["conteudo"];
-    $id_usuarios = $_POST["id_usuarios"];
 
-    $sql = "INSERT INTO relatorios (conteudo, id_usuarios)
-            VALUES (?, ?)";
+/*
+CADASTRO DO RELATÓRIO
+*/
 
-    $stmt = mysqli_prepare($conn, $sql);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    if ($stmt) {
+    $conteudo = trim($_POST["conteudo"] ?? "");
 
-        mysqli_stmt_bind_param(
-            $stmt,
-            "si",
-            $conteudo,
-            $id_usuarios
-        );
+    $id_usuarios = $_POST["id_usuarios"] ?? "";
 
-        if (mysqli_stmt_execute($stmt)) {
 
-            $mensagem = "Relatório cadastrado com sucesso!";
-            $tipoMensagem = "sucesso";
+    /*
+    VALIDA CAMPOS
+    */
 
-        } else {
+    if ($conteudo === "") {
 
-            $mensagem = "Erro ao cadastrar o relatório.";
-            $tipoMensagem = "erro";
-        }
+        $mensagem = "Preencha o relatório.";
 
-        mysqli_stmt_close($stmt);
+        $tipoMensagem = "erro";
+
+    } elseif ($id_usuarios === "") {
+
+        $mensagem = "Selecione o usuário relacionado.";
+
+        $tipoMensagem = "erro";
 
     } else {
 
-        $mensagem = "Erro ao preparar o cadastro.";
-        $tipoMensagem = "erro";
+        /*
+        VERIFICA SE O USUÁRIO EXISTE
+        */
+
+        $sqlUsuario = "SELECT id
+                       FROM usuarios
+                       WHERE id = ?";
+
+        $stmtUsuario = mysqli_prepare(
+            $conn,
+            $sqlUsuario
+        );
+
+
+        if ($stmtUsuario) {
+
+            mysqli_stmt_bind_param(
+                $stmtUsuario,
+                "i",
+                $id_usuarios
+            );
+
+            mysqli_stmt_execute(
+                $stmtUsuario
+            );
+
+            $resultadoUsuario =
+                mysqli_stmt_get_result(
+                    $stmtUsuario
+                );
+
+
+            if (
+                !$resultadoUsuario ||
+                mysqli_num_rows($resultadoUsuario) === 0
+            ) {
+
+                $mensagem =
+                    "O usuário selecionado não existe.";
+
+                $tipoMensagem = "erro";
+
+            } else {
+
+                /*
+                CADASTRA O RELATÓRIO
+                */
+
+                $sql = "INSERT INTO relatorios
+                        (
+                            conteudo,
+                            id_usuarios
+                        )
+                        VALUES (?, ?)";
+
+
+                $stmt = mysqli_prepare(
+                    $conn,
+                    $sql
+                );
+
+
+                if ($stmt) {
+
+                    mysqli_stmt_bind_param(
+                        $stmt,
+                        "si",
+                        $conteudo,
+                        $id_usuarios
+                    );
+
+
+                    try {
+
+                        if (
+                            mysqli_stmt_execute($stmt)
+                        ) {
+
+                            $mensagem =
+                                "Relatório cadastrado com sucesso!";
+
+                            $tipoMensagem =
+                                "sucesso";
+
+
+                            /*
+                            LIMPA OS CAMPOS
+                            */
+
+                            $conteudo = "";
+
+                            $id_usuarios = "";
+
+                        } else {
+
+                            $mensagem =
+                                "Erro ao cadastrar o relatório.";
+
+                            $tipoMensagem =
+                                "erro";
+                        }
+
+                    } catch (mysqli_sql_exception $e) {
+
+                        $mensagem =
+                            "Não foi possível cadastrar o relatório.";
+
+                        $tipoMensagem =
+                            "erro";
+                    }
+
+
+                    mysqli_stmt_close(
+                        $stmt
+                    );
+
+                } else {
+
+                    $mensagem =
+                        "Erro ao preparar o cadastro.";
+
+                    $tipoMensagem =
+                        "erro";
+                }
+            }
+
+
+            mysqli_stmt_close(
+                $stmtUsuario
+            );
+
+        } else {
+
+            $mensagem =
+                "Erro ao verificar o usuário.";
+
+            $tipoMensagem =
+                "erro";
+        }
     }
 }
 
 
-/* Buscar usuários para preencher o select */
+/*
+BUSCA OS USUÁRIOS
+*/
 
-$sqlUsuarios = "SELECT id, nome FROM usuarios ORDER BY nome";
+$sqlUsuarios = "SELECT id, nome
+                FROM usuarios
+                ORDER BY nome ASC";
 
-$stmtUsuarios = mysqli_prepare($conn, $sqlUsuarios);
 
-$usuarios = [];
-
-if ($stmtUsuarios) {
-
-    mysqli_stmt_execute($stmtUsuarios);
-
-    $resultado = mysqli_stmt_get_result($stmtUsuarios);
-
-    while ($usuario = mysqli_fetch_assoc($resultado)) {
-
-        $usuarios[] = $usuario;
-    }
-
-    mysqli_stmt_close($stmtUsuarios);
-}
+$resultadoUsuarios = mysqli_query(
+    $conn,
+    $sqlUsuarios
+);
 
 ?>
 
+
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
@@ -83,112 +213,168 @@ if ($stmtUsuarios) {
 
     <title>Cadastro de Relatórios</title>
 
+
+    <link
+        rel="stylesheet"
+        href="../styles/styles.css"
+    >
+
 </head>
+
 
 <?php
 
 $paginaAtual = "cadastro";
+
 $submenuAtual = "relatorios";
 
 include("../includes/navbar.php");
 
 ?>
 
+
 <body>
 
-    <main id="cadastro-relatorios">
 
-        <h2>Cadastro de Relatórios</h2>
-
-        <div class="container">
-
-            <div class="col-lg-11">
-
-                <div class="card">
-
-                    <form method="POST">
-
-                        <div class="row">
-
-                            <div class="col-md-4">
-
-                                <textarea
-                                    id="conteudo"
-                                    name="conteudo"
-                                    placeholder="Escreva seu relatório"
-                                    required
-                                ></textarea>
+<div id="cadastro-relatorios">
 
 
-                                <label for="id_usuarios">
-                                    Usuário relacionado:
-                                </label>
+    <main class="cadastro-relatorios-main">
 
 
-                                <select
-                                    id="id_usuarios"
-                                    name="id_usuarios"
-                                    required
-                                >
+        <h1>
+            Cadastro de Relatórios
+        </h1>
+
+
+        <div class="cadastro-relatorios-container">
+
+
+            <div class="cadastro-relatorios-card">
+
+
+                <form method="POST">
+
+
+                    <!-- RELATÓRIO -->
+
+                    <div class="cadastro-relatorios-campo">
+
+
+                        <textarea
+                            name="conteudo"
+                            id="conteudo"
+                            placeholder="Escreva seu relatório"
+                            maxlength="5000"
+                            required
+                        ><?= htmlspecialchars($conteudo) ?></textarea>
+
+
+                    </div>
+
+
+                    <!-- USUÁRIO -->
+
+                    <div class="cadastro-relatorios-usuario">
+
+
+                        <label for="id_usuarios">
+                            Usuário relacionado:
+                        </label>
+
+
+                        <select
+                            name="id_usuarios"
+                            id="id_usuarios"
+                            required
+                        >
+
+                            <option
+                                value=""
+                                disabled
+                                <?= $id_usuarios === "" ? "selected" : "" ?>
+                            >
+                                Selecione o usuário
+                            </option>
+
+
+                            <?php if ($resultadoUsuarios): ?>
+
+                                <?php while (
+                                    $usuario =
+                                    mysqli_fetch_assoc(
+                                        $resultadoUsuarios
+                                    )
+                                ): ?>
 
                                     <option
-                                        value=""
-                                        selected
-                                        disabled
+                                        value="<?= $usuario["id"] ?>"
+                                        <?= $id_usuarios == $usuario["id"] ? "selected" : "" ?>
                                     >
-                                        Selecione o usuário
+                                        <?= htmlspecialchars($usuario["nome"]) ?>
                                     </option>
 
+                                <?php endwhile; ?>
 
-                                    <?php foreach ($usuarios as $usuario): ?>
-
-                                        <option
-                                            value="<?= $usuario['id'] ?>"
-                                        >
-                                            <?= htmlspecialchars($usuario['nome']) ?>
-                                        </option>
-
-                                    <?php endforeach; ?>
-
-                                </select>
+                            <?php endif; ?>
 
 
-                                <button type="submit">
-                                    Cadastrar
-                                </button>
-
-<?php if ($mensagem !== ""): ?>
-
-    <div class="cadastro-mensagem <?php echo $tipoMensagem; ?>">
-        <?php echo htmlspecialchars($mensagem); ?>
-    </div>
-
-<?php endif; ?>
+                        </select>
 
 
-                            </div>
+                    </div>
+
+
+                    <!-- BOTÃO -->
+
+                    <div class="cadastro-relatorios-botao">
+
+
+                        <button type="submit">
+                            Cadastrar
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- MENSAGEM -->
+
+                    <?php if ($mensagem !== ""): ?>
+
+                        <div
+                            class="cadastro-relatorios-mensagem <?= htmlspecialchars($tipoMensagem) ?>"
+                        >
+
+                            <?= htmlspecialchars($mensagem) ?>
 
                         </div>
 
-                    </form>
+                    <?php endif; ?>
 
-                </div>
+
+                </form>
+
 
             </div>
 
+
         </div>
+
 
     </main>
 
 
-    <script src="../scripts/botao-sair.js"></script>
+</div>
 
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9H9JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous">
-    </script>
+<script src="../scripts/botao-sair.js"></script>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+></script>
+
 
 </body>
 
