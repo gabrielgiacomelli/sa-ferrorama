@@ -7,7 +7,7 @@ if (!isset($_SESSION["usuario_id"])) {
     header(
 
         "Location: ../public/login.php"
-        
+
         );
 
     exit;
@@ -140,7 +140,7 @@ if (!isset($_SESSION["usuario_id"])) {
                         <div id="navbar-direita"></div>
                         <ul>
                             <li id="navbar-sair">
-                                    <a href="">Sair</a>
+                                    <a href="logout.php">Sair</a>
                                 </li>
                         </ul>
                     </div>
