@@ -580,6 +580,35 @@ include("../includes/navbar.php");
 
                     </div>
 
+                    <div class="cadastro-usuarios-campo">
+
+                                <label for="usuario-acesso">
+                                    Acesso
+                                </label>
+
+                                <select name="acesso" id="usuario-acesso">
+                                    <option value="" selected disabled>
+
+                                        Selecione
+
+                                    </option>
+
+                                    <option value="Funcionário">
+
+                                        Funcionário
+
+                                    </option>
+
+                                    <option value="Administrador">
+
+                                        Administrador
+
+                                    </option>
+
+                                </select>
+
+                            </div>
+
 
                     <!-- BOTÃO -->
 
