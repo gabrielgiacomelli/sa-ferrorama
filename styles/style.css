@@ -1207,6 +1207,239 @@ li#navbar-sair{
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
+/*                            EDITAR SENSORES                                */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
+    padding: 70px 0 0 0;
+    background-color: var(--cor-background);
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  TÍTULO                                   */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores h2 {
+    width: 100%;
+    margin: 0 0 35px 0;
+    padding: 0;
+    padding-top: 8vh;
+    text-align: center;
+    color: var(--cor-azul-ferroviario);
+    font-family: var(--fonte-horizon);
+    font-size: 5.5vh;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                CONTAINER                                  */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores .editar-sensores-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   CARD                                    */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores .editar-sensores-card {
+    width: 265px;
+    margin: 0;
+    padding: 17px 18px 10px;
+    background-color: var(--cor-branca);
+    border: 1px solid #111;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  CAMPOS                                   */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores .editar-sensores-campo {
+    width: 100%;
+    margin: 0 0 11px 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  LABEL                                    */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores .editar-sensores-campo label {
+    display: block;
+    margin: 0 0 5px 0;
+    padding: 0;
+    color: #111;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                              INPUT / SELECT                               */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores .editar-sensores-campo input,
+#editar-sensores .editar-sensores-campo select {
+    display: block;
+    width: 100%;
+    height: 33px;
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #222;
+    border-radius: 0;
+    background-color: var(--cor-branca);
+    color: #111;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                PLACEHOLDER                                */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores .editar-sensores-campo input::placeholder {
+    color: #555;
+    opacity: 1;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  FOCUS                                   */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores .editar-sensores-campo input:focus,
+#editar-sensores .editar-sensores-campo select:focus {
+    border-color: var(--cor-azul-ferroviario);
+    box-shadow: 0 0 0 1px var(--cor-azul-ferroviario);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                            BOTÃO ATUALIZAR                                */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores .editar-sensores-botao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 19px 0 0 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#editar-sensores .editar-sensores-botao button {
+    height: 35px;
+    margin: 0;
+    padding: 0 13px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--cor-azul-ferroviario);
+    color: var(--cor-branca);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+
+#editar-sensores .editar-sensores-botao button:hover {
+    background-color: var(--cor-azul-ferroviario-claro);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                              BOTÃO VOLTAR                                 */
+/* -------------------------------------------------------------------------- */
+
+#editar-sensores .editar-sensores-botao-voltar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 0 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#editar-sensores .editar-sensores-botao-voltar a {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0 13px;
+    border-radius: 15px;
+    background-color: var(--cor-azul-ferroviario);
+    color: var(--cor-branca);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+
+#editar-sensores .editar-sensores-botao-voltar a:hover {
+    background-color: var(--cor-azul-ferroviario-claro);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                               RESPONSIVO                                  */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    #editar-sensores {
+        padding-top: 65px;
+    }
+
+    #editar-sensores h2 {
+        margin-bottom: 30px;
+        font-size: 32px;
+    }
+
+    #editar-sensores .editar-sensores-card {
+        width: 90%;
+        max-width: 265px;
+    }
+
+}
+
+/* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                            Cadastro de Relatórios                          */
 

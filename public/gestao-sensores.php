@@ -228,9 +228,9 @@ include("../includes/navbar.php");
 
                         <tr>
 
-                            <th>Nome</th>
-
                             <th>ID</th>
+
+                            <th>Nome</th>
 
                             <th>Instalação</th>
 
@@ -256,11 +256,11 @@ include("../includes/navbar.php");
                             <tr>
 
                                 <td>
-                                    <?= htmlspecialchars($sensor["nome"]) ?>
+                                    <?= htmlspecialchars($sensor["id"]) ?>
                                 </td>
 
                                 <td>
-                                    <?= htmlspecialchars($sensor["id"]) ?>
+                                    <?= htmlspecialchars($sensor["nome"]) ?>
                                 </td>
 
                                 <td>

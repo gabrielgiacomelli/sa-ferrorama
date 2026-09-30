@@ -239,9 +239,9 @@ include("../includes/navbar.php");
 
                         <tr>
 
-                            <th>Usuário</th>
-
                             <th>ID</th>
+
+                            <th>Usuário</th>
 
                             <th>Email</th>
 
@@ -268,7 +268,7 @@ include("../includes/navbar.php");
 
                                     <?php
                                     echo htmlspecialchars(
-                                        $usuario["nome"],
+                                        $usuario["id"],
                                         ENT_QUOTES,
                                         "UTF-8"
                                     );
@@ -281,7 +281,7 @@ include("../includes/navbar.php");
 
                                     <?php
                                     echo htmlspecialchars(
-                                        $usuario["id"],
+                                        $usuario["nome"],
                                         ENT_QUOTES,
                                         "UTF-8"
                                     );
