@@ -280,17 +280,7 @@ include("../includes/navbar.php");
                                 </td>
 
                                 <td>
-
                                     <div class="gestao-acoes">
-
-                                        <a
-                                            href="editar-sensor.php?id=<?= $sensor["id"] ?>"
-                                            class="gestao-btn atualizar"
-                                        >
-                                            Atualizar
-                                        </a>
-
-
                                         <?php
                                         if($sensor["status"] === "Ativo"): ?>
                                         <button
@@ -303,6 +293,15 @@ include("../includes/navbar.php");
                                         </button>
 
                                         <?php else: ?>
+
+                                        
+
+                                        <a
+                                            href="editar-sensor.php?id=<?= $sensor["id"] ?>"
+                                            class="gestao-btn atualizar"
+                                        >
+                                            Atualizar
+                                        </a>    
 
                                         <button
                                             type="button"
