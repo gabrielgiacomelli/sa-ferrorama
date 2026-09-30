@@ -30,19 +30,19 @@ $resultado_usuarios = mysqli_query($conn, $sql_usuarios);
 
 <body>
 
-<main id="cadastro-trens">
+<main id="editar-trens">
 
     <h2>Editar Trem</h2>
 
-    <div class="cadastro-trens-container">
+    <div class="editar-trens-container">
 
-        <div class="cadastro-trens-card editar-trem-card">
+        <div class="editar-trens-card">
 
             <form action="atualizar-trem.php" method="POST">
 
                 <input type="hidden" name="id" value="<?php echo $trem["id"]; ?>">
 
-                <div class="cadastro-trens-campo">
+                <div class="editar-trens-campo">
                     <label for="peso">
                         Peso total
                     </label>
@@ -57,7 +57,7 @@ $resultado_usuarios = mysqli_query($conn, $sql_usuarios);
                         required>
                 </div>
 
-                <div class="cadastro-trens-campo">
+                <div class="editar-trens-campo">
                     <label for="quantidade_vagoes">
                         Quantidade de vagões:
                     </label>
@@ -71,7 +71,7 @@ $resultado_usuarios = mysqli_query($conn, $sql_usuarios);
                         required>
                 </div>
 
-                <div class="cadastro-trens-campo">
+                <div class="editar-trens-campo">
                     <label for="id_usuarios">
                         Proprietário
                     </label>
@@ -89,7 +89,7 @@ $resultado_usuarios = mysqli_query($conn, $sql_usuarios);
                     </select>
                 </div>
 
-                <div class="cadastro-trens-botao">
+                <div class="editar-trens-botao">
                     <button type="submit">
                         Atualizar Trem
                     </button>
@@ -97,8 +97,7 @@ $resultado_usuarios = mysqli_query($conn, $sql_usuarios);
 
             </form>
 
-
-            <a href="gestao-trem.php" class="botao-voltar">
+            <a href="gestao-trem.php" class="editar-trens-voltar">
                 Voltar
             </a>
 
@@ -107,5 +106,6 @@ $resultado_usuarios = mysqli_query($conn, $sql_usuarios);
     </div>
 
 </main>
+
 </body>
 </html>

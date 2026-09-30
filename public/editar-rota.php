@@ -19,7 +19,8 @@ $resultado_usuarios = mysqli_query($conn, $sql_usuarios);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
 
     <meta charset="UTF-8">
@@ -28,80 +29,86 @@ $resultado_usuarios = mysqli_query($conn, $sql_usuarios);
     <link rel="stylesheet" href="../styles/style.css">
 
 </head>
+
 <body>
-    
-    <main id="cadastro-rotas">
-        <h2>Editar Rota</h2>
-    
-        <div class="cadastro-rotas-container">
-    
-            <div class="cadastro-rotas-card editar-rota-card">
-    
-                <form action="atualizar-rota.php" method="POST">
-    
+
+<main id="editar-rotas">
+
+    <h2>Editar Rota</h2>
+
+    <div class="editar-rotas-container">
+
+        <div class="editar-rotas-card">
+
+            <form action="atualizar-rota.php" method="POST">
+
+                <input
+                    type="hidden"
+                    name="id"
+                    value="<?php echo $rota["id"]; ?>">
+
+                <div class="editar-rotas-campo">
+
+                    <label for="nome">
+                        Nome da rota
+                    </label>
+
                     <input
-                        type="hidden"
-                        name="id"
-                        value="<?php echo $rota["id"]; ?>">
-    
-                    <div class="cadastro-rotas-campo">
-    
-                        <label for="nome">
-                            Nome da rota
-                        </label>
-    
-                        <input
-                            type="text"
-                            id="nome"
-                            name="nome"
-                            value="<?php echo htmlspecialchars($rota["nome"]); ?>"
-                            required>
-    
-                    </div>
-    
-                    <div class="cadastro-rotas-campo">
-    
-                        <label for="saida">
-                            Saída
-                        </label>
-    
-                        <input
-                            type="text"
-                            id="saida"
-                            name="saida"
-                            value="<?php echo htmlspecialchars($rota["saida"]); ?>"
-                            required>
-    
-                    </div>
-    
-                    <div class="cadastro-rotas-campo">
-    
-                        <label for="destino">
-                            Destino
-                        </label>
-    
-                        <input
-                            type="text"
-                            id="destino"
-                            name="destino"
-                            value="<?php echo htmlspecialchars($rota["destino"]); ?>"
-                            required>
-    
-                    </div>
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        value="<?php echo htmlspecialchars($rota["nome"]); ?>"
+                        required>
 
-                    <div class="cadastro-rotas-botao">
-                        <button type="submit">
-                            Atualizar Rota
-                        </button>
-                    </div>
-                </form>
-    
-                <a href="gestao-rota.php" class="botao-voltar">
-                    Voltar
-                </a>
+                </div>
 
-            </div>
+                <div class="editar-rotas-campo">
+
+                    <label for="saida">
+                        Saída
+                    </label>
+
+                    <input
+                        type="text"
+                        id="saida"
+                        name="saida"
+                        value="<?php echo htmlspecialchars($rota["saida"]); ?>"
+                        required>
+
+                </div>
+
+                <div class="editar-rotas-campo">
+
+                    <label for="destino">
+                        Destino
+                    </label>
+
+                    <input
+                        type="text"
+                        id="destino"
+                        name="destino"
+                        value="<?php echo htmlspecialchars($rota["destino"]); ?>"
+                        required>
+
+                </div>
+
+                <div class="editar-rotas-botao">
+                    <button type="submit">
+                        Atualizar Rota
+                    </button>
+                </div>
+
+            </form>
+
+            <a href="gestao-rota.php" class="editar-rotas-voltar">
+                Voltar
+            </a>
+
         </div>
-    </main>
+
+    </div>
+
+</main>
+
 </body>
 </html>
