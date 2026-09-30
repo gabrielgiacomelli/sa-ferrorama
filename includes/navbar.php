@@ -137,8 +137,15 @@ if (!isset($_SESSION["usuario_id"])) {
 
                         </nav>
 
+                        <ul id = "navbar-usuario">
+                                <li id = "navbar-nome">
+                                    <?= htmlspecialchars($_SESSION["usuario_nome"] ?? "Usuário") ?>
+                                </li>
+                            </ul>
+
                         <div id="navbar-direita"></div>
                         <ul>
+                            
                             <li id="navbar-sair">
                                     <a href="logout.php">Sair</a>
                                 </li>
