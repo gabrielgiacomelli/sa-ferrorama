@@ -273,16 +273,7 @@ include("../includes/navbar.php");
                                 </td>
 
                                 <td>
-
                                     <div class="gestao-acoes">
-
-                                        <a
-                                            href="editar-trem.php?id=<?= $trem["id"] ?>"
-                                            class="gestao-btn atualizar"
-                                        >
-                                            Atualizar
-                                        </a>
-
                                         <?php
                                         if($trem["status"] === "Ativo"): ?>
                                         <button
@@ -295,6 +286,15 @@ include("../includes/navbar.php");
                                         </button>
 
                                         <?php else: ?>
+
+                                       
+
+                                        <a
+                                            href="editar-trem.php?id=<?= $trem["id"] ?>"
+                                            class="gestao-btn atualizar"
+                                        >
+                                            Atualizar
+                                        </a>     
 
                                         <button
                                             type="button"

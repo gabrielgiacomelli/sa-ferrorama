@@ -283,13 +283,6 @@ include("../includes/navbar.php");
 
                                     <div class="gestao-acoes">
 
-                                        <a
-                                            href="editar-rota.php?id=<?= $rota["id"] ?>"
-                                            class="gestao-btn atualizar"
-                                        >
-                                            Atualizar
-                                        </a>
-
                                         <?php
                                         if($rota["status"] === "Ativo"): ?>
                                         <button
@@ -302,6 +295,15 @@ include("../includes/navbar.php");
                                         </button>
 
                                         <?php else: ?>
+
+                                         
+
+                                        <a
+                                            href="editar-rota.php?id=<?= $rota["id"] ?>"
+                                            class="gestao-btn atualizar"
+                                        >
+                                            Atualizar
+                                        </a>   
 
                                         <button
                                             type="button"
