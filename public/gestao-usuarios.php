@@ -5,20 +5,11 @@ include "../infra/conn.php";
 $mensagem = "";
 $tipoMensagem = "";
 
-
-/*
-|----------------------------------------------------------
-| EXCLUIR USUÁRIO
-|----------------------------------------------------------
-*/
+/* EXCLUIR USUÁRIO */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
 
-    $id = filter_input(
-        INPUT_POST,
-        "id",
-        FILTER_VALIDATE_INT
-    );
+    $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
 
     if (!$id || $id <= 0) {
 
@@ -27,22 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
 
     } else {
 
-        /*
-        | Verifica se o usuário realmente existe
-        */
-
         $sql = "SELECT id FROM usuarios WHERE id = ?";
 
         $stmt = mysqli_prepare($conn, $sql);
 
         if ($stmt) {
 
-            mysqli_stmt_bind_param(
-                $stmt,
-                "i",
-                $id
-            );
-
+            mysqli_stmt_bind_param($stmt, "i", $id);
             mysqli_stmt_execute($stmt);
 
             $resultado = mysqli_stmt_get_result($stmt);
@@ -58,39 +40,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
 
                 mysqli_stmt_close($stmt);
 
-
-                /*
-                |------------------------------------------------------
-                | EXCLUIR
-                |------------------------------------------------------
-                */
-
                 $sql = "DELETE FROM usuarios WHERE id = ?";
 
                 $stmt = mysqli_prepare($conn, $sql);
 
                 if ($stmt) {
 
-                    mysqli_stmt_bind_param(
-                        $stmt,
-                        "i",
-                        $id
-                    );
+                    mysqli_stmt_bind_param($stmt, "i", $id);
 
                     try {
 
-                        if (mysqli_stmt_execute($stmt)) {
+                        mysqli_stmt_execute($stmt);
 
-                            if (mysqli_stmt_affected_rows($stmt) > 0) {
+                        if (mysqli_stmt_affected_rows($stmt) > 0) {
 
-                                $mensagem = "Usuário excluído com sucesso!";
-                                $tipoMensagem = "sucesso";
-
-                            } else {
-
-                                $mensagem = "Não foi possível excluir o usuário.";
-                                $tipoMensagem = "erro";
-                            }
+                            $mensagem = "Usuário excluído com sucesso!";
+                            $tipoMensagem = "sucesso";
 
                         } else {
 
@@ -99,10 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
                         }
 
                     } catch (mysqli_sql_exception $e) {
-
-                        /*
-                        | Erro de chave estrangeira
-                        */
 
                         if ($e->getCode() == 1451) {
 
@@ -134,24 +95,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
 }
 
 
-/*
-|----------------------------------------------------------
-| BUSCAR USUÁRIOS
-|----------------------------------------------------------
-*/
+/* BUSCAR USUÁRIOS */
+
+$usuarios = [];
 
 $sql = "SELECT
             id,
             nome,
             email,
-            telefone,
-            acesso
+            telefone
         FROM usuarios
         ORDER BY id ASC";
 
 $stmt = mysqli_prepare($conn, $sql);
-
-$usuarios = [];
 
 if ($stmt) {
 
@@ -170,7 +126,6 @@ if ($stmt) {
 ?>
 
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
@@ -185,12 +140,13 @@ if ($stmt) {
     <title>Usuários Cadastrados</title>
 
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
         rel="stylesheet"
+        href="../assets/css/gestao-usuarios.css"
     >
 
 </head>
 
+<body>
 
 <?php
 
@@ -201,13 +157,9 @@ include("../includes/navbar.php");
 
 ?>
 
-
-<body>
-
 <main id="gestao-usuarios">
 
     <h1>USUÁRIOS CADASTRADOS</h1>
-
 
     <div class="gestao-container">
 
@@ -216,7 +168,6 @@ include("../includes/navbar.php");
             <h2>Gestão de Usuários</h2>
 
             <div class="gestao-linha"></div>
-
 
             <?php if ($mensagem !== ""): ?>
 
@@ -239,22 +190,19 @@ include("../includes/navbar.php");
 
                         <tr>
 
-                            <th>ID</th>
+                            <th>Usuários</th>
 
-                            <th>Usuário</th>
+                            <th>ID</th>
 
                             <th>Email</th>
 
                             <th>Telefone</th>
-
-                            <th> Acesso </th>
 
                             <th>Ações</th>
 
                         </tr>
 
                     </thead>
-
 
                     <tbody>
 
@@ -265,20 +213,6 @@ include("../includes/navbar.php");
                             <tr>
 
                                 <td>
-
-                                    <?php
-                                    echo htmlspecialchars(
-                                        $usuario["id"],
-                                        ENT_QUOTES,
-                                        "UTF-8"
-                                    );
-                                    ?>
-
-                                </td>
-
-
-                                <td>
-
                                     <?php
                                     echo htmlspecialchars(
                                         $usuario["nome"],
@@ -286,12 +220,15 @@ include("../includes/navbar.php");
                                         "UTF-8"
                                     );
                                     ?>
-
                                 </td>
 
+                                <td>
+                                    <?php
+                                    echo (int) $usuario["id"];
+                                    ?>
+                                </td>
 
                                 <td>
-
                                     <?php
                                     echo htmlspecialchars(
                                         $usuario["email"],
@@ -299,12 +236,9 @@ include("../includes/navbar.php");
                                         "UTF-8"
                                     );
                                     ?>
-
                                 </td>
 
-
                                 <td>
-
                                     <?php
                                     echo htmlspecialchars(
                                         $usuario["telefone"],
@@ -312,28 +246,11 @@ include("../includes/navbar.php");
                                         "UTF-8"
                                     );
                                     ?>
-
                                 </td>
-
-                                <td>
-
-                                    <?php
-                                    echo htmlspecialchars(
-                                        $usuario["acesso"],
-                                        ENT_QUOTES,
-                                        "UTF-8"
-                                    );
-                                    ?>
-
-                                </td>
-
 
                                 <td>
 
                                     <div class="gestao-acoes">
-
-
-                                        <!-- ATUALIZAR -->
 
                                         <a
                                             href="editar-usuario.php?id=<?php echo (int) $usuario["id"]; ?>"
@@ -341,9 +258,6 @@ include("../includes/navbar.php");
                                         >
                                             Atualizar
                                         </a>
-
-
-                                        <!-- EXCLUIR -->
 
                                         <button
                                             type="button"
@@ -353,7 +267,6 @@ include("../includes/navbar.php");
                                             Excluir
                                         </button>
 
-
                                     </div>
 
                                 </td>
@@ -362,13 +275,12 @@ include("../includes/navbar.php");
 
                         <?php endforeach; ?>
 
-
                     <?php else: ?>
 
                         <tr>
 
                             <td
-                                colspan="6"
+                                colspan="5"
                                 class="gestao-vazio"
                             >
                                 Nenhum usuário cadastrado.
@@ -391,7 +303,7 @@ include("../includes/navbar.php");
 </main>
 
 
-<!-- POP-UP DE CONFIRMAÇÃO -->
+<!-- POP-UP DE EXCLUSÃO -->
 
 <div
     id="popup-excluir"
@@ -406,9 +318,7 @@ include("../includes/navbar.php");
             Tem certeza que deseja excluir este usuário?
         </p>
 
-
         <div class="popup-acoes">
-
 
             <button
                 type="button"
@@ -417,7 +327,6 @@ include("../includes/navbar.php");
             >
                 Cancelar
             </button>
-
 
             <form
                 method="POST"
@@ -430,13 +339,11 @@ include("../includes/navbar.php");
                     id="excluir_id"
                 >
 
-
                 <input
                     type="hidden"
                     name="excluir"
                     value="1"
                 >
-
 
                 <button
                     type="submit"
@@ -481,12 +388,14 @@ document
         if (event.target === this) {
 
             fecharPopup();
-
         }
 
     });
 
 </script>
+
+
+<script src="../scripts/botao-sair.js"></script>
 
 </body>
 

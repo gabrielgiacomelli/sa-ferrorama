@@ -11,18 +11,30 @@ if (!isset($_GET["id"])) {
 
 $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
 
-if (!$id) {
+if (!$id || $id <= 0) {
     die("ID de usuário inválido.");
 }
 
 
 /*
-|----------------------------------------------------------
+|--------------------------------------------------------------------------
 | BUSCAR USUÁRIO
-|----------------------------------------------------------
+|--------------------------------------------------------------------------
 */
 
-$sql = "SELECT * FROM usuarios WHERE id = ?";
+$sql = "SELECT
+            id,
+            email,
+            senha,
+            nome,
+            cpf,
+            data_nascimento,
+            cep,
+            complemento,
+            telefone,
+            acesso
+        FROM usuarios
+        WHERE id = ?";
 
 $stmt = mysqli_prepare($conn, $sql);
 
@@ -44,9 +56,9 @@ if (!$usuario) {
 
 
 /*
-|----------------------------------------------------------
+|--------------------------------------------------------------------------
 | ATUALIZAR USUÁRIO
-|----------------------------------------------------------
+|--------------------------------------------------------------------------
 */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -54,19 +66,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["email"] ?? "");
     $senha = $_POST["senha"] ?? "";
     $confirm_senha = $_POST["confirm_senha"] ?? "";
+
     $nome = trim($_POST["nome"] ?? "");
+
     $cpf = preg_replace("/\D/", "", $_POST["cpf"] ?? "");
+
     $data_nascimento = $_POST["data_nascimento"] ?? "";
+
     $cep = preg_replace("/\D/", "", $_POST["cep"] ?? "");
+
     $complemento = trim($_POST["complemento"] ?? "");
+
     $telefone = preg_replace("/\D/", "", $_POST["telefone"] ?? "");
-    $acesso = ($_POST["acesso"] ?? "");
+
+    $acesso = trim($_POST["acesso"] ?? "");
 
 
     /*
-    |----------------------------------------------------------
+    |--------------------------------------------------------------------------
     | VALIDAÇÕES
-    |----------------------------------------------------------
+    |--------------------------------------------------------------------------
     */
 
     if (
@@ -76,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         empty($data_nascimento) ||
         empty($cep) ||
         empty($telefone) ||
-        empty($acesso) 
+        empty($acesso)
     ) {
 
         $mensagem = "Preencha todos os campos obrigatórios.";
@@ -102,12 +121,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mensagem = "Digite um telefone válido.";
         $tipoMensagem = "erro";
 
+    } elseif (
+        $acesso !== "Funcionário" &&
+        $acesso !== "Administrador"
+    ) {
+
+        $mensagem = "Selecione um nível de acesso válido.";
+        $tipoMensagem = "erro";
+
     } else {
 
         /*
-        |----------------------------------------------------------
+        |--------------------------------------------------------------------------
         | VALIDAR DATA
-        |----------------------------------------------------------
+        |--------------------------------------------------------------------------
         */
 
         $data = DateTime::createFromFormat(
@@ -131,9 +158,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } else {
 
             /*
-            |----------------------------------------------------------
+            |--------------------------------------------------------------------------
             | VERIFICAR EMAIL OU CPF DUPLICADO
-            |----------------------------------------------------------
+            |--------------------------------------------------------------------------
             */
 
             $sql = "SELECT id, email, cpf
@@ -192,15 +219,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 } else {
 
                     /*
-                    |------------------------------------------------------
+                    |--------------------------------------------------------------------------
                     | SENHA
-                    |------------------------------------------------------
-                    |
-                    | Se o usuário deixou a senha vazia,
-                    | mantém a senha atual.
-                    |
-                    | Se digitou uma nova senha,
-                    | valida e cria um novo hash.
+                    |--------------------------------------------------------------------------
                     */
 
                     if ($senha !== "" || $confirm_senha !== "") {
@@ -240,23 +261,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
                     /*
-                    |------------------------------------------------------
+                    |--------------------------------------------------------------------------
                     | ATUALIZAR
-                    |------------------------------------------------------
+                    |--------------------------------------------------------------------------
                     */
 
                     if ($mensagem === "") {
 
                         $sql = "UPDATE usuarios SET
-                                email = ?,
-                                senha = ?,
-                                nome = ?,
-                                cpf = ?,
-                                data_nascimento = ?,
-                                cep = ?,
-                                complemento = ?,
-                                telefone = ?,
-                                acesso = ?
+                                    email = ?,
+                                    senha = ?,
+                                    confirm_senha = ?,
+                                    nome = ?,
+                                    cpf = ?,
+                                    data_nascimento = ?,
+                                    cep = ?,
+                                    complemento = ?,
+                                    telefone = ?,
+                                    acesso = ?
                                 WHERE id = ?";
 
                         $stmt = mysqli_prepare($conn, $sql);
@@ -268,10 +290,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         } else {
 
+                            /*
+                            | Se a senha não foi alterada,
+                            | mantém a senha atual.
+                            */
+
                             mysqli_stmt_bind_param(
                                 $stmt,
-                                "sssssssssi",
+                                "ssssssssssi",
                                 $email,
+                                $senha_hash,
                                 $senha_hash,
                                 $nome,
                                 $cpf,
@@ -290,10 +318,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     $mensagem = "Usuário atualizado com sucesso!";
                                     $tipoMensagem = "sucesso";
 
-                                    /*
-                                    | Atualiza os dados exibidos
-                                    */
-
                                     $usuario["email"] = $email;
                                     $usuario["nome"] = $nome;
                                     $usuario["cpf"] = $cpf;
@@ -306,7 +330,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                                 } else {
 
-                                    $mensagem = "Erro ao atualizar usuário.";
+                                    $mensagem = "Não foi possível atualizar o usuário.";
                                     $tipoMensagem = "erro";
                                 }
 
@@ -343,21 +367,380 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link
-        rel="stylesheet"
-        href="../styles/style.css?v=1.1"
-    >
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet"
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
 
     <title>Editar Usuário</title>
 
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            background: #f1f3f6;
+            font-family: Arial, sans-serif;
+            color: #1d3557;
+        }
+
+
+        /* =========================================================
+           ÁREA PRINCIPAL
+        ========================================================= */
+
+        #editar-usuarios {
+            width: 100%;
+            min-height: 100vh;
+            background: #f1f3f6;
+        }
+
+        .editar-usuarios-main {
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            padding-top: 75px;
+            padding-bottom: 50px;
+        }
+
+
+        /* =========================================================
+           TÍTULO
+        ========================================================= */
+
+        .editar-usuarios-main h1 {
+            margin: 0 0 35px 0;
+
+            color: #193655;
+
+            font-family: Arial, sans-serif;
+            font-size: 52px;
+            font-weight: 900;
+
+            text-align: center;
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================================
+           CARD
+        ========================================================= */
+
+        .editar-usuarios-container {
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .editar-usuarios-card {
+            width: 850px;
+
+            background: #ffffff;
+
+            border-radius: 15px;
+
+            padding: 55px 28px 30px;
+
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =========================================================
+           FORMULÁRIO
+        ========================================================= */
+
+        .editar-usuarios-card form {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .editar-usuarios-colunas {
+            width: 100%;
+
+            display: flex;
+            gap: 20px;
+        }
+
+        .editar-usuarios-coluna {
+            width: calc(33.333% - 13.333px);
+        }
+
+
+        /* =========================================================
+           CAMPOS
+        ========================================================= */
+
+        .editar-usuarios-campo {
+            width: 100%;
+            margin-bottom: 18px;
+        }
+
+        .editar-usuarios-campo label {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: #193655;
+
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .editar-usuarios-campo input,
+        .editar-usuarios-campo select {
+            width: 100%;
+            height: 35px;
+
+            padding: 6px 8px;
+
+            border: 2px solid #28558d;
+            border-radius: 6px;
+
+            background: #ffffff;
+
+            color: #333333;
+
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+
+            outline: none;
+        }
+
+        .editar-usuarios-campo input:focus,
+        .editar-usuarios-campo select:focus {
+            border-color: #193655;
+            box-shadow: 0 0 0 1px #193655;
+        }
+
+        .editar-usuarios-campo input::placeholder {
+            color: #555555;
+        }
+
+
+        /* =========================================================
+           ACESSO
+        ========================================================= */
+
+        .editar-usuarios-acesso {
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 18px;
+        }
+
+        .editar-usuarios-acesso label {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: #193655;
+
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .editar-usuarios-acesso select {
+            width: 100%;
+            height: 35px;
+
+            padding: 5px 10px;
+
+            border: 2px solid #28558d;
+            border-radius: 6px;
+
+            background: #ffffff;
+
+            color: #333333;
+
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+        .editar-usuarios-acesso select:focus {
+            border-color: #193655;
+            box-shadow: 0 0 0 1px #193655;
+        }
+
+
+        /* =========================================================
+           BOTÃO SALVAR
+        ========================================================= */
+
+        .editar-usuarios-botao {
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 18px;
+        }
+
+        .editar-usuarios-botao button {
+            width: 130px;
+            height: 34px;
+
+            border: none;
+            border-radius: 16px;
+
+            background: #193655;
+            color: #ffffff;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+
+            transition: 0.2s;
+        }
+
+        .editar-usuarios-botao button:hover {
+            background: #24486d;
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================================
+           BOTÃO VOLTAR
+        ========================================================= */
+
+        .editar-usuarios-botao-voltar {
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 10px;
+        }
+
+        .editar-usuarios-botao-voltar a {
+            width: 130px;
+            height: 34px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 16px;
+
+            background: #193655;
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+
+            transition: 0.2s;
+        }
+
+        .editar-usuarios-botao-voltar a:hover {
+            background: #24486d;
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================================
+           MENSAGEM
+        ========================================================= */
+
+        .editar-mensagem {
+            width: 100%;
+
+            margin-top: 18px;
+            padding: 10px;
+
+            border-radius: 6px;
+
+            text-align: center;
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .editar-mensagem.sucesso {
+            color: #1d6b3a;
+            background: #e8f5ec;
+            border: 1px solid #b7dfc4;
+        }
+
+        .editar-mensagem.erro {
+            color: #b3261e;
+            background: #fdecea;
+            border: 1px solid #f2b8b5;
+        }
+
+
+        /* =========================================================
+           RESPONSIVO
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .editar-usuarios-card {
+                width: 90%;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .editar-usuarios-main {
+                padding-top: 45px;
+            }
+
+            .editar-usuarios-main h1 {
+                font-size: 34px;
+                margin-bottom: 30px;
+            }
+
+            .editar-usuarios-card {
+                width: 90%;
+                padding: 35px 25px;
+            }
+
+            .editar-usuarios-colunas {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .editar-usuarios-coluna {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
@@ -365,13 +748,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <main class="editar-usuarios-main">
 
-        <h1>Editar Usuário</h1>
+        <h1>EDITAR USUÁRIO</h1>
+
 
         <div class="editar-usuarios-container">
 
             <div class="editar-usuarios-card">
 
                 <form method="POST">
+
+
+                    <!-- =====================================================
+                         TRÊS COLUNAS
+                    ====================================================== -->
 
                     <div class="editar-usuarios-colunas">
 
@@ -390,7 +779,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     type="email"
                                     id="usuario-email"
                                     name="email"
-                                    value="<?php echo htmlspecialchars($usuario["email"]); ?>"
+                                    value="<?php echo htmlspecialchars($usuario["email"], ENT_QUOTES, "UTF-8"); ?>"
+                                    placeholder="Digite seu email"
                                     maxlength="255"
                                     required
                                 >
@@ -448,7 +838,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     type="text"
                                     id="usuario-nome"
                                     name="nome"
-                                    value="<?php echo htmlspecialchars($usuario["nome"]); ?>"
+                                    value="<?php echo htmlspecialchars($usuario["nome"], ENT_QUOTES, "UTF-8"); ?>"
+                                    placeholder="Digite seu nome completo"
                                     maxlength="255"
                                     required
                                 >
@@ -466,7 +857,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     type="text"
                                     id="usuario-cpf"
                                     name="cpf"
-                                    value="<?php echo htmlspecialchars($usuario["cpf"]); ?>"
+                                    value="<?php echo htmlspecialchars($usuario["cpf"], ENT_QUOTES, "UTF-8"); ?>"
+                                    placeholder="Digite seu CPF"
                                     maxlength="14"
                                     required
                                 >
@@ -484,7 +876,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     type="date"
                                     id="usuario-data"
                                     name="data_nascimento"
-                                    value="<?php echo htmlspecialchars($usuario["data_nascimento"]); ?>"
+                                    value="<?php echo htmlspecialchars($usuario["data_nascimento"], ENT_QUOTES, "UTF-8"); ?>"
                                     required
                                 >
 
@@ -507,7 +899,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     type="text"
                                     id="usuario-cep"
                                     name="cep"
-                                    value="<?php echo htmlspecialchars($usuario["cep"]); ?>"
+                                    value="<?php echo htmlspecialchars($usuario["cep"], ENT_QUOTES, "UTF-8"); ?>"
+                                    placeholder="Digite seu CEP"
                                     maxlength="9"
                                     required
                                 >
@@ -525,7 +918,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     type="text"
                                     id="usuario-complemento"
                                     name="complemento"
-                                    value="<?php echo htmlspecialchars($usuario["complemento"]); ?>"
+                                    value="<?php echo htmlspecialchars($usuario["complemento"], ENT_QUOTES, "UTF-8"); ?>"
+                                    placeholder="Digite um complemento"
                                     maxlength="100"
                                 >
 
@@ -542,7 +936,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     type="text"
                                     id="usuario-telefone"
                                     name="telefone"
-                                    value="<?php echo htmlspecialchars($usuario["telefone"]); ?>"
+                                    value="<?php echo htmlspecialchars($usuario["telefone"], ENT_QUOTES, "UTF-8"); ?>"
+                                    placeholder="Digite seu telefone"
                                     maxlength="15"
                                     required
                                 >
@@ -553,35 +948,57 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     </div>
 
-                    <div class="cadastro-usuarios-campo">
 
-                                <label for="usuario-acesso">
-                                    Acesso
-                                </label>
+                    <!-- =====================================================
+                         ACESSO
+                    ====================================================== -->
 
-                                <select name="acesso" id="usuario-acesso">
-                                    <option value="" selected disabled>
+                    <div class="editar-usuarios-acesso">
 
-                                        Selecione
+                        <label for="usuario-acesso">
+                            Acesso
+                        </label>
 
-                                    </option>
+                        <select
+                            name="acesso"
+                            id="usuario-acesso"
+                            required
+                        >
 
-                                    <option value="Funcionário">
+                            <option value="" disabled>
+                                Selecione
+                            </option>
 
-                                        Funcionário
+                            <option
+                                value="Funcionário"
+                                <?php
+                                echo ($usuario["acesso"] === "Funcionário")
+                                    ? "selected"
+                                    : "";
+                                ?>
+                            >
+                                Funcionário
+                            </option>
 
-                                    </option>
+                            <option
+                                value="Administrador"
+                                <?php
+                                echo ($usuario["acesso"] === "Administrador")
+                                    ? "selected"
+                                    : "";
+                                ?>
+                            >
+                                Administrador
+                            </option>
 
-                                    <option value="Administrador">
+                        </select>
 
-                                        Administrador
+                    </div>
 
-                                    </option>
 
-                                </select>
-
-                            </div>
-
+                    <!-- =====================================================
+                         SALVAR
+                    ====================================================== -->
 
                     <div class="editar-usuarios-botao">
 
@@ -592,6 +1009,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
 
 
+                    <!-- =====================================================
+                         VOLTAR
+                    ====================================================== -->
+
                     <div class="editar-usuarios-botao-voltar">
 
                         <a href="gestao-usuarios.php">
@@ -601,15 +1022,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
 
 
+                    <!-- =====================================================
+                         MENSAGEM
+                    ====================================================== -->
+
                     <?php if ($mensagem !== ""): ?>
 
-                        <div class="cadastro-mensagem <?php echo htmlspecialchars($tipoMensagem); ?>">
+                        <div
+                            class="editar-mensagem <?php echo htmlspecialchars($tipoMensagem); ?>"
+                        >
 
-                            <?php echo htmlspecialchars($mensagem); ?>
+                            <?php
+                            echo htmlspecialchars(
+                                $mensagem,
+                                ENT_QUOTES,
+                                "UTF-8"
+                            );
+                            ?>
 
                         </div>
 
                     <?php endif; ?>
+
 
                 </form>
 
@@ -621,9 +1055,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 </div>
 
-<script src="../scripts/botao-sair.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
