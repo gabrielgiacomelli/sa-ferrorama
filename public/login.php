@@ -26,41 +26,65 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($stmt) {
 
-            mysqli_stmt_bind_param($stmt, "s", $email);
+            mysqli_stmt_bind_param(
+                $stmt,
+                "s",
+                $email
+            );
+
             mysqli_stmt_execute($stmt);
 
             $resultado = mysqli_stmt_get_result($stmt);
 
-            if ($resultado && mysqli_num_rows($resultado) === 1) {
+            if (
+                $resultado &&
+                mysqli_num_rows($resultado) === 1
+            ) {
 
                 $usuario = mysqli_fetch_assoc($resultado);
 
-                if ($senha === $usuario["senha"]) {
+                if (
+                    password_verify(
+                        $senha,
+                        $usuario["senha"]
+                    )
+                ) {
 
-                    $_SESSION["usuario_id"] = $usuario["id"];
-                    $_SESSION["usuario_nome"] = $usuario["nome"];
-                    $_SESSION["usuario_email"] = $usuario["email"];
+                    $_SESSION["usuario_id"] =
+                        $usuario["id"];
+
+                    $_SESSION["usuario_nome"] =
+                        $usuario["nome"];
+
+                    $_SESSION["usuario_email"] =
+                        $usuario["email"];
 
                     mysqli_stmt_close($stmt);
 
-                    header("Location: ../public/home.php");
+                    header(
+                        "Location: ../public/home.php"
+                    );
+
                     exit;
 
                 } else {
 
-                    $erro = "Email ou senha incorretos!";
+                    $erro =
+                        "Email ou senha incorretos!";
                 }
 
             } else {
 
-                $erro = "Email ou senha incorretos!";
+                $erro =
+                    "Email ou senha incorretos!";
             }
 
             mysqli_stmt_close($stmt);
 
         } else {
 
-            $erro = "Erro ao consultar o banco de dados.";
+            $erro =
+                "Erro ao consultar o banco de dados.";
         }
     }
 }
@@ -68,20 +92,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+
+<html lang="pt-BR">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Login</title>
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
 
     <style>
 
@@ -92,43 +115,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         html,
         body {
             width: 100%;
-            min-height: 100%;
+            height: 100%;
             margin: 0;
             padding: 0;
         }
 
         body {
             min-height: 100vh;
-            background: #f4f6f9;
+
+            background: #f3f5f8;
+
             font-family: Arial, sans-serif;
         }
 
-        .login-pagina {
+        .login-container {
             width: 100%;
             min-height: 100vh;
 
             display: flex;
             flex-direction: column;
+
             align-items: center;
 
-            padding-top: 48px;
+            padding-top: 35px;
         }
 
-        .login-logo {
+        .logo-top {
+            margin: 0 0 55px 0;
+
             color: #193655;
 
             font-size: 64px;
             font-weight: 900;
 
             line-height: 1;
-
-            margin-bottom: 70px;
         }
 
         .login-card {
             width: 300px;
 
-            padding: 20px 22px 22px;
+            padding: 18px 20px 20px;
 
             background: #ffffff;
 
@@ -138,147 +164,193 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 0 12px 30px rgba(0, 0, 0, 0.14);
         }
 
-        .login-titulo {
-            margin: 0 0 20px;
+        .login-card h2 {
+            margin: 0 0 20px 0;
 
-            color: #111111;
+            padding: 0;
 
             text-align: center;
 
+            color: #111111;
+
+            font-family: Arial, sans-serif;
+
             font-size: 24px;
             font-weight: 400;
+
+            line-height: 1.2;
         }
 
-        .login-campo {
+        .campo {
             width: 100%;
 
-            margin-bottom: 12px;
+            margin: 0 0 12px 0;
+            padding: 0;
         }
 
-        .login-campo label {
+        .campo label {
             display: block;
 
-            margin-bottom: 5px;
+            width: 100%;
+
+            margin: 0 0 5px 0;
+            padding: 0;
 
             color: #111111;
 
+            font-family: Arial, sans-serif;
+
             font-size: 14px;
+            font-weight: 400;
+
+            line-height: 1;
         }
 
-        .login-campo input {
-            width: 100%;
-            height: 38px;
+        .campo input {
+            display: block;
 
+            width: 100%;
+            height: 34px;
+
+            margin: 0;
             padding: 0 9px;
 
-            border: 2px solid #111111;
+            border: 2px solid #222222;
             border-radius: 6px;
 
             background: #ffffff;
 
             color: #111111;
 
-            font-size: 14px;
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
 
             outline: none;
-        }
-
-        .login-campo input:focus {
-            border-color: #111111;
 
             box-shadow: none;
         }
 
-        .login-entrar {
-            width: 100%;
-            height: 37px;
+        .campo input:focus {
+            border-color: #222222;
 
-            margin-top: 1px;
+            outline: none;
 
-            border: none;
-            border-radius: 9px;
-
-            background: #193655;
-
-            color: #ffffff;
-
-            font-size: 15px;
-            font-weight: bold;
-
-            cursor: pointer;
+            box-shadow: none;
         }
 
-        .login-entrar:hover {
-            background: #193655;
+        .campo input::placeholder {
+            color: #75808c;
+
+            opacity: 1;
         }
 
-        .login-recuperar {
+        .btn-entrar {
             display: flex;
 
             width: 100%;
-            height: 38px;
+            height: 33px;
 
-            margin-top: 10px;
+            margin: 0;
+            padding: 0;
 
             align-items: center;
             justify-content: center;
 
             border: none;
-            border-radius: 9px;
+            border-radius: 8px;
+
+            background: #193655;
+
+            color: #ffffff;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .btn-entrar:hover {
+            background: #193655;
+        }
+
+        .btn-esqueci {
+            display: flex;
+
+            width: 100%;
+            height: 34px;
+
+            margin: 9px 0 0 0;
+            padding: 0;
+
+            align-items: center;
+            justify-content: center;
+
+            border: none;
+            border-radius: 8px;
 
             background: #f7f7f7;
 
             color: #111111;
 
-            font-size: 14px;
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
             font-weight: bold;
 
             text-decoration: none;
 
             cursor: pointer;
 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.04);
         }
 
-        .login-recuperar:hover {
+        .btn-esqueci:hover {
             background: #eeeeee;
 
             color: #111111;
         }
 
-        .login-erro {
+        #problema {
             width: 100%;
 
-            margin-top: 12px;
-
-            padding: 11px;
-
-            border: 1px solid #d66b6b;
-            border-radius: 9px;
+            margin: 12px 0 0 0;
+            padding: 10px;
 
             background: #fdeaea;
+
+            border: 1px solid #d66b6b;
+            border-radius: 8px;
 
             color: #a52b2b;
 
             text-align: center;
 
-            font-size: 13px;
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            line-height: 1.4;
         }
 
-        .login-erro p {
+        #problema p {
             margin: 0;
+            padding: 0;
         }
 
         @media (max-width: 500px) {
 
-            .login-pagina {
+            .login-container {
                 padding: 35px 20px;
             }
 
-            .login-logo {
-                font-size: 52px;
+            .logo-top {
+                margin-bottom: 45px;
 
-                margin-bottom: 50px;
+                font-size: 52px;
             }
 
             .login-card {
@@ -294,21 +366,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
 
-    <main class="login-pagina">
+    <main class="login-container">
 
-        <div class="login-logo">
+        <div class="logo-top">
             HLGL
         </div>
 
         <div class="login-card">
 
-            <h1 class="login-titulo">
+            <h2>
                 Login
-            </h1>
+            </h2>
 
             <form method="POST">
 
-                <div class="login-campo">
+                <div class="campo">
 
                     <label for="email">
                         Email
@@ -325,7 +397,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 </div>
 
-                <div class="login-campo">
+                <div class="campo">
 
                     <label for="senha">
                         Senha
@@ -343,14 +415,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <button
                     type="submit"
-                    class="login-entrar"
+                    class="btn-entrar"
                 >
                     Entrar
                 </button>
 
                 <a
                     href="recuperar-senha.php"
-                    class="login-recuperar"
+                    class="btn-esqueci"
                 >
                     Esqueceu sua senha?
                 </a>
@@ -359,7 +431,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <?php if ($erro !== ""): ?>
 
-                <div class="login-erro">
+                <div id="problema">
 
                     <p>
                         <?= htmlspecialchars($erro) ?>

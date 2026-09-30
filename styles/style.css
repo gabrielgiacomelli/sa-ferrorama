@@ -267,12 +267,12 @@ li#navbar-sair{
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                            Cadastro Usuário                                */
-
 #cadastro-usuarios {
     width: 100%;
-    height: 100%;
     min-height: calc(100vh - 45px);
+
     background: var(--cor-background);
+
     box-sizing: border-box;
 }
 
@@ -294,7 +294,6 @@ li#navbar-sair{
     margin: 0 0 35px 0;
     padding: 0;
     padding-top: 8vh;
-    
 
     text-align: center;
 
@@ -321,14 +320,13 @@ li#navbar-sair{
 
 #cadastro-usuarios .cadastro-usuarios-card {
     width: 862px;
-
     min-height: 379px;
+
+    padding: 57px 28px 30px;
 
     background: #ffffff;
 
     border-radius: 15px;
-
-    padding: 57px 28px 30px;
 
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
 
@@ -427,6 +425,42 @@ li#navbar-sair{
     box-shadow: 0 0 0 1px #173f70;
 }
 
+#cadastro-usuarios .cadastro-usuarios-campo select {
+    display: block;
+
+    width: 100%;
+    height: 36px;
+
+    margin: 0;
+    padding: 5px 7px;
+
+    border: 2px solid #28558d;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+}
+
+#cadastro-usuarios .cadastro-usuarios-campo select:focus {
+    border-color: #173f70;
+
+    box-shadow: 0 0 0 1px #173f70;
+}
+
+#cadastro-usuarios .campo-acesso {
+    margin-bottom: 0;
+}
+
 #cadastro-usuarios .cadastro-usuarios-botao {
     width: 100%;
 
@@ -468,11 +502,13 @@ li#navbar-sair{
     background: #24486d;
 }
 
-#cadastro-usuarios #usuario-resultado {
+#cadastro-usuarios .cadastro-mensagem {
     width: 100%;
 
-    margin: 12px 0 0 0;
-    padding: 0;
+    margin: 14px 0 0 0;
+    padding: 10px;
+
+    border-radius: 8px;
 
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -482,11 +518,15 @@ li#navbar-sair{
     box-sizing: border-box;
 }
 
-#cadastro-usuarios #usuario-resultado.sucesso {
+#cadastro-usuarios .cadastro-mensagem.sucesso {
+    background: #e8f5e9;
+    border: 1px solid #75b981;
     color: #1d6b3a;
 }
 
-#cadastro-usuarios #usuario-resultado.erro {
+#cadastro-usuarios .cadastro-mensagem.erro {
+    background: #fdeaea;
+    border: 1px solid #d66b6b;
     color: #b3261e;
 }
 
@@ -512,7 +552,7 @@ li#navbar-sair{
 
     #cadastro-usuarios .cadastro-usuarios-card {
         width: 90%;
-        height: auto;
+        min-height: auto;
 
         padding: 35px 25px;
     }
@@ -530,7 +570,6 @@ li#navbar-sair{
     }
 
 }
-
 
 /*                           Cadastro Usuários                                */
 /* -------------------------------------------------------------------------- */
@@ -850,163 +889,233 @@ li#navbar-sair{
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                                  Login                                     */
-#body2 {
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
     margin: 0;
+    padding: 0;
+}
+
+#body2 {
+    width: 100%;
     min-height: 100vh;
+    margin: 0;
+
     background: #f3f5f8;
+
     font-family: Arial, sans-serif;
 }
 
 #body2 .login-container {
+    width: 100%;
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 30px 20px;
+    justify-content: flex-start;
+
+    padding-top: 35px;
+
+    position: static;
 }
 
 #body2 .logo-top {
-    margin-bottom: 65px;
+    margin: 0 0 55px 0;
+
     color: #193655;
+
     font-size: 64px;
     font-weight: 900;
+
     line-height: 1;
 }
 
 #body2 .login-card {
-    width: 335px;
-    padding: 24px 20px;
-    box-sizing: border-box;
+    width: 300px;
+
+    padding: 18px 20px 20px;
+
     background: #ffffff;
-    border-radius: 15px;
+
+    border-radius: 14px;
+
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
 }
 
 #body2 .login-card h2 {
     margin: 0 0 20px;
+
     text-align: center;
-    color: #111;
+
+    color: #111111;
+
     font-size: 24px;
     font-weight: 400;
+
+    line-height: 1.2;
 }
 
 #body2 .campo {
     width: 100%;
-    margin-bottom: 14px;
+
+    margin-bottom: 12px;
 }
 
 #body2 .campo label {
     display: block;
+
     margin-bottom: 5px;
-    color: #111;
+
+    color: #111111;
+
     font-size: 14px;
 }
 
 #body2 .campo input {
+    display: block;
+
     width: 100%;
-    height: 38px;
-    box-sizing: border-box;
-    padding: 0 10px;
-    border: 2px solid #222;
+    height: 34px;
+
+    padding: 0 9px;
+
+    border: 2px solid #222222;
     border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
     outline: none;
-    font-size: 14px;
+
+    box-shadow: none;
 }
 
 #body2 .campo input:focus {
-    border-color: #193655;
+    border-color: #222222;
+
+    outline: none;
+
+    box-shadow: none;
+}
+
+#body2 .campo input::placeholder {
+    color: #75808c;
 }
 
 #body2 .btn-entrar {
     display: flex;
+
     width: 100%;
-    height: 38px;
+    height: 33px;
+
     margin: 0;
     padding: 0;
+
     align-items: center;
     justify-content: center;
+
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
+
     background: #193655;
-    color: #fff;
-    font-size: 14px;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
     font-weight: bold;
+
     cursor: pointer;
 }
 
 #body2 .btn-entrar:hover {
-    background: #24486d;
+    background: #193655;
 }
-
-/* BOTÃO ESQUECI A SENHA */
 
 #body2 .btn-esqueci {
     display: flex;
+
     width: 100%;
-    height: 38px;
-    margin-top: 10px;
+    height: 34px;
+
+    margin-top: 9px;
     padding: 0;
+
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
 
-    background: #e5e9ee;
-    border: 1px solid #c7cdd4;
-    border-radius: 10px;
+    border: none;
+    border-radius: 8px;
 
-    color: #193655;
-    font-size: 14px;
+    background: #f7f7f7;
+
+    color: #111111;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
     font-weight: bold;
+
     text-decoration: none;
 
     cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 #body2 .btn-esqueci:hover {
-    background: #d8dee5;
-    color: #193655;
-}
+    background: #eeeeee;
 
-/* MENSAGEM DE ERRO */
+    color: #111111;
+}
 
 #body2 #problema {
     width: 100%;
-    box-sizing: border-box;
-    margin: 14px 0 0;
-    padding: 12px 14px;
+
+    margin: 12px 0 0;
+    padding: 10px;
 
     background: #fdeaea;
+
     border: 1px solid #d66b6b;
-    border-radius: 10px;
+    border-radius: 8px;
 
     color: #a52b2b;
+
     text-align: center;
-    font-size: 14px;
+
+    font-size: 12px;
     line-height: 1.4;
 }
 
-/* REMOVE ESTILOS ANTIGOS DO BOOTSTRAP */
-
-#body2 .text-danger {
-    color: inherit !important;
-}
-
-#body2 .text-center {
-    text-align: center;
+#body2 #problema p {
+    margin: 0;
 }
 
 @media (max-width: 500px) {
 
+    #body2 .login-container {
+        padding: 35px 20px;
+    }
+
     #body2 .logo-top {
         margin-bottom: 45px;
+
         font-size: 52px;
     }
 
     #body2 .login-card {
         width: 100%;
-        max-width: 335px;
+        max-width: 300px;
     }
 
 }
