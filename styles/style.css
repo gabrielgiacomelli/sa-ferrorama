@@ -1784,7 +1784,13 @@ body {
 
     min-height: calc(100vh - 60px);
 
-    padding-top: 45px;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
 }
 
 
