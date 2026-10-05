@@ -127,17 +127,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             font-family: Arial, sans-serif;
         }
-
+        
         .login-container {
             width: 100%;
             min-height: 100vh;
 
             display: flex;
-            flex-direction: column;
+        flex-direction: column;
 
             align-items: center;
+            justify-content: center;
 
-            padding-top: 35px;
+            padding: 0;
+
+            transform: translateY(-40px);
         }
 
         .logo-top {
