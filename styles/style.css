@@ -7,7 +7,6 @@
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
-
 /* -------------------------------------------------------------------------- */
 /*                              RECOMEÇO CSS                                  */
 
@@ -47,48 +46,135 @@
   src: url("../assets/fonts/Horizon.woff2") format("woff2");
 }
 
-
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 /*                                 Navbar                                     */
-
-header{
+header {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
+
     z-index: 999;
 }
 
-#navbar-flex{
-     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
 
-    list-style: none;
+/* -------------------------------------------------------------------------- */
+/*                         BARRA PRINCIPAL                                   */
+/* -------------------------------------------------------------------------- */
+
+#navbar-ferroviario {
+    width: 100%;
+    height: 45px;
+
+    background-color: var(--cor-azul-ferroviario);
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                         DETALHE ESQUERDO                                  */
+/* -------------------------------------------------------------------------- */
+
+#navbar-esquerda {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 110px;
+    height: 100%;
+
+    background-color: var(--cor-azul-ferroviario-claro);
+
+    clip-path: polygon(
+        0 0,
+        75% 0,
+        100% 100%,
+        0% 100%
+    );
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                           MENU CENTRAL                                    */
+/* -------------------------------------------------------------------------- */
+
+#navbar-menu {
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+
+    height: 45px;
+}
+
+
+#navbar-flex {
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 40px;
 
     margin: 0;
     padding: 0;
 
-    height: 60px;
+    list-style: none;
+}
 
+
+#navbar-flex li {
+    list-style: none;
     position: relative;
 }
 
-#navbar-flex a{
+
+#navbar-flex > li > a {
+    display: block;
+
     color: white;
+
     text-decoration: none;
+
     font-family: var(--fonte-poppins);
+
+    font-size: 16px;
     font-weight: 500;
-    position: relative;
-    padding-bottom: 8px;
+
+    padding: 13px 0 8px;
+
+    white-space: nowrap;
+
+    transition: 0.2s ease;
 }
 
-#navbar-flex a.ativo{
+
+#navbar-flex > li > a:hover {
+    color: white;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                             ITEM ATIVO                                    */
+/* -------------------------------------------------------------------------- */
+
+#navbar-flex > li > a.ativo {
     font-weight: 700;
-    font-style: bold;
 }
 
-#navbar-flex a.ativo::after{
+
+#navbar-flex > li > a.ativo::after {
     content: "";
 
     position: absolute;
@@ -104,125 +190,178 @@ header{
     background-color: var(--cor-azul-ferroviario-claro);
 }
 
-li#navbar-sair{
-    position: absolute;
-    right: 60px;
-    top: 26%;
-}
 
-#navbar-sair {
-    border-bottom: none;
+/* -------------------------------------------------------------------------- */
+/*                         USUÁRIO - CANTO DIREITO                           */
+/* -------------------------------------------------------------------------- */
+
+#navbar-usuario {
+    position: absolute;
+
+    right: 35px;
+    top: center;
+
+    height: 31px;
+
     display: flex;
     align-items: center;
-    gap: 8px; /* Espaço entre a palavra Sair e o futuro ícone */
-    
+
+    background-color: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
 }
-#navbar-sair a{
-    color: white;
-    text-decoration: none;
+
+
+/* Nome */
+
+#navbar-nome {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0 13px;
+
+    color: white !important;
+
+    font-family: var(--fonte-poppins);
+
+    font-size: 12px;
     font-weight: 500;
-    position: relative;
-    padding-bottom: 8px;
+
+    white-space: nowrap;
 }
 
-/* Fazer a parte do icone posteriormente */
 
-#navbar-ferroviario{
-    width: 100%;
-    height: 45px;
-    background-color: var(--cor-azul-ferroviario);
+/* -------------------------------------------------------------------------- */
+/*                              BOTÃO SAIR                                   */
+/* -------------------------------------------------------------------------- */
 
-    display:flex;
+#navbar-sair {
+    display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-}
 
-#navbar-esquerda{
-    position: absolute;
-    left: 0;
-    top: 0;
-
-    width: 110px;
     height: 100%;
 
-    background: var(--cor-azul-ferroviario-claro);
+    padding: 0 14px;
 
-    clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
+    color: white !important;
+
+    background-color: var(--cor-azul-ferroviario-claro);
+
+    text-decoration: none;
+
+    font-family: var(--fonte-poppins);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+
+    transition: 0.2s ease;
 }
 
-#navbar-direita{
-    position: absolute;
-    right: -20px;
-    top: 49px;
 
-    width: 110px;
-    height: 100%;
-
-    background: var(--cor-azul-ferroviario-claro);
-
-    clip-path: polygon(0 0,100% 0, 100% 100%,20% 0);
+#navbar-sair:hover {
+    background-color: var(--cor-azul-ferroviario);
+    color: white !important;
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                         LINHA INFERIOR                                    */
+/* -------------------------------------------------------------------------- */
 
 #navbar-ferroviario-contraste-linha {
-    background-color: var(--cor-azul-ferroviario-claro);
-    height: 3.5px;
     width: 100%;
+    height: 3.5px;
+
+    background-color: var(--cor-azul-ferroviario-claro);
 }
 
+
 /* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*                             Navbar DROPDOWN                                */
-/* -------------------------------------------------------------------------- */
+/*                              DROPDOWN                                     */
 /* -------------------------------------------------------------------------- */
 
-.dropdown{
+.dropdown {
     position: relative;
 }
 
-.dropdown-menu{
+
+.dropdown-menu {
     display: none;
 
     position: absolute;
-    top: 110%;
+
+    top: 100%;
     left: 50%;
 
     transform: translateX(-50%);
 
-    min-width: 110px;
+    min-width: 140px;
 
-    background: var(--cor-branca);
+    margin: 0;
+    padding: 6px 0;
 
-    border-radius: 15px;
+    background-color: var(--cor-branca);
 
-    padding: 2px 0;
+    border: none;
+    border-radius: 12px;
 
     list-style: none;
 
-    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 
     z-index: 1000;
 }
 
-.dropdown:hover .dropdown-menu{
+
+.dropdown:hover .dropdown-menu {
     display: block;
 }
 
-.dropdown-menu a{
-    display: block;
-    padding: 1px 20px;
-    color: var(--cor-azul-ferroviario) !important;
+
+.dropdown-menu li {
+    width: 100%;
 }
 
-.submenu-ativo{
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 8px 20px !important;
+
     color: var(--cor-azul-ferroviario) !important;
+
+    font-family: var(--fonte-poppins);
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+
+.dropdown-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+.submenu-ativo {
+    color: var(--cor-azul-ferroviario) !important;
+
     font-weight: 800 !important;
 }
-
-/*                            Navbar DROPDOWN                                 */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-
 /*                                 Navbar                                     */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */

@@ -3,155 +3,205 @@
 include "sessao.php";
 
 if (!isset($_SESSION["usuario_id"])) {
-
-    header(
-
-        "Location: ../public/login.php"
-
-        );
-
+    header("Location: ../public/login.php");
     exit;
-
 }
 
 ?>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.1">
-    <link rel="stylesheet" href="../styles/style.css?v=1.1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../styles/style.css?v=1.2">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 </head>
-    <header >
-                    <div id="navbar-ferroviario">
-                        <div id="navbar-esquerda"></div>
-                        <nav>
-                            <ul id="navbar-flex">
-                                <li>
-                                    <a href="home.php"
-                                    class="<?= $paginaAtual == 'home' ? 'ativo' : '' ?>">
-                                    Home
-                                    </a>
-                                </li>
 
-                                <li class="dropdown">
-                                    <a class="<?= $paginaAtual == 'cadastro' ? 'ativo' : '' ?>">
-                                        Cadastro
-                                    </a>
+<header>
 
-                                    <ul class="dropdown-menu">
+    <div id="navbar-ferroviario">
 
-                                        <li>
-                                            <a href="cadastro-sensor.php"
-                                            class="<?= $submenuAtual == 'sensores' ? 'submenu-ativo' : '' ?>">
-                                            Sensores
-                                            </a>
-                                        </li>
+        <!-- DETALHE ESQUERDO -->
+        <div id="navbar-esquerda"></div>
 
-                                        <li>
-                                            <a href="cadastro-trem.php"
-                                            class="<?= $submenuAtual == 'trens' ? 'submenu-ativo' : '' ?>">
-                                            Trens
-                                            </a>
-                                        </li>
 
-                                        <li>
-                                            <a href="cadastro-rota.php"
-                                            class="<?= $submenuAtual == 'rotas' ? 'submenu-ativo' : '' ?>">
-                                            Rotas
-                                            </a>
-                                        </li>
+        <!-- MENU CENTRAL -->
+        <nav id="navbar-menu">
 
-                                        <li>
-                                            <a href="cadastro-relatorio.php"
-                                            class="<?= $submenuAtual == 'relatorios' ? 'submenu-ativo' : '' ?>">
-                                            Relatórios
-                                            </a>
-                                        </li>
+            <ul id="navbar-flex">
 
-                                        <li>
-                                            <a href="cadastro-usuario.php"
-                                            class="<?= $submenuAtual == 'usuarios' ? 'submenu-ativo' : '' ?>">
-                                            Usuários
-                                            </a>
-                                        </li>
+                <li>
+                    <a
+                        href="home.php"
+                        class="<?= $paginaAtual == 'home' ? 'ativo' : '' ?>"
+                    >
+                        Home
+                    </a>
+                </li>
 
-                                    </ul>
-                                </li>
 
-                                <li class="dropdown">
-                                    <a class="<?= $paginaAtual == 'gestao' ? 'ativo' : '' ?>">
-                                        Gestão
-                                    </a>
+                <!-- CADASTRO -->
+                <li class="dropdown">
 
-                                    <ul class="dropdown-menu">
+                    <a
+                        href="#"
+                        class="<?= $paginaAtual == 'cadastro' ? 'ativo' : '' ?>"
+                    >
+                        Cadastro
+                    </a>
 
-                                        <li>
-                                            <a href="gestao-sensores.php"
-                                            class="<?= $submenuAtual == 'gestao-sensores' ? 'submenu-ativo' : '' ?>">
-                                            Sensores
-                                            </a>
-                                        </li>
+                    <ul class="dropdown-menu">
 
-                                        <li>
-                                            <a href="gestao-trem.php"
-                                            class="<?= $submenuAtual == 'gestao-trens' ? 'submenu-ativo' : '' ?>">
-                                            Trens
-                                            </a>
-                                        </li>
+                        <li>
+                            <a
+                                href="cadastro-sensor.php"
+                                class="<?= $submenuAtual == 'sensores' ? 'submenu-ativo' : '' ?>"
+                            >
+                                Sensores
+                            </a>
+                        </li>
 
-                                        <li>
-                                            <a href="gestao-rota.php"
-                                            class="<?= $submenuAtual == 'gestao-rotas' ? 'submenu-ativo' : '' ?>">
-                                            Rotas
-                                            </a>
-                                        </li>
+                        <li>
+                            <a
+                                href="cadastro-trem.php"
+                                class="<?= $submenuAtual == 'trens' ? 'submenu-ativo' : '' ?>"
+                            >
+                                Trens
+                            </a>
+                        </li>
 
-                                        <li>
-                                            <a href="gestao-relatorios.php"
-                                            class="<?= $submenuAtual == 'gestao-relatorios' ? 'submenu-ativo' : '' ?>">
-                                            Relatórios
-                                            </a>
-                                        </li>
+                        <li>
+                            <a
+                                href="cadastro-rota.php"
+                                class="<?= $submenuAtual == 'rotas' ? 'submenu-ativo' : '' ?>"
+                            >
+                                Rotas
+                            </a>
+                        </li>
 
-                                        <li>
-                                            <a href="gestao-usuarios.php"
-                                            class="<?= $submenuAtual == 'gestao-usuarios' ? 'submenu-ativo' : '' ?>">
-                                            Usuários
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </li>
+                        <li>
+                            <a
+                                href="cadastro-relatorio.php"
+                                class="<?= $submenuAtual == 'relatorios' ? 'submenu-ativo' : '' ?>"
+                            >
+                                Relatórios
+                            </a>
+                        </li>
 
-                                <li>
-                                    <a href=""
-                                    class="<?= $paginaAtual == 'monitoramento' ? 'ativo' : '' ?>">
-                                    Monitoramento
-                                    </a>
-                                </li>
+                        <li>
+                            <a
+                                href="cadastro-usuario.php"
+                                class="<?= $submenuAtual == 'usuarios' ? 'submenu-ativo' : '' ?>"
+                            >
+                                Usuários
+                            </a>
+                        </li>
 
-                            </ul>
+                    </ul>
 
-                        </nav>
+                </li>
 
-                        <ul id = "navbar-usuario">
-                                <li id = "navbar-nome">
-                                    <?= htmlspecialchars($_SESSION["usuario_nome"] ?? "Usuário") ?>
-                                </li>
-                            </ul>
 
-                        <div id="navbar-direita"></div>
-                        <ul>
-                            
-                            <li id="navbar-sair">
-                                    <a href="logout.php">Sair</a>
-                                </li>
-                        </ul>
-                    </div>
+                <!-- GESTÃO -->
+                <li class="dropdown">
 
-                <div id="navbar-ferroviario-contraste-linha"></div> 
+                    <a
+                        href="#"
+                        class="<?= $paginaAtual == 'gestao' ? 'ativo' : '' ?>"
+                    >
+                        Gestão
+                    </a>
 
-    </header>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a
+                                href="gestao-sensores.php"
+                                class="<?= $submenuAtual == 'gestao-sensores' ? 'submenu-ativo' : '' ?>"
+                            >
+                                Sensores
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="gestao-trem.php"
+                                class="<?= $submenuAtual == 'gestao-trens' ? 'submenu-ativo' : '' ?>"
+                            >
+                                Trens
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="gestao-rota.php"
+                                class="<?= $submenuAtual == 'gestao-rotas' ? 'submenu-ativo' : '' ?>"
+                            >
+                                Rotas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="gestao-relatorios.php"
+                                class="<?= $submenuAtual == 'gestao-relatorios' ? 'submenu-ativo' : '' ?>"
+                            >
+                                Relatórios
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="gestao-usuarios.php"
+                                class="<?= $submenuAtual == 'gestao-usuarios' ? 'submenu-ativo' : '' ?>"
+                            >
+                                Usuários
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+
+                <!-- MONITORAMENTO -->
+                <li>
+
+                    <a
+                        href="monitoramento.php"
+                        class="<?= $paginaAtual == 'monitoramento' ? 'ativo' : '' ?>"
+                    >
+                        Monitoramento
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <!-- USUÁRIO NO CANTO DIREITO -->
+        <div id="navbar-usuario">
+
+            <span id="navbar-nome">
+                <?= htmlspecialchars($_SESSION["usuario_nome"] ?? "Usuário") ?>
+            </span>
+
+            <a id="navbar-sair" href="logout.php">
+                Sair
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- LINHA INFERIOR -->
+    <div id="navbar-ferroviario-contraste-linha"></div>
+
+</header>
