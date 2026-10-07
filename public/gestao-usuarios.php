@@ -252,13 +252,17 @@ include("../includes/navbar.php");
 
                                     <div class="gestao-acoes">
 
+                                    <?php
+
+                                        if(($_SESSION["usuario_acesso"] ?? "") === "Administrador") { ?>
+
                                         <a
                                             href="editar-usuario.php?id=<?php echo (int) $usuario["id"]; ?>"
                                             class="gestao-btn atualizar"
                                         >
                                             Atualizar
                                         </a>
-
+                                        
                                         <button
                                             type="button"
                                             class="gestao-btn excluir"
@@ -266,6 +270,8 @@ include("../includes/navbar.php");
                                         >
                                             Excluir
                                         </button>
+
+                                        <?php } ?>
 
                                     </div>
 

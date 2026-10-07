@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     } else {
 
-        $sql = "SELECT id, nome, email, senha
+        $sql = "SELECT id, nome, email, senha, acesso
                 FROM usuarios
                 WHERE email = ?
                 LIMIT 1";
@@ -58,6 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     $_SESSION["usuario_email"] =
                         $usuario["email"];
+
+                    $_SESSION["usuario_acesso"] = 
+                        $usuario["acesso"];
 
                     mysqli_stmt_close($stmt);
 

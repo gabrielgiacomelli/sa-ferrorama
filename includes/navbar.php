@@ -92,6 +92,10 @@ if (!isset($_SESSION["usuario_id"])) {
                             </a>
                         </li>
 
+                        <?php
+                        
+                        if (($_SESSION["usuario_acesso"] ?? "") === "Administrador") { ?>
+
                         <li>
                             <a
                                 href="cadastro-usuario.php"
@@ -100,6 +104,8 @@ if (!isset($_SESSION["usuario_id"])) {
                                 Usuários
                             </a>
                         </li>
+
+                        <?php } ?>
 
                     </ul>
 
