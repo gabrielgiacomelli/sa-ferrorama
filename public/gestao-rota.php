@@ -283,6 +283,7 @@ include("../includes/navbar.php");
 
                                     <div class="gestao-acoes">
 
+                                    <?php if(($_SESSION["usuario_acesso"] ?? "") === "Administrador") { ?>
                                         <?php
                                         if($rota["status"] === "Ativo"): ?>
                                         <button
@@ -329,6 +330,8 @@ include("../includes/navbar.php");
                                 </td>
 
                             </tr>
+
+                            <?php } ?>
 
                         <?php endforeach; ?>
 
