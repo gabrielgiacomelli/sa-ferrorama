@@ -12,26 +12,26 @@ A comunicação realizada entre os sistemas por meio de APIs segue o padrão de 
 
 O API REST é um dos padrões seguidos dentro de uma API que segue o princípio REST (Representational State Transfer), utilizado em sistemas web a fim de priorizar a escalabilidade e eficiência. Para estruturar corretamente uma API REST em seu sistema web, é necessário seguir os seus seis princípios fundamentais:
 
-Interface uniforme;
-Separação cliente-servidor;
-Stateless (Sem estado definido);
-Capacidade de armazenamento em cache;
-Arquitetura de sistema em camadas;
-Código sob demanda.
+- Interface uniforme;
+- Separação cliente-servidor;
+- Stateless (Sem estado definido);
+- Capacidade de armazenamento em cache;
+- Arquitetura de sistema em camadas;
+- Código sob demanda.
 
 
 ### O papel dos métodos HTTP, como GET, POST, PUT, PATCH e DELETE
 
 Os métodos HTTP estão diretamente relacionados com as APIs no quesito de comunicação entre os sistemas. Eles são as ações realizadas no navegador após as solicitações iniciadas no navegador, também chamada de requisição. Dentre os exemplos é possível citar **GET**, **POST**, **PUT**, **PATCH** e **DELETE**:
 
-GET: Método utilizado para solicitar uma ou várias informações de dentro do servidor.
+- GET: Método utilizado para solicitar uma ou várias informações de dentro do servidor.
 
-POST: Envia as informações para o servidor, em grande parte dos casos sendo utilizado em formulários de cadastro ou que exijam informações.
+- POST: Envia as informações para o servidor, em grande parte dos casos sendo utilizado em formulários de cadastro ou que exijam informações.
 
-PUT: Utilizado para editar informações que já foram inseridas dentro do servidor, sendo necessário referenciar a chave única do elemento para editá-lo.
+- PUT: Utilizado para editar informações que já foram inseridas dentro do servidor, sendo necessário referenciar a chave única do elemento para editá-lo.
 PATCH: Semelhante ao PUT, entretanto, enquanto o PUT realiza substituições completas, o PATCH é utilizado para modificar elementos específicos, alterando apenas uma parte das informações.
 
-DELETE: Utilizado para apagar informações dentro do banco de dados.
+- DELETE: Utilizado para apagar informações dentro do banco de dados.
 
 ### O que são requisições e respostas HTTP?
 
