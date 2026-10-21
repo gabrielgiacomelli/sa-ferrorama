@@ -65,6 +65,10 @@ if (!isset($_SESSION["usuario_id"])) {
                             </a>
                         </li>
 
+                        <?php
+
+                        if (($_SESSION["usuario_acesso"] ?? "") === "Administrador") { ?>
+
                         <li>
                             <a
                                 href="cadastro-trem.php"
@@ -82,6 +86,8 @@ if (!isset($_SESSION["usuario_id"])) {
                                 Rotas
                             </a>
                         </li>
+
+                        <?php } ?>
 
                         <li>
                             <a
@@ -160,6 +166,10 @@ if (!isset($_SESSION["usuario_id"])) {
                             </a>
                         </li>
 
+                        <?php
+
+                        if (($_SESSION["usuario_acesso"] ?? "") === "Administrador") { ?>
+
                         <li>
                             <a
                                 href="gestao-usuarios.php"
@@ -168,6 +178,8 @@ if (!isset($_SESSION["usuario_id"])) {
                                 Usuários
                             </a>
                         </li>
+
+                        <?php } ?>
 
                     </ul>
 
