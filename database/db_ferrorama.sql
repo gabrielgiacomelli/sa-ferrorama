@@ -26,7 +26,7 @@ CREATE TABLE rotas (
 CREATE TABLE trens (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_usuarios INT NOT NULL,
-    id_rota INT NOT NULL,
+    id_rota INT NULL,
     peso DECIMAL(8, 2) NOT NULL,
     quantidade_vagoes INT NOT NULL,
     status VARCHAR(100) NOT NULL DEFAULT 'Ativo',
