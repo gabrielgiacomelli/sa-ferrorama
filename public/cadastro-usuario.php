@@ -12,6 +12,7 @@ $data_nascimento = "";
 $cep = "";
 $complemento = "";
 $telefone = "";
+$acesso = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -38,6 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_POST["complemento"] ?? ""
     );
 
+    $acesso = trim(
+        $_POST["acesso"] ?? ""
+        );
+
     $telefone = preg_replace(
         "/\D/",
         "",
@@ -57,7 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $cpf === "" ||
         $data_nascimento === "" ||
         $cep === "" ||
-        $telefone === ""
+        $telefone === "" ||
+        $acesso === "" 
     ) {
 
         $mensagem = "Preencha todos os campos obrigatórios.";
@@ -229,9 +235,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         data_nascimento,
                         cep,
                         complemento,
-                        telefone
+                        telefone,
+                        acesso
                     )
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                     $stmtInsert = mysqli_prepare(
                         $conn,
@@ -249,7 +256,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         mysqli_stmt_bind_param(
                             $stmtInsert,
-                            "sssssssss",
+                            "ssssssssss",
                             $email,
                             $senha_hash,
                             $confirm_senha_hash,
@@ -258,7 +265,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             $data_nascimento,
                             $cep,
                             $complemento,
-                            $telefone
+                            $telefone,
+                            $acesso
                         );
 
                         try {
