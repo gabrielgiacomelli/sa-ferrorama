@@ -93,6 +93,37 @@ A API poderia retornar:
   "status": "aprovado"
 }
 
+### Exemplos de utilização de APIs na nossa SA
+
+Na Entrega 10, o Ferrorama integra duas APIs externas, consultadas em tempo real.
+
+#### 1. API de clima: Open-Meteo (Home)
+
+- **Finalidade:** Mostrar na tela inicial o clima do local de operação: temperatura, condição climática, localização e horário da consulta.
+- **Por que foi escolhida:** Gratuita para uso não comercial, sem cadastro e sem chave de API, com resposta simples em JSON.
+- **Como os dados são obtidos:** Requisição GET (JavaScript `fetch`) para `https://api.open-meteo.com/v1/forecast?latitude=...&longitude=...&current=temperature_2m,weather_code&timezone=auto`.
+- **Como são apresentados:**
+  - Temperatura em °C (`temperature_2m`);
+  - Condição traduzida a partir do `weather_code` (ex.: 0 = céu limpo, 3 = nublado, 61 = chuva);
+  - Local consultado: `[Joinville]`;
+  - Data e horário: "Atualizado em dd/mm/aaaa hh:mm".
+- **Tratamento de erros:** Se a API falhar, a Home continua carregando e o bloco mostra "Clima indisponível no momento."
+- **Licença:** Dados sob CC BY 4.0, por isso o bloco exibe "Weather data by Open-Meteo.com".
+- **Documentação oficial:** https://open-meteo.com/en/docs
+
+#### 2. API de CEP: ViaCEP (cadastros)
+
+- **Finalidade:** Consultar o CEP digitado e preencher automaticamente CEP, logradouro, bairro, cidade e UF.
+- **Por que foi escolhida:** Gratuita, sem chave, endereço de consulta simples e retorna exatamente os campos necessários.
+- **Como os dados são obtidos:** Requisição GET para `https://viacep.com.br/ws/{CEP}/json/`, com o CEP de 8 dígitos, quando o usuário sai do campo CEP.
+- **Campos preenchidos:** `logradouro`, `bairro`, `localidade` (cidade) e `uf`.
+- **Tratamento de erros:**
+  - *CEP inválido:* Se não tiver 8 dígitos, o sistema avisa o usuário e nem consulta a API;
+  - *CEP inexistente:* A API devolve o campo `erro`, e o sistema mostra "CEP não encontrado.";
+  - *falha de comunicação:* o `fetch` está em `try/catch`, o sistema mostra "Não foi possível consultar o CEP agora." e o preenchimento manual continua liberado.
+- **Documentação oficial:** https://viacep.com.br
+
+
 ## Referências
 
 https://www.alura.com.br/artigos/api?utm_term=&utm_campaign=&utm_source=google&utm_medium=cpc&campaign_id=23805973578__&utm_id=23805973578__&hsa_acc=7964138385&hsa_cam=&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=google&hsa_ver=3&gad_source=1&gad_campaignid=23815806613&gbraid=0AAAAADpqZIBl1_auUC126pAQ6BmZco7SL&gclid=CjwKCAjw_9bWBhBGEiwAomyTIixwf2ZcxkUN3UpNIcl3iQwRlsRbo0jkecyhv9ygvgXbmzs1jfWsRRoCql0QAvD_BwE
@@ -110,3 +141,5 @@ https://www.ibm.com/br-pt/think/topics/api-integration
 https://www.ibm.com/br-pt/think/topics/api-authentication 
 https://docs.github.com/en/rest  
  
+https://open-meteo.com/en/docs
+https://viacep.com.br
