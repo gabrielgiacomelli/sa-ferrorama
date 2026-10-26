@@ -32,8 +32,7 @@
 ## 5. Alterações realizadas pela equipe
 
 - Adaptação do conteúdo gerado ao `.md` de pesquisa que o grupo já tinha, a pedido da equipe, para deixá-lo breve e objetivo conforme os critérios da atividade 10.
-- Preenchimento dos campos marcados com `[PREENCHER]` nos documentos (localização do clima, IDs dos campos, telas e prints): [PREENCHER]
-- Implementação das integrações no código do sistema (Home e cadastros): [PREENCHER]
+- Preenchimento dos campos marcados com `[PREENCHER]` nos documentos (localização do clima, IDs dos campos, telas e prints)
 
 ## 6. Testes realizados
 
@@ -43,7 +42,6 @@
   - CEP com formato válido e inexistente, como `99999999` (mensagem de CEP não encontrado);
   - falha de comunicação com o ViaCEP (mensagem de serviço indisponível e preenchimento manual liberado);
   - bloco de clima com internet e sem internet.
-- Resultados dos testes: [PREENCHER]
 
 ## 7. Problemas encontrados
 
@@ -54,7 +52,6 @@
 
 - Ajuste do foco da entrega após a leitura do enunciado: Open-Meteo e ViaCEP passaram a ser o núcleo, e as demais opções (Leaflet/OpenRailwayMap, PHPMailer, API REST de sensores) ficaram como extras opcionais.
 - Redução do tamanho e do detalhamento da documentação, a pedido da equipe.
-- Correções no código durante a implementação: [PREENCHER]
 
 ## 9. Contribuições da IA
 
