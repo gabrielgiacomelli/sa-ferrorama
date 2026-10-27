@@ -324,6 +324,20 @@ Entre as práticas consideradas estão:
 
 ---
 
+## APIs Utilizadas
+
+Open-Meteo — informações meteorológicas
+
+- Finalidade: obter informações de clima para exibição na página inicial (Home).
+
+Responsável por trazer informações como a temperatura, localização e umidade dentro da página home.
+
+ViaCEP — consulta de endereço por CEP
+
+- Finalidade: auxiliar o preenchimento dos campos de endereço nos cadastros de usuário.
+
+Através da inserção de um CEP válido, a API será responsável por localizar informações como logradouro, bairro, cidade e estado.
+
 ## Trabalho em Equipe
 
 O desenvolvimento do **SA-Ferrorama** será realizado de forma colaborativa, utilizando o **GitHub** para versionamento e compartilhamento do código.
