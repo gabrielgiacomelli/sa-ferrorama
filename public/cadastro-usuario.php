@@ -370,7 +370,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <link
         rel="stylesheet"
-        href="../assets/css/cadastro-usuarios.css"
+        href="../assets/css/style.css"
     >
 
 </head>
@@ -542,11 +542,14 @@ include("../includes/navbar.php");
                                     placeholder="Digite seu CEP"
                                     value="<?= htmlspecialchars($cep) ?>"
                                     maxlength="9"
+                                    inputmode="numeric"
+                                    autocomplete="postal-code"
+                                    aria-describedby="usuario-cep-mensagem"
                                     required
                                 >
+                                <small id="usuario-cep-mensagem" role="status" aria-live="polite"></small>
 
                             </div>
-
 
                             <div class="cadastro-usuarios-campo">
 
@@ -585,6 +588,30 @@ include("../includes/navbar.php");
                             </div>
 
                         </div>
+
+                    </div>
+
+                    <!-- ENDEREÇO PREENCHIDO AUTOMATICAMENTE PELO VIACEP -->
+                    <div class="cadastro-usuarios-endereco">
+                            <div class="cadastro-usuarios-campo">
+                                <label for="usuario-logradouro">Logradouro</label>
+                                <input type="text" id="usuario-logradouro" placeholder="Preenchido pelo CEP" autocomplete="address-line1" readonly>
+                            </div>
+
+                            <div class="cadastro-usuarios-campo">
+                                <label for="usuario-bairro">Bairro</label>
+                                <input type="text" id="usuario-bairro" placeholder="Preenchido pelo CEP" readonly>
+                            </div>
+
+                            <div class="cadastro-usuarios-campo">
+                                <label for="usuario-cidade">Cidade</label>
+                                <input type="text" id="usuario-cidade" placeholder="Preenchido pelo CEP" autocomplete="address-level2" readonly>
+                            </div>
+
+                            <div class="cadastro-usuarios-campo">
+                                <label for="usuario-uf">Estado (UF)</label>
+                                <input type="text" id="usuario-uf" maxlength="2" placeholder="UF" readonly>
+                            </div>
 
                     </div>
 
@@ -653,6 +680,103 @@ include("../includes/navbar.php");
 
 </div>
 
+
+<script>
+(() => {
+    const campoCep = document.getElementById("usuario-cep");
+    const mensagemCep = document.getElementById("usuario-cep-mensagem");
+    const camposEndereco = {
+        logradouro: document.getElementById("usuario-logradouro"),
+        bairro: document.getElementById("usuario-bairro"),
+        cidade: document.getElementById("usuario-cidade"),
+        uf: document.getElementById("usuario-uf")
+    };
+
+    let consultaAtual = null;
+
+    function limparEndereco() {
+        Object.values(camposEndereco).forEach(campo => campo.value = "");
+    }
+
+    campoCep.addEventListener("input", () => {
+        const numeros = campoCep.value.replace(/\D/g, "").slice(0, 8);
+        campoCep.value = numeros.length > 5
+            ? `${numeros.slice(0, 5)}-${numeros.slice(5)}`
+            : numeros;
+
+        if (consultaAtual) {
+            consultaAtual.abort();
+            consultaAtual = null;
+        }
+
+        limparEndereco();
+        mensagemCep.textContent = "";
+        mensagemCep.style.color = "";
+
+        if (numeros.length === 8) {
+            consultarCep(numeros);
+        }
+    });
+
+    async function consultarCep(cep) {
+        const controlador = new AbortController();
+        consultaAtual = controlador;
+        mensagemCep.textContent = "Consultando CEP...";
+
+        const timeout = setTimeout(() => controlador.abort(), 10000);
+
+        try {
+            const resposta = await fetch(
+                `https://viacep.com.br/ws/${cep}/json/`,
+                { signal: controlador.signal }
+            );
+
+            if (!resposta.ok) {
+                throw new Error("Falha na comunicação com o serviço de CEP.");
+            }
+
+            const dados = await resposta.json();
+
+            // Ignora respostas de uma consulta antiga.
+            if (consultaAtual !== controlador) return;
+
+            if (dados.erro) {
+                limparEndereco();
+                mensagemCep.textContent = "CEP não encontrado. Confira os números e tente novamente.";
+                mensagemCep.style.color = "#b00020";
+                return;
+            }
+
+            camposEndereco.logradouro.value = dados.logradouro || "";
+            camposEndereco.bairro.value = dados.bairro || "";
+            camposEndereco.cidade.value = dados.localidade || "";
+            camposEndereco.uf.value = dados.uf || "";
+
+            mensagemCep.textContent = "Endereço localizado.";
+            mensagemCep.style.color = "#18743b";
+        } catch (erro) {
+            if (consultaAtual !== controlador) return;
+
+            limparEndereco();
+            mensagemCep.textContent = controlador.signal.aborted
+                ? "A consulta demorou demais. Tente novamente."
+                : "Não foi possível consultar o CEP. Verifique sua conexão e tente novamente.";
+            mensagemCep.style.color = "#b00020";
+        } finally {
+            clearTimeout(timeout);
+            if (consultaAtual === controlador) {
+                consultaAtual = null;
+            }
+        }
+    }
+
+    // Consulta também um CEP que já esteja preenchido após o envio do formulário.
+    const cepInicial = campoCep.value.replace(/\D/g, "");
+    if (cepInicial.length === 8) {
+        consultarCep(cepInicial);
+    }
+})();
+</script>
 
 <script src="../scripts/botao-sair.js"></script>
 
