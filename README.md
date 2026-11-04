@@ -137,9 +137,10 @@ Para manter o projeto organizado e facilitar o trabalho colaborativo, serão ado
 
 Exemplos:
 
-
 cadastro_usuario.php
+
 visualizar_trens.php
+
 conexao.php
 
 
