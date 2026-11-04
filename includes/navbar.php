@@ -210,7 +210,7 @@ if (!isset($_SESSION["usuario_id"])) {
                 <?= htmlspecialchars($_SESSION["usuario_nome"] ?? "Usuário") ?>
             </span>
 
-            <a id="navbar-sair" href="logout.php">
+            <a id="navbar-sair" href="../index.php">
                 Sair
             </a>
 
