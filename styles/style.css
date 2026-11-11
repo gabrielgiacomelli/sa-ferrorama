@@ -2104,13 +2104,14 @@ header {
 
 #cadastro-relatorios .editar-relatorio-card form {
     width: 100%;
+    height: 80%;
 
     margin: 0;
     padding: 0;
 }
 
 #cadastro-relatorios .editar-relatorio-card .col-md-4 {
-    width: 100%;
+    width: 80%;
 }
 
 
