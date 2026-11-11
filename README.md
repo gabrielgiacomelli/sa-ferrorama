@@ -1,89 +1,333 @@
-#  SA-Ferrorama
+# SA-Ferrorama
 
-**Equipe:** HLGL
-**Turma:** 3 TDES M1
+> Sistema web de gestão ferroviária desenvolvido pela equipe HLGL para organização e gerenciamento de trens, rotas, sensores e usuários.
 
-##  Sobre o Projeto
-
-O **SA-Ferrorama** é um sistema de gestão ferroviária desenvolvido para auxiliar no controle e gerenciamento de uma rede de trens. O sistema tem como foco o monitoramento de diferentes tipos de sensores, o gerenciamento de trens e rotas e o controle dos funcionários envolvidos na operação.
-
-A proposta é centralizar essas informações em um único sistema, facilitando o acompanhamento das operações ferroviárias e permitindo que os responsáveis tenham acesso rápido e organizado aos dados necessários para o gerenciamento da rede.
+**Equipe:** HLGL  
+**Turma:** 3 TDES M1  
+**Versão:** v1.0.0
 
 ---
 
-##  Objetivo
+## Sumário
 
-O principal objetivo do **SA-Ferrorama** é desenvolver um sistema capaz de organizar e facilitar a gestão de uma operação ferroviária, permitindo o controle de **trens, rotas, sensores e funcionários**.
-
-O sistema busca melhorar a organização das informações, facilitar o monitoramento dos sensores e auxiliar os responsáveis na tomada de decisões, proporcionando uma visão mais centralizada, organizada e eficiente das operações ferroviárias.
-
----
-
-##  Usuários do Sistema
-
-O sistema será utilizado por dois principais tipos de usuários:
-
-### Gerentes
-
-Os gerentes terão acesso às principais funcionalidades de gerenciamento e acompanhamento do sistema, podendo administrar informações relacionadas aos **trens, rotas, sensores e funcionários**.
-
-###  Funcionários
-
-Os funcionários terão acesso às funcionalidades necessárias para realizar suas atividades dentro do sistema, podendo consultar e acompanhar informações relacionadas à operação ferroviária, de acordo com suas permissões de acesso.
-
----
-
-##  Funcionalidades
-
-Entre as principais funcionalidades previstas para o sistema estão:
-
-*  Login e autenticação de usuários;
-*  Cadastro e gerenciamento de usuários;
-*  Cadastro e visualização de trens;
-*  Cadastro e gerenciamento de rotas;
-*  Cadastro e visualização de sensores;
-*  Controle de funcionários;
-*  Alteração de informações cadastradas;
-*  Exclusão de registros;
-*  Visualização e consulta das informações do sistema.
+1. [Sobre o projeto](#sobre-o-projeto)
+2. [Objetivo](#objetivo)
+3. [Problema que o sistema resolve](#problema-que-o-sistema-resolve)
+4. [Usuários do sistema](#usuários-do-sistema)
+5. [Funcionalidades](#funcionalidades)
+6. [Tecnologias utilizadas](#tecnologias-utilizadas)
+7. [Requisitos para execução](#requisitos-para-execução)
+8. [Instalação e configuração](#instalação-e-configuração)
+9. [Banco de dados](#banco-de-dados)
+10. [Como iniciar o sistema](#como-iniciar-o-sistema)
+11. [Estrutura do projeto](#estrutura-do-projeto)
+12. [CRUD](#crud)
+13. [Padrão de nomenclatura](#padrão-de-nomenclatura)
+14. [Identidade visual](#identidade-visual)
+15. [Segurança](#segurança)
+16. [APIs utilizadas](#apis-utilizadas)
+17. [Requisitos funcionais](#requisitos-funcionais)
+18. [Requisitos não funcionais](#requisitos-não-funcionais)
+19. [Responsabilidades da equipe](#responsabilidades-da-equipe)
+20. [Capturas de tela](#capturas-de-tela)
+21. [Limitações conhecidas](#limitações-conhecidas)
+22. [Documentação adicional](#documentação-adicional)
+23. [Considerações finais](#considerações-finais)
+24. [Licença](#licença)
 
 ---
 
-##  Tecnologias
+## Sobre o projeto
 
-O projeto será desenvolvido utilizando as seguintes tecnologias:
+O **SA-Ferrorama** é um sistema web de gestão ferroviária desenvolvido como uma Situação de Aprendizagem do curso Técnico em Desenvolvimento de Sistemas.
 
-* **PHP** — Desenvolvimento do sistema e funcionalidades do backend;
-* **MySQL** — Armazenamento e gerenciamento do banco de dados;
-* **HTML** — Estrutura das páginas;
-* **CSS** — Estilização e personalização da interface;
-* **JavaScript** — Interatividade e funcionalidades do sistema;
-* **Bootstrap** — Desenvolvimento e estilização da interface;
-* **XAMPP** — Ambiente de desenvolvimento local;
-* **Git e GitHub** — Versionamento e colaboração da equipe.
+O sistema tem como proposta centralizar informações relacionadas à operação ferroviária em uma única plataforma, permitindo o gerenciamento de **trens, rotas, sensores, usuários e relatórios**.
+
+A aplicação foi desenvolvida com foco em organização, facilidade de acesso às informações e aplicação prática dos conhecimentos adquiridos durante o curso.
 
 ---
 
-##  Estrutura do Projeto
+## Objetivo
+
+O principal objetivo do **SA-Ferrorama** é desenvolver um sistema capaz de organizar e facilitar o gerenciamento de uma operação ferroviária.
+
+Entre os principais objetivos estão:
+
+- Organizar informações sobre trens, rotas e sensores;
+- Facilitar o gerenciamento de usuários;
+- Permitir consultas e alterações dos dados cadastrados;
+- Facilitar o acompanhamento das informações da operação;
+- Centralizar os dados em um único sistema;
+- Aplicar conhecimentos de programação web;
+- Utilizar banco de dados para armazenamento das informações;
+- Aplicar conceitos de segurança, documentação e versionamento;
+- Desenvolver uma aplicação organizada e responsiva.
+
+---
+
+## Problema que o sistema resolve
+
+Em uma operação ferroviária, informações sobre trens, rotas, sensores e funcionários podem ficar distribuídas em diferentes locais, dificultando o acompanhamento das operações.
+
+O **SA-Ferrorama** busca solucionar esse problema centralizando essas informações em uma única aplicação.
+
+Dessa forma, os usuários autorizados podem consultar e gerenciar os dados de maneira mais organizada, facilitando o acompanhamento das informações e a tomada de decisões.
+
+---
+
+## Usuários do sistema
+
+O sistema possui diferentes níveis de acesso, de acordo com a função do usuário.
+
+### Administrador
+
+O administrador possui acesso às funcionalidades de gerenciamento do sistema.
+
+Entre suas principais permissões estão:
+
+- Gerenciar usuários;
+- Gerenciar trens;
+- Gerenciar rotas;
+- Gerenciar sensores;
+- Gerenciar relatórios;
+- Consultar informações;
+- Acessar o monitoramento;
+- Cadastrar, editar, desativar e excluir registros.
+
+### Funcionário
+
+O funcionário possui acesso às funcionalidades disponibilizadas de acordo com suas permissões.
+
+Seu acesso é destinado principalmente à consulta e acompanhamento das informações relacionadas à operação ferroviária.
+
+---
+
+## Funcionalidades
+
+### Autenticação
+
+- Login utilizando e-mail e senha;
+- Controle de sessão;
+- Logout;
+- Controle de acesso conforme o perfil do usuário.
+
+### Usuários
+
+- Cadastro de usuários;
+- Listagem de usuários;
+- Consulta por ID;
+- Edição de informações;
+- Exclusão de usuários.
+
+### Trens
+
+- Cadastro de trens;
+- Listagem de trens;
+- Consulta por ID;
+- Edição de informações;
+- Desativação temporária;
+- Remoção de registros.
+
+### Rotas
+
+- Cadastro de rotas;
+- Listagem de rotas;
+- Consulta por ID;
+- Edição de informações;
+- Associação com trens;
+- Desativação temporária;
+- Remoção de registros.
+
+### Sensores
+
+- Cadastro de sensores;
+- Listagem de sensores;
+- Consulta por ID;
+- Edição de informações;
+- Associação com rotas;
+- Desativação temporária;
+- Remoção de registros.
+
+### Monitoramento
+
+- Consulta do trem que será monitorado;
+- Pesquisa por ID;
+- Visualização de informações;
+- Apresentação de gráficos e análises visuais de desempenho.
+
+### Relatórios
+
+- Cadastro de relatórios;
+- Listagem;
+- Consulta;
+- Busca por ID;
+- Visualização;
+- Edição;
+- Exclusão.
+
+---
+
+## Tecnologias utilizadas
+
+| Tecnologia | Utilização |
+|---|---|
+| **PHP** | Desenvolvimento do backend e regras do sistema |
+| **MySQL** | Armazenamento e gerenciamento dos dados |
+| **HTML** | Estrutura das páginas |
+| **CSS** | Estilização da interface |
+| **JavaScript** | Interatividade e funcionalidades |
+| **Bootstrap** | Componentes e responsividade da interface |
+| **XAMPP** | Ambiente de desenvolvimento local |
+| **Git** | Controle de versão |
+| **GitHub** | Versionamento e colaboração da equipe |
+
+---
+
+## Requisitos para execução
+
+Para executar o sistema localmente, é necessário possuir:
+
+- **XAMPP** instalado;
+- Apache habilitado;
+- MySQL habilitado;
+- PHP disponibilizado pelo XAMPP;
+- Navegador atualizado;
+- Git, caso seja utilizado o repositório.
+
+O projeto foi desenvolvido para execução em ambiente local utilizando o XAMPP.
+
+---
+
+## Instalação e configuração
+
+### 1. Clonar o projeto
+
+```bash
+git clone https://github.com/gabrielgiacomelli/sa-ferrorama.git
+```
+
+### 2. Colocar o projeto no XAMPP
+
+Após baixar ou clonar o projeto, coloque a pasta dentro do diretório:
+
+```text
+C:\xampp\htdocs\
+```
+
+A estrutura deverá ficar:
+
+```text
+C:\xampp\htdocs\sa-ferrorama\
+```
+
+### 3. Iniciar o XAMPP
+
+Abra o painel de controle do XAMPP e inicie:
+
+- Apache
+- MySQL
+
+### 4. Configurar a conexão
+
+A conexão com o banco de dados está centralizada no arquivo:
+
+```text
+infra/conn.php
+```
+
+Exemplo:
+
+```php
+$host = 'localhost';
+$usuario = 'root';
+$senha = '';
+$banco = 'sa_ferrorama_db';
+```
+
+> Os dados de acesso podem variar de acordo com a configuração do ambiente local.
+
+---
+
+## Banco de dados
+
+O projeto utiliza **MySQL** para armazenamento das informações.
+
+O script do banco está localizado em:
+
+```text
+database/db_ferorama.sql
+```
+
+### Importação pelo phpMyAdmin
+
+1. Inicie o MySQL pelo XAMPP.
+2. Acesse:
+
+```text
+http://localhost/phpmyadmin
+```
+
+3. Crie ou selecione o banco de dados utilizado pelo projeto.
+4. Acesse a opção **Importar**.
+5. Selecione:
+
+```text
+database/db_ferorama.sql
+```
+
+6. Execute a importação.
+
+O banco de dados armazena informações relacionadas aos usuários, trens, rotas, sensores e relatórios.
+
+---
+
+## Como iniciar o sistema
+
+Depois de iniciar o Apache e o MySQL:
+
+1. Abra o navegador;
+2. Acesse:
+
+```text
+http://localhost/sa-ferrorama/
+```
+
+3. Realize o login;
+4. Após a autenticação, acesse as funcionalidades disponíveis para o perfil do usuário.
+
+---
+
+## Estrutura do projeto
 
 ```text
 SA-FERRORAMA/
 │
 ├── assets/
+│   ├── fonts/
+│   │   └── Horizon.woff2
+│   │
 │   ├── icons/
 │   │   ├── ambiente.png
 │   │   ├── logo.png
 │   │   ├── sair.png
 │   │   └── temperatura.png
 │   │
-│   └── img/
-│       ├── funcionarios.jpg
-│       ├── imagem_de_trens_na_ferrovia.jpg
-│       ├── imagem_trem_parado.jpg
-│       ├── imagem_trilhos_de_trem.jpg
-│       ├── info1.png
-│       ├── info2.png
-│       └── telainicial.png
+│   ├── img/
+│   │   ├── funcionarios.jpg
+│   │   ├── imagem_de_trens_na_ferrovia.jpg
+│   │   ├── imagem_trem_parado.jpg
+│   │   ├── imagem_trilhos_de_trem.jpg
+│   │   ├── info1.png
+│   │   ├── info2.png
+│   │   └── telainicial.png
+│   │
+│   └── screenshots/
+│       ├── home.png
+│       ├── Relatórios.png
+│       ├── Rotas.png
+│       ├── Sensores.png
+│       ├── Trens.png
+│       └── Usuarios.png
 │
 ├── database/
 │   └── db_ferorama.sql
@@ -124,235 +368,320 @@ SA-FERRORAMA/
 └── README.md
 ```
 
-##  Padrão de Nomenclatura
+---
 
-Para manter o projeto organizado e facilitar o trabalho colaborativo, serão adotados padrões de nomenclatura:
+## CRUD
 
-* **Arquivos:** utilizar nomes em minúsculo, separados por `_` quando necessário.
-* **Pastas:** utilizar nomes em minúsculo.
-* **Variáveis PHP:** utilizar nomes descritivos em `snake_case`.
-* **Classes:** utilizar nomes descritivos seguindo um padrão consistente.
-* **Banco de dados:** utilizar nomes em minúsculo e descritivos.
-* **IDs e classes HTML/CSS:** utilizar nomes relacionados à função ou ao elemento.
+O projeto utiliza o conceito de **CRUD**, que representa as quatro operações básicas de manipulação de dados:
+
+| Operação | Significado | Aplicação |
+|---|---|---|
+| **Create** | Criar | Cadastrar registros |
+| **Read** | Ler | Visualizar e consultar registros |
+| **Update** | Atualizar | Alterar informações |
+| **Delete** | Excluir | Remover registros |
+
+No SA-Ferrorama, o CRUD é utilizado principalmente no gerenciamento de:
+
+- Usuários;
+- Trens;
+- Rotas;
+- Sensores;
+- Relatórios.
+
+---
+
+## Padrão de nomenclatura
+
+### Arquivos
+
+Utilizar nomes em minúsculo e separados por hífen.
 
 Exemplos:
 
-cadastro_usuario.php
+```text
+cadastro-usuario.php
+cadastro-trem.php
+cadastro-rota.php
+```
 
-visualizar_trens.php
+### Pastas
 
-conexao.php
+Utilizar nomes em minúsculo.
 
+### Variáveis PHP
 
----
+Utilizar nomes descritivos.
 
-## Responsabilidades da Equipe
+Exemplo:
 
-###  Primeira Etapa
+```php
+$nome_usuario
+$data_nascimento
+```
 
-**Gabriel**
+### Banco de dados
 
-* Desenvolvimento inicial do `index`;
-* Desenvolvimento da tela de login;
-* Ajustes no mockup.
+Utilizar nomes em minúsculo e descritivos.
 
-**Henrique e Lucas**
+### IDs e classes
 
-* Elaboração inicial do README;
-* Organização das informações da equipe.
-
-**Lara**
-
-* Pesquisa sobre CRUD em PHP;
-* Produção de documentação na pasta `doc`.
-
-### Segunda Etapa
-
-**Gabriel e Lara**
-
-* Estilização da página `index`;
-* Ajustes em HTML e JavaScript.
-
-**Henrique**
-
-* Pesquisa sobre SCRUM;
-* Desenvolvimento inicial da tela de visualização de usuários.
-
-**Lucas**
-
-* Desenvolvimento da tela Home;
-* Ajustes no mockup da Home.
-
-### Terceira Etapa
-
-**Gabriel**
-
-* Pesquisa sobre o software XAMPP;
-* Produção de documentação na pasta `doc`.
-
-**Lara**
-
-* Desenvolvimento das telas de cadastro de sensores e trens.
-
-**Henrique**
-
-* Desenvolvimento das telas de cadastro de usuários e rotas;
-* Ajustes visuais do sistema.
-
-**Lucas**
-
-* Desenvolvimento da tela de visualização de sensores.
+Os nomes devem estar relacionados à função ou ao elemento utilizado.
 
 ---
 
-## Identidade Visual
+## Identidade visual
 
-A identidade visual do **SA-Ferrorama** será desenvolvida com base no conceito minimalista, geométrica e digital. Com foco em transmitir segurança, conhecimento e informação.
+A identidade visual do **SA-Ferrorama** possui uma proposta moderna, tecnológica e relacionada ao ambiente ferroviário.
 
-###  Cores
+### Cores
 
-A paleta de cores é composta por variações de tons azuis profundos (marinho e cobalto) sobre uma base clara e limpa, inspirada na solidez do setor ferroviário e projetada estrategicamente para garantir alto contraste, legibilidade ideal e uma experiência visual fluida e profissional no portal.
+A paleta utiliza principalmente tons de azul profundo, como azul-marinho e azul-cobalto, combinados com uma base clara.
 
-###  Tipografia
+A escolha busca transmitir:
 
-Será utilizada uma tipografia moderna e de fácil leitura, priorizando a clareza das informações apresentadas ao usuário.
+- Segurança;
+- Tecnologia;
+- Organização;
+- Informação;
+- Confiabilidade.
 
-###  Estilo
+### Estilo
 
-O sistema terá uma proposta visual **moderna, organizada e tecnológica**, utilizando elementos que façam referência ao ambiente ferroviário.
+A interface possui uma proposta:
 
-###  Logo
+- Moderna;
+- Organizada;
+- Tecnológica;
+- Responsiva;
+- De fácil leitura.
 
-A identidade do projeto contará com uma representação visual relacionada às inciais de cada integrante da equipe.
+### Logo
 
----
-
-##  CRUD em PHP
-
-CRUD é uma sigla utilizada para representar as quatro operações básicas realizadas sobre dados em um sistema:
-
-| Operação   | Significado | Aplicação no SA-Ferrorama                      |
-| ---------- | ----------- | ---------------------------------------------- |
-| **Create** | Criar       | Cadastrar usuários, trens, sensores e rotas    |
-| **Read**   | Ler         | Visualizar e consultar informações cadastradas |
-| **Update** | Atualizar   | Alterar informações existentes                 |
-| **Delete** | Excluir     | Remover registros do sistema                   |
-
-No **SA-Ferrorama**, o CRUD será utilizado principalmente para o gerenciamento das informações armazenadas no banco de dados.
-
-Por meio dessas operações, será possível **cadastrar, visualizar, alterar e excluir** registros de usuários, trens, sensores e outros elementos do sistema.
-
-O desenvolvimento do CRUD em PHP será integrado ao banco de dados **MySQL**, permitindo que as informações sejam armazenadas e gerenciadas de forma organizada.
-
-Além do desenvolvimento das operações, a equipe também considera aspectos de **segurança, organização do código e manutenção do sistema**, buscando tornar a aplicação mais confiável e preparada para futuras melhorias.
-
----
-
-##  Requisitos Funcionais
-
-| ID       | Descrição                                                        |
-| -------- | ---------------------------------------------------------------- |
-| **RF01** | O sistema deve permitir que o administrador realize o login usando suas credenciais (email e senha). |
-| **RF02** | O sistema deve criar e manter uma sessão ativa para autenticar o usuário após o login. |
-| **RF03** | O sistema deve permitir que o administrador solicite a redefinição de senha caso a tenha esquecido. |
-| **RF04** | O sistema deve permitir ao usuário encerrar a sessão ativa de forma segura ao sair.  |
-| **RF05** | O sistema deve permitir ao administrador visualizar a tela principal (Home) logo após realizar o login com sucesso. |
-| **RF06** | O sistema deve permitir ao administrador cadastrar novos usuários no sistema. |
-| **RF07** | O sistema deve permitir ao administrador listar e visualizar os detalhes dos usuários cadastrados.|
-| **RF08** | O sistema deve permitir ao administrador buscar usuários cadastrados por ID. |
-| **RF09** | O sistema deve permitir ao administrador editar e atualizar as informações de usuários já cadastrados. |
-| **RF10** | O sistema deve permitir ao administrador excluir usuários cadastrados. |
-|**RF11**| O sistema deve permitir ao administrador cadastrar novas rotas no sistema. |
-|**RF12**| O sistema deve permitir ao administrador visualizar a listagem de rotas cadastradas com suas informações detalhadas.|
-|**RF13**| O sistema deve permitir ao administrador buscar rotas cadastradas por ID. |
-|**RF14**| O sistema deve permitir ao administrador editar e atualizar os dados de uma rota cadastrada. |
-|**RF15**| O sistema deve permitir ao administrador desativar temporariamente uma rota.|
-|**RF16**| O sistema deve permitir ao administrador remover permanentemente uma rota do sistema.|
-|**RF17**| O sistema deve permitir ao administrador cadastrar novos trens no sistema. |
-|**RF18**| O sistema deve permitir ao administrador visualizar a listagem de trens cadastrados com suas informações detalhadas.|
-|**RF19**| O sistema deve permitir ao administrador buscar trens cadastrados por ID.|
-|**RF20**| O sistema deve permitir ao administrador editar e atualizar os dados de um trem cadastrado. |
-|**RF21**| O sistema deve permitir ao administrador desativar temporariamente um trem.|
-|**RF22**| O sistema deve permitir ao administrador remover permanentemente um trem do sistema. |
-|**RF23**| O sistema deve permitir ao administrador cadastrar novos sensores no sistema. |
-|**RF24**| O sistema deve permitir ao administrador visualizar a listagem de sensores cadastrados com suas informações detalhadas.|
-|**RF25**| O sistema deve permitir ao administrador buscar sensores cadastrados por ID. |
-|**RF26**| O sistema deve permitir ao administrador editar e atualizar os dados de um sensor cadastrado.|
-|**RF27**|O sistema deve permitir ao administrador desativar temporariamente um sensor.|
-|**RF28**| O sistema deve permitir ao administrador remover permanentemente um sensor do sistema. |
-|**RF29**| O sistema deve permitir ao administrador acessar uma tela de monitoramento.  |
-|**RF30**| O sistema deve permitir ao administrador inserir o ID do trem que deseja monitorar. |
-|**RF31**| O sistema deve permitir ao administrador inserir o ID do trem que deseja monitorar. |
-|**RF32**| O sistema deve apresentar gráficos e análises visuais do desempenho do trem selecionado. |
-|**RF33**| O sistema deve permitir ao administrador cadastrar novos relatórios no sistema.  |
-|**RF34**| O sistema deve permitir ao administrador visualizar a listagem com todos os relatórios que já foram cadastrados. |
-|**RF35**| O sistema deve permitir ao administrador abrir e ler o conteúdo completo de um relatório selecionado. |
-|**RF36**| O sistema deve permitir ao administrador buscar relatórios cadastrados por ID. |
-|**RF37**| O sistema deve permitir ao administrador editar os dados de um relatório cadastrado.  |
-|**RF38**| O sistema deve permitir ao administrador remover permanentemente um relatório do sistema. |
-
-
-
----
-
-##  Requisitos Não Funcionais
-
-| ID        | Descrição                                                       |
-| --------- | --------------------------------------------------------------- |
-| **RNF01** | O sistema deve responder às requisições dos usuários em menos de 3 segundos.  |
-| **RNF02** | O sistema deve suportar até 1TB de armazenamento de dados operacionais sem sofrer degradação de performance.  |
-| **RNF03** | O sistema deve suportar o acesso de pelo menos 300 usuários simultâneos sem perder performance. |
-| **RNF04** | O sistema deve ser totalmente responsivo, adaptando sua interface para desktops, tablets e smartphones.    |
-| **RNF05** |  O sistema deve seguir as diretrizes da Lei Geral de Proteção de Dados (LGPD) para o tratamento seguro de informações pessoais. |
-|**RNF06**| O sistema deve utilizar criptografia via protocolo SSL/TLS para proteger os dados trafegados entre o navegador e o servidor.  |
-|**RNF07**| O sistema deve implementar criptografia transparente de dados (TDE) para proteger as informações armazenadas no banco de dados. |
-|**RNF08**| O sistema deve operar em regime de alta disponibilidade, permanecendo ativo e acessível continuamente (24/7). |
-
+A identidade visual utiliza a marca **HLGL**, relacionada às iniciais dos integrantes da equipe.
 
 ---
 
 ## Segurança
 
-O sistema deverá considerar boas práticas de segurança durante seu desenvolvimento, especialmente no gerenciamento de usuários e no acesso ao banco de dados.
+Durante o desenvolvimento do sistema foram considerados princípios de segurança para proteção das informações e controle de acesso.
 
-Entre as práticas consideradas estão:
+Entre as práticas utilizadas ou consideradas estão:
 
-* Controle de acesso por tipo de usuário;
-* Proteção das informações de login;
-* Validação dos dados recebidos;
-* Organização adequada da conexão com o banco de dados;
-* Utilização de práticas seguras para operações no banco de dados.
-
----
-
-## APIs Utilizadas
-
-Open-Meteo — informações meteorológicas
-
-- Finalidade: obter informações de clima para exibição na página inicial (Home).
-
-Responsável por trazer informações como a temperatura, localização e umidade dentro da página home.
-
-ViaCEP — consulta de endereço por CEP
-
-- Finalidade: auxiliar o preenchimento dos campos de endereço nos cadastros de usuário.
-
-Através da inserção de um CEP válido, a API será responsável por localizar informações como logradouro, bairro, cidade e estado.
-
-## Trabalho em Equipe
-
-O desenvolvimento do **SA-Ferrorama** será realizado de forma colaborativa, utilizando o **GitHub** para versionamento e compartilhamento do código.
-
-Cada integrante será responsável por determinadas partes do projeto, permitindo a divisão das tarefas e facilitando o acompanhamento do desenvolvimento.
-
-A organização do projeto busca incentivar a colaboração, a divisão de responsabilidades e a aplicação de boas práticas de desenvolvimento de software.
+- Controle de acesso por perfil;
+- Proteção das informações de login;
+- Validação dos dados recebidos;
+- Organização da conexão com o banco de dados;
+- Utilização de consultas seguras;
+- Controle de sessão;
+- Encerramento da sessão ao realizar logout.
 
 ---
 
-## Considerações Finais
+## APIs utilizadas
 
-O desenvolvimento do **SA-Ferrorama** permite que a equipe aplique conhecimentos de **programação web, PHP, banco de dados, desenvolvimento de interfaces, documentação, versionamento e trabalho colaborativo**.
+### Open-Meteo
 
-O projeto representa uma simulação de um ambiente de gestão ferroviária, reunindo funcionalidades para o gerenciamento de **trens, rotas, sensores e funcionários** em uma única aplicação.
+A **Open-Meteo** é utilizada para obter informações meteorológicas apresentadas na página inicial do sistema.
 
-A partir das etapas de desenvolvimento, a equipe pretende construir um sistema organizado, funcional e de fácil utilização, aplicando os conhecimentos adquiridos durante o curso técnico em Desenvolvimento de Sistemas.
+A integração tem como objetivo disponibilizar informações como:
+
+- Temperatura;
+- Condições meteorológicas;
+- Localização;
+- Umidade;
+- Informações relacionadas ao clima.
+
+### ViaCEP
+
+A **ViaCEP** é utilizada para auxiliar o preenchimento dos dados de endereço durante o cadastro de usuários.
+
+A partir de um CEP válido, a API pode fornecer:
+
+- Logradouro;
+- Bairro;
+- Cidade;
+- Estado.
+
+---
+
+## Requisitos funcionais
+
+| ID | Descrição |
+|---|---|
+| **RF01** | Permitir login utilizando e-mail e senha. |
+| **RF02** | Criar e manter uma sessão ativa após o login. |
+| **RF03** | Permitir solicitação de redefinição de senha. |
+| **RF04** | Permitir encerramento seguro da sessão. |
+| **RF05** | Exibir a Home após o login realizado com sucesso. |
+| **RF06** | Permitir cadastro de usuários. |
+| **RF07** | Permitir listagem e visualização de usuários. |
+| **RF08** | Permitir busca de usuários por ID. |
+| **RF09** | Permitir edição de usuários. |
+| **RF10** | Permitir exclusão de usuários. |
+| **RF11** | Permitir cadastro de rotas. |
+| **RF12** | Permitir visualização das rotas cadastradas. |
+| **RF13** | Permitir busca de rotas por ID. |
+| **RF14** | Permitir edição de rotas. |
+| **RF15** | Permitir desativação temporária de rotas. |
+| **RF16** | Permitir remoção de rotas. |
+| **RF17** | Permitir cadastro de trens. |
+| **RF18** | Permitir visualização dos trens cadastrados. |
+| **RF19** | Permitir busca de trens por ID. |
+| **RF20** | Permitir edição de trens. |
+| **RF21** | Permitir desativação temporária de trens. |
+| **RF22** | Permitir remoção de trens. |
+| **RF23** | Permitir cadastro de sensores. |
+| **RF24** | Permitir visualização dos sensores cadastrados. |
+| **RF25** | Permitir busca de sensores por ID. |
+| **RF26** | Permitir edição de sensores. |
+| **RF27** | Permitir desativação temporária de sensores. |
+| **RF28** | Permitir remoção de sensores. |
+| **RF29** | Permitir acesso à tela de monitoramento. |
+| **RF30** | Permitir informar o ID do trem a ser monitorado. |
+| **RF31** | Permitir consultar o trem selecionado para monitoramento. |
+| **RF32** | Apresentar gráficos e análises visuais do trem selecionado. |
+| **RF33** | Permitir cadastro de relatórios. |
+| **RF34** | Permitir listagem dos relatórios cadastrados. |
+| **RF35** | Permitir visualização do conteúdo de um relatório. |
+| **RF36** | Permitir busca de relatórios por ID. |
+| **RF37** | Permitir edição de relatórios. |
+| **RF38** | Permitir remoção de relatórios. |
+
+---
+
+## Requisitos não funcionais
+
+| ID | Descrição |
+|---|---|
+| **RNF01** | O sistema deve responder às requisições em menos de 3 segundos. |
+| **RNF02** | O sistema deve possuir estrutura capaz de trabalhar com grande volume de dados. |
+| **RNF03** | O sistema deve permitir acesso simultâneo de múltiplos usuários. |
+| **RNF04** | A interface deve ser responsiva para diferentes tamanhos de tela. |
+| **RNF05** | O sistema deve considerar as diretrizes da LGPD para tratamento de dados pessoais. |
+| **RNF06** | A aplicação deve utilizar comunicação segura quando disponibilizada em ambiente de produção. |
+| **RNF07** | Os dados armazenados devem possuir mecanismos adequados de proteção. |
+| **RNF08** | O sistema deve buscar disponibilidade e estabilidade durante sua utilização. |
+
+---
+
+## Responsabilidades da equipe
+
+### Gabriel
+
+- Desenvolvimento inicial do `index`;
+- Desenvolvimento da tela de login;
+- Ajustes no mockup;
+- Estilização da página inicial;
+- Ajustes em HTML e JavaScript;
+- Pesquisa sobre XAMPP;
+- Produção de documentação.
+
+### Henrique
+
+- Elaboração inicial do README;
+- Organização das informações da equipe;
+- Pesquisa sobre SCRUM;
+- Desenvolvimento da tela de visualização de usuários;
+- Desenvolvimento das telas de cadastro de usuários e rotas;
+- Ajustes visuais do sistema.
+
+### Lara
+
+- Pesquisa sobre CRUD em PHP;
+- Produção de documentação;
+- Estilização da página inicial;
+- Desenvolvimento das telas de cadastro de sensores e trens.
+
+### Lucas
+
+- Elaboração inicial do README;
+- Desenvolvimento da tela Home;
+- Ajustes no mockup da Home;
+- Desenvolvimento da tela de visualização de sensores.
+
+---
+
+## Capturas de tela
+
+### Login
+
+![Tela de Login](assets/screenshots/login.png)
+
+### Home
+
+![Tela Home](assets/screenshots/home.png)
+
+### Usuários
+
+![Tela de Usuários](assets/screenshots/Usuarios.png)
+
+### Trens
+
+![Tela de Trens](assets/screenshots/Trens.png)
+
+### Rotas
+
+![Tela de Rotas](assets/screenshots/Rotas.png)
+
+### Sensores
+
+![Tela de Sensores](assets/screenshots/Sensores.png)
+
+### Relatórios
+
+![Tela de Relatórios](assets/screenshots/Relatórios.png)
+
+---
+
+## Limitações conhecidas
+
+O SA-Ferrorama foi desenvolvido como um projeto acadêmico e possui algumas limitações relacionadas ao ambiente de execução.
+
+- O sistema é executado localmente utilizando XAMPP;
+- A aplicação não foi dimensionada para ambientes reais de grande escala;
+- Recursos de infraestrutura como alta disponibilidade 24/7 dependem do servidor utilizado;
+- Recursos avançados de segurança podem exigir configuração adicional em ambiente de produção;
+- O sistema representa uma simulação de uma operação ferroviária.
+
+---
+
+## Documentação adicional
+
+Os documentos relacionados ao projeto estão disponíveis na pasta `doc/`.
+
+- `doc/pesquisa_crud.md` — pesquisa sobre CRUD;
+- `doc/pesquisa_scrum.md` — pesquisa sobre SCRUM;
+- `doc/pesquisa_xampp.md` — pesquisa sobre XAMPP.
+
+---
+
+## Considerações finais
+
+O desenvolvimento do **SA-Ferrorama** permitiu à equipe aplicar conhecimentos adquiridos durante o curso Técnico em Desenvolvimento de Sistemas.
+
+O projeto reúne conceitos de:
+
+- Programação web;
+- PHP;
+- MySQL;
+- HTML;
+- CSS;
+- JavaScript;
+- Bootstrap;
+- APIs;
+- CRUD;
+- Segurança;
+- Versionamento;
+- Documentação;
+- Trabalho colaborativo.
+
+A aplicação representa uma simulação de um ambiente de gestão ferroviária, centralizando informações sobre **trens, rotas, sensores, usuários e relatórios** em um único sistema.
+
+---
+
+## Licença
+
+Este projeto é distribuído sob a licença **MIT**.
+
+Consulte o arquivo [`LICENSE`](LICENSE) para obter mais informações sobre os termos de utilização.
