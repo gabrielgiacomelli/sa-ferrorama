@@ -303,20 +303,31 @@ http://localhost/sa-ferrorama/
 SA-FERRORAMA/
 │
 ├── assets/
+│   ├── fonts/
+│   │   └── Horizon.woff2
+│   │
 │   ├── icons/
 │   │   ├── ambiente.png
 │   │   ├── logo.png
 │   │   ├── sair.png
 │   │   └── temperatura.png
 │   │
-│   └── img/
-│       ├── funcionarios.jpg
-│       ├── imagem_de_trens_na_ferrovia.jpg
-│       ├── imagem_trem_parado.jpg
-│       ├── imagem_trilhos_de_trem.jpg
-│       ├── info1.png
-│       ├── info2.png
-│       └── telainicial.png
+│   ├── img/
+│   │   ├── funcionarios.jpg
+│   │   ├── imagem_de_trens_na_ferrovia.jpg
+│   │   ├── imagem_trem_parado.jpg
+│   │   ├── imagem_trilhos_de_trem.jpg
+│   │   ├── info1.png
+│   │   ├── info2.png
+│   │   └── telainicial.png
+│   │
+│   └── screenshots/
+│       ├── home.png
+│       ├── Relatórios.png
+│       ├── Rotas.png
+│       ├── Sensores.png
+│       ├── Trens.png
+│       └── Usuarios.png
 │
 ├── database/
 │   └── db_ferorama.sql
@@ -595,45 +606,31 @@ A partir de um CEP válido, a API pode fornecer:
 
 ### Login
 
-```text
-Adicione aqui a imagem da tela de login.
-```
+![Tela de Login](assets/screenshots/login.png)
 
 ### Home
 
-```text
-Adicione aqui a imagem da Home.
-```
+![Tela Home](assets/screenshots/home.png)
 
 ### Usuários
 
-```text
-Adicione aqui a imagem da tela de usuários.
-```
+![Tela de Usuários](assets/screenshots/Usuarios.png)
 
 ### Trens
 
-```text
-Adicione aqui a imagem da tela de trens.
-```
+![Tela de Trens](assets/screenshots/Trens.png)
 
 ### Rotas
 
-```text
-Adicione aqui a imagem da tela de rotas.
-```
+![Tela de Rotas](assets/screenshots/Rotas.png)
 
 ### Sensores
 
-```text
-Adicione aqui a imagem da tela de sensores.
-```
+![Tela de Sensores](assets/screenshots/Sensores.png)
 
-### Monitoramento
+### Relatórios
 
-```text
-Adicione aqui a imagem da tela de monitoramento.
-```
+![Tela de Relatórios](assets/screenshots/Relatórios.png)
 
 ---
 
