@@ -30,6 +30,15 @@
     --cor-azul-ferroviario-claro : #234c84;
     --cor-background             : #f4f6f9;
     --cor-branca                 : #ffffff;
+    --cor-botao-atualizar        : #1a2f4c;
+    --cor-botao-atualizar-hover  : #234c84;
+    --cor-botao-confirmar        : #28a745;
+    --cor-botao-confirmar-hover  : #155e26;
+    --cor-botao-desativar        : #ffc23d;
+    --cor-botao-desativar-hover  : #d3a031;
+    --cor-botao-excluir          : #dc3545;
+    --cor-botao-excluir-hover    : #aa1d2b;
+    --cor-botao-cancelar         : #6c757d; 
 
 /*                             Fonte Titulo                                   */
     --fonte-horizon              :  "Horizon", sans-serif;
@@ -622,7 +631,7 @@ header {
     border: none;
     border-radius: 15px;
 
-    background: #193655;
+    background: var(--cor-botao-confirmar);
 
     color: #ffffff;
 
@@ -638,7 +647,7 @@ header {
 }
 
 #cadastro-usuarios .cadastro-usuarios-botao button:hover {
-    background: #24486d;
+    background: var(--cor-botao-confirmar-hover);
 }
 
 #cadastro-usuarios .cadastro-mensagem {
@@ -714,385 +723,6 @@ header {
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*                              Editar Usuário                                */
-#editar-usuarios {
-    width: 100%;
-    min-height: calc(100vh - 45px);
-
-    background: var(--cor-background);
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-main {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    padding-top: 85px;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-main h1 {
-    width: 100%;
-
-    margin: 0 0 35px 0;
-    padding: 8vh 0 0 0;
-
-    text-align: center;
-
-    color: var(--cor-azul-ferroviario);
-
-    font-family: var(--fonte-horizon);
-    font-size: 5.5vh;
-    font-weight: 800;
-
-    text-transform: uppercase;
-
-    line-height: 1;
-}
-
-#editar-usuarios .editar-usuarios-container {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-card {
-    width: 810px;
-    min-height: 405px;
-
-    padding: 55px 27px 28px 27px;
-
-    background: #ffffff;
-
-    border-radius: 15px;
-
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-card form {
-    width: 100%;
-
-    margin: 0;
-    padding: 0;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-colunas {
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-
-    gap: 20px;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-coluna {
-    width: calc(33.333% - 13.33px);
-
-    flex: 0 0 calc(33.333% - 13.33px);
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-campo {
-    width: 100%;
-
-    margin: 0 0 17px 0;
-    padding: 0;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-campo label {
-    display: block;
-
-    width: 100%;
-
-    margin: 0 0 5px 0;
-    padding: 0;
-
-    color: #173f70;
-
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-
-    line-height: 18px;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-campo input {
-    display: block;
-
-    width: 100%;
-    height: 34px;
-
-    margin: 0;
-    padding: 5px 7px;
-
-    border: 2px solid #28558d;
-    border-radius: 6px;
-
-    background: #ffffff;
-
-    color: #333333;
-
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-
-    outline: none;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-campo input::placeholder {
-    color: #555555;
-
-    opacity: 1;
-}
-
-#editar-usuarios .editar-usuarios-campo input:focus {
-    border-color: #173f70;
-
-    box-shadow: 0 0 0 1px #173f70;
-}
-
-
-/* ACESSO */
-
-#editar-usuarios .editar-usuarios-acesso {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-
-    gap: 5px;
-
-    margin-top: 0;
-    margin-bottom: 8px;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-acesso label {
-    margin: 0;
-
-    color: #173f70;
-
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-#editar-usuarios .editar-usuarios-acesso select {
-    width: 115px;
-    height: 25px;
-
-    padding: 1px 5px;
-
-    border: 1px solid #777777;
-    border-radius: 2px;
-
-    background: #ffffff;
-
-    color: #333333;
-
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-
-    outline: none;
-
-    cursor: pointer;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-acesso select:focus {
-    border-color: #28558d;
-}
-
-
-/* BOTÃO SALVAR */
-
-#editar-usuarios .editar-usuarios-botao {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-top: 8px;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-botao button {
-    width: 130px;
-    height: 34px;
-
-    margin: 0;
-    padding: 0;
-
-    border: none;
-    border-radius: 15px;
-
-    background: #193655;
-
-    color: #ffffff;
-
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
-
-    transition: 0.2s;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-botao button:hover {
-    background: #24486d;
-
-    transform: translateY(-1px);
-}
-
-
-/* BOTÃO VOLTAR */
-
-#editar-usuarios .editar-usuarios-botao-voltar {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-top: 9px;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-botao-voltar a {
-    width: 130px;
-    height: 34px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 15px;
-
-    background: var(--cor-azul-ferroviario);
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
-
-    transition: 0.2s;
-
-    box-sizing: border-box;
-}
-
-#editar-usuarios .editar-usuarios-botao-voltar a:hover {
-    background: #24486d;
-
-    transform: translateY(-1px);
-}
-
-
-/* MENSAGEM */
-
-#editar-usuarios .editar-mensagem {
-    width: 100%;
-
-    margin: 12px 0 0 0;
-
-    text-align: center;
-
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-}
-
-#editar-usuarios .editar-mensagem.sucesso {
-    color: #1d6b3a;
-}
-
-#editar-usuarios .editar-mensagem.erro {
-    color: #b3261e;
-}
-
-
-/* RESPONSIVO */
-
-@media (max-width: 900px) {
-
-    #editar-usuarios .editar-usuarios-card {
-        width: 90%;
-    }
-
-}
-
-@media (max-width: 700px) {
-
-    #editar-usuarios .editar-usuarios-main {
-        padding-top: 45px;
-    }
-
-    #editar-usuarios .editar-usuarios-main h1 {
-        font-size: 32px;
-
-        margin-bottom: 30px;
-    }
-
-    #editar-usuarios .editar-usuarios-card {
-        width: 90%;
-        min-height: auto;
-
-        padding: 35px 25px;
-    }
-
-    #editar-usuarios .editar-usuarios-colunas {
-        flex-direction: column;
-
-        gap: 0;
-    }
-
-    #editar-usuarios .editar-usuarios-coluna {
-        width: 100%;
-
-        flex: 0 0 100%;
-    }
-
-}
-
-/*                              Editar Usuário                                */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
@@ -1482,7 +1112,7 @@ body {
     border: none;
     border-radius: 15px;
 
-    background-color: var(--cor-azul-ferroviario);
+    background-color: var(--cor-botao-confirmar);
 
     color: var(--cor-branca);
 
@@ -1496,7 +1126,7 @@ body {
 }
 
 #cadastro-sensores .cadastro-sensores-botao button:hover {
-    background-color: var(--cor-azul-ferroviario-claro);
+    background-color: var(--cor-botao-confirmar );
 }
 
 @media (max-width: 700px) {
@@ -1680,7 +1310,7 @@ body {
     padding: 0 13px;
     border: none;
     border-radius: 15px;
-    background-color: var(--cor-azul-ferroviario);
+    background-color: var(--cor-botao-confirmar);
     color: var(--cor-branca);
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -1691,7 +1321,7 @@ body {
 
 
 #editar-sensores .editar-sensores-botao button:hover {
-    background-color: var(--cor-azul-ferroviario-claro);
+    background-color: var(--cor-botao-confirmar-hover);
 }
 
 
@@ -2012,7 +1642,7 @@ body {
 
     border-radius: 15px;
 
-    background-color: var(--cor-azul-ferroviario);
+    background-color: var(--cor-botao-confirmar);
 
     color: var(--cor-branca);
 
@@ -2031,7 +1661,7 @@ body {
 
 
 #cadastro-relatorios .cadastro-relatorios-botao button:hover {
-    background-color: var(--cor-azul-ferroviario-claro);
+    background-color: var(--cor-botao-confirmar-hover);
 
     transform: translateY(-1px);
 }
@@ -2305,7 +1935,7 @@ body {
     border: none;
     border-radius: 15px;
 
-    background: #193655;
+    background: var(--cor-botao-confirmar);
 
     color: #ffffff;
 
@@ -2321,7 +1951,7 @@ body {
 }
 
 #cadastro-relatorios .col-md-4 > button:hover {
-    background: #24486d;
+    background: var(--cor-botao-confirmar-hover);
 }
 
 #cadastro-relatorios .botao-voltar {
@@ -2586,7 +2216,7 @@ body {
     border: none;
     border-radius: 15px;
     outline: none;
-    background-color: var(--cor-azul-ferroviario);
+    background-color: var(--cor-botao-confirmar);
     color: var(--cor-branca);
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -2599,7 +2229,7 @@ body {
 }
 
 #cadastro-trens .cadastro-trens-botao button:hover {
-    background-color: var(--cor-azul-ferroviario-claro);
+    background-color: var(--cor-botao-confirmar-hover);
 }
 
 #cadastro-trens .cadastro-trens-mensagem {
@@ -2764,7 +2394,7 @@ body {
     border: none;
     border-radius: 15px;
 
-    background-color: var(--cor-azul-ferroviario);
+    background-color: var(--cor-botao-confirmar);
     color: var(--cor-branca);
 
     font-family: Arial, sans-serif;
@@ -2775,7 +2405,7 @@ body {
 }
 
 #editar-trens .editar-trens-botao button:hover {
-    background-color: var(--cor-azul-ferroviario-claro);
+    background-color: var(--cor-botao-confirmar-hover);
 }
 
 /*                                Editar Trens                                 */
@@ -2886,7 +2516,7 @@ body {
     padding: 0 14px;
     border: none;
     border-radius: 15px;
-    background-color: var(--cor-azul-ferroviario);
+    background-color: var(--cor-botao-confirmar);
     color: var(--cor-branca);
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -2895,7 +2525,7 @@ body {
 }
 
 #cadastro-rotas .cadastro-rotas-botao button:hover {
-    background-color: var(--cor-azul-ferroviario-claro);
+    background-color: var(--cor-botao-confirmar-hover);
 }
 
 @media (max-width: 700px) {
@@ -3046,7 +2676,7 @@ body {
     border: none;
     border-radius: 15px;
 
-    background-color: var(--cor-azul-ferroviario);
+    background-color: var(--cor-botao-confirmar);
     color: var(--cor-branca);
 
     font-family: Arial, sans-serif;
@@ -3874,7 +3504,7 @@ body {
 
     border: 1px solid #222;
 
-    background: #f5f5f5;
+    background: #f5f5f5;            /*Lucas corre */
 
     color: #555;
 
@@ -4033,13 +3663,13 @@ body {
 }
 
 .popup-btn.confirmar {
-    background: #193655;
+    background: var(--cor-botao-excluir);
 
     color: #ffffff;
 }
 
 .popup-btn.confirmar:hover {
-    background: #24486d;
+    background: var(--cor-botao-excluir-hover);
 }
 
 @keyframes aparecerPopup {
