@@ -353,7 +353,7 @@ include("../includes/navbar.php");
 
                 <button
                     type="submit"
-                    class="popup-btn confirmar"
+                    class="popup-btn excluir"
                 >
                     Excluir
                 </button>

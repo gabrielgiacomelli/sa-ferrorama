@@ -468,7 +468,7 @@ include("../includes/navbar.php");
 
                 <button
                     type="submit"
-                    class="popup-btn confirmar"
+                    class="popup-btn ativar"
                 >
                     Ativar
                 </button>

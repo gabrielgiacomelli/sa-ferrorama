@@ -3613,8 +3613,6 @@ header {
 
     border: 1px solid #222;
 
-    background: #f5f5f5;            /*Lucas corre */
-
     color: #555;
 
     font-family: Arial, sans-serif;
@@ -3625,12 +3623,29 @@ header {
     cursor: pointer;
 }
 
-.gestao-btn:hover {
-    background: #e5e5e5;
+.excluir{
+    background: var(--cor-botao-excluir);
+    color: var(--cor-branca);
 }
 
+.desativar{
+    background: var(--cor-botao-excluir);
+    color: var(--cor-branca);
+}
+
+.ativar{
+    background: var(--cor-botao-confirmar);
+    color: var(--cor-branca);
+}
+
+.atualizar{
+    background: var(--cor-botao-atualizar);
+    color: var(--cor-branca);
+}
+
+
 .gestao-btn.excluir {
-    color: #555;
+    color: var(--cor-branca);
 }
 
 .gestao-vazio {
