@@ -604,7 +604,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             border: none;
             border-radius: 16px;
 
-            background: #193655;
+            background: #28a745;
             color: #ffffff;
 
             font-size: 14px;
@@ -618,7 +618,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         .editar-usuarios-botao button:hover {
-            background: #24486d;
+            background: #155e26;
             transform: translateY(-1px);
         }
 
