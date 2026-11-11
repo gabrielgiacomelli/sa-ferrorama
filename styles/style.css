@@ -1479,16 +1479,16 @@ header {
 }
 
 #cadastro-sensores .cadastro-sensores-card {
-    width: 265px;
 
+    display: block;
+    width: 275px;
+    height: auto;
+    min-height: 286px;
     margin: 0;
-    padding: 17px 18px 10px;
-
+    padding: 22px 33px 10px 33px;
     background-color: var(--cor-branca);
-
-    border: 1px solid #111;
+    border: 1px solid #111111;
     border-radius: 15px;
-
     box-sizing: border-box;
 }
 
@@ -2920,11 +2920,16 @@ header {
 }
 
 #cadastro-rotas .cadastro-rotas-card {
+    
+    display: block;
     width: 275px;
+    height: auto;
+    min-height: 286px;
+    margin: 0;
+    padding: 22px 33px 10px 33px;
     background-color: var(--cor-branca);
-    border: 1px solid #111;
+    border: 1px solid #111111;
     border-radius: 15px;
-    padding: 22px 34px 10px;
     box-sizing: border-box;
 }
 
