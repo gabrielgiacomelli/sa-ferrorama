@@ -20,6 +20,7 @@
 2. "Consegue fazer um arquivo .md em forma de documentação para mim?"
 3. "Pode aplicar nesse .md que eu tenho já e sem tantas informações, quero que seja breve e objetivo conforme os critérios da atividade 10 que te enviei."
 4. "Faça um relatório de utilização da IA que foi feita nesse chat" e, em seguida, o pedido para preencher este modelo com as 11 seções.
+5. "Preciso que você coloque a API ViaCEP dentro de nosso código (cadastro-usuario.php). Além disso, deixe o código de acordo com nosso arquivo style.css (style.css)".
 
 ## 4. Funcionalidades desenvolvidas com auxílio da IA
 
