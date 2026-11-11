@@ -143,469 +143,115 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
-
+    <link rel="stylesheet" href="../styles/style.css">
 
     <title>Login</title>
-
-
-    <style>
-
-
-        * {
-            box-sizing: border-box;
-        }
-
-
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-
-        body {
-            min-height: 100vh;
-
-
-            background: #f3f5f8;
-
-
-            font-family: Arial, sans-serif;
-        }
-       
-        .login-container {
-            width: 100%;
-            min-height: 100vh;
-
-
-            display: flex;
-        flex-direction: column;
-
-
-            align-items: center;
-            justify-content: center;
-
-
-            padding: 0;
-
-
-            transform: translateY(-40px);
-        }
-
-
-        .logo-top {
-            margin: 0 0 55px 0;
-
-
-            color: #193655;
-
-
-            font-size: 64px;
-            font-weight: 900;
-
-
-            line-height: 1;
-        }
-
-
-        .login-card {
-            width: 300px;
-
-
-            padding: 18px 20px 20px;
-
-
-            background: #ffffff;
-
-
-            border-radius: 14px;
-
-
-            box-shadow:
-                0 12px 30px rgba(0, 0, 0, 0.14);
-        }
-
-
-        .login-card h2 {
-            margin: 0 0 20px 0;
-
-
-            padding: 0;
-
-
-            text-align: center;
-
-
-            color: #111111;
-
-
-            font-family: Arial, sans-serif;
-
-
-            font-size: 24px;
-            font-weight: 400;
-
-
-            line-height: 1.2;
-        }
-
-
-        .campo {
-            width: 100%;
-
-
-            margin: 0 0 12px 0;
-            padding: 0;
-        }
-
-
-        .campo label {
-            display: block;
-
-
-            width: 100%;
-
-
-            margin: 0 0 5px 0;
-            padding: 0;
-
-
-            color: #111111;
-
-
-            font-family: Arial, sans-serif;
-
-
-            font-size: 14px;
-            font-weight: 400;
-
-
-            line-height: 1;
-        }
-
-
-        .campo input {
-            display: block;
-
-
-            width: 100%;
-            height: 34px;
-
-
-            margin: 0;
-            padding: 0 9px;
-
-
-            border: 2px solid #222222;
-            border-radius: 6px;
-
-
-            background: #ffffff;
-
-
-            color: #111111;
-
-
-            font-family: Arial, sans-serif;
-
-
-            font-size: 13px;
-
-
-            outline: none;
-
-
-            box-shadow: none;
-        }
-
-
-        .campo input:focus {
-            border-color: #222222;
-
-
-            outline: none;
-
-
-            box-shadow: none;
-        }
-
-
-        .campo input::placeholder {
-            color: #75808c;
-
-
-            opacity: 1;
-        }
-
-
-        .btn-entrar {
-            display: flex;
-
-
-            width: 100%;
-            height: 33px;
-
-
-            margin: 0;
-            padding: 0;
-
-
-            align-items: center;
-            justify-content: center;
-
-
-            border: none;
-            border-radius: 8px;
-
-
-            background: #193655;
-
-
-            color: #ffffff;
-
-
-            font-family: Arial, sans-serif;
-
-
-            font-size: 13px;
-            font-weight: bold;
-
-
-            cursor: pointer;
-        }
-
-
-        .btn-entrar:hover {
-            background: #193655;
-        }
-
-
-        .btn-esqueci {
-            display: flex;
-
-
-            width: 100%;
-            height: 34px;
-
-
-            margin: 9px 0 0 0;
-            padding: 0;
-
-
-            align-items: center;
-            justify-content: center;
-
-
-            border: none;
-            border-radius: 8px;
-
-
-            background: #f7f7f7;
-
-
-            color: #111111;
-
-
-            font-family: Arial, sans-serif;
-
-
-            font-size: 13px;
-            font-weight: bold;
-
-
-            text-decoration: none;
-
-
-            cursor: pointer;
-
-
-            box-shadow:
-                0 4px 12px rgba(0, 0, 0, 0.04);
-        }
-
-
-        .btn-esqueci:hover {
-            background: #eeeeee;
-
-
-            color: #111111;
-        }
-
-
-        #problema {
-            width: 100%;
-
-
-            margin: 12px 0 0 0;
-            padding: 10px;
-
-
-            background: #fdeaea;
-
-
-            border: 1px solid #d66b6b;
-            border-radius: 8px;
-
-
-            color: #a52b2b;
-
-
-            text-align: center;
-
-
-            font-family: Arial, sans-serif;
-
-
-            font-size: 12px;
-
-
-            line-height: 1.4;
-        }
-
-
-        #problema p {
-            margin: 0;
-            padding: 0;
-        }
-
-
-        @media (max-width: 500px) {
-
-
-            .login-container {
-                padding: 35px 20px;
-            }
-
-
-            .logo-top {
-                margin-bottom: 45px;
-
-
-                font-size: 52px;
-            }
-
-
-            .login-card {
-                width: 100%;
-                max-width: 300px;
-            }
-
-
-        }
-
-
-    </style>
-
 
 </head>
 
 
-<body>
-
+<body id="body2">
 
     <main class="login-container">
 
-
-        <div class="logo-top">
-            HLGL
-        </div>
-
-
         <div class="login-card">
 
+            <!-- FORMULÁRIO -->
+            <section class="login-formulario">
 
-            <h2>
-                Login
-            </h2>
-
-
-            <form method="POST">
-
-
-                <div class="campo">
-
-
-                    <label for="email">
-                        Email
-                    </label>
-
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Digite seu email"
-                        value="<?= htmlspecialchars($_POST["email"] ?? "") ?>"
-                        required
-                    >
-
-
+                <div class="login-logo">
+                    HLGL
                 </div>
 
+                <h1>Faça seu login</h1>
 
-                <div class="campo">
+                <p class="login-subtitulo">
+                    Acesse sua conta para acompanhar o sistema.
+                </p>
 
+                <form method="POST">
 
-                    <label for="senha">
-                        Senha
-                    </label>
+                    <div class="campo">
 
+                        <label for="email">Email</label>
 
-                    <input
-                        type="password"
-                        id="senha"
-                        name="senha"
-                        placeholder="Digite sua senha"
-                        required
-                    >
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Digite seu email"
+                            value="<?= htmlspecialchars($_POST["email"] ?? "") ?>"
+                            required
+                        >
 
+                    </div>
 
-                </div>
+                    <div class="campo">
 
+                        <label for="senha">Senha</label>
 
-                <button
-                    type="submit"
-                    class="btn-entrar"
-                >
-                    Entrar
-                </button>
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Digite sua senha"
+                            required
+                        >
 
+                    </div>
 
-                <a
-                    href="recuperar-senha.php"
-                    class="btn-esqueci"
-                >
-                    Esqueceu sua senha?
-                </a>
+                    <a href="recuperar-senha.php" class="btn-esqueci">
+                        Esqueceu sua senha?
+                    </a>
 
+                    <button type="submit" class="btn-entrar">
+                        Entrar
+                    </button>
 
-            </form>
+                </form>
 
+                <?php if ($erro !== ""): ?>
 
-            <?php if ($erro !== ""): ?>
+                    <div id="problema">
+                        <p><?= htmlspecialchars($erro) ?></p>
+                    </div>
 
+                <?php endif; ?>
 
-                <div id="problema">
+            </section>
 
+            <section class="login-visual">
 
-                    <p>
-                        <?= htmlspecialchars($erro) ?>
+                <div class="login-visual-conteudo">
+
+                    <p class="login-visual-identificacao">
+                        SESI SENAI • EQUIPE HLGL
                     </p>
 
+                    <h2>
+                        FERRORAMA
+                        <span>INTELIGENTE</span>
+                    </h2>
+
+                    <p class="login-visual-descricao">
+                        Tecnologia e informação a serviço do monitoramento ferroviário.
+                    </p>
+
+                    <div class="login-trilhos">
+                        <div class="trilho-linha"></div>
+                        <div class="trilho-linha"></div>
+                        <div class="trilho-detalhes"></div>
+                    </div>
 
                 </div>
 
+                <div class="login-visual-circulo"></div>
 
-            <?php endif; ?>
-
+            </section>
 
         </div>
 
-
     </main>
-
 
 </body>
 
