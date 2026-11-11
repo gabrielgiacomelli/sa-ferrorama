@@ -1098,36 +1098,47 @@ header {
 /* -------------------------------------------------------------------------- */
 /*                                  Login                                     */
 
+#body2,
+#body2 * {
+    box-sizing: border-box;
+}
+
 #body2 {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 0;
+
     margin: 0;
-    padding: 30px;
+    padding: 20px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
 
     background: #e9eef4;
 
     font-family: Arial, sans-serif;
 }
 
+
 #body2 .login-container {
     width: 100%;
-    min-height: calc(100vh - 60px);
+    height: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+
 #body2 .login-card {
     display: flex;
 
     width: 100%;
     max-width: 1050px;
-    min-height: 570px;
+    min-height: 550px;
 
     overflow: hidden;
 
