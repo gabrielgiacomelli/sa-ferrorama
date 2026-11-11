@@ -150,28 +150,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 
-<body>
+<body id="body2">
 
     <main class="login-container">
 
-        <div class="logo-top">
-            HLGL
-        </div>
-
         <div class="login-card">
 
+            <!-- FORMULÁRIO -->
+            <section class="login-formulario">
 
-            <h2>
-                Login
-            </h2>
+                <div class="login-logo">
+                    HLGL
+                </div>
 
-            <form method="POST">
+                <h1>Faça seu login</h1>
 
-                <div class="campo">
+                <p class="login-subtitulo">
+                    Acesse sua conta para acompanhar o sistema.
+                </p>
 
-                    <label for="email">
-                        Email
-                    </label>
+                <form method="POST">
+
+                    <div class="campo">
+
+                        <label for="email">Email</label>
 
                         <input
                             type="email"
@@ -182,13 +184,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             required
                         >
 
-                </div>
+                    </div>
 
-                <div class="campo">
+                    <div class="campo">
 
-                    <label for="senha">
-                        Senha
-                    </label>
+                        <label for="senha">Senha</label>
 
                         <input
                             type="password"
@@ -198,43 +198,60 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             required
                         >
 
-                </div>
+                    </div>
 
-                <button
-                    type="submit"
-                    class="btn-entrar"
-                >
-                    Entrar
-                </button>
+                    <a href="recuperar-senha.php" class="btn-esqueci">
+                        Esqueceu sua senha?
+                    </a>
 
-                <a
-                    href="recuperar-senha.php"
-                    class="btn-esqueci"
-                >
-                    Esqueceu sua senha?
-                </a>
+                    <button type="submit" class="btn-entrar">
+                        Entrar
+                    </button>
 
-            </form>
+                </form>
 
-            <?php if ($erro !== ""): ?>
+                <?php if ($erro !== ""): ?>
 
-                <div id="problema">
+                    <div id="problema">
+                        <p><?= htmlspecialchars($erro) ?></p>
+                    </div>
 
-                    <p>
-                        <?= htmlspecialchars($erro) ?>
+                <?php endif; ?>
+
+            </section>
+
+            <section class="login-visual">
+
+                <div class="login-visual-conteudo">
+
+                    <p class="login-visual-identificacao">
+                        SESI SENAI • EQUIPE HLGL
                     </p>
 
+                    <h2>
+                        FERRORAMA
+                        <span>INTELIGENTE</span>
+                    </h2>
+
+                    <p class="login-visual-descricao">
+                        Tecnologia e informação a serviço do monitoramento ferroviário.
+                    </p>
+
+                    <div class="login-trilhos">
+                        <div class="trilho-linha"></div>
+                        <div class="trilho-linha"></div>
+                        <div class="trilho-detalhes"></div>
+                    </div>
 
                 </div>
 
-            <?php endif; ?>
+                <div class="login-visual-circulo"></div>
 
+            </section>
 
         </div>
 
-
     </main>
-
 
 </body>
 
