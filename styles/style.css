@@ -1113,8 +1113,6 @@ header {
     font-family: Arial, sans-serif;
 }
 
-/* CONTAINER */
-
 #body2 .login-container {
     width: 100%;
     min-height: calc(100vh - 60px);
@@ -1123,8 +1121,6 @@ header {
     align-items: center;
     justify-content: center;
 }
-
-/* CARD PRINCIPAL */
 
 #body2 .login-card {
     display: flex;
@@ -1142,9 +1138,6 @@ header {
     box-shadow: 0 15px 45px rgba(25, 54, 85, 0.16);
 }
 
-/* ================================================= */
-/*                FORMULÁRIO DE LOGIN                */
-/* ================================================= */
 
 #body2 .login-formulario {
     width: 50%;
@@ -1188,7 +1181,6 @@ header {
     line-height: 1.5;
 }
 
-/* CAMPOS */
 
 #body2 .campo {
     width: 100%;
@@ -1258,7 +1250,6 @@ header {
     text-decoration: underline;
 }
 
-/* BOTÃO ENTRAR */
 
 #body2 .btn-entrar {
     width: 100%;
@@ -1310,10 +1301,6 @@ header {
 #body2 #problema p {
     margin: 0;
 }
-
-/* ================================================= */
-/*                   ÁREA VISUAL                     */
-/* ================================================= */
 
 #body2 .login-visual {
     position: relative;
@@ -1432,30 +1419,6 @@ header {
     border-top: 2px dashed rgba(255, 255, 255, 0.45);
 }
 
-/* ================================================= */
-/*                    RESPONSIVO                     */
-/* ================================================= */
-
-@media (max-width: 750px) {
-
-    #body2 {
-        padding: 20px;
-    }
-
-    #body2 .login-card {
-        max-width: 450px;
-    }
-
-    #body2 .login-visual {
-        display: none;
-    }
-
-    #body2 .login-formulario {
-        width: 100%;
-        padding: 45px 35px;
-    }
-
-}
 
 /*                                  Login                                     */
 /* -------------------------------------------------------------------------- */
