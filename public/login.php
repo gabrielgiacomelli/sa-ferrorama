@@ -182,6 +182,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             </section>
 
+            <section class="login-visual">
+
+                <div class="login-visual-conteudo">
+
+                    <p class="login-visual-identificacao">
+                        SESI SENAI • EQUIPE HLGL
+                    </p>
+
+                    <h2>
+                        FERRORAMA
+                        <span>INTELIGENTE</span>
+                    </h2>
+
+                    <p class="login-visual-descricao">
+                        Tecnologia e informação a serviço do monitoramento ferroviário.
+                    </p>
+
+                    <div class="login-trilhos">
+                        <div class="trilho-linha"></div>
+                        <div class="trilho-linha"></div>
+                        <div class="trilho-detalhes"></div>
+                    </div>
+
+                </div>
+
+                <div class="login-visual-circulo"></div>
+
+            </section>
+
         </div>
 
     </main>
