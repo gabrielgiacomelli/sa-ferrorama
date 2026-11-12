@@ -4545,6 +4545,7 @@ header {
   color: var(--hlgl-marinho);
   line-height: 1.6;
 }
+body:has(.hlgl-home) { margin: 0; }
 
 .hlgl-home *,
 .hlgl-home *::before,
