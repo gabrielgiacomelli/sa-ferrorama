@@ -306,23 +306,9 @@ SA-FERRORAMA/
 │   ├── fonts/
 │   │   └── Horizon.woff2
 │   │
-│   ├── icons/
-│   │   ├── ambiente.png
-│   │   ├── logo.png
-│   │   ├── sair.png
-│   │   └── temperatura.png
-│   │
-│   ├── img/
-│   │   ├── funcionarios.jpg
-│   │   ├── imagem_de_trens_na_ferrovia.jpg
-│   │   ├── imagem_trem_parado.jpg
-│   │   ├── imagem_trilhos_de_trem.jpg
-│   │   ├── info1.png
-│   │   ├── info2.png
-│   │   └── telainicial.png
-│   │
 │   └── screenshots/
 │       ├── home.png
+│       ├── login.png
 │       ├── Relatórios.png
 │       ├── Rotas.png
 │       ├── Sensores.png
@@ -333,9 +319,12 @@ SA-FERRORAMA/
 │   └── db_ferorama.sql
 │
 ├── doc/
+│   ├── pesquisa_api.md
 │   ├── pesquisa_crud.md
+│   ├── pesquisa_pdo.md
 │   ├── pesquisa_scrum.md
-│   └── pesquisa_xampp.md
+│   ├── pesquisa_xampp.md
+│   └── relatorio_uso_ia.md
 │
 ├── infra/
 │   └── conn.php
@@ -355,10 +344,8 @@ SA-FERRORAMA/
 │   └── usuarios.php
 │
 ├── scripts/
-│   ├── botao-sair.js
-│   ├── cadastro-rota.js
-│   ├── calendario.js
-│   └── login.js
+│   ├── landing-page.js
+│   
 │
 ├── styles/
 │
@@ -597,6 +584,7 @@ A partir de um CEP válido, a API pode fornecer:
 
 - Elaboração inicial do README;
 - Desenvolvimento da tela Home;
+- Desenvolvimento das telas de editar;
 - Ajustes no mockup da Home;
 - Desenvolvimento da tela de visualização de sensores.
 
