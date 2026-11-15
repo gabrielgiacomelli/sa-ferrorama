@@ -155,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["excluir"])) {
 
 /* Buscar trens */
 
-$sql = "SELECT id, id_usuarios, peso, quantidade_vagoes, status
+$sql = "SELECT id, id_usuarios, id_rota, peso, quantidade_vagoes, status
         FROM trens
         ORDER BY id ASC";
 
@@ -237,6 +237,8 @@ include("../includes/navbar.php");
 
                             <th>Status</th>
 
+                            <th>Rota</th>
+
                             <th>Ações</th>
 
                         </tr>
@@ -270,6 +272,14 @@ include("../includes/navbar.php");
 
                                 <td>
                                     <?= htmlspecialchars($trem["status"]) ?>
+                                </td>
+
+                                <td>
+                                    <?php if ($trem["id_rota"] === NULL) { ?>
+                                    Sem rota cadastrada
+                                    <?php } else { ?>
+                                    <?= htmlspecialchars($trem["id_rota"]) ?>
+                                     <?php } ?>
                                 </td>
 
                                 <td>

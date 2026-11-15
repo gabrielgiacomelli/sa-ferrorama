@@ -16,6 +16,11 @@ $trem = mysqli_fetch_assoc($resultado);
 $sql_usuarios = "SELECT id, nome FROM usuarios";
 $resultado_usuarios = mysqli_query($conn, $sql_usuarios);
 
+// busca rotas cadastradas
+
+$sql_rotas = "SELECT id FROM rotas";
+$resultado_rotas = mysqli_query($conn, $sql_rotas);
+
 ?>
 
 <!DOCTYPE html>
@@ -84,6 +89,32 @@ $resultado_usuarios = mysqli_query($conn, $sql_usuarios);
                                 <?= $usuario["id"] == $trem["id_usuarios"] ? "selected" : "" ?>>
                                 <?= htmlspecialchars($usuario["nome"]) ?>
                             </option>
+                        <?php endwhile; ?>
+
+                    </select>
+                </div>
+
+                <div class="editar-trens-campo">
+                <label for="id_rota">
+                    Rota vinculada
+                </label>
+
+                    <select id="id_rota" name="id_rota">
+
+                        <option value="" <?= $trem["id_rota"] === NULL ? "selected" : "" ?>>
+                            Sem rota cadastrada
+                        </option>
+
+                        <?php while ($rota = mysqli_fetch_assoc($resultado_rotas)): ?>
+
+                            <option
+                                value="<?= htmlspecialchars($rota["id"]) ?>"
+                                <?= $rota["id"] == $trem["id_rota"] ? "selected" : "" ?>>
+
+                                Rota <?= htmlspecialchars($rota["id"]) ?>
+
+                            </option>
+
                         <?php endwhile; ?>
 
                     </select>
