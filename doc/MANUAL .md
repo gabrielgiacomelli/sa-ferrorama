@@ -41,7 +41,7 @@ Existem dois perfis de acesso:
 
 > Na estação de demonstração, o sistema já fica aberto nesta página.
 
-![Tela de login](assets/screenshots/login.png)
+![Tela de login](../assets/screenshots/login.png)
 
 ## 3. Login e logout
 
@@ -65,7 +65,7 @@ Clique em **Sair**, no canto superior direito, ao lado do seu nome. A sessão é
 
 A Home recebe você com a mensagem **BEM-VINDO!**, mostra o **clima em Joinville - SC** e dá acesso a todas as áreas do sistema pelo menu superior.
 
-![Tela Home](assets/screenshots/home.png)
+![Tela Home](../assets/screenshots/home.png)
 
 | Nº | Elemento | Para que serve |
 |----|----------|----------------|
@@ -115,7 +115,7 @@ O menu fica no topo de todas as telas e tem **dois grupos** com submenus. Passe 
 
 Clique em **Gestão → Usuários**. A tabela **Gestão de Usuários** mostra **Usuários** (nome), **ID**, **Email** e **Telefone**.
 
-![Listagem de usuários](assets/screenshots/Usuarios.png)
+![Listagem de usuários](../assets/screenshots/Usuarios.png)
 
 ### Editar e excluir (administrador)
 
@@ -142,7 +142,7 @@ Um usuário que já está vinculado a trens ou relatórios **não pode ser exclu
 
 Clique em **Gestão → Trens**. A tabela **Gestão de Trens** mostra **ID**, **ID_Usuários** (responsável), **Peso**, **Quantidade de Vagões**, **Status** e **Rota**. Se o trem ainda não tem rota, aparece **"Sem rota cadastrada"**.
 
-![Listagem de trens](assets/screenshots/Trens.png)
+![Listagem de trens](../assets/screenshots/Trens.png)
 
 ### Outras ações (administrador)
 
@@ -171,7 +171,7 @@ Cada ação pede confirmação ("Tem certeza que deseja…?"). Um trem com regis
 
 Clique em **Gestão → Rotas**. A tabela **Gestão de Rotas** mostra **ID**, **Nome**, **Saída**, **Destino** e **Status**.
 
-![Listagem de rotas](assets/screenshots/Rotas.png)
+![Listagem de rotas](../assets/screenshots/Rotas.png)
 
 ### Outras ações (administrador)
 
@@ -194,7 +194,7 @@ Funciona como nos trens: rota **Ativa** permite **Desativar**; rota **Inativa** 
 
 Clique em **Gestão → Sensores**. A tabela **Gestão de Sensores** mostra **ID**, **Nome**, **Instalação**, **Função**, **Zona** e **Status** (Ativo ou Inativo).
 
-![Listagem de sensores](assets/screenshots/Sensores.png)
+![Listagem de sensores](../assets/screenshots/Sensores.png)
 
 ### Outras ações
 
@@ -218,7 +218,7 @@ Nesta versão, o monitoramento é apenas uma prévia visual: ainda não há cons
 
 **Editar e excluir:** use **Atualizar** (tela **Editar Relatório**) ou **Excluir** (com confirmação).
 
-![Listagem de relatórios](assets/screenshots/Relat%C3%B3rios.png)
+![Listagem de relatórios](../assets/screenshots/Relat%C3%B3rios.png)
 
 ## 11. O que só o administrador pode fazer
 
