@@ -21,8 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
         $erro = "Preencha todos os campos!";
-
-
     } else {
 
 
@@ -93,16 +91,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
                     exit;
-
-
                 } else {
 
 
                     $erro =
                         "Email ou senha incorretos!";
                 }
-
-
             } else {
 
 
@@ -112,8 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
             mysqli_stmt_close($stmt);
-
-
         } else {
 
 
@@ -141,8 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+        content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
 
     <title>Login</title>
@@ -181,8 +172,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             name="email"
                             placeholder="Digite seu email"
                             value="<?= htmlspecialchars($_POST["email"] ?? "") ?>"
-                            required
-                        >
+                            required>
 
                     </div>
 
@@ -195,8 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             id="senha"
                             name="senha"
                             placeholder="Digite sua senha"
-                            required
-                        >
+                            required>
 
                     </div>
 
@@ -257,4 +246,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 </html>
-

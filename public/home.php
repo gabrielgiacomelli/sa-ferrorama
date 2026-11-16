@@ -1,13 +1,13 @@
-<?php
+descriçã<?php
 
 $latitude = -26.3044;
 $longitude = -48.8487;
 
 $url = "https://api.open-meteo.com/v1/forecast"
-     . "?latitude=" . $latitude
-     . "&longitude=" . $longitude
-     . "&current=temperature_2m,weather_code,relative_humidity_2m"
-     . "&timezone=America%2FSao_Paulo";
+    . "?latitude=" . $latitude
+    . "&longitude=" . $longitude
+    . "&current=temperature_2m,weather_code,relative_humidity_2m"
+    . "&timezone=America%2FSao_Paulo";
 
 $contexto = stream_context_create([
     "http" => [
@@ -118,236 +118,238 @@ if ($resposta !== false) {
 
 <body id="home-page-body">
 
-<?php
+    <?php
 
-$paginaAtual = "home";
+    $paginaAtual = "home";
 
-include("../includes/navbar.php");
+    include("../includes/navbar.php");
 
-?>
+    ?>
 
-<main>
+    <main>
 
-    <div class="home-container">
+        <div class="home-container">
 
-        <div class="home-parte-superior">
-
-            <!-- ========================= -->
-            <!-- PARTE ESQUERDA -->
-            <!-- ========================= -->
-
-            <div class="home-esquerda">
-
-                <p class="home-titulo">
-                    BEM-VINDO!
-                </p>
-
+            <div class="home-parte-superior">
 
                 <!-- ========================= -->
-                <!-- CARD DO CLIMA -->
+                <!-- PARTE ESQUERDA -->
                 <!-- ========================= -->
 
-                <div class="home-clima">
+                <div class="home-esquerda">
 
-                    <div class="home-clima-cabecalho">
+                    <p class="home-titulo">
+                        BEM-VINDO!
+                    </p>
 
-                        <div class="home-clima-titulo">
 
-                            <span class="home-clima-icone">
-                                ☁
-                            </span>
+                    <!-- ========================= -->
+                    <!-- CARD DO CLIMA -->
+                    <!-- ========================= -->
 
-                            <span>
-                                Clima em Joinville - SC
-                            </span>
+                    <div class="home-clima">
+
+                        <div class="home-clima-cabecalho">
+
+                            <div class="home-clima-titulo">
+
+                                <span class="home-clima-icone">
+                                    ☁
+                                </span>
+
+                                <span>
+                                    Clima em Joinville - SC
+                                </span>
+
+                            </div>
+
+                            <div class="home-clima-atualizacao">
+
+                                Última atualização<br>
+
+                                <strong>
+                                    <?php echo htmlspecialchars($dataAtualizacao); ?>
+                                </strong>
+
+                            </div>
 
                         </div>
 
-                        <div class="home-clima-atualizacao">
 
-                            Última atualização<br>
+                        <?php if ($climaDisponivel): ?>
 
-                            <strong>
-                                <?php echo htmlspecialchars($dataAtualizacao); ?>
-                            </strong>
+                            <div class="home-clima-conteudo">
 
-                        </div>
+                                <div class="home-clima-principal">
+
+                                    <div class="home-clima-temperatura">
+
+                                        <?php echo htmlspecialchars($temperatura); ?>°C
+
+                                    </div>
+
+                                    <div class="home-clima-condicao">
+
+                                        <?php echo htmlspecialchars($condicao); ?>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="home-clima-informacoes">
+
+                                    <div class="home-clima-info">
+
+                                        <span class="home-clima-info-icone">
+                                            📍
+                                        </span>
+
+                                        <div>
+
+                                            <strong>
+                                                Localização
+                                            </strong>
+
+                                            <p>
+                                                Joinville - SC
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="home-clima-info">
+
+                                        <span class="home-clima-info-icone">
+                                            💧
+                                        </span>
+
+                                        <div>
+
+                                            <strong>
+                                                Umidade
+                                            </strong>
+
+                                            <p>
+                                                <?php echo htmlspecialchars($umidade); ?>%
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="home-clima-rodape">
+
+                                Dados obtidos através da API Open-Meteo
+
+                            </div>
+
+                        <?php else: ?>
+
+                            <div class="home-clima-erro">
+
+                                Não foi possível carregar os dados do clima.
+
+                                <br>
+
+                                Tente novamente mais tarde.
+
+                            </div>
+
+                        <?php endif; ?>
 
                     </div>
-
-
-                    <?php if ($climaDisponivel): ?>
-
-                        <div class="home-clima-conteudo">
-
-                            <div class="home-clima-principal">
-
-                                <div class="home-clima-temperatura">
-
-                                    <?php echo htmlspecialchars($temperatura); ?>°C
-
-                                </div>
-
-                                <div class="home-clima-condicao">
-
-                                    <?php echo htmlspecialchars($condicao); ?>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="home-clima-informacoes">
-
-                                <div class="home-clima-info">
-
-                                    <span class="home-clima-info-icone">
-                                        📍
-                                    </span>
-
-                                    <div>
-
-                                        <strong>
-                                            Localização
-                                        </strong>
-
-                                        <p>
-                                            Joinville - SC
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="home-clima-info">
-
-                                    <span class="home-clima-info-icone">
-                                        💧
-                                    </span>
-
-                                    <div>
-
-                                        <strong>
-                                            Umidade
-                                        </strong>
-
-                                        <p>
-                                            <?php echo htmlspecialchars($umidade); ?>%
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="home-clima-rodape">
-
-                            Dados obtidos através da API Open-Meteo
-
-                        </div>
-
-                    <?php else: ?>
-
-                        <div class="home-clima-erro">
-
-                            Não foi possível carregar os dados do clima.
-
-                            <br>
-
-                            Tente novamente mais tarde.
-
-                        </div>
-
-                    <?php endif; ?>
 
                 </div>
 
-            </div>
 
+                <!-- ========================= -->
+                <!-- MOSAICO -->
+                <!-- ========================= -->
 
-            <!-- ========================= -->
-            <!-- MOSAICO -->
-            <!-- ========================= -->
+                <div class="home-mosaico-container">
 
-            <div class="home-mosaico-container">
+                    <div class="mosaico">
 
-                <div class="mosaico">
+                        <div class="mosaico-coluna">
 
-                    <div class="mosaico-coluna">
+                            <div class="mosaico-bloco cor-clara altura-p"></div>
 
-                        <div class="mosaico-bloco cor-clara altura-p"></div>
+                            <div class="mosaico-bloco cor-escura altura-p"></div>
 
-                        <div class="mosaico-bloco cor-escura altura-p"></div>
+                            <div class="mosaico-bloco cor-clara altura-g"></div>
 
-                        <div class="mosaico-bloco cor-clara altura-g"></div>
-
-                    </div>
-
-
-                    <div class="mosaico-coluna">
-
-                        <div class="mosaico-bloco cor-clara altura-m"></div>
-
-                        <div class="mosaico-bloco cor-escura altura-p mosaico-letra">
-                            H
                         </div>
 
-                        <div class="mosaico-bloco cor-clara altura-m"></div>
 
-                    </div>
+                        <div class="mosaico-coluna">
 
+                            <div class="mosaico-bloco cor-clara altura-m"></div>
 
-                    <div class="mosaico-coluna">
+                            <div class="mosaico-bloco cor-escura altura-p mosaico-letra">
+                                H
+                            </div>
 
-                        <div class="mosaico-bloco cor-clara altura-g"></div>
+                            <div class="mosaico-bloco cor-clara altura-m"></div>
 
-                        <div class="mosaico-bloco cor-escura altura-p mosaico-letra">
-                            L
                         </div>
 
-                        <div class="mosaico-bloco cor-clara altura-p"></div>
 
-                    </div>
+                        <div class="mosaico-coluna">
 
+                            <div class="mosaico-bloco cor-clara altura-g"></div>
 
-                    <div class="mosaico-coluna">
+                            <div class="mosaico-bloco cor-escura altura-p mosaico-letra">
+                                L
+                            </div>
 
-                        <div class="mosaico-bloco cor-clara altura-gg"></div>
+                            <div class="mosaico-bloco cor-clara altura-p"></div>
 
-                        <div class="mosaico-bloco cor-escura altura-p mosaico-letra">
-                            G
                         </div>
 
-                        <div class="mosaico-bloco cor-clara altura-pp"></div>
 
-                    </div>
+                        <div class="mosaico-coluna">
 
+                            <div class="mosaico-bloco cor-clara altura-gg"></div>
 
-                    <div class="mosaico-coluna">
+                            <div class="mosaico-bloco cor-escura altura-p mosaico-letra">
+                                G
+                            </div>
 
-                        <div class="mosaico-bloco cor-clara altura-g"></div>
+                            <div class="mosaico-bloco cor-clara altura-pp"></div>
 
-                        <div class="mosaico-bloco cor-escura altura-p mosaico-letra">
-                            L
                         </div>
 
-                        <div class="mosaico-bloco cor-clara altura-p"></div>
 
-                    </div>
+                        <div class="mosaico-coluna">
+
+                            <div class="mosaico-bloco cor-clara altura-g"></div>
+
+                            <div class="mosaico-bloco cor-escura altura-p mosaico-letra">
+                                L
+                            </div>
+
+                            <div class="mosaico-bloco cor-clara altura-p"></div>
+
+                        </div>
 
 
-                    <div class="mosaico-coluna">
+                        <div class="mosaico-coluna">
 
-                        <div class="mosaico-bloco cor-clara altura-m"></div>
+                            <div class="mosaico-bloco cor-clara altura-m"></div>
 
-                        <div class="mosaico-bloco cor-escura altura-p"></div>
+                            <div class="mosaico-bloco cor-escura altura-p"></div>
 
-                        <div class="mosaico-bloco cor-clara altura-m"></div>
+                            <div class="mosaico-bloco cor-clara altura-m"></div>
+
+                        </div>
 
                     </div>
 
@@ -357,9 +359,7 @@ include("../includes/navbar.php");
 
         </div>
 
-    </div>
-
-</main>
+    </main>
 
 </body>
 
